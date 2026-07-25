@@ -5,11 +5,12 @@
   <meta name="robots" content="noindex, nofollow">
   <meta name="googlebot" content="noindex, nofollow">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="La Tana di Nika: store, guide e approfondimenti dedicati al One Piece Card Game.">
+  <meta name="description" content="La Tana di Nika: store, contenuti editoriali, tornei e community dedicati al One Piece Card Game.">
   <meta name="theme-color" content="#09070d">
   <title>La Tana di Nika</title>
 
   <link rel="preload" href="assets/images/hero-sea.png" as="image">
+  <link rel="icon" type="image/png" href="assets/images/favicon.png">
   <link rel="stylesheet" href="css/tokens.css">
   <link rel="stylesheet" href="css/base.css">
   <link rel="stylesheet" href="css/components.css">
@@ -19,6 +20,7 @@
   <script defer src="js/i18n/en.js"></script>
   <script defer src="js/components/header.js"></script>
   <script defer src="js/components/hero-split.js"></script>
+  <script defer src="js/components/tournament-motion.js"></script>
   <script defer src="js/components/search-switcher.js"></script>
   <script defer src="js/main.js"></script>
 </head>
@@ -29,7 +31,7 @@
     <div class="site-header__inner shell">
       <a class="brand" href="#top" aria-label="La Tana di Nika — Home">
         <span class="brand__mark" aria-hidden="true">
-          <img src="assets/images/mascot-transparent.png" alt="" width="48" height="48">
+          <img src="assets/images/mascot-nika.png" alt="" width="58" height="58" decoding="async" fetchpriority="high">
         </span>
         <span class="brand__text">La Tana di Nika</span>
       </a>
@@ -37,6 +39,7 @@
       <nav class="desktop-nav" aria-label="Navigazione principale">
         <a href="#store" data-i18n="nav.store">Store</a>
         <a href="#editorial" data-i18n="nav.editorial">Editoriale</a>
+        <a href="#tournaments" data-i18n="nav.tournaments">Tornei</a>
         <a href="#guides" data-i18n="nav.guides">Guide</a>
         <a href="#about" data-i18n="nav.about">Chi siamo</a>
       </nav>
@@ -63,6 +66,7 @@
       <nav aria-label="Navigazione mobile" class="shell">
         <a href="#store" data-i18n="nav.store">Store</a>
         <a href="#editorial" data-i18n="nav.editorial">Editoriale</a>
+        <a href="#tournaments" data-i18n="nav.tournaments">Tornei</a>
         <a href="#guides" data-i18n="nav.guides">Guide</a>
         <a href="#about" data-i18n="nav.about">Chi siamo</a>
         <div class="mobile-menu__language">
@@ -113,6 +117,8 @@
           <span class="hero-panel__index" aria-hidden="true">02</span>
         </article>
 
+        <div class="hero-mobile-focus" aria-hidden="true"></div>
+
         <div class="hero-divider" aria-hidden="true">
           <svg viewBox="0 0 90 1000" preserveAspectRatio="none">
             <path data-divider-path d="M45 0 C45 240 45 760 45 1000"/>
@@ -124,6 +130,93 @@
       <div class="hero-scroll-cue" aria-hidden="true">
         <span data-i18n="hero.scroll">Scopri la Tana</span>
         <i></i>
+      </div>
+    </section>
+
+    <section class="tournament-hub section" id="tournaments" aria-labelledby="tournaments-title" data-tournament-motion>
+      <div class="tournament-hub__ambient" aria-hidden="true">
+        <span></span><span></span><span></span><span></span>
+      </div>
+
+      <div class="shell tournament-hub__shell">
+        <div class="tournament-hub__masthead">
+          <div class="tournament-hub__index" aria-hidden="true">03</div>
+          <div class="tournament-hub__intro">
+            <p class="eyebrow" data-i18n="tournaments.eyebrow">AREA TORNEISTICA</p>
+            <h2 id="tournaments-title" data-i18n="tournaments.title">Entra nell’arena.</h2>
+            <p class="tournament-hub__description" data-i18n="tournaments.description">Tornei, iscrizioni, regolamenti, classifiche, risultati e tutto il percorso della Nika League: la competizione della Tana raccolta in un’unica area.</p>
+          </div>
+
+          <div class="tournament-hub__actions">
+            <a class="button button--primary" href="#tournament-portals" data-i18n="tournaments.primary">Esplora la Torneistica</a>
+            <a class="button button--ghost" href="#nika-league" data-i18n="tournaments.secondary">Vai alla Nika League</a>
+          </div>
+        </div>
+
+        <div class="tournament-hub__stage">
+          <article class="tournament-league" id="nika-league">
+            <div class="tournament-league__glow" aria-hidden="true"></div>
+            <div class="tournament-league__topline">
+              <span class="tournament-league__status"><i aria-hidden="true"></i><span data-i18n="tournaments.league.status">CAMPIONATO PRINCIPALE</span></span>
+              <span data-i18n="tournaments.league.season">STAGIONE IN CORSO</span>
+            </div>
+
+            <div class="tournament-league__body">
+              <div class="tournament-league__copy">
+                <p class="tournament-league__kicker" data-i18n="tournaments.league.kicker">NIKA LEAGUE</p>
+                <h3 data-i18n="tournaments.league.title">La corsa al titolo della Tana.</h3>
+                <p data-i18n="tournaments.league.description">Segui ogni tappa, consulta la classifica generale e rivivi decklist, risultati e protagonisti del campionato.</p>
+                <a class="tournament-league__link" href="#nika-league" data-i18n="tournaments.league.link">Scopri il campionato <span aria-hidden="true">↗</span></a>
+              </div>
+
+              <div class="tournament-league__mascot-wrap" aria-hidden="true">
+                <span class="tournament-league__orbit"></span>
+                <picture>
+                  <source srcset="assets/images/mascot-nika.webp" type="image/webp">
+                  <img class="tournament-league__mascot" src="assets/images/mascot-nika.png" alt="" width="768" height="768" loading="lazy" decoding="async">
+                </picture>
+              </div>
+            </div>
+          </article>
+
+          <nav class="tournament-portals" id="tournament-portals" aria-label="Sezioni area torneistica">
+            <a class="tournament-portal" href="#tournaments">
+              <span class="tournament-portal__number" aria-hidden="true">01</span>
+              <span class="tournament-portal__content">
+                <strong data-i18n="tournaments.portals.eventsTitle">Calendario e iscrizioni</strong>
+                <small data-i18n="tournaments.portals.eventsText">Scopri i prossimi eventi e come partecipare.</small>
+              </span>
+              <span class="tournament-portal__arrow" aria-hidden="true">↗</span>
+            </a>
+
+            <a class="tournament-portal" href="#tournaments">
+              <span class="tournament-portal__number" aria-hidden="true">02</span>
+              <span class="tournament-portal__content">
+                <strong data-i18n="tournaments.portals.standingsTitle">Classifiche e risultati</strong>
+                <small data-i18n="tournaments.portals.standingsText">Punti, posizioni, Top e risultati completi.</small>
+              </span>
+              <span class="tournament-portal__arrow" aria-hidden="true">↗</span>
+            </a>
+
+            <a class="tournament-portal" href="#tournaments">
+              <span class="tournament-portal__number" aria-hidden="true">03</span>
+              <span class="tournament-portal__content">
+                <strong data-i18n="tournaments.portals.rulesTitle">Regolamenti e formati</strong>
+                <small data-i18n="tournaments.portals.rulesText">Regole, strutture degli eventi e informazioni utili.</small>
+              </span>
+              <span class="tournament-portal__arrow" aria-hidden="true">↗</span>
+            </a>
+
+            <a class="tournament-portal" href="#tournaments">
+              <span class="tournament-portal__number" aria-hidden="true">04</span>
+              <span class="tournament-portal__content">
+                <strong data-i18n="tournaments.portals.archiveTitle">Archivio e decklist</strong>
+                <small data-i18n="tournaments.portals.archiveText">Report, liste e storia dei tornei della Tana.</small>
+              </span>
+              <span class="tournament-portal__arrow" aria-hidden="true">↗</span>
+            </a>
+          </nav>
+        </div>
       </div>
     </section>
 
