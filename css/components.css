@@ -204,3 +204,178 @@
 @media (prefers-reduced-motion: reduce) {
   .brand__mark, .brand__mark img { transition-duration: 1ms !important; }
 }
+
+/* ======================================================
+   V4.3.3 — HEADER MOTION REFINEMENT
+   Transizioni più continue, navigazione attiva e menu
+   mobile animato senza modificare la struttura HTML.
+====================================================== */
+.site-header {
+  background: rgba(9, 7, 13, 0);
+  transition:
+    background 720ms var(--ease-premium),
+    border-color 720ms var(--ease-premium),
+    backdrop-filter 720ms var(--ease-premium),
+    box-shadow 720ms var(--ease-premium);
+}
+
+.site-header.is-scrolled {
+  background: rgba(9, 7, 13, .82);
+  box-shadow: 0 16px 48px rgba(0,0,0,.16);
+  backdrop-filter: blur(20px) saturate(126%);
+}
+
+.site-header__inner {
+  transition: min-height 720ms var(--ease-premium);
+}
+
+.site-header.is-scrolled .site-header__inner {
+  min-height: 70px;
+}
+
+.site-header.is-scrolled .brand__mark {
+  transform: translate3d(0,0,0) scale(.92);
+}
+
+.site-header.is-scrolled .brand__text {
+  opacity: .9;
+}
+
+.brand__text {
+  transition: opacity 520ms var(--ease-premium), transform 520ms var(--ease-premium);
+}
+
+.desktop-nav a {
+  transition: color 420ms ease, opacity 420ms ease;
+}
+
+.desktop-nav a::after {
+  transform-origin: center;
+  transition: transform 620ms var(--ease-premium), opacity 420ms ease;
+}
+
+.desktop-nav a.is-active,
+.desktop-nav a[aria-current="page"] {
+  color: var(--color-white);
+}
+
+.desktop-nav a.is-active::after,
+.desktop-nav a[aria-current="page"]::after {
+  opacity: 1;
+  transform: scaleX(1);
+  box-shadow: 0 0 18px rgba(183,145,255,.35);
+}
+
+.icon-button,
+.language-switch button {
+  transition:
+    color 420ms ease,
+    background 420ms ease,
+    transform 520ms var(--ease-premium),
+    text-shadow 420ms ease;
+}
+
+.icon-button:hover {
+  transform: translateY(-1px);
+}
+
+.language-switch button:hover {
+  color: rgba(255,255,255,.82);
+  transform: translateY(-1px);
+}
+
+.menu-toggle > span:not(.sr-only) {
+  transform-origin: center;
+  transition: transform 620ms var(--ease-premium), opacity 420ms ease;
+}
+
+.mobile-menu {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  left: 0;
+  max-height: calc(100svh - 64px);
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  opacity: 0;
+  visibility: hidden;
+  transform: translate3d(0,-14px,0);
+  transform-origin: top;
+  transition:
+    opacity 360ms ease,
+    visibility 360ms ease,
+    transform 520ms var(--ease-premium);
+}
+
+.mobile-menu.is-open {
+  opacity: 1;
+  visibility: visible;
+  transform: translate3d(0,0,0);
+}
+
+.mobile-menu nav > a,
+.mobile-menu__language {
+  opacity: 0;
+  transform: translate3d(0,14px,0);
+  transition:
+    opacity 420ms ease,
+    transform 620ms var(--ease-premium);
+}
+
+.mobile-menu.is-open nav > a,
+.mobile-menu.is-open .mobile-menu__language {
+  opacity: 1;
+  transform: translate3d(0,0,0);
+}
+
+.mobile-menu.is-open nav > a:nth-child(1) { transition-delay: 45ms; }
+.mobile-menu.is-open nav > a:nth-child(2) { transition-delay: 85ms; }
+.mobile-menu.is-open nav > a:nth-child(3) { transition-delay: 125ms; }
+.mobile-menu.is-open nav > a:nth-child(4) { transition-delay: 165ms; }
+.mobile-menu.is-open nav > a:nth-child(5) { transition-delay: 205ms; }
+.mobile-menu.is-open .mobile-menu__language { transition-delay: 245ms; }
+
+.mobile-menu a.is-active,
+.mobile-menu a[aria-current="page"] {
+  color: var(--color-purple-bright);
+}
+
+body.menu-open {
+  overflow: hidden;
+}
+
+@media (max-width: 900px) {
+  .site-header.is-scrolled .site-header__inner {
+    min-height: 64px;
+  }
+
+  .site-header.is-scrolled .brand__mark {
+    transform: translate3d(0,0,0) scale(.94);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .site-header,
+  .site-header__inner,
+  .brand__text,
+  .desktop-nav a,
+  .desktop-nav a::after,
+  .icon-button,
+  .language-switch button,
+  .menu-toggle > span:not(.sr-only),
+  .mobile-menu,
+  .mobile-menu nav > a,
+  .mobile-menu__language {
+    transition-duration: 1ms !important;
+  }
+}
+
+.site-header.is-scrolled .brand:hover .brand__mark {
+  transform: translate3d(0,-2px,0) rotate(-1.5deg) scale(.92);
+}
+
+@media (max-width: 900px) {
+  .site-header.is-scrolled .brand:hover .brand__mark {
+    transform: translate3d(0,-1px,0) rotate(-1deg) scale(.94);
+  }
+}
