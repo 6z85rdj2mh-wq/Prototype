@@ -6,27 +6,36 @@ window.NikaHeroSplit = {
     const stage = hero.querySelector('[data-hero-stage]') || hero.querySelector('.hero-stage');
     const panels = [...hero.querySelectorAll('[data-hero-panel]')];
     const path = hero.querySelector('[data-divider-path]');
+    const mobileFocus = hero.querySelector('.hero-mobile-focus');
     const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
     const coarsePointer = window.matchMedia('(pointer: coarse)');
 
     if (!stage || panels.length < 2) return;
 
-    const divider = {
-      currentCenter: 500,
-      targetCenter: 500,
-      currentBend: 0,
-      targetBend: 0,
-      velocityCenter: 0,
-      velocityBend: 0,
+    const clamp = (value, min, max) => Math.max(min, Math.min(max, value));
+
+    const motion = {
+      pointerX: 0,
+      pointerY: 0,
+      targetPointerX: 0,
+      targetPointerY: 0,
+      pointerVelocityX: 0,
+      pointerVelocityY: 0,
+      dividerCenter: 500,
+      dividerBend: 0,
+      targetDividerCenter: 500,
+      targetDividerBend: 0,
+      dividerVelocityCenter: 0,
+      dividerVelocityBend: 0,
       frame: 0,
-      running: false
+      running: false,
+      lastTime: 0
     };
 
     let current = null;
-    let pointerFrame = 0;
     let mobileFocusFrame = 0;
-
-    const clamp = (value, min, max) => Math.max(min, Math.min(max, value));
+    let switchingTimer = 0;
+    let pulseTimer = 0;
 
     const createDividerPath = (centerY, bend) => {
       const safeCenter = clamp(centerY, 145, 855);
@@ -42,77 +51,134 @@ window.NikaHeroSplit = {
 
     const renderDivider = () => {
       if (!path) return;
-      path.setAttribute('d', createDividerPath(divider.currentCenter, divider.currentBend));
+      path.setAttribute('d', createDividerPath(motion.dividerCenter, motion.dividerBend));
     };
 
-    const stopDivider = () => {
-      if (divider.frame) cancelAnimationFrame(divider.frame);
-      divider.frame = 0;
-      divider.running = false;
+    const renderPointer = () => {
+      stage.style.setProperty('--pointer-shift-x', `${(-motion.pointerX * 7).toFixed(2)}px`);
+      stage.style.setProperty('--pointer-shift-y', `${(-motion.pointerY * 5).toFixed(2)}px`);
+      stage.style.setProperty('--pointer-light-x', `${(50 + motion.pointerX * 13).toFixed(2)}%`);
+      stage.style.setProperty('--pointer-light-y', `${(48 + motion.pointerY * 9).toFixed(2)}%`);
     };
 
-    const animateDivider = () => {
-      if (!path || coarsePointer.matches) {
-        stopDivider();
-        return;
-      }
+    const springStep = (value, velocity, target, stiffness, damping, frameScale) => {
+      const nextVelocity = (velocity + (target - value) * stiffness * frameScale) * Math.pow(damping, frameScale);
+      return {
+        value: value + nextVelocity * frameScale,
+        velocity: nextVelocity
+      };
+    };
 
+    const stopMotion = () => {
+      if (motion.frame) cancelAnimationFrame(motion.frame);
+      motion.frame = 0;
+      motion.running = false;
+      motion.lastTime = 0;
+    };
+
+    const animateMotion = (time) => {
       if (reducedMotion.matches) {
-        divider.currentCenter = divider.targetCenter;
-        divider.currentBend = divider.targetBend;
-        divider.velocityCenter = 0;
-        divider.velocityBend = 0;
+        motion.pointerX = motion.targetPointerX;
+        motion.pointerY = motion.targetPointerY;
+        motion.dividerCenter = motion.targetDividerCenter;
+        motion.dividerBend = motion.targetDividerBend;
+        motion.pointerVelocityX = 0;
+        motion.pointerVelocityY = 0;
+        motion.dividerVelocityCenter = 0;
+        motion.dividerVelocityBend = 0;
+        renderPointer();
         renderDivider();
-        stopDivider();
+        stopMotion();
         return;
       }
 
-      /* Un solo spring loop aggiorna il tracciato. In questo modo
-         movimenti rapidi destra/sinistra non avviano tween concorrenti. */
-      const stiffness = 0.13;
-      const damping = 0.72;
+      const elapsed = motion.lastTime ? time - motion.lastTime : 16.67;
+      const frameScale = clamp(elapsed / 16.67, 0.55, 1.8);
+      motion.lastTime = time;
 
-      divider.velocityCenter =
-        (divider.velocityCenter + (divider.targetCenter - divider.currentCenter) * stiffness) * damping;
-      divider.velocityBend =
-        (divider.velocityBend + (divider.targetBend - divider.currentBend) * stiffness) * damping;
+      const pointerX = springStep(
+        motion.pointerX,
+        motion.pointerVelocityX,
+        motion.targetPointerX,
+        0.075,
+        0.77,
+        frameScale
+      );
+      const pointerY = springStep(
+        motion.pointerY,
+        motion.pointerVelocityY,
+        motion.targetPointerY,
+        0.075,
+        0.77,
+        frameScale
+      );
+      motion.pointerX = pointerX.value;
+      motion.pointerVelocityX = pointerX.velocity;
+      motion.pointerY = pointerY.value;
+      motion.pointerVelocityY = pointerY.velocity;
 
-      divider.currentCenter += divider.velocityCenter;
-      divider.currentBend += divider.velocityBend;
+      if (!coarsePointer.matches && path) {
+        const center = springStep(
+          motion.dividerCenter,
+          motion.dividerVelocityCenter,
+          motion.targetDividerCenter,
+          0.095,
+          0.73,
+          frameScale
+        );
+        const bend = springStep(
+          motion.dividerBend,
+          motion.dividerVelocityBend,
+          motion.targetDividerBend,
+          0.1,
+          0.71,
+          frameScale
+        );
 
-      divider.currentCenter = clamp(divider.currentCenter, 145, 855);
-      divider.currentBend = clamp(divider.currentBend, -18, 18);
+        motion.dividerCenter = clamp(center.value, 145, 855);
+        motion.dividerVelocityCenter = center.velocity;
+        motion.dividerBend = clamp(bend.value, -18, 18);
+        motion.dividerVelocityBend = bend.velocity;
+      }
+
+      renderPointer();
       renderDivider();
 
-      const settled =
-        Math.abs(divider.targetCenter - divider.currentCenter) < 0.08 &&
-        Math.abs(divider.targetBend - divider.currentBend) < 0.04 &&
-        Math.abs(divider.velocityCenter) < 0.04 &&
-        Math.abs(divider.velocityBend) < 0.03;
+      const pointerSettled =
+        Math.abs(motion.targetPointerX - motion.pointerX) < 0.0015 &&
+        Math.abs(motion.targetPointerY - motion.pointerY) < 0.0015 &&
+        Math.abs(motion.pointerVelocityX) < 0.001 &&
+        Math.abs(motion.pointerVelocityY) < 0.001;
 
-      if (settled) {
-        divider.currentCenter = divider.targetCenter;
-        divider.currentBend = divider.targetBend;
-        divider.velocityCenter = 0;
-        divider.velocityBend = 0;
+      const dividerSettled = coarsePointer.matches || !path || (
+        Math.abs(motion.targetDividerCenter - motion.dividerCenter) < 0.07 &&
+        Math.abs(motion.targetDividerBend - motion.dividerBend) < 0.035 &&
+        Math.abs(motion.dividerVelocityCenter) < 0.035 &&
+        Math.abs(motion.dividerVelocityBend) < 0.025
+      );
+
+      if (pointerSettled && dividerSettled) {
+        motion.pointerX = motion.targetPointerX;
+        motion.pointerY = motion.targetPointerY;
+        motion.dividerCenter = motion.targetDividerCenter;
+        motion.dividerBend = motion.targetDividerBend;
+        motion.pointerVelocityX = 0;
+        motion.pointerVelocityY = 0;
+        motion.dividerVelocityCenter = 0;
+        motion.dividerVelocityBend = 0;
+        renderPointer();
         renderDivider();
-        stopDivider();
+        stopMotion();
         return;
       }
 
-      divider.frame = requestAnimationFrame(animateDivider);
+      motion.frame = requestAnimationFrame(animateMotion);
     };
 
-    const wakeDivider = () => {
-      if (!path || coarsePointer.matches || divider.running) return;
-      divider.running = true;
-      divider.frame = requestAnimationFrame(animateDivider);
-    };
-
-    const setDividerTarget = (center = 500, bend = 0) => {
-      divider.targetCenter = clamp(center, 145, 855);
-      divider.targetBend = clamp(bend, -18, 18);
-      wakeDivider();
+    const wakeMotion = () => {
+      if (motion.running) return;
+      motion.running = true;
+      motion.frame = requestAnimationFrame(animateMotion);
     };
 
     const activeBend = (side) => {
@@ -121,8 +187,20 @@ window.NikaHeroSplit = {
       return 0;
     };
 
+    const setPointerTarget = (x = 0, y = 0) => {
+      motion.targetPointerX = clamp(x, -1, 1);
+      motion.targetPointerY = clamp(y, -1, 1);
+      wakeMotion();
+    };
+
+    const setDividerTarget = (center = 500, bend = 0) => {
+      motion.targetDividerCenter = clamp(center, 145, 855);
+      motion.targetDividerBend = clamp(bend, -18, 18);
+      wakeMotion();
+    };
+
     const updateMobileFocus = (side) => {
-      if (!coarsePointer.matches || !side) return;
+      if (!coarsePointer.matches || !side || !mobileFocus) return;
       const panel = panels.find(item => item.dataset.heroPanel === side);
       if (!panel) return;
 
@@ -131,6 +209,15 @@ window.NikaHeroSplit = {
         stage.style.setProperty('--mobile-focus-y', `${panel.offsetTop}px`);
         stage.style.setProperty('--mobile-focus-height', `${panel.offsetHeight}px`);
       });
+    };
+
+    const markSwitching = () => {
+      clearTimeout(switchingTimer);
+      stage.classList.remove('is-switching');
+      // Force a fresh animation even when users switch quickly.
+      void stage.offsetWidth;
+      stage.classList.add('is-switching');
+      switchingTimer = window.setTimeout(() => stage.classList.remove('is-switching'), 920);
     };
 
     const setActive = (side) => {
@@ -147,13 +234,29 @@ window.NikaHeroSplit = {
       if (!coarsePointer.matches) {
         setDividerTarget(500, activeBend(side));
       }
+
+      markSwitching();
+      window.dispatchEvent(new CustomEvent('nika:herochange', {
+        detail: { side: side || null }
+      }));
     };
 
-    const setPointerVariables = (x = 0, y = 0) => {
-      stage.style.setProperty('--pointer-shift-x', `${(-x * 7).toFixed(2)}px`);
-      stage.style.setProperty('--pointer-shift-y', `${(-y * 5).toFixed(2)}px`);
-      stage.style.setProperty('--pointer-light-x', `${(50 + x * 13).toFixed(2)}%`);
-      stage.style.setProperty('--pointer-light-y', `${(48 + y * 9).toFixed(2)}%`);
+    const triggerMobilePulse = (panel, event) => {
+      if (!coarsePointer.matches || reducedMotion.matches || !mobileFocus) return;
+
+      const rect = panel.getBoundingClientRect();
+      if (!rect.width || !rect.height) return;
+
+      const x = clamp(((event.clientX - rect.left) / rect.width) * 100, 0, 100);
+      const y = clamp(((event.clientY - rect.top) / rect.height) * 100, 0, 100);
+      mobileFocus.style.setProperty('--mobile-tap-x', `${x.toFixed(2)}%`);
+      mobileFocus.style.setProperty('--mobile-tap-y', `${y.toFixed(2)}%`);
+
+      clearTimeout(pulseTimer);
+      mobileFocus.classList.remove('is-pulsing');
+      void mobileFocus.offsetWidth;
+      mobileFocus.classList.add('is-pulsing');
+      pulseTimer = window.setTimeout(() => mobileFocus.classList.remove('is-pulsing'), 760);
     };
 
     panels.forEach((panel, panelIndex) => {
@@ -189,6 +292,11 @@ window.NikaHeroSplit = {
         setActive(panels[nextIndex].dataset.heroPanel);
       });
 
+      panel.addEventListener('pointerdown', (event) => {
+        if (!coarsePointer.matches || event.target.closest('a, button')) return;
+        triggerMobilePulse(panel, event);
+      }, { passive: true });
+
       panel.addEventListener('click', (event) => {
         if (!coarsePointer.matches || event.target.closest('a, button')) return;
 
@@ -201,29 +309,26 @@ window.NikaHeroSplit = {
 
     stage.addEventListener('mouseleave', () => {
       if (!coarsePointer.matches) setActive(null);
-      setPointerVariables();
+      setPointerTarget(0, 0);
       setDividerTarget(500, 0);
     });
 
     stage.addEventListener('pointermove', (event) => {
       if (reducedMotion.matches || coarsePointer.matches) return;
 
-      cancelAnimationFrame(pointerFrame);
-      pointerFrame = requestAnimationFrame(() => {
-        const rect = stage.getBoundingClientRect();
-        if (!rect.width || !rect.height) return;
+      const rect = stage.getBoundingClientRect();
+      if (!rect.width || !rect.height) return;
 
-        const normalizedX = clamp(((event.clientX - rect.left) / rect.width) * 2 - 1, -1, 1);
-        const normalizedY = clamp(((event.clientY - rect.top) / rect.height) * 2 - 1, -1, 1);
+      const normalizedX = clamp(((event.clientX - rect.left) / rect.width) * 2 - 1, -1, 1);
+      const normalizedY = clamp(((event.clientY - rect.top) / rect.height) * 2 - 1, -1, 1);
 
-        setPointerVariables(normalizedX, normalizedY);
+      setPointerTarget(normalizedX, normalizedY);
 
-        const centerY = 500 + normalizedY * 270;
-        const panelDirection = current === 'store' ? 1 : current === 'editorial' ? -1 : 0;
-        const bend = panelDirection * 8 + normalizedX * 5;
-        setDividerTarget(centerY, bend);
-      });
-    });
+      const centerY = 500 + normalizedY * 270;
+      const panelDirection = current === 'store' ? 1 : current === 'editorial' ? -1 : 0;
+      const bend = panelDirection * 8 + normalizedX * 5;
+      setDividerTarget(centerY, bend);
+    }, { passive: true });
 
     const resetTouchStateWhenHidden = new IntersectionObserver((entries) => {
       const [entry] = entries;
@@ -233,14 +338,22 @@ window.NikaHeroSplit = {
     resetTouchStateWhenHidden.observe(hero);
 
     const handlePointerModeChange = () => {
-      stopDivider();
-      divider.currentCenter = 500;
-      divider.targetCenter = 500;
-      divider.currentBend = 0;
-      divider.targetBend = 0;
-      divider.velocityCenter = 0;
-      divider.velocityBend = 0;
+      stopMotion();
+      motion.pointerX = 0;
+      motion.pointerY = 0;
+      motion.targetPointerX = 0;
+      motion.targetPointerY = 0;
+      motion.pointerVelocityX = 0;
+      motion.pointerVelocityY = 0;
+      motion.dividerCenter = 500;
+      motion.targetDividerCenter = 500;
+      motion.dividerBend = 0;
+      motion.targetDividerBend = 0;
+      motion.dividerVelocityCenter = 0;
+      motion.dividerVelocityBend = 0;
+      renderPointer();
       renderDivider();
+      if (coarsePointer.matches && current) updateMobileFocus(current);
     };
 
     const refreshMobileFocus = () => {
@@ -259,7 +372,7 @@ window.NikaHeroSplit = {
       coarsePointer.addEventListener('change', handlePointerModeChange);
     }
 
-    setPointerVariables();
+    renderPointer();
     renderDivider();
   }
 };
