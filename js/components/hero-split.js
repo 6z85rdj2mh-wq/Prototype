@@ -24,6 +24,7 @@ window.NikaHeroSplit = {
 
     let current = null;
     let pointerFrame = 0;
+    let mobileFocusFrame = 0;
 
     const clamp = (value, min, max) => Math.max(min, Math.min(max, value));
 
@@ -120,10 +121,24 @@ window.NikaHeroSplit = {
       return 0;
     };
 
+    const updateMobileFocus = (side) => {
+      if (!coarsePointer.matches || !side) return;
+      const panel = panels.find(item => item.dataset.heroPanel === side);
+      if (!panel) return;
+
+      cancelAnimationFrame(mobileFocusFrame);
+      mobileFocusFrame = requestAnimationFrame(() => {
+        stage.style.setProperty('--mobile-focus-y', `${panel.offsetTop}px`);
+        stage.style.setProperty('--mobile-focus-height', `${panel.offsetHeight}px`);
+      });
+    };
+
     const setActive = (side) => {
+      if (side === current && side) return;
       current = side;
 
       if (side) {
+        updateMobileFocus(side);
         stage.dataset.active = side;
       } else {
         delete stage.dataset.active;
@@ -227,6 +242,18 @@ window.NikaHeroSplit = {
       divider.velocityBend = 0;
       renderDivider();
     };
+
+    const refreshMobileFocus = () => {
+      if (coarsePointer.matches && current) updateMobileFocus(current);
+    };
+
+    if ('ResizeObserver' in window) {
+      const mobileFocusObserver = new ResizeObserver(refreshMobileFocus);
+      mobileFocusObserver.observe(stage);
+      panels.forEach(panel => mobileFocusObserver.observe(panel));
+    } else {
+      window.addEventListener('resize', refreshMobileFocus, { passive: true });
+    }
 
     if (typeof coarsePointer.addEventListener === 'function') {
       coarsePointer.addEventListener('change', handlePointerModeChange);
