@@ -5,34 +5,36 @@
   <meta name="robots" content="noindex, nofollow">
   <meta name="googlebot" content="noindex, nofollow">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Nika League, tornei della community e dirette Twitch della Tana di Nika.">
+  <meta name="description" content="Nika League, tornei, classifiche e dirette della Tana di Nika.">
   <meta name="theme-color" content="#09070d">
   <title>Area Torneistica — La Tana di Nika</title>
 
-  <link rel="icon" type="image/png" href="../assets/images/favicon.png?v=4.4.1">
+  <link rel="icon" type="image/png" href="../assets/images/favicon.png?v=4.4.0">
   <link rel="stylesheet" href="../css/tokens.css">
   <link rel="stylesheet" href="../css/base.css">
   <link rel="stylesheet" href="../css/components.css?v=4.3.3">
-  <link rel="stylesheet" href="../css/pages.css?v=4.4.1">
-  <link rel="stylesheet" href="../css/tournament-hub.css?v=4.4.1">
+  <link rel="stylesheet" href="../css/pages.css?v=4.4.0">
+  <link rel="stylesheet" href="../css/tournaments.css?v=4.4.0">
 
-  <script defer src="../js/i18n/it.js?v=4.4.1"></script>
-  <script defer src="../js/i18n/en.js?v=4.4.1"></script>
-  <script defer src="../js/data/tournaments.js?v=4.4.1"></script>
-  <script defer src="../js/components/tournament-utils.js?v=4.4.1"></script>
-  <script defer src="../js/components/header.js?v=4.4.1"></script>
-  <script defer src="../js/components/tournament-hub.js?v=4.4.1"></script>
-  <script defer src="../js/main.js?v=4.4.1"></script>
+  <script defer src="../js/i18n/it.js?v=4.4.0"></script>
+  <script defer src="../js/i18n/en.js?v=4.4.0"></script>
+  <script defer src="../js/data/tournaments.js?v=4.4.0"></script>
+  <script defer src="../js/components/header.js?v=4.4.0"></script>
+  <script defer src="../js/components/tournaments-page.js?v=4.4.0"></script>
+  <script defer src="../js/main.js?v=4.4.0"></script>
 </head>
-<body class="internal-page" data-root-prefix="../">
+<body class="internal-page">
   <a class="skip-link" href="#main-content" data-i18n="accessibility.skip">Vai al contenuto</a>
 
   <header class="site-header" data-site-header>
     <div class="site-header__inner shell">
       <a class="brand" href="../index.html" aria-label="La Tana di Nika — Home">
-        <span class="brand__mark" aria-hidden="true"><img src="../assets/images/mascot-nika.png?v=4.4.1" alt="" width="58" height="58" decoding="async" fetchpriority="high"></span>
+        <span class="brand__mark" aria-hidden="true">
+          <img src="../assets/images/mascot-nika.png?v=4.4.0" alt="" width="58" height="58" decoding="async" fetchpriority="high">
+        </span>
         <span class="brand__text">La Tana di Nika</span>
       </a>
+
       <nav class="desktop-nav" aria-label="Navigazione principale">
         <a href="../index.html#store" data-i18n="nav.store">Store</a>
         <a href="../index.html#editorial" data-i18n="nav.editorial">Editoriale</a>
@@ -40,66 +42,105 @@
         <a href="../index.html#guides" data-i18n="nav.guides">Guide</a>
         <a href="../index.html#about" data-i18n="nav.about">Chi siamo</a>
       </nav>
+
       <div class="header-actions">
-        <a class="icon-button header-search-link" href="../index.html#search" aria-label="Ricerca"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m21 21-4.4-4.4m2.4-5.1a7.5 7.5 0 1 1-15 0 7.5 7.5 0 0 1 15 0Z"/></svg></a>
-        <div class="language-switch" aria-label="Selezione lingua"><button type="button" data-language="it" aria-pressed="true">IT</button><span aria-hidden="true">·</span><button type="button" data-language="en" aria-pressed="false">EN</button></div>
-        <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="mobile-menu" data-menu-toggle><span class="sr-only" data-i18n="nav.openMenu">Apri menu</span><span></span><span></span></button>
+        <a class="icon-button header-search-link" href="../index.html#search" aria-label="Ricerca">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m21 21-4.4-4.4m2.4-5.1a7.5 7.5 0 1 1-15 0 7.5 7.5 0 0 1 15 0Z"/></svg>
+        </a>
+        <div class="language-switch" aria-label="Selezione lingua">
+          <button type="button" data-language="it" aria-pressed="true">IT</button><span aria-hidden="true">·</span><button type="button" data-language="en" aria-pressed="false">EN</button>
+        </div>
+        <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="mobile-menu" data-menu-toggle>
+          <span class="sr-only" data-i18n="nav.openMenu">Apri menu</span><span></span><span></span>
+        </button>
       </div>
     </div>
+
     <div class="mobile-menu" id="mobile-menu" data-mobile-menu hidden>
       <nav aria-label="Navigazione mobile" class="shell">
-        <a href="../index.html#store" data-i18n="nav.store">Store</a><a href="../index.html#editorial" data-i18n="nav.editorial">Editoriale</a><a class="is-active" href="./" aria-current="page" data-i18n="nav.tournaments">Tornei</a><a href="../index.html#guides" data-i18n="nav.guides">Guide</a><a href="../index.html#about" data-i18n="nav.about">Chi siamo</a>
-        <div class="mobile-menu__language"><span data-i18n="language.label">Lingua</span><div class="language-switch language-switch--mobile" aria-label="Selezione lingua"><button type="button" data-language="it" aria-pressed="true">Italiano</button><button type="button" data-language="en" aria-pressed="false">English</button></div></div>
+        <a href="../index.html#store" data-i18n="nav.store">Store</a>
+        <a href="../index.html#editorial" data-i18n="nav.editorial">Editoriale</a>
+        <a class="is-active" href="./" aria-current="page" data-i18n="nav.tournaments">Tornei</a>
+        <a href="../index.html#guides" data-i18n="nav.guides">Guide</a>
+        <a href="../index.html#about" data-i18n="nav.about">Chi siamo</a>
+        <div class="mobile-menu__language">
+          <span data-i18n="language.label">Lingua</span>
+          <div class="language-switch language-switch--mobile" aria-label="Selezione lingua">
+            <button type="button" data-language="it" aria-pressed="true">Italiano</button><button type="button" data-language="en" aria-pressed="false">English</button>
+          </div>
+        </div>
       </nav>
     </div>
   </header>
 
-  <main id="main-content" data-tournament-hub>
-    <section class="internal-hero tournament-hub-hero">
+  <main id="main-content" data-tournament-page>
+    <section class="internal-hero">
       <div class="shell internal-hero__content">
-        <nav class="breadcrumb" aria-label="Breadcrumb"><a href="../index.html" data-i18n="tournamentHubPage.breadcrumbHome">Home</a><span aria-hidden="true">/</span><span data-i18n="tournamentHubPage.breadcrumbCurrent">Area Torneistica</span></nav>
-        <p class="eyebrow" data-i18n="tournamentHubPage.heroEyebrow">LA COMPETIZIONE DELLA TANA</p>
-        <h1 data-i18n="tournamentHubPage.heroTitle">Scegli la tua arena.</h1>
-        <p class="internal-hero__lead" data-i18n="tournamentHubPage.heroLead">Due percorsi distinti, una finestra sempre aperta sulle dirette della community.</p>
+        <nav class="breadcrumb" aria-label="Breadcrumb"><a href="../index.html" data-i18n="tournamentPage.breadcrumbHome">Home</a><span aria-hidden="true">/</span><span data-i18n="tournamentPage.breadcrumbCurrent">Area Torneistica</span></nav>
+        <p class="eyebrow" data-i18n="tournamentPage.heroEyebrow">LA COMPETIZIONE DELLA TANA</p>
+        <h1 data-i18n="tournamentPage.heroTitle">Entra nell’arena.</h1>
+        <p class="internal-hero__lead" data-i18n="tournamentPage.heroLead">Nika League, tornei della community e dirette Twitch: tre modi diversi di vivere ogni evento della Tana.</p>
+        <div class="internal-hero__facts">
+          <div class="internal-hero__fact"><strong>6 + 1</strong><span data-i18n="tournamentPage.factStages">Tappe e Finale</span></div>
+          <div class="internal-hero__fact"><strong>2</strong><span data-i18n="tournamentPage.factDrops">Scarti finali</span></div>
+          <div class="internal-hero__fact"><strong>LIVE</strong><span data-i18n="tournamentPage.factLive">Twitch ready</span></div>
+        </div>
       </div>
     </section>
 
-    <section class="tournament-gateways" aria-labelledby="gateways-title">
+    <section class="page-section" aria-labelledby="arena-title">
       <div class="shell">
-        <div class="tournament-gateways__intro">
-          <p class="eyebrow" data-i18n="tournamentHubPage.gatewaysEyebrow">DUE MONDI, UNA SOLA TANA</p>
-          <h2 id="gateways-title" data-i18n="tournamentHubPage.gatewaysTitle">Entra dove vuoi competere.</h2>
+        <div class="page-section__head">
+          <div class="page-section__copy"><p class="eyebrow" data-i18n="tournamentPage.portalsEyebrow">TRE PORTE, UNA SOLA ARENA</p><h2 id="arena-title" data-i18n="tournamentPage.portalsTitle">Scegli come vivere la Torneistica.</h2></div>
         </div>
-        <div class="tournament-gateways__grid">
-          <a class="tournament-gateway tournament-gateway--league" href="nika-league/">
-            <span class="tournament-gateway__number">01</span>
-            <div class="tournament-gateway__content"><p data-i18n="tournamentHubPage.leagueKicker">CAMPIONATO STAGIONALE</p><h2 data-i18n="tournamentHubPage.leagueTitle">Nika League</h2><p data-i18n="tournamentHubPage.leagueText">Sei tappe, una Finale, una classifica che racconta ogni rimonta.</p><span class="tournament-gateway__cta"><span data-i18n="tournamentHubPage.leagueCta">Entra nella League</span><i aria-hidden="true">↗</i></span></div>
-            <span class="tournament-gateway__ghost" aria-hidden="true">LEAGUE</span>
-          </a>
-          <a class="tournament-gateway tournament-gateway--events" href="i-nostri-tornei/">
-            <span class="tournament-gateway__number">02</span>
-            <div class="tournament-gateway__content"><p data-i18n="tournamentHubPage.eventsKicker">LOCAL ED EVENTI SPECIALI</p><h2 data-i18n="tournamentHubPage.eventsTitle">I nostri tornei</h2><p data-i18n="tournamentHubPage.eventsText">Domenicali, formati speciali, iscrizioni e griglie premi personalizzabili.</p><span class="tournament-gateway__cta"><span data-i18n="tournamentHubPage.eventsCta">Scopri gli eventi</span><i aria-hidden="true">↗</i></span></div>
-            <span class="tournament-gateway__ghost" aria-hidden="true">EVENTS</span>
-          </a>
+        <div class="arena-portals">
+          <a class="arena-portal" href="#nika-league"><div class="arena-portal__top"><span class="arena-portal__number">01</span><span class="arena-portal__state" data-i18n="tournamentPage.leagueState">Stagione in corso</span></div><div class="arena-portal__body"><h2 data-i18n="tournamentPage.leagueTitle">Nika League</h2><p data-i18n="tournamentPage.leagueText">Sei tappe, due scarti e una Finale per incoronare il campione della Tana.</p><span class="arena-portal__link"><span data-i18n="tournamentPage.discoverLeague">Scopri la League</span><span aria-hidden="true">↗</span></span></div></a>
+          <a class="arena-portal" href="#our-tournaments"><div class="arena-portal__top"><span class="arena-portal__number">02</span><span class="arena-portal__state" data-i18n="tournamentPage.eventsState">Local e domenicali</span></div><div class="arena-portal__body"><h2 data-i18n="tournamentPage.eventsTitle">I nostri tornei</h2><p data-i18n="tournamentPage.eventsText">Eventi fuori dalla lega, calendari indipendenti e griglie premi personalizzabili.</p><span class="arena-portal__link"><span data-i18n="tournamentPage.discoverEvents">Esplora gli eventi</span><span aria-hidden="true">↗</span></span></div></a>
+          <a class="arena-portal" href="#streaming"><div class="arena-portal__top"><span class="arena-portal__number">03</span><span class="arena-portal__state" data-stream-status>Da configurare</span></div><div class="arena-portal__body"><h2 data-i18n="tournamentPage.streamTitle">Segui le dirette</h2><p data-i18n="tournamentPage.streamText">La Finale e gli eventi speciali in diretta Twitch, con replay e VOD in futuro.</p><span class="arena-portal__link"><span data-i18n="tournamentPage.discoverStream">Vai allo streaming</span><span aria-hidden="true">↗</span></span></div></a>
         </div>
       </div>
     </section>
 
-    <section class="stream-window" id="streaming" aria-labelledby="stream-title">
+    <section class="page-section" id="nika-league" aria-labelledby="league-title">
       <div class="shell">
-        <div class="stream-window__bar">
-          <div class="stream-window__signal"><span class="stream-window__dot" aria-hidden="true"></span><div><p data-stream-status>TWITCH READY</p><strong id="stream-title" data-i18n="tournamentHubPage.streamTitle">Segui le dirette della Tana</strong></div></div>
-          <div class="stream-window__schedule"><span data-i18n="tournamentHubPage.nextStream">Prossima diretta</span><strong data-stream-next></strong></div>
-          <button class="button button--ghost stream-window__toggle" type="button" data-stream-toggle aria-expanded="false" aria-controls="stream-panel"><span data-stream-toggle-label data-i18n="tournamentHubPage.openPlayer">Apri il player</span><i aria-hidden="true">＋</i></button>
+        <div class="page-section__head"><div class="page-section__copy"><p class="eyebrow" data-i18n="tournamentPage.leagueEyebrow">CAMPIONATO PRINCIPALE</p><h2 id="league-title" data-i18n="tournamentPage.leagueSectionTitle">Nika League</h2><p data-i18n="tournamentPage.leagueSectionText">Segui ogni appuntamento, aggiungilo al calendario del telefono e scopri come cambiano classifica e scarti dopo ogni tappa.</p></div><span class="status-chip"><i aria-hidden="true"></i><span data-i18n="tournamentPage.demoData">Dati dimostrativi</span></span></div>
+        <div class="league-feature">
+          <article class="event-spotlight" data-next-league></article>
+          <aside class="league-rule-card"><div><span class="league-rule-card__value">4/6</span><h3 data-i18n="tournamentPage.ruleTitle">Contano i quattro risultati migliori.</h3><p data-i18n="tournamentPage.ruleText">Le due tappe peggiori restano visibili in rosso, ma vengono sottratte dal totale finale.</p></div><div class="rule-example" aria-hidden="true"><span>15</span><span>12</span><span>10</span><span>14</span><span class="is-discarded">8</span><span class="is-discarded">6</span></div></aside>
         </div>
-        <div class="stream-window__panel" id="stream-panel" data-stream-panel hidden>
-          <div class="stream-window__player" data-stream-player></div>
-          <aside><p class="eyebrow" data-i18n="tournamentHubPage.streamEyebrow">LIVE, REPLAY E FINALE</p><h3 data-i18n="tournamentHubPage.streamSideTitle">La finestra sulla community.</h3><p data-i18n="tournamentHubPage.streamSideText">Quando inseriremo i dati Twitch, qui potrai seguire la Finale e gli eventi speciali senza lasciare il sito.</p><span class="status-chip"><i aria-hidden="true"></i><span data-i18n="tournamentHubPage.placeholder">Placeholder attivo</span></span></aside>
-        </div>
+
+        <div class="page-section__head" id="league-calendar"><div class="page-section__copy"><p class="eyebrow" data-i18n="tournamentPage.calendarEyebrow">CALENDARIO NIKA LEAGUE</p><h2 data-i18n="tournamentPage.calendarTitle">Sei tappe più la Finale.</h2><p data-i18n="tournamentPage.calendarText">Seleziona una data per leggere descrizione, formato e dettagli dell’evento.</p></div></div>
+        <div class="calendar-layout"><div class="calendar-panel" data-league-calendar></div><article class="calendar-detail" data-league-detail></article></div>
+
+        <div class="page-section__head" style="margin-top:clamp(80px,10vw,130px)"><div class="page-section__copy"><p class="eyebrow" data-i18n="tournamentPage.standingsEyebrow">CLASSIFICA GENERALE</p><h2 data-i18n="tournamentPage.standingsTitle">Una classifica che racconta la stagione.</h2><p data-i18n="tournamentPage.standingsText">Apri ogni giocatore per vedere punti ottenuti, punti scartati e andamento.</p></div></div>
+        <div class="standings-summary" data-podium></div>
+        <div class="standings-board" data-standings></div>
+        <div class="standings-legend"><span><i aria-hidden="true"></i><span data-i18n="tournamentPage.discardLegend">Risultato escluso dal conteggio finale</span></span></div>
+
+        <div class="page-section__head" style="margin-top:clamp(80px,10vw,130px)"><div class="page-section__copy"><p class="eyebrow" data-i18n="tournamentPage.finalEyebrow">IL CAPITOLO CONCLUSIVO</p><h2 data-i18n="tournamentPage.finalSectionTitle">La Finale della Nika League.</h2></div></div>
+        <article class="final-feature" data-final-feature>
+          <div class="final-feature__copy"><p class="eyebrow" data-i18n="tournamentPage.finalBadge">EVENTO SPECIALE</p><h3 data-final-title>Finale Nika League</h3><p data-final-description></p><p class="final-feature__quote" data-final-commentary></p><div class="event-spotlight__actions"><button class="button button--primary" type="button" data-final-reminder data-i18n="tournamentPage.finalReminder">Ricordami la Finale</button><a class="button button--ghost" href="#streaming" data-i18n="tournamentPage.watchStream">Segui la diretta</a></div></div>
+          <div class="final-feature__stream"><div class="stream-placeholder"><div class="stream-placeholder__icon">▶</div><h4 data-i18n="tournamentPage.finalStreamReady">Spazio live già predisposto.</h4><p data-i18n="tournamentPage.finalStreamText">Quando inseriremo il canale Twitch, qui appariranno diretta, stato live e futuro replay.</p></div></div>
+        </article>
       </div>
     </section>
 
-    <section class="page-return"><div class="shell"><p data-i18n="tournamentHubPage.returnText">Vuoi tornare all’ingresso della Tana?</p><a class="button button--primary button--home" href="../index.html"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 11.5 12 4l9 7.5M5.5 10v10h13V10M9.5 20v-6h5v6"/></svg><span data-i18n="tournamentHubPage.returnHome">Torna alla Home</span></a></div></section>
+    <section class="page-section" id="our-tournaments" aria-labelledby="our-tournaments-title">
+      <div class="shell">
+        <div class="page-section__head"><div class="page-section__copy"><p class="eyebrow" data-i18n="tournamentPage.ourEventsEyebrow">FUORI DALLA LEGA</p><h2 id="our-tournaments-title" data-i18n="tournamentPage.ourEventsTitle">I nostri tornei.</h2><p data-i18n="tournamentPage.ourEventsText">Local, domenicali ed eventi speciali con un calendario indipendente e premi adattabili al numero di partecipanti.</p></div><span class="status-chip"><i aria-hidden="true"></i><span data-i18n="tournamentPage.separateCalendar">Calendario separato</span></span></div>
+        <div class="calendar-layout" id="our-events-calendar"><div class="calendar-panel" data-local-calendar></div><article class="calendar-detail" data-local-detail></article></div>
+        <div class="page-section__head" style="margin-top:clamp(70px,9vw,110px)"><div class="page-section__copy"><p class="eyebrow" data-i18n="tournamentPage.nextEventsEyebrow">PROSSIMI APPUNTAMENTI</p><h2 data-i18n="tournamentPage.nextEventsTitle">Eventi e griglie premi.</h2><p data-i18n="tournamentPage.nextEventsText">Ogni torneo può avere premi diversi in base a formato e numero di partecipanti.</p></div></div>
+        <div class="local-events-grid" data-local-events></div>
+      </div>
+    </section>
+
+    <section class="page-section" id="streaming" aria-labelledby="streaming-title">
+      <div class="shell"><div class="page-section__head"><div class="page-section__copy"><p class="eyebrow" data-i18n="tournamentPage.streamingEyebrow">DIRETTE E REPLAY</p><h2 id="streaming-title" data-i18n="tournamentPage.streamingTitle">Segui la Tana ovunque ti trovi.</h2><p data-i18n="tournamentPage.streamingText">Il player è pronto per il canale Twitch. Per ora usa valori placeholder e non carica contenuti esterni.</p></div></div><div class="stream-stage"><div class="stream-player" data-stream-player></div><aside class="stream-side"><span class="status-chip"><i aria-hidden="true"></i><span data-stream-status>Da configurare</span></span><h3 data-i18n="tournamentPage.streamSideTitle">Configurazione futura</h3><p data-i18n="tournamentPage.streamSideText">Basterà inserire nome del canale e dominio del sito nel file dati. Nessuna password o chiave di streaming sarà necessaria.</p><div class="stream-config">enabled: false<br>channel: ""<br>parent: ""<br>status: "upcoming"</div></aside></div></div>
+    </section>
+
+    <section class="page-section" aria-labelledby="tools-title"><div class="shell"><div class="page-section__head"><div class="page-section__copy"><p class="eyebrow" data-i18n="tournamentPage.toolsEyebrow">STRUMENTI DELL’ARENA</p><h2 id="tools-title" data-i18n="tournamentPage.toolsTitle">Tutto quello che serve, senza rumore.</h2></div></div><nav class="secondary-portals" aria-label="Strumenti area torneistica"><a class="secondary-portal" href="#league-calendar"><span>01</span><strong data-i18n="tournamentPage.toolCalendar">Calendari</strong><small data-i18n="tournamentPage.toolCalendarText">League ed eventi indipendenti.</small></a><a class="secondary-portal" href="#nika-league"><span>02</span><strong data-i18n="tournamentPage.toolResults">Classifiche e risultati</strong><small data-i18n="tournamentPage.toolResultsText">Punti, scarti e Top.</small></a><a class="secondary-portal" href="#"><span>03</span><strong data-i18n="tournamentPage.toolRules">Regolamenti e formati</strong><small data-i18n="tournamentPage.toolRulesText">Sezione futura.</small></a><a class="secondary-portal" href="#"><span>04</span><strong data-i18n="tournamentPage.toolArchive">Archivio e decklist</strong><small data-i18n="tournamentPage.toolArchiveText">Sezione futura.</small></a></nav></div></section>
+
+    <section class="page-return"><div class="shell"><p data-i18n="tournamentPage.returnText">Hai concluso il giro dell’arena?</p><a class="button button--primary button--home" href="../index.html"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 11.5 12 4l9 7.5M5.5 10v10h13V10M9.5 20v-6h5v6"/></svg><span data-i18n="tournamentPage.returnHome">Torna alla Home</span></a></div></section>
   </main>
 
   <footer class="site-footer"><div class="shell site-footer__inner"><div><p class="site-footer__brand">La Tana di Nika</p><p data-i18n="footer.claim">Carte, strategia, tornei e community. Tutto nello stesso luogo.</p></div><p>© <span data-current-year></span> La Tana di Nika</p></div></footer>

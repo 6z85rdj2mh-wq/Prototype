@@ -49,9 +49,6 @@
     window.NikaHeroSplit?.init();
     window.NikaTournamentMotion?.init();
     window.NikaTournamentPage?.init();
-    window.NikaTournamentHub?.init();
-    window.NikaLeaguePage?.init();
-    window.NikaCommunityEventsPage?.init();
     applyLanguage(currentLanguage);
     window.NikaSearchSwitcher?.init(() => currentLanguage);
 

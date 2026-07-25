@@ -92,35 +92,5 @@ window.NIKA_TRANSLATIONS.en = {
     toolsEyebrow: "ARENA TOOLS", toolsTitle: "Everything you need, without noise.", toolCalendar: "Calendars", toolCalendarText: "League and independent events.", toolResults: "Standings and results", toolResultsText: "Points, drops and Top finishes.", toolRules: "Rules and formats", toolRulesText: "Future section.", toolArchive: "Archive and decklists", toolArchiveText: "Future section.",
     returnText: "Finished your tour of the arena?", returnHome: "Return Home"
   },
-  tournamentHubPage: {
-    breadcrumbHome: "Home", breadcrumbCurrent: "Tournament Area",
-    heroEyebrow: "THE DEN’S COMPETITION", heroTitle: "Choose your arena.", heroLead: "Two distinct paths, with a window always open on the community’s live streams.",
-    gatewaysEyebrow: "TWO WORLDS, ONE DEN", gatewaysTitle: "Enter where you want to compete.",
-    leagueKicker: "SEASON CHAMPIONSHIP", leagueTitle: "Nika League", leagueText: "Six stages, one Final and a table that tells every comeback.", leagueCta: "Enter the League",
-    eventsKicker: "LOCALS AND SPECIAL EVENTS", eventsTitle: "Our tournaments", eventsText: "Sunday tournaments, special formats, registrations and custom prize grids.", eventsCta: "Explore events",
-    streamTitle: "Watch the Den live", nextStream: "Next stream", openPlayer: "Open player", streamEyebrow: "LIVE, REPLAYS AND FINAL", streamSideTitle: "A window on the community.", streamSideText: "Once Twitch details are added, you will be able to watch the Final and special events without leaving the site.", placeholder: "Placeholder active",
-    returnText: "Want to return to the Den’s entrance?", returnHome: "Back to Home"
-  },
-  leaguePage: {
-    breadcrumbHome: "Home", breadcrumbTournaments: "Tournaments", heroEyebrow: "THE DEN’S CHAMPIONSHIP", heroLead: "Points, rivalries and comebacks: a season to follow stage by stage.",
-    factStages: "Stages and Final", factScores: "Valid results", factPlayers: "Players",
-    navOverview: "Next stage", navStories: "Stories", navSeason: "Calendar", navStandings: "Standings", navFinal: "Final",
-    ruleTitle: "Only the four best results count.", ruleText: "The two lowest stages remain visible in red, but do not enter the final total.",
-    storiesEyebrow: "LEAGUE CHRONICLES", storiesTitle: "More than points. The players’ stories.", storiesText: "Moments, comebacks and journeys that give the standings a face.",
-    seasonEyebrow: "SEASON CALENDAR", seasonTitle: "Six stages, then the Final.", seasonText: "Select a stage to read its story, see the format and set a reminder.",
-    standingsEyebrow: "OVERALL STANDINGS", standingsTitle: "Every position tells a story.", standingsText: "Only actually registered players are shown, up to a maximum of 64.",
-    searchLabel: "Find a player", searchPlaceholder: "Name or Leader…", registered: "Registered", discardLegend: "Result excluded from total", openHint: "Open a player to read their story.",
-    returnText: "Want to explore another area?", returnTournaments: "Back to Tournaments", returnHome: "Back to Home"
-  },
-  communityEventsPage: {
-    breadcrumbHome: "Home", breadcrumbTournaments: "Tournaments", breadcrumbCurrent: "Our tournaments",
-    heroEyebrow: "LOCALS, SUNDAY EVENTS, SPECIAL EVENTS", heroTitle: "Our tournaments.", heroLead: "A calendar separate from the League, built to play and enjoy the community.",
-    factEvents: "Events listed", factReminder: "Reminder before", factPrizes: "Custom prizes",
-    calendarEyebrow: "SEPARATE CALENDAR", calendarTitle: "Choose the event. Everything else opens here.", calendarText: "No endless pages: select a date to see details, format and prize grid.",
-    principleOneTitle: "Outside the League", principleOneText: "These events have a calendar and results separate from the championship.",
-    principleTwoTitle: "Tailored prizes", principleTwoText: "Every tournament can have a different prize grid based on attendance.",
-    principleThreeTitle: "Always on your phone", principleThreeText: "Every event can be added to your calendar with a reminder two hours before.",
-    returnText: "Want to explore another area?", returnTournaments: "Back to Tournaments", returnHome: "Back to Home"
-  },
   footer: { claim: "Cards, strategy, tournaments and community. All in one place." }
 };
