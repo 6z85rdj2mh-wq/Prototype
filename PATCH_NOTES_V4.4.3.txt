@@ -12,7 +12,7 @@ FILE MODIFICATI:
 
 OBIETTIVI:
 - portare la finestra Twitch sopra le due scelte principali;
-- distinguere visivamente Nika League e tornei one shot;
+- distinguere visivamente Nika League e tornei indipendenti dalla League;
 - comunicare continuità e percorso nella League;
 - comunicare unicità, esclusività e intensità nei tornei esterni;
 - aggiungere dettagli grafici astratti ispirati alla nuvoletta senza modificare la mascotte ufficiale;

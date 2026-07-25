@@ -1,4 +1,4 @@
-# La Tana di Nika — V4.4.3 Tournament Architecture
+# La Tana di Nika — V4.4.4 Tournament Architecture
 
 Base: V4.3.3 Motion, con riorganizzazione dell’Area Torneistica introdotta nella V4.4.0.
 
@@ -53,7 +53,17 @@ Ogni pagina interna termina con il pulsante `Torna alla Home`.
 
 - Barra Twitch spostata sopra le due porte principali per renderla immediatamente visibile.
 - Nika League rappresentata come percorso competitivo continuo: 6 tappe, classifica e Finale.
-- I nostri tornei rappresentati come eventi one shot unici ed esclusivi.
+- I nostri tornei rappresentati come appuntamenti autonomi, riconoscibili e speciali.
 - Composizioni, movimenti e micro-dettagli grafici differenziati tra le due aree.
 - Decorazioni astratte a forma di nuvola, senza alterare o sostituire la mascotte ufficiale.
 - Nessuna modifica alle pagine interne o ai dati dei tornei.
+
+
+## V4.4.4 — Tournament Hub Refinement
+
+- Rimossi sigilli, slogan tecnici e riferimenti visibili a concetti usati solo in fase di progettazione.
+- Conservata la palette della V4.4.3 con una composizione più sobria e funzionale.
+- La Nika League mostra l’avanzamento reale delle tappe concluse.
+- “I nostri tornei” mostra la data del prossimo evento direttamente nella card.
+- Barra Twitch mantenuta sopra le due scelte principali.
+- Nessuna modifica alle pagine interne o ai dati strutturali.

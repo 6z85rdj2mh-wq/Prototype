@@ -1,5 +1,5 @@
 /* ======================================================
-   LA TANA DI NIKA — TOURNAMENT HUB V4.4.3
+   LA TANA DI NIKA — TOURNAMENT HUB V4.4.4
 ====================================================== */
 window.NikaTournamentHub = {
   init() {
@@ -63,6 +63,34 @@ window.NikaTournamentHub = {
 
     const render = () => {
       const language = utils.getLanguage();
+
+      const leagueProgress = root.querySelector('[data-league-progress]');
+      if (leagueProgress) {
+        const completedStages = data.leagueEvents.filter(event => event.type === 'stage' && event.status === 'completed').length;
+        leagueProgress.textContent = `${completedStages} / 6`;
+      }
+
+      const nextEventCard = root.querySelector('[data-next-event-card]');
+      const nextEventDay = root.querySelector('[data-next-event-day]');
+      const nextEventMonth = root.querySelector('[data-next-event-month]');
+      const today = new Date();
+      today.setHours(0, 0, 0, 0);
+      const sortedLocalEvents = [...data.localEvents]
+        .filter(event => event.date)
+        .sort((a, b) => new Date(`${a.date}T${a.time || '00:00'}`) - new Date(`${b.date}T${b.time || '00:00'}`));
+      const upcomingLocalEvent = sortedLocalEvents.find(event => new Date(`${event.date}T${event.time || '00:00'}`) >= today)
+        || sortedLocalEvents.at(-1);
+
+      if (upcomingLocalEvent && nextEventDay && nextEventMonth) {
+        const eventDate = new Date(`${upcomingLocalEvent.date}T${upcomingLocalEvent.time || '00:00'}`);
+        nextEventDay.textContent = new Intl.DateTimeFormat(utils.locale(language), { day: '2-digit' }).format(eventDate);
+        nextEventMonth.textContent = new Intl.DateTimeFormat(utils.locale(language), { month: 'short' }).format(eventDate).replace('.', '');
+        if (nextEventCard) {
+          const eventTitle = utils.localized(upcomingLocalEvent.title, language);
+          nextEventCard.setAttribute('aria-label', `${language === 'en' ? 'Next event' : 'Prossimo evento'}: ${eventTitle}`);
+        }
+      }
+
       const config = data.settings.twitch;
       const valid = Boolean(config.enabled && config.channel && config.parent);
       const streamState = valid ? (config.status || 'offline') : 'upcoming';

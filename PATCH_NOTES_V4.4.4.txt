@@ -1,0 +1,20 @@
+LA TANA DI NIKA — PATCH V4.4.4
+
+BASE: V4.4.3
+
+FILE MODIFICATI:
+- tornei/index.html
+- css/tournament-hub.css
+- js/components/tournament-hub.js
+- js/i18n/it.js
+- js/i18n/en.js
+- README.md
+
+OBIETTIVI:
+- eliminare termini e slogan usati soltanto per spiegare il concept;
+- mantenere la palette approvata della V4.4.3;
+- rendere le due scelte più sobrie, leggibili e funzionali;
+- mostrare nella Nika League l’avanzamento reale della stagione;
+- mostrare nella card “I nostri tornei” la data del prossimo appuntamento;
+- mantenere Twitch visibile sopra le due aree;
+- preservare responsive, accessibilità e reduced motion.

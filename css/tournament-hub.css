@@ -1,6 +1,6 @@
 /* ======================================================
-   LA TANA DI NIKA — TOURNAMENT HUB V4.4.3
-   League = continuità. Eventi = unicità one shot.
+   LA TANA DI NIKA — TOURNAMENT HUB V4.4.4
+   League = continuità. Tornei = appuntamenti con identità propria.
 ====================================================== */
 .arena-entry {
   position: relative;
@@ -234,9 +234,9 @@
 .arena-gateway--events::before {
   background:
     linear-gradient(180deg, rgba(9,7,13,.02) 4%, rgba(9,7,13,.2) 42%, rgba(9,7,13,.96) 100%),
-    radial-gradient(circle at 24% 17%, rgba(225,207,255,.32), transparent 21rem),
-    radial-gradient(circle at 83% 49%, rgba(118,68,194,.24), transparent 18rem),
-    linear-gradient(132deg, #09080d, #241a2c 54%, #09070d);
+    radial-gradient(circle at 74% 18%, rgba(225,207,255,.3), transparent 20rem),
+    radial-gradient(circle at 24% 56%, rgba(118,68,194,.2), transparent 19rem),
+    linear-gradient(136deg, #0a080e, #21182a 56%, #09070d);
 }
 .arena-gateway::after {
   z-index: -1;
@@ -281,7 +281,7 @@
   font-size: .76rem;
   letter-spacing: .16em;
 }
-.arena-gateway--events .arena-gateway__number { right: clamp(26px, 3.2vw, 44px); left: auto; text-align: right; }
+.arena-gateway--events .arena-gateway__number { left: clamp(26px, 3.2vw, 44px); }
 .arena-gateway__ghost {
   position: absolute;
   right: -2.5rem;
@@ -295,30 +295,32 @@
   white-space: nowrap;
   transition: color 600ms ease, transform 1000ms var(--ease-premium);
 }
-.arena-gateway--events .arena-gateway__ghost { right: auto; left: -1.8rem; }
+
 .arena-gateway:hover .arena-gateway__ghost,
 .arena-gateway:focus-visible .arena-gateway__ghost { color: rgba(255,255,255,.05); transform: translateX(-10px); }
-.arena-gateway--events:hover .arena-gateway__ghost,
-.arena-gateway--events:focus-visible .arena-gateway__ghost { transform: translateX(10px); }
 
-.arena-gateway__identity {
+.arena-gateway__insight {
   position: absolute;
   z-index: 0;
-  top: clamp(54px, 8vw, 100px);
+  top: clamp(54px, 7vw, 92px);
+  right: clamp(28px, 4vw, 54px);
   pointer-events: none;
-  opacity: .82;
 }
-.arena-gateway__identity--league { right: clamp(28px, 4vw, 58px); }
-.arena-gateway__identity--events { left: clamp(28px, 4vw, 58px); }
+.arena-gateway__insight--league {
+  display: grid;
+  justify-items: end;
+  gap: 12px;
+  opacity: .78;
+}
 .season-route {
   position: relative;
   display: flex;
   align-items: center;
-  gap: clamp(8px, 1vw, 14px);
-  padding: 11px 14px;
+  gap: clamp(8px, 1vw, 13px);
+  padding: 10px 13px;
   border: 1px solid rgba(180,150,255,.2);
   border-radius: 999px;
-  background: rgba(12,9,17,.32);
+  background: rgba(12,9,17,.3);
   backdrop-filter: blur(10px);
 }
 .season-route::before {
@@ -351,6 +353,25 @@
   font-style: normal;
   font-weight: 900;
 }
+.season-progress {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+  padding-right: 4px;
+  color: rgba(255,255,255,.52);
+}
+.season-progress strong {
+  color: rgba(255,255,255,.86);
+  font-family: var(--font-display);
+  font-size: 1rem;
+  font-weight: 500;
+}
+.season-progress small {
+  font-size: .58rem;
+  font-weight: 800;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+}
 .arena-gateway--league:hover .season-route i,
 .arena-gateway--league:focus-visible .season-route i { animation: routePulse 1.8s ease-in-out infinite; }
 .arena-gateway--league:hover .season-route i:nth-child(2) { animation-delay: .12s; }
@@ -358,90 +379,55 @@
 .arena-gateway--league:hover .season-route i:nth-child(4) { animation-delay: .36s; }
 .arena-gateway--league:hover .season-route i:nth-child(5) { animation-delay: .48s; }
 .arena-gateway--league:hover .season-route i:nth-child(6) { animation-delay: .60s; }
-.event-seal {
-  position: relative;
-  display: grid;
-  place-items: center;
-  width: clamp(104px, 9vw, 130px);
-  aspect-ratio: 1;
-  border: 1px solid rgba(229,214,255,.34);
-  border-radius: 50%;
-  background: radial-gradient(circle, rgba(223,204,255,.08), rgba(10,8,14,.28) 67%);
-  box-shadow: inset 0 0 0 9px rgba(255,255,255,.018), 0 0 44px rgba(154,102,241,.13);
-  transform: rotate(-7deg);
-  transition: transform 850ms var(--ease-premium), border-color 600ms ease, box-shadow 600ms ease;
+.arena-gateway__insight--events {
+  width: clamp(88px, 8vw, 112px);
+  padding: 14px 15px 13px;
+  border: 1px solid rgba(232,219,255,.26);
+  border-radius: 18px;
+  background: linear-gradient(155deg, rgba(255,255,255,.075), rgba(11,8,15,.24));
+  box-shadow: inset 0 1px rgba(255,255,255,.06), 0 18px 40px rgba(0,0,0,.16);
+  backdrop-filter: blur(12px);
+  transform: translateY(0);
+  transition: transform 720ms var(--ease-premium), border-color 520ms ease, background 520ms ease;
 }
-.event-seal::before,
-.event-seal::after,
-.event-seal i::before,
-.event-seal i::after {
-  content: "";
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  width: 142%;
-  height: 1px;
-  background: linear-gradient(90deg, transparent, rgba(224,207,255,.3), transparent);
-  transform: translate(-50%,-50%);
+.arena-gateway--events:hover .arena-gateway__insight--events,
+.arena-gateway--events:focus-visible .arena-gateway__insight--events {
+  transform: translateY(-6px);
+  border-color: rgba(238,226,255,.48);
+  background: linear-gradient(155deg, rgba(255,255,255,.11), rgba(22,14,29,.3));
 }
-.event-seal::after { transform: translate(-50%,-50%) rotate(45deg); }
-.event-seal i::before { transform: translate(-50%,-50%) rotate(90deg); }
-.event-seal i::after { transform: translate(-50%,-50%) rotate(135deg); }
-.event-seal b {
-  color: rgba(255,255,255,.86);
+.event-date__label,
+.event-date__day,
+.event-date__month { display: block; }
+.event-date__label {
+  color: rgba(255,255,255,.52);
+  font-size: .52rem;
+  font-weight: 850;
+  letter-spacing: .09em;
+  line-height: 1.2;
+  text-transform: uppercase;
+}
+.event-date__day {
+  margin-top: 7px;
+  color: rgba(255,255,255,.94);
   font-family: var(--font-display);
-  font-size: .82rem;
+  font-size: clamp(2.35rem, 4vw, 3.2rem);
   font-weight: 500;
-  line-height: .9;
-  letter-spacing: .12em;
-  text-align: center;
+  line-height: .8;
 }
-.arena-gateway--events:hover .event-seal,
-.arena-gateway--events:focus-visible .event-seal {
-  border-color: rgba(239,229,255,.65);
-  box-shadow: inset 0 0 0 9px rgba(255,255,255,.028), 0 0 58px rgba(185,143,255,.24);
-  transform: rotate(0deg) scale(1.04);
+.event-date__month {
+  margin-top: 8px;
+  color: #dbc9ff;
+  font-size: .62rem;
+  font-weight: 850;
+  letter-spacing: .15em;
+  text-transform: uppercase;
 }
-.cloud-mark {
-  position: absolute;
-  pointer-events: none;
-  opacity: .38;
-  filter: drop-shadow(0 0 18px rgba(157,108,255,.18));
-}
-.cloud-mark i {
-  position: absolute;
-  display: block;
-  border: 1px solid rgba(221,205,255,.5);
-  border-radius: 50%;
-}
-.cloud-mark--route { top: 48px; right: -10px; width: 84px; height: 45px; }
-.cloud-mark--event { top: 88px; left: 12px; width: 90px; height: 48px; transform: rotate(8deg); }
-.cloud-mark i:nth-child(1) { width: 42px; height: 42px; left: 4px; bottom: 0; }
-.cloud-mark i:nth-child(2) { width: 34px; height: 34px; left: 34px; bottom: 1px; }
-.cloud-mark i:nth-child(3) { width: 24px; height: 24px; left: 61px; bottom: 2px; }
 
 .arena-gateway__content { width: 100%; min-width: 0; display: block; position: relative; z-index: 2; }
-.arena-gateway--events .arena-gateway__content { margin-left: auto; text-align: right; }
-.arena-gateway__edition,
 .arena-gateway__kicker,
 .arena-gateway__title,
 .arena-gateway__description { display: block; }
-.arena-gateway__edition {
-  width: max-content;
-  max-width: 100%;
-  margin-bottom: 18px;
-  padding: 7px 10px;
-  border: 1px solid rgba(255,255,255,.12);
-  border-radius: 999px;
-  color: rgba(255,255,255,.6);
-  background: rgba(10,8,14,.22);
-  font-size: .57rem;
-  font-weight: 850;
-  letter-spacing: .105em;
-  text-transform: uppercase;
-  backdrop-filter: blur(10px);
-}
-.arena-gateway--events .arena-gateway__edition { margin-left: auto; border-color: rgba(224,207,255,.22); color: rgba(242,233,255,.72); }
 .arena-gateway__kicker {
   margin-bottom: 13px;
   color: var(--color-purple-bright);
@@ -452,7 +438,7 @@
 }
 .arena-gateway--events .arena-gateway__kicker { color: #dbc9ff; }
 .arena-gateway__title {
-  max-width: 600px;
+  max-width: 520px;
   font-family: var(--font-display);
   font-size: clamp(3.05rem, 5.45vw, 5.9rem);
   font-weight: 500;
@@ -461,7 +447,6 @@
   overflow-wrap: anywhere;
   transition: transform 800ms var(--ease-premium);
 }
-.arena-gateway--events .arena-gateway__title { margin-left: auto; }
 .arena-gateway:hover .arena-gateway__title,
 .arena-gateway:focus-visible .arena-gateway__title { transform: translateY(-5px); }
 .arena-gateway__description {
@@ -471,7 +456,6 @@
   font-size: clamp(.92rem, 1.12vw, 1.03rem);
   overflow-wrap: anywhere;
 }
-.arena-gateway--events .arena-gateway__description { margin-left: auto; }
 .arena-gateway__footer {
   min-width: 0;
   display: flex;
@@ -482,7 +466,6 @@
   padding-top: 20px;
   border-top: 1px solid rgba(255,255,255,.11);
 }
-.arena-gateway--events .arena-gateway__footer { flex-direction: row-reverse; }
 .arena-gateway__meta {
   color: rgba(255,255,255,.48);
   font-size: .61rem;
@@ -501,7 +484,6 @@
   text-align: right;
   text-transform: uppercase;
 }
-.arena-gateway--events .arena-gateway__cta { text-align: left; }
 .arena-gateway__cta i { flex: 0 0 auto; color: var(--color-purple-bright); font-style: normal; transition: transform 520ms var(--ease-premium); }
 .arena-gateway--events .arena-gateway__cta i { color: #dbc9ff; }
 .arena-gateway:hover .arena-gateway__cta i,
@@ -534,11 +516,9 @@
 @media (max-width: 1050px) {
   .arena-entry__head { grid-template-columns: 1fr; gap: 12px; }
   .arena-entry__head > p { max-width: 670px; }
-  .arena-gateway__identity { opacity: .62; }
+  .arena-gateway__insight { opacity: .72; }
   .arena-gateway__footer { display: block; }
   .arena-gateway__cta { justify-content: flex-start; margin-top: 14px; text-align: left; }
-  .arena-gateway--events .arena-gateway__footer { display: block; }
-  .arena-gateway--events .arena-gateway__cta { justify-content: flex-end; text-align: right; }
   .stream-window__bar { grid-template-columns: 1fr auto; }
   .stream-window__schedule { grid-column: 1 / -1; grid-row: 2; padding: 12px 0 0; border-top: 1px solid rgba(255,255,255,.1); border-left: 0; }
   .stream-window__panel { grid-template-columns: 1fr; }
@@ -582,35 +562,20 @@
     border-radius: 25px;
   }
   .arena-gateway + .arena-gateway { border-left: 1px solid rgba(255,255,255,.14); }
-  .arena-gateway--events .arena-gateway__number { right: 23px; }
-  .arena-gateway__identity { top: 60px; transform: scale(.84); transform-origin: top right; }
-  .arena-gateway__identity--league { right: 20px; }
-  .arena-gateway__identity--events { left: auto; right: 17px; transform-origin: top right; }
-  .arena-gateway--events .arena-gateway__content { margin-left: 0; text-align: left; }
-  .arena-gateway--events .arena-gateway__edition,
-  .arena-gateway--events .arena-gateway__title,
-  .arena-gateway--events .arena-gateway__description { margin-left: 0; }
-  .arena-gateway--events .arena-gateway__footer { display: block; }
-  .arena-gateway--events .arena-gateway__cta { justify-content: flex-start; text-align: left; }
-  .arena-gateway__edition { margin-bottom: 14px; font-size: .54rem; }
+  .arena-gateway__insight { top: 58px; right: 18px; transform: scale(.82); transform-origin: top right; }
   .arena-gateway__kicker { margin-bottom: 11px; font-size: .62rem; }
-  .arena-gateway__title { max-width: 90%; font-size: clamp(3rem, 14vw, 4.4rem); }
+  .arena-gateway__title { max-width: 78%; font-size: clamp(3rem, 14vw, 4.4rem); }
   .arena-gateway__description { max-width: 92%; margin-top: 16px; font-size: .91rem; }
   .arena-gateway__footer { margin-top: 23px; padding-top: 15px; }
   .arena-gateway__ghost { right: -1rem; bottom: -1rem; font-size: clamp(5.2rem, 24vw, 7rem); }
-  .arena-gateway--events .arena-gateway__ghost { right: auto; left: -1rem; }
   .arena-entry__hint { display: none; }
 }
 @media (max-width: 390px) {
   .arena-entry__head h1 { font-size: 2.72rem; }
   .arena-gateway { min-height: 375px; padding: 25px 19px; }
   .arena-gateway__number { top: 21px; left: 20px; max-width: 58%; font-size: .65rem; }
-  .arena-gateway--events .arena-gateway__number { right: 20px; }
-  .arena-gateway__identity { transform: scale(.72); }
-  .arena-gateway__identity--league,
-  .arena-gateway__identity--events { right: 6px; }
-  .arena-gateway__edition { max-width: 88%; overflow-wrap: anywhere; }
-  .arena-gateway__title { max-width: 96%; font-size: clamp(2.7rem, 13.3vw, 3.45rem); line-height: .86; }
+  .arena-gateway__insight { right: 6px; transform: scale(.7); }
+  .arena-gateway__title { max-width: 82%; font-size: clamp(2.7rem, 13.3vw, 3.45rem); line-height: .86; }
   .arena-gateway__description { max-width: 100%; overflow-wrap: anywhere; }
   .arena-gateway__meta { display: block; max-width: 100%; overflow-wrap: anywhere; }
   .arena-gateway__cta { max-width: 100%; font-size: .67rem; overflow-wrap: anywhere; }
@@ -638,5 +603,5 @@
   .arena-gateway__visual,
   .arena-gateway__title,
   .arena-gateway__ghost,
-  .event-seal { transform: none !important; }
+  .arena-gateway__insight--events { transform: none !important; }
 }

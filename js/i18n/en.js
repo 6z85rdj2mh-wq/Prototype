@@ -94,11 +94,11 @@ window.NIKA_TRANSLATIONS.en = {
   },
   tournamentHubPage: {
     breadcrumbHome: "Home", breadcrumbCurrent: "Tournament Area",
-    heroEyebrow: "THE DEN’S COMPETITION", heroTitle: "Choose your arena.", heroLead: "Build a season over time, or live a complete event in a single day.",
-    gatewaysEyebrow: "TWO WAYS TO COMPETE", gatewaysTitle: "Continuity or the decisive moment.",
-    leagueEdition: "THE DEN’S SEASON", leagueKicker: "CONTINUOUS COMPETITION", leagueTitle: "Nika League", leagueText: "Stage by stage, every result builds the road towards the Final.", leagueMeta: "6 STAGES · STANDINGS · FINAL", leagueCta: "Follow the season",
-    eventsEdition: "LIMITED EDITIONS · SPECIAL EVENTS", eventsKicker: "ONE-SHOT COMPETITION", eventsTitle: "Our tournaments", eventsText: "One day, one format, one unique chance to leave your mark.", eventsMeta: "UNIQUE EVENTS · PRIZES · ENTRY", eventsCta: "Discover the next event",
-    choiceHint: "Two ways to compete. Choose yours.",
+    heroEyebrow: "THE DEN’S COMPETITION", heroTitle: "Choose your arena.", heroLead: "A season to follow. Events to experience.",
+    gatewaysEyebrow: "TWO WAYS TO COMPETE", gatewaysTitle: "Choose where to enter.",
+    leagueKicker: "SEASON CHAMPIONSHIP", leagueTitle: "Nika League", leagueText: "A season built stage by stage, all the way to the Final.", leagueMeta: "6 STAGES · STANDINGS · FINAL", leagueCta: "Follow the season", leagueProgress: "stages completed",
+    eventsKicker: "TOURNAMENTS AND SPECIAL EVENTS", eventsTitle: "Our tournaments", eventsText: "Every event has its own identity, with a dedicated format, prizes and atmosphere.", eventsMeta: "EVENTS · PRIZES · ENTRY", eventsCta: "Discover the next event", nextEvent: "Next event",
+    choiceHint: "Choose where to enter.",
     streamTitle: "Watch the Den live", nextStream: "Next stream", openPlayer: "Open player", streamEyebrow: "LIVE, REPLAYS AND FINAL", streamSideTitle: "A window on the community.", streamSideText: "Once Twitch details are added, you will be able to watch the Final and special events without leaving the site.", placeholder: "Placeholder active",
     returnText: "Want to return to the Den’s entrance?", returnHome: "Back to Home"
   },
