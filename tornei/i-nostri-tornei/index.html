@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="it">
+<head>
+  <meta charset="utf-8">
+  <meta name="robots" content="noindex, nofollow">
+  <meta name="googlebot" content="noindex, nofollow">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Calendario dei local, domenicali ed eventi speciali della Tana di Nika.">
+  <meta name="theme-color" content="#09070d">
+  <title>I nostri tornei — La Tana di Nika</title>
+
+  <link rel="icon" type="image/png" href="../../assets/images/favicon.png?v=4.4.1">
+  <link rel="stylesheet" href="../../css/tokens.css">
+  <link rel="stylesheet" href="../../css/base.css">
+  <link rel="stylesheet" href="../../css/components.css?v=4.3.3">
+  <link rel="stylesheet" href="../../css/pages.css?v=4.4.1">
+  <link rel="stylesheet" href="../../css/community-events.css?v=4.4.1">
+
+  <script defer src="../../js/i18n/it.js?v=4.4.1"></script>
+  <script defer src="../../js/i18n/en.js?v=4.4.1"></script>
+  <script defer src="../../js/data/tournaments.js?v=4.4.1"></script>
+  <script defer src="../../js/components/tournament-utils.js?v=4.4.1"></script>
+  <script defer src="../../js/components/header.js?v=4.4.1"></script>
+  <script defer src="../../js/components/community-events-page.js?v=4.4.1"></script>
+  <script defer src="../../js/main.js?v=4.4.1"></script>
+</head>
+<body class="internal-page" data-root-prefix="../../">
+  <a class="skip-link" href="#main-content" data-i18n="accessibility.skip">Vai al contenuto</a>
+  <header class="site-header" data-site-header>
+    <div class="site-header__inner shell"><a class="brand" href="../../index.html" aria-label="La Tana di Nika — Home"><span class="brand__mark" aria-hidden="true"><img src="../../assets/images/mascot-nika.png?v=4.4.1" alt="" width="58" height="58" decoding="async" fetchpriority="high"></span><span class="brand__text">La Tana di Nika</span></a><nav class="desktop-nav" aria-label="Navigazione principale"><a href="../../index.html#store" data-i18n="nav.store">Store</a><a href="../../index.html#editorial" data-i18n="nav.editorial">Editoriale</a><a class="is-active" href="../" data-i18n="nav.tournaments">Tornei</a><a href="../../index.html#guides" data-i18n="nav.guides">Guide</a><a href="../../index.html#about" data-i18n="nav.about">Chi siamo</a></nav><div class="header-actions"><a class="icon-button header-search-link" href="../../index.html#search" aria-label="Ricerca"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m21 21-4.4-4.4m2.4-5.1a7.5 7.5 0 1 1-15 0 7.5 7.5 0 0 1 15 0Z"/></svg></a><div class="language-switch" aria-label="Selezione lingua"><button type="button" data-language="it" aria-pressed="true">IT</button><span aria-hidden="true">·</span><button type="button" data-language="en" aria-pressed="false">EN</button></div><button class="menu-toggle" type="button" aria-expanded="false" aria-controls="mobile-menu" data-menu-toggle><span class="sr-only" data-i18n="nav.openMenu">Apri menu</span><span></span><span></span></button></div></div>
+    <div class="mobile-menu" id="mobile-menu" data-mobile-menu hidden><nav aria-label="Navigazione mobile" class="shell"><a href="../../index.html#store" data-i18n="nav.store">Store</a><a href="../../index.html#editorial" data-i18n="nav.editorial">Editoriale</a><a class="is-active" href="../" data-i18n="nav.tournaments">Tornei</a><a href="../../index.html#guides" data-i18n="nav.guides">Guide</a><a href="../../index.html#about" data-i18n="nav.about">Chi siamo</a><div class="mobile-menu__language"><span data-i18n="language.label">Lingua</span><div class="language-switch language-switch--mobile"><button type="button" data-language="it" aria-pressed="true">Italiano</button><button type="button" data-language="en" aria-pressed="false">English</button></div></div></nav></div>
+  </header>
+
+  <main id="main-content" data-community-events-page>
+    <section class="internal-hero community-events-hero"><div class="shell internal-hero__content"><nav class="breadcrumb" aria-label="Breadcrumb"><a href="../../index.html" data-i18n="communityEventsPage.breadcrumbHome">Home</a><span aria-hidden="true">/</span><a href="../" data-i18n="communityEventsPage.breadcrumbTournaments">Tornei</a><span aria-hidden="true">/</span><span data-i18n="communityEventsPage.breadcrumbCurrent">I nostri tornei</span></nav><p class="eyebrow" data-i18n="communityEventsPage.heroEyebrow">LOCAL, DOMENICALI, EVENTI SPECIALI</p><h1 data-i18n="communityEventsPage.heroTitle">I nostri tornei.</h1><p class="internal-hero__lead" data-i18n="communityEventsPage.heroLead">Un calendario indipendente dalla League, costruito per giocare e vivere la community.</p><div class="internal-hero__facts"><div class="internal-hero__fact"><strong data-event-count>0</strong><span data-i18n="communityEventsPage.factEvents">Eventi inseriti</span></div><div class="internal-hero__fact"><strong>2H</strong><span data-i18n="communityEventsPage.factReminder">Reminder prima</span></div><div class="internal-hero__fact"><strong>FLEX</strong><span data-i18n="communityEventsPage.factPrizes">Premi personalizzabili</span></div></div></div></section>
+
+    <section class="community-overview"><div class="shell"><article class="community-spotlight" data-next-community-event></article></div></section>
+
+    <section class="community-calendar" id="event-calendar" aria-labelledby="community-calendar-title"><div class="shell"><div class="community-section-head"><p class="eyebrow" data-i18n="communityEventsPage.calendarEyebrow">CALENDARIO SEPARATO</p><h2 id="community-calendar-title" data-i18n="communityEventsPage.calendarTitle">Scegli l’evento. Tutto il resto si apre qui.</h2><p data-i18n="communityEventsPage.calendarText">Niente pagine infinite: seleziona una data per leggere dettagli, formato e griglia premi.</p></div><div class="community-calendar__rail" data-community-calendar></div><article class="community-event-detail" data-community-event-detail></article></div></section>
+
+    <section class="community-principles"><div class="shell community-principles__grid"><article><span>01</span><h3 data-i18n="communityEventsPage.principleOneTitle">Fuori dalla League</h3><p data-i18n="communityEventsPage.principleOneText">Questi eventi hanno calendario e risultati indipendenti dal campionato.</p></article><article><span>02</span><h3 data-i18n="communityEventsPage.principleTwoTitle">Premi su misura</h3><p data-i18n="communityEventsPage.principleTwoText">Ogni torneo può avere una griglia diversa in base ai partecipanti.</p></article><article><span>03</span><h3 data-i18n="communityEventsPage.principleThreeTitle">Sempre nel telefono</h3><p data-i18n="communityEventsPage.principleThreeText">Ogni appuntamento può essere aggiunto al calendario con reminder due ore prima.</p></article></div></section>
+
+    <section class="page-return"><div class="shell"><p data-i18n="communityEventsPage.returnText">Vuoi esplorare un’altra area?</p><div class="page-return__actions"><a class="button button--ghost" href="../" data-i18n="communityEventsPage.returnTournaments">Torna ai Tornei</a><a class="button button--primary button--home" href="../../index.html"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 11.5 12 4l9 7.5M5.5 10v10h13V10M9.5 20v-6h5v6"/></svg><span data-i18n="communityEventsPage.returnHome">Torna alla Home</span></a></div></div></section>
+  </main>
+
+  <footer class="site-footer"><div class="shell site-footer__inner"><div><p class="site-footer__brand">La Tana di Nika</p><p data-i18n="footer.claim">Carte, strategia, tornei e community. Tutto nello stesso luogo.</p></div><p>© <span data-current-year></span> La Tana di Nika</p></div></footer>
+</body>
+</html>

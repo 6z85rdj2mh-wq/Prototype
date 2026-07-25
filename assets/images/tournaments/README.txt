@@ -1,9 +1,16 @@
-IMMAGINI TORNEI — V4.4.0
+IMMAGINI TORNEI — V4.4.1
 
 Inserire qui le immagini delle espansioni e degli eventi.
-Formato consigliato: WebP, rapporto 16:10 o 3:2, larghezza 1200-1600 px.
+Formati consigliati: WebP o AVIF, rapporto 16:9 o 4:5, peso ottimizzato.
 
-Esempio percorso da usare in js/data/tournaments.js:
-../assets/images/tournaments/op17.webp
+Esempi:
+op16.webp
+op17.webp
+nika-league-final.webp
+domenicale-agosto.webp
 
-Se il campo image resta vuoto, la pagina usa automaticamente il fallback grafico viola/nero.
+Dopo il caricamento, inserire il percorso nel campo `image` dell’evento in:
+js/data/tournaments.js
+
+Esempio campo dati:
+image: "assets/images/tournaments/op16.webp"

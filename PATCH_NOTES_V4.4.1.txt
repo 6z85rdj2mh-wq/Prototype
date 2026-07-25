@@ -1,0 +1,50 @@
+LA TANA DI NIKA — PATCH V4.4.1
+TOURNAMENT ARCHITECTURE
+
+VERSIONE DI PARTENZA
+V4.4.0, derivata dalla V4.3.3 Motion.
+
+MODIFICHE PRINCIPALI
+- /tornei/ trasformata in hub breve e premium.
+- Due grandi accessi: Nika League e I nostri tornei.
+- Twitch mantenuto nell’hub come finestra espandibile.
+- Nuova pagina /tornei/nika-league/.
+- Nuova pagina /tornei/i-nostri-tornei/.
+- Classifica fino a 64 iscritti, senza righe vuote.
+- Due peggiori tappe mostrate in rosso e sottratte dal totale.
+- Dettaglio narrativo e “gesta” dei giocatori.
+- Cronache editoriali della stagione.
+- Calendario League compatto con 6 tappe + Finale.
+- Calendario separato per local e domenicali.
+- Griglie premi personalizzabili.
+- Reminder .ics due ore prima con fuso Europe/Rome.
+- Pulsante Torna alla Home in tutte le pagine interne.
+
+FILE NUOVI
+css/tournament-hub.css
+css/league.css
+css/community-events.css
+js/components/tournament-utils.js
+js/components/tournament-hub.js
+js/components/league-page.js
+js/components/community-events-page.js
+tornei/nika-league/index.html
+tornei/i-nostri-tornei/index.html
+
+FILE MODIFICATI
+index.html
+tornei/index.html
+js/main.js
+js/data/tournaments.js
+js/i18n/it.js
+js/i18n/en.js
+README.md
+
+FILE NON TOCCATI NELLE FUNZIONI ESISTENTI
+Hero principale, mascotte ufficiale, animazione split, ricerca e struttura Store/Editoriale.
+
+FILE V4.4.0 ORA NON UTILIZZATI MA INNOCUI
+css/tournaments.css
+js/components/tournaments-page.js
+
+Possono restare nel repository: nessuna pagina V4.4.1 li carica.
