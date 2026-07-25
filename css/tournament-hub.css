@@ -1,89 +1,305 @@
 /* ======================================================
-   LA TANA DI NIKA — TOURNAMENT HUB V4.4.1
+   LA TANA DI NIKA — TOURNAMENT HUB V4.4.2
+   Ingresso diretto, due arene e finestra Twitch compatta.
 ====================================================== */
-.tournament-hub-hero { min-height: 58svh; }
-.tournament-hub-hero::after {
-  background:
-    linear-gradient(90deg, rgba(9,7,13,.95), rgba(9,7,13,.38) 68%, rgba(9,7,13,.72)),
-    radial-gradient(circle at 76% 42%, rgba(146,92,255,.3), transparent 26rem);
-}
-
-.tournament-gateways { padding: clamp(72px, 9vw, 120px) 0 clamp(62px, 8vw, 105px); }
-.tournament-gateways__intro { max-width: 780px; margin-bottom: clamp(34px, 5vw, 58px); }
-.tournament-gateways__intro h2 {
-  font-family: var(--font-display);
-  font-size: clamp(2.6rem, 5.7vw, 5.4rem);
-  font-weight: 500;
-  line-height: .92;
-  letter-spacing: -.055em;
-}
-.tournament-gateways__grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 18px; }
-.tournament-gateway {
+.arena-entry {
   position: relative;
-  min-height: clamp(390px, 42vw, 530px);
+  min-height: 100svh;
+  overflow: hidden;
+  isolation: isolate;
+  padding: 112px 0 clamp(34px, 5vw, 62px);
+  border-bottom: 1px solid rgba(255,255,255,.08);
+}
+.arena-entry__backdrop {
+  position: absolute;
+  z-index: -3;
+  inset: 0;
+  background:
+    linear-gradient(180deg, rgba(9,7,13,.18), rgba(9,7,13,.9) 88%),
+    url("../assets/images/hero-sea.png") center 56% / cover no-repeat;
+  filter: saturate(.64) brightness(.42);
+  transform: scale(1.04);
+}
+.arena-entry::before,
+.arena-entry::after {
+  content: "";
+  position: absolute;
+  z-index: -2;
+  border-radius: 50%;
+  pointer-events: none;
+  filter: blur(2px);
+}
+.arena-entry::before {
+  width: min(52vw, 760px);
+  aspect-ratio: 1;
+  top: -28%;
+  right: -12%;
+  background: radial-gradient(circle, rgba(146,92,255,.27), transparent 68%);
+  animation: arenaAmbient 13s ease-in-out infinite alternate;
+}
+.arena-entry::after {
+  width: min(44vw, 660px);
+  aspect-ratio: 1;
+  bottom: -32%;
+  left: -14%;
+  background: radial-gradient(circle, rgba(84,38,143,.2), transparent 68%);
+  animation: arenaAmbient 16s ease-in-out infinite alternate-reverse;
+}
+.arena-entry__shell { position: relative; }
+.arena-entry__breadcrumb { margin-bottom: 18px; opacity: 0; transform: translateY(12px); }
+.arena-entry__head {
+  display: grid;
+  grid-template-columns: minmax(0, 1.1fr) minmax(280px, .55fr);
+  align-items: end;
+  gap: clamp(24px, 5vw, 72px);
+  margin-bottom: clamp(24px, 3vw, 38px);
+}
+.arena-entry__head > * { min-width: 0; }
+.arena-entry__head .eyebrow { margin-bottom: 10px; opacity: 0; transform: translateY(14px); }
+.arena-entry__head h1 {
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: clamp(2.7rem, 5vw, 5.4rem);
+  font-weight: 500;
+  line-height: .88;
+  letter-spacing: -.06em;
+  opacity: 0;
+  transform: translateY(20px);
+}
+.arena-entry__head > p {
+  max-width: 520px;
+  margin: 0 0 4px;
+  color: rgba(247,244,255,.68);
+  font-size: clamp(.94rem, 1.2vw, 1.08rem);
+  opacity: 0;
+  transform: translateY(18px);
+}
+.arena-entry.is-ready .arena-entry__breadcrumb,
+.arena-entry.is-ready .arena-entry__head .eyebrow,
+.arena-entry.is-ready .arena-entry__head h1,
+.arena-entry.is-ready .arena-entry__head > p {
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 900ms ease, transform 1000ms var(--ease-premium);
+}
+.arena-entry.is-ready .arena-entry__head .eyebrow { transition-delay: 80ms; }
+.arena-entry.is-ready .arena-entry__head h1 { transition-delay: 150ms; }
+.arena-entry.is-ready .arena-entry__head > p { transition-delay: 230ms; }
+
+.arena-entry__stage {
+  --divider-position: 50%;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  min-height: clamp(490px, 61vh, 670px);
+  overflow: hidden;
+  border: 1px solid rgba(255,255,255,.15);
+  border-radius: 34px;
+  background: #0c0a10;
+  box-shadow: 0 35px 90px rgba(0,0,0,.28), inset 0 1px rgba(255,255,255,.05);
+  opacity: 0;
+  transform: translateY(28px) scale(.985);
+  transition: grid-template-columns 900ms var(--ease-premium), border-color 600ms ease, box-shadow 700ms ease;
+}
+.arena-entry.is-ready .arena-entry__stage {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+  transition:
+    opacity 1100ms 260ms ease,
+    transform 1200ms 260ms var(--ease-premium),
+    grid-template-columns 900ms var(--ease-premium),
+    border-color 600ms ease,
+    box-shadow 700ms ease;
+}
+.arena-entry__stage.is-league-active { grid-template-columns: minmax(0, 1.09fr) minmax(0, .91fr); border-color: rgba(168,123,255,.36); }
+.arena-entry__stage.is-events-active { grid-template-columns: minmax(0, .91fr) minmax(0, 1.09fr); border-color: rgba(204,177,255,.32); }
+
+.arena-gateway {
+  --pointer-x: 50%;
+  --pointer-y: 45%;
+  --depth-x: 0px;
+  --depth-y: 0px;
+  position: relative;
+  min-width: 0;
   display: flex;
   align-items: end;
   overflow: hidden;
-  padding: clamp(28px, 4vw, 52px);
-  border: 1px solid rgba(255,255,255,.13);
-  border-radius: 30px;
   isolation: isolate;
-  background: #121019;
-  transition: transform 760ms var(--ease-premium), border-color 520ms ease, filter 620ms ease;
+  padding: clamp(28px, 4vw, 54px);
+  background: #111018;
+  transition: filter 650ms ease;
 }
-.tournament-gateway::before,
-.tournament-gateway::after { content: ""; position: absolute; inset: 0; z-index: -2; }
-.tournament-gateway::before {
+.arena-gateway + .arena-gateway { border-left: 1px solid rgba(255,255,255,.12); }
+.arena-gateway::before,
+.arena-gateway::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+.arena-gateway::before {
+  z-index: -3;
   background:
-    linear-gradient(180deg, rgba(9,7,13,.08), rgba(9,7,13,.94)),
-    radial-gradient(circle at 73% 24%, rgba(146,92,255,.36), transparent 19rem),
-    linear-gradient(135deg, #17121f, #09070d 72%);
-  transform: scale(1.02);
-  transition: transform 900ms var(--ease-premium), filter 700ms ease;
+    linear-gradient(180deg, rgba(9,7,13,.04) 5%, rgba(9,7,13,.25) 42%, rgba(9,7,13,.96) 100%),
+    radial-gradient(circle at 72% 20%, rgba(146,92,255,.4), transparent 25rem),
+    linear-gradient(145deg, #171220, #09070d 78%);
+  transform: scale(1.035) translate3d(var(--depth-x), var(--depth-y), 0);
+  transition: transform 1000ms var(--ease-premium), filter 700ms ease;
 }
-.tournament-gateway--events::before {
+.arena-gateway--events::before {
   background:
-    linear-gradient(180deg, rgba(9,7,13,.1), rgba(9,7,13,.94)),
-    radial-gradient(circle at 24% 18%, rgba(183,145,255,.25), transparent 18rem),
-    linear-gradient(145deg, #100d18, #18131f 48%, #09070d);
+    linear-gradient(180deg, rgba(9,7,13,.05) 5%, rgba(9,7,13,.3) 42%, rgba(9,7,13,.96) 100%),
+    radial-gradient(circle at 24% 18%, rgba(189,157,255,.3), transparent 23rem),
+    linear-gradient(145deg, #0c0b11, #1b1522 52%, #09070d);
 }
-.tournament-gateway::after {
+.arena-gateway::after {
   z-index: -1;
-  background: linear-gradient(120deg, transparent 28%, rgba(255,255,255,.08), transparent 58%);
-  transform: translateX(-80%);
-  transition: transform 1000ms var(--ease-premium);
+  opacity: 0;
+  background: radial-gradient(circle 230px at var(--pointer-x) var(--pointer-y), rgba(255,255,255,.12), transparent 72%);
+  transition: opacity 500ms ease;
 }
-.tournament-gateway:hover { transform: translateY(-8px); border-color: rgba(183,145,255,.48); }
-.tournament-gateway:hover::before { transform: scale(1.07); filter: saturate(1.12); }
-.tournament-gateway:hover::after { transform: translateX(80%); }
-.tournament-gateway__number { position: absolute; top: 28px; left: 30px; color: rgba(255,255,255,.32); font-family: var(--font-display); letter-spacing: .15em; }
-.tournament-gateway__content { position: relative; z-index: 2; max-width: 560px; }
-.tournament-gateway__content > p:first-child { margin-bottom: 14px; color: var(--color-purple-bright); font-size: .7rem; font-weight: 850; letter-spacing: .13em; text-transform: uppercase; }
-.tournament-gateway h2 { margin-bottom: 18px; font-family: var(--font-display); font-size: clamp(3rem, 5vw, 5.5rem); font-weight: 500; line-height: .86; letter-spacing: -.055em; }
-.tournament-gateway__content > p:not(:first-child) { max-width: 490px; color: rgba(247,244,255,.7); font-size: 1.03rem; }
-.tournament-gateway__cta { display: inline-flex; align-items: center; gap: 12px; margin-top: 30px; font-size: .78rem; font-weight: 850; letter-spacing: .08em; text-transform: uppercase; }
-.tournament-gateway__cta i { color: var(--color-purple-bright); font-style: normal; transition: transform 420ms var(--ease-premium); }
-.tournament-gateway:hover .tournament-gateway__cta i { transform: translate(5px,-5px); }
-.tournament-gateway__ghost { position: absolute; right: -18px; bottom: -28px; z-index: 0; color: rgba(255,255,255,.025); font-family: var(--font-display); font-size: clamp(5rem, 10vw, 9.8rem); line-height: 1; letter-spacing: -.05em; pointer-events: none; }
+.arena-gateway:hover::after,
+.arena-gateway:focus-visible::after { opacity: 1; }
+.arena-gateway:hover::before,
+.arena-gateway:focus-visible::before { transform: scale(1.075) translate3d(var(--depth-x), var(--depth-y), 0); filter: saturate(1.12); }
+.arena-gateway__visual {
+  position: absolute;
+  z-index: -2;
+  inset: 0;
+  opacity: .38;
+  background:
+    linear-gradient(115deg, transparent 36%, rgba(255,255,255,.07) 49%, transparent 62%);
+  transform: translateX(-76%);
+  transition: transform 1250ms var(--ease-premium), opacity 600ms ease;
+}
+.arena-gateway:hover .arena-gateway__visual,
+.arena-gateway:focus-visible .arena-gateway__visual { opacity: .62; transform: translateX(74%); }
+.arena-gateway__number {
+  position: absolute;
+  top: clamp(24px, 3vw, 38px);
+  left: clamp(26px, 3.2vw, 44px);
+  color: rgba(255,255,255,.34);
+  font-family: var(--font-display);
+  font-size: .92rem;
+  letter-spacing: .18em;
+}
+.arena-gateway__ghost {
+  position: absolute;
+  right: -2.5rem;
+  bottom: -2.1rem;
+  z-index: -1;
+  color: rgba(255,255,255,.027);
+  font-family: var(--font-display);
+  font-size: clamp(5.3rem, 10vw, 10.8rem);
+  line-height: .82;
+  letter-spacing: -.065em;
+  white-space: nowrap;
+  transition: color 600ms ease, transform 1000ms var(--ease-premium);
+}
+.arena-gateway:hover .arena-gateway__ghost,
+.arena-gateway:focus-visible .arena-gateway__ghost { color: rgba(255,255,255,.045); transform: translateX(-10px); }
+.arena-gateway__content { width: 100%; min-width: 0; display: block; position: relative; z-index: 2; }
+.arena-gateway__kicker,
+.arena-gateway__title,
+.arena-gateway__description { display: block; }
+.arena-gateway__kicker {
+  margin-bottom: 14px;
+  color: var(--color-purple-bright);
+  font-size: .68rem;
+  font-weight: 850;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+}
+.arena-gateway__title {
+  max-width: 600px;
+  font-family: var(--font-display);
+  font-size: clamp(3.2rem, 5.6vw, 6.1rem);
+  font-weight: 500;
+  line-height: .82;
+  letter-spacing: -.06em;
+  overflow-wrap: anywhere;
+  transition: transform 800ms var(--ease-premium);
+}
+.arena-gateway:hover .arena-gateway__title,
+.arena-gateway:focus-visible .arena-gateway__title { transform: translateY(-5px); }
+.arena-gateway__description {
+  max-width: 510px;
+  margin-top: 22px;
+  color: rgba(247,244,255,.7);
+  font-size: clamp(.92rem, 1.15vw, 1.04rem);
+  overflow-wrap: anywhere;
+}
+.arena-gateway__footer {
+  min-width: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+  margin-top: clamp(28px, 4vw, 42px);
+  padding-top: 20px;
+  border-top: 1px solid rgba(255,255,255,.11);
+}
+.arena-gateway__meta {
+  color: rgba(255,255,255,.48);
+  font-size: .63rem;
+  font-weight: 850;
+  letter-spacing: .12em;
+}
+.arena-gateway__cta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 12px;
+  min-width: 0;
+  font-size: .73rem;
+  font-weight: 850;
+  letter-spacing: .075em;
+  text-align: right;
+  text-transform: uppercase;
+}
+.arena-gateway__cta i {
+  flex: 0 0 auto;
+  color: var(--color-purple-bright);
+  font-style: normal;
+  transition: transform 520ms var(--ease-premium);
+}
+.arena-gateway:hover .arena-gateway__cta i,
+.arena-gateway:focus-visible .arena-gateway__cta i { transform: translate(6px,-6px); }
+.arena-entry__hint {
+  margin: 18px 0 0;
+  color: rgba(255,255,255,.4);
+  font-size: .68rem;
+  font-weight: 750;
+  letter-spacing: .1em;
+  text-align: center;
+  text-transform: uppercase;
+  opacity: 0;
+}
+.arena-entry.is-ready .arena-entry__hint { opacity: 1; transition: opacity 900ms 850ms ease; }
 
-.stream-window { padding: 0 0 clamp(74px, 9vw, 120px); }
+.stream-window { padding: clamp(46px, 6vw, 78px) 0 clamp(70px, 9vw, 112px); }
 .stream-window__bar {
   display: grid;
-  grid-template-columns: minmax(0, 1.1fr) minmax(220px, .65fr) auto;
+  grid-template-columns: minmax(0, 1.1fr) minmax(210px, .62fr) auto;
   align-items: center;
   gap: 24px;
-  padding: 22px 24px;
+  padding: 20px 22px;
   border: 1px solid rgba(255,255,255,.13);
   border-radius: 22px;
-  background: rgba(17,14,23,.8);
+  background: linear-gradient(135deg, rgba(24,19,31,.82), rgba(13,10,18,.8));
+  box-shadow: inset 0 1px rgba(255,255,255,.035);
   backdrop-filter: blur(18px);
+  transition: border-color 500ms ease, background 600ms ease;
 }
-.stream-window__signal { display: flex; align-items: center; gap: 15px; }
-.stream-window__dot { width: 13px; height: 13px; flex: 0 0 auto; border-radius: 50%; background: var(--color-purple-bright); box-shadow: 0 0 0 7px rgba(146,92,255,.1), 0 0 28px rgba(146,92,255,.56); }
-.stream-window__signal p, .stream-window__schedule span { color: var(--color-purple-bright); font-size: .65rem; font-weight: 850; letter-spacing: .11em; text-transform: uppercase; }
-.stream-window__signal strong { display: block; margin-top: 4px; font-family: var(--font-display); font-size: 1.45rem; font-weight: 500; }
-.stream-window__schedule { padding-left: 24px; border-left: 1px solid rgba(255,255,255,.1); }
-.stream-window__schedule strong { display: block; margin-top: 5px; color: rgba(255,255,255,.76); font-size: .82rem; text-transform: capitalize; }
+.stream-window__bar:hover { border-color: rgba(183,145,255,.3); }
+.stream-window__signal { min-width: 0; display: flex; align-items: center; gap: 15px; }
+.stream-window__signal > div { min-width: 0; }
+.stream-window__dot { width: 12px; height: 12px; flex: 0 0 auto; border-radius: 50%; background: var(--color-purple-bright); box-shadow: 0 0 0 7px rgba(146,92,255,.1), 0 0 28px rgba(146,92,255,.5); }
+.stream-window__signal p,
+.stream-window__schedule span { color: var(--color-purple-bright); font-size: .63rem; font-weight: 850; letter-spacing: .11em; text-transform: uppercase; }
+.stream-window__signal strong { display: block; overflow: hidden; margin-top: 4px; font-family: var(--font-display); font-size: 1.4rem; font-weight: 500; text-overflow: ellipsis; white-space: nowrap; }
+.stream-window__schedule { min-width: 0; padding-left: 24px; border-left: 1px solid rgba(255,255,255,.1); }
+.stream-window__schedule strong { display: block; overflow: hidden; margin-top: 5px; color: rgba(255,255,255,.76); font-size: .8rem; text-overflow: ellipsis; text-transform: capitalize; white-space: nowrap; }
+.stream-window__toggle { white-space: nowrap; }
 .stream-window__toggle i { font-style: normal; transition: transform 400ms var(--ease-premium); }
 .is-stream-open .stream-window__toggle i { transform: rotate(45deg); }
 .stream-window__panel {
@@ -94,34 +310,109 @@
   border: 1px solid rgba(255,255,255,.12);
   border-radius: 24px;
   background: #0d0a12;
+  opacity: 0;
+  transform: translateY(-10px) scale(.995);
+  transform-origin: top;
+  transition: opacity 420ms ease, transform 520ms var(--ease-premium), border-color 420ms ease;
 }
 .stream-window__panel[hidden] { display: none; }
+.stream-window__panel.is-visible { opacity: 1; transform: translateY(0) scale(1); border-color: rgba(183,145,255,.22); }
 .stream-window__player { min-height: 390px; background: radial-gradient(circle at center, rgba(146,92,255,.16), transparent 20rem), #08070b; }
 .stream-window__player iframe { display: block; width: 100%; min-height: 390px; border: 0; }
 .stream-window__placeholder { min-height: 390px; display: flex; justify-content: center; align-items: center; gap: 18px; padding: 30px; text-align: left; }
-.stream-window__placeholder > span { display: grid; place-items: center; width: 68px; height: 68px; border: 1px solid rgba(183,145,255,.32); border-radius: 50%; color: var(--color-purple-bright); background: rgba(146,92,255,.09); font-size: 1.2rem; }
+.stream-window__placeholder > span { display: grid; place-items: center; width: 68px; height: 68px; flex: 0 0 auto; border: 1px solid rgba(183,145,255,.32); border-radius: 50%; color: var(--color-purple-bright); background: rgba(146,92,255,.09); font-size: 1.2rem; }
 .stream-window__placeholder strong { font-family: var(--font-display); font-size: 1.9rem; font-weight: 500; }
 .stream-window__placeholder p { margin-top: 6px; color: var(--color-muted); }
-.stream-window__panel aside { padding: clamp(28px, 4vw, 46px); border-left: 1px solid rgba(255,255,255,.1); }
-.stream-window__panel aside h3 { margin: 16px 0 12px; font-family: var(--font-display); font-size: 2.1rem; font-weight: 500; line-height: .95; }
+.stream-window__panel aside { min-width: 0; padding: clamp(28px, 4vw, 46px); border-left: 1px solid rgba(255,255,255,.1); }
+.stream-window__panel aside h2 { margin: 16px 0 12px; font-family: var(--font-display); font-size: clamp(1.8rem, 3vw, 2.5rem); font-weight: 500; line-height: .95; }
 .stream-window__panel aside > p:not(.eyebrow) { margin-bottom: 26px; color: var(--color-muted); }
 
-@media (max-width: 880px) {
-  .tournament-gateways__grid { grid-template-columns: 1fr; }
-  .tournament-gateway { min-height: 390px; }
+@keyframes arenaAmbient {
+  from { transform: translate3d(-2%, -1%, 0) scale(.96); opacity: .72; }
+  to { transform: translate3d(2%, 2%, 0) scale(1.05); opacity: 1; }
+}
+
+@media (max-width: 980px) {
+  .arena-entry__head { grid-template-columns: 1fr; gap: 14px; }
+  .arena-entry__head > p { max-width: 660px; }
+  .arena-entry__stage { min-height: 560px; }
+  .arena-gateway__footer { display: block; }
+  .arena-gateway__cta { justify-content: flex-start; margin-top: 14px; text-align: left; }
   .stream-window__bar { grid-template-columns: 1fr auto; }
   .stream-window__schedule { grid-column: 1 / -1; grid-row: 2; padding: 14px 0 0; border-top: 1px solid rgba(255,255,255,.1); border-left: 0; }
   .stream-window__panel { grid-template-columns: 1fr; }
   .stream-window__panel aside { border-top: 1px solid rgba(255,255,255,.1); border-left: 0; }
 }
-@media (max-width: 620px) {
-  .tournament-hub-hero { min-height: 540px; }
-  .tournament-gateway { min-height: 340px; padding: 28px 24px; border-radius: 24px; }
-  .tournament-gateway h2 { font-size: clamp(3rem, 15vw, 4.4rem); }
-  .stream-window__bar { display: flex; flex-wrap: wrap; }
-  .stream-window__signal { width: 100%; }
-  .stream-window__schedule { width: 100%; }
-  .stream-window__toggle { width: 100%; justify-content: center; }
+@media (max-width: 720px) {
+  .arena-entry { min-height: auto; padding: 96px 0 32px; }
+  .arena-entry__breadcrumb { margin-bottom: 14px; font-size: .65rem; }
+  .arena-entry__head { margin-bottom: 22px; }
+  .arena-entry__head h1 { font-size: clamp(2.8rem, 14vw, 4.2rem); }
+  .arena-entry__head > p { font-size: .94rem; }
+  .arena-entry__stage,
+  .arena-entry__stage.is-league-active,
+  .arena-entry__stage.is-events-active {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1px;
+    min-height: 0;
+    overflow: visible;
+    border: 0;
+    border-radius: 0;
+    background: rgba(255,255,255,.12);
+    box-shadow: none;
+  }
+  .arena-gateway {
+    min-height: clamp(330px, 92vw, 410px);
+    padding: 28px 24px;
+    border: 1px solid rgba(255,255,255,.14);
+    border-radius: 26px;
+  }
+  .arena-gateway + .arena-gateway { margin-top: 12px; border-left: 1px solid rgba(255,255,255,.14); }
+  .arena-gateway__number { top: 23px; left: 24px; }
+  .arena-gateway__title { font-size: clamp(3.05rem, 14.5vw, 4.7rem); }
+  .arena-gateway__description { max-width: 92%; margin-top: 16px; font-size: .91rem; }
+  .arena-gateway__footer { margin-top: 24px; padding-top: 15px; }
+  .arena-gateway__ghost { right: -1rem; bottom: -1rem; font-size: clamp(5.2rem, 24vw, 7rem); }
+  .arena-entry__hint { display: none; }
+  .stream-window__bar { display: flex; flex-wrap: wrap; padding: 19px; }
+  .stream-window__signal,
+  .stream-window__schedule,
+  .stream-window__toggle { width: 100%; }
+  .stream-window__signal strong { white-space: normal; }
+  .stream-window__schedule { padding-top: 13px; }
+  .stream-window__schedule strong { white-space: normal; }
+  .stream-window__toggle { justify-content: center; }
   .stream-window__placeholder { min-height: 300px; flex-direction: column; text-align: center; }
-  .stream-window__player, .stream-window__player iframe { min-height: 300px; }
+  .stream-window__player,
+  .stream-window__player iframe { min-height: 300px; }
+}
+@media (max-width: 390px) {
+  .arena-entry__head h1 { font-size: 2.85rem; }
+  .arena-gateway { min-height: 350px; padding: 26px 20px; }
+  .arena-gateway__kicker { max-width: 95%; font-size: .61rem; letter-spacing: .11em; }
+  .arena-gateway__title { font-size: clamp(2.85rem, 14vw, 3.55rem); line-height: .86; }
+  .arena-gateway__description { max-width: 100%; overflow-wrap: anywhere; }
+  .arena-gateway__footer { min-width: 0; }
+  .arena-gateway__meta { display: block; max-width: 100%; overflow-wrap: anywhere; }
+  .arena-gateway__cta { max-width: 100%; font-size: .68rem; overflow-wrap: anywhere; }
+}
+@media (hover: none), (pointer: coarse) {
+  .arena-entry__stage { transition: none; }
+  .arena-gateway::after { opacity: .38; }
+  .arena-gateway::before { transform: scale(1.045); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .arena-entry::before,
+  .arena-entry::after { animation: none; }
+  .arena-entry__breadcrumb,
+  .arena-entry__head .eyebrow,
+  .arena-entry__head h1,
+  .arena-entry__head > p,
+  .arena-entry__stage,
+  .arena-entry__hint { opacity: 1; transform: none; }
+  .arena-gateway::before,
+  .arena-gateway__visual,
+  .arena-gateway__title,
+  .arena-gateway__ghost { transform: none !important; }
 }

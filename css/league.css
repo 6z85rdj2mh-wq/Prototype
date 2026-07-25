@@ -1,5 +1,5 @@
 /* ======================================================
-   LA TANA DI NIKA — NIKA LEAGUE V4.4.1
+   LA TANA DI NIKA — NIKA LEAGUE V4.4.2
 ====================================================== */
 .league-hero { min-height: 64svh; }
 .league-hero::after { background: linear-gradient(90deg, rgba(9,7,13,.96), rgba(9,7,13,.48) 64%, rgba(9,7,13,.7)), radial-gradient(circle at 76% 38%, rgba(146,92,255,.33), transparent 25rem); }
@@ -162,3 +162,46 @@
   background: rgba(255,255,255,.018);
 }
 .league-standings__stage-labels { display: grid; grid-template-columns: repeat(6, minmax(34px, 1fr)); gap: 5px; text-align: center; }
+
+
+/* V4.4.2 — Mobile containment and long-content safety */
+.league-overview__grid > *,
+.league-stories__grid > *,
+.season-detail > *,
+.league-standings__header > *,
+.league-podium__item > *,
+.league-standing__detail > *,
+.finale-feature__inner > * { min-width: 0; }
+.league-story h3,
+.league-story p,
+.season-detail h3,
+.season-detail dd,
+.league-standing__detail p,
+.league-standing__detail dd,
+.finale-feature h2,
+.finale-feature blockquote { overflow-wrap: anywhere; }
+.league-standings__board { max-width: 100%; }
+.league-standings__board::-webkit-scrollbar { height: 8px; }
+.league-standings__board::-webkit-scrollbar-thumb { border-radius: 999px; background: rgba(183,145,255,.32); }
+
+@media (max-width: 620px) {
+  .league-hero .eyebrow { max-width: 100%; font-size: .64rem; letter-spacing: .13em; overflow-wrap: anywhere; }
+  .league-standings__board { overscroll-behavior-inline: contain; scrollbar-width: thin; }
+  .league-standings__tools { width: 100%; }
+  .league-standings__tools p { gap: 12px; flex-wrap: wrap; }
+  .league-podium__item { grid-template-columns: auto minmax(0, 1fr) auto; padding: 18px; }
+  .league-podium h3 { overflow-wrap: anywhere; }
+  .finale-feature__inner { padding: 32px 22px; }
+  .finale-feature h2 { font-size: clamp(3rem, 14vw, 4.5rem); }
+  .finale-feature blockquote { padding-left: 15px; }
+}
+@media (max-width: 430px) {
+  .league-hero .internal-hero__facts { grid-template-columns: 1fr; }
+  .league-hero .internal-hero__fact { display: grid; grid-template-columns: auto 1fr; align-items: baseline; gap: 10px; text-align: left; }
+  .league-hero .internal-hero__fact strong { font-size: 1.25rem; }
+  .league-hero .internal-hero__fact span { overflow-wrap: anywhere; }
+  .league-podium__item { grid-template-columns: 34px minmax(0, 1fr); }
+  .league-podium__item > strong { grid-column: 2; text-align: left; }
+  .page-return__actions { display: grid; grid-template-columns: 1fr; }
+  .page-return__actions .button { width: 100%; justify-content: center; }
+}

@@ -1,0 +1,22 @@
+LA TANA DI NIKA — PATCH V4.4.2
+
+BASE: V4.4.1
+
+FILE MODIFICATI:
+- tornei/index.html
+- css/tournament-hub.css
+- js/components/tournament-hub.js
+- css/community-events.css
+- css/league.css
+- tornei/i-nostri-tornei/index.html
+- tornei/nika-league/index.html
+- js/i18n/it.js
+- js/i18n/en.js
+- README.md
+
+OBIETTIVI:
+- ingresso immediato nelle due aree torneistiche, senza Hero lunga;
+- grafica e animazioni più premium;
+- Twitch compatto ed espandibile;
+- contenimento responsive a 320–430 px;
+- nessuna modifica alla homepage o ai dati dei tornei.

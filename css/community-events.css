@@ -1,5 +1,5 @@
 /* ======================================================
-   LA TANA DI NIKA — COMMUNITY EVENTS V4.4.1
+   LA TANA DI NIKA — COMMUNITY EVENTS V4.4.2
 ====================================================== */
 .community-events-hero { min-height: 62svh; }
 .community-events-hero::after { background: linear-gradient(90deg, rgba(9,7,13,.96), rgba(9,7,13,.44) 62%, rgba(9,7,13,.72)), radial-gradient(circle at 72% 38%, rgba(183,145,255,.27), transparent 24rem); }
@@ -66,3 +66,58 @@
 }
 .community-spotlight__visual,
 .event-detail__main { background-size: cover; background-position: center; }
+
+
+/* V4.4.2 — Mobile containment and readability */
+.community-spotlight > *,
+.community-event-detail > *,
+.event-detail__main,
+.event-detail__prizes,
+.event-date-card,
+.event-date-card > *,
+.event-detail__main dl > div,
+.event-prize-tier > div,
+.community-principles article { min-width: 0; }
+.community-spotlight h2,
+.event-detail__main h3,
+.event-date-card b,
+.event-detail__main dd,
+.event-prize-tier span,
+.community-principles h3,
+.community-principles p { overflow-wrap: anywhere; word-break: normal; }
+.community-spotlight__meta span { max-width: 100%; white-space: normal; overflow-wrap: anywhere; }
+.community-spotlight__actions .button,
+.event-detail__main .button { max-width: 100%; white-space: normal; text-align: center; }
+.community-calendar__rail { max-width: 100%; overscroll-behavior-inline: contain; scrollbar-width: thin; }
+.event-detail__prizes-head > * { min-width: 0; }
+.event-detail__prizes-head span { max-width: 100%; white-space: normal; text-align: center; overflow-wrap: anywhere; }
+
+@media (max-width: 620px) {
+  .community-events-hero .eyebrow { max-width: 100%; font-size: .64rem; letter-spacing: .13em; overflow-wrap: anywhere; }
+  .community-events-hero .internal-hero__lead { max-width: 100%; }
+  .community-spotlight,
+  .community-event-detail { max-width: 100%; }
+  .community-spotlight h2,
+  .event-detail__main h3 { font-size: clamp(2.65rem, 12.5vw, 3.85rem); line-height: .9; }
+  .community-spotlight__meta { align-items: flex-start; }
+  .event-date-card { min-width: min(232px, calc(100vw - 42px)); grid-template-columns: 56px minmax(0, 1fr); padding: 17px; }
+  .event-date-card > strong { font-size: 2.55rem; }
+  .event-date-card b { font-size: 1.16rem; line-height: 1.06; }
+  .event-detail__prizes { padding: 27px 21px; }
+  .event-detail__prizes-head { align-items: flex-start; }
+  .event-prize-tier > div { grid-template-columns: minmax(52px, 64px) minmax(0, 1fr); gap: 9px; }
+  .community-principles article { padding: 25px 22px; }
+}
+@media (max-width: 430px) {
+  .community-events-hero .internal-hero__facts { grid-template-columns: 1fr; }
+  .community-events-hero .internal-hero__fact { display: grid; grid-template-columns: auto 1fr; align-items: baseline; gap: 10px; text-align: left; }
+  .community-events-hero .internal-hero__fact strong { font-size: 1.25rem; }
+  .community-events-hero .internal-hero__fact span { overflow-wrap: anywhere; }
+  .community-spotlight__actions,
+  .page-return__actions { display: grid; grid-template-columns: 1fr; }
+  .community-spotlight__actions .button,
+  .page-return__actions .button,
+  .event-detail__main .button { width: 100%; justify-content: center; }
+  .event-detail__prizes-head { flex-direction: column; }
+  .event-detail__prizes-head span { align-self: flex-start; }
+}

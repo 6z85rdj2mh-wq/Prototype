@@ -1,5 +1,5 @@
 /* ======================================================
-   LA TANA DI NIKA — TOURNAMENT HUB V4.4.1
+   LA TANA DI NIKA — TOURNAMENT HUB V4.4.2
 ====================================================== */
 window.NikaTournamentHub = {
   init() {
@@ -8,11 +8,49 @@ window.NikaTournamentHub = {
     const utils = window.NikaTournamentUtils;
     if (!root || !data || !utils) return;
 
+    const arena = root.querySelector('[data-arena-entry]');
+    const stage = root.querySelector('[data-arena-stage]');
+    const gateways = [...root.querySelectorAll('[data-arena-gateway]')];
+    const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const finePointer = window.matchMedia('(hover: hover) and (pointer: fine)').matches;
+
+    requestAnimationFrame(() => arena?.classList.add('is-ready'));
+
+    if (stage && finePointer) {
+      gateways.forEach(gateway => {
+        const side = gateway.dataset.arenaGateway;
+        gateway.addEventListener('pointerenter', () => {
+          stage.classList.toggle('is-league-active', side === 'league');
+          stage.classList.toggle('is-events-active', side === 'events');
+        });
+        gateway.addEventListener('pointermove', event => {
+          if (reducedMotion) return;
+          const rect = gateway.getBoundingClientRect();
+          const x = Math.max(0, Math.min(1, (event.clientX - rect.left) / rect.width));
+          const y = Math.max(0, Math.min(1, (event.clientY - rect.top) / rect.height));
+          gateway.style.setProperty('--pointer-x', `${(x * 100).toFixed(1)}%`);
+          gateway.style.setProperty('--pointer-y', `${(y * 100).toFixed(1)}%`);
+          gateway.style.setProperty('--depth-x', `${((x - .5) * -8).toFixed(1)}px`);
+          gateway.style.setProperty('--depth-y', `${((y - .5) * -6).toFixed(1)}px`);
+        });
+        gateway.addEventListener('pointerleave', () => {
+          gateway.style.removeProperty('--pointer-x');
+          gateway.style.removeProperty('--pointer-y');
+          gateway.style.removeProperty('--depth-x');
+          gateway.style.removeProperty('--depth-y');
+        });
+      });
+      stage.addEventListener('pointerleave', () => {
+        stage.classList.remove('is-league-active', 'is-events-active');
+      });
+    }
+
     const player = root.querySelector('[data-stream-player]');
     const panel = root.querySelector('[data-stream-panel]');
     const toggle = root.querySelector('[data-stream-toggle]');
     const status = root.querySelector('[data-stream-status]');
     const next = root.querySelector('[data-stream-next]');
+    let closeTimer;
 
     const render = () => {
       const language = utils.getLanguage();
@@ -21,10 +59,10 @@ window.NikaTournamentHub = {
       const statusLabels = {
         live: 'LIVE',
         upcoming: language === 'en' ? 'NEXT LIVE' : 'PROSSIMA LIVE',
-        replay: language === 'en' ? 'REPLAY' : 'REPLAY',
-        offline: language === 'en' ? 'OFFLINE' : 'OFFLINE'
+        replay: 'REPLAY',
+        offline: 'OFFLINE'
       };
-      if (status) status.textContent = valid ? (statusLabels[config.status] || statusLabels.offline) : (language === 'en' ? 'TWITCH READY' : 'TWITCH READY');
+      if (status) status.textContent = valid ? (statusLabels[config.status] || statusLabels.offline) : 'TWITCH READY';
       if (next) {
         const date = new Date(config.nextLive);
         next.textContent = Number.isNaN(date.getTime()) ? '' : new Intl.DateTimeFormat(utils.locale(language), {
@@ -49,9 +87,16 @@ window.NikaTournamentHub = {
     if (toggle && panel) {
       toggle.addEventListener('click', () => {
         const expanded = toggle.getAttribute('aria-expanded') === 'true';
+        clearTimeout(closeTimer);
         toggle.setAttribute('aria-expanded', String(!expanded));
-        panel.hidden = expanded;
         root.classList.toggle('is-stream-open', !expanded);
+        if (!expanded) {
+          panel.hidden = false;
+          requestAnimationFrame(() => panel.classList.add('is-visible'));
+        } else {
+          panel.classList.remove('is-visible');
+          closeTimer = window.setTimeout(() => { panel.hidden = true; }, reducedMotion ? 0 : 430);
+        }
         const label = toggle.querySelector('[data-stream-toggle-label]');
         if (label) label.textContent = !expanded
           ? (utils.getLanguage() === 'en' ? 'Close player' : 'Chiudi il player')

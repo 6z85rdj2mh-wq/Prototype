@@ -1,25 +1,50 @@
-# La Tana di Nika — V4.4.0
+# La Tana di Nika — V4.4.2 Tournament Architecture
 
-Base stabile V4.3.3 con prima fondazione delle pagine interne.
+Base: V4.3.3 Motion, con riorganizzazione dell’Area Torneistica introdotta nella V4.4.0.
 
-## Nuovo
+## Obiettivo della patch
 
-- Nuova pagina `/tornei/`.
-- Tripartizione: Nika League, I nostri tornei, Segui le dirette.
-- Calendario Nika League con 6 tappe + Finale.
-- Reminder `.ics` per il calendario del telefono, impostato 2 ore prima.
-- Classifica dinamica: i 4 risultati migliori contano, i 2 scarti sono rossi.
-- Descrizioni editoriali per tutte le tappe e commento speciale per la Finale.
-- Secondo calendario per local, domenicali ed eventi fuori dalla lega.
-- Griglie premi personalizzabili.
-- Player Twitch predisposto tramite placeholder.
-- Pulsante “Torna alla Home” in fondo alla pagina interna.
-- Dati centralizzati in `js/data/tournaments.js`.
+Ridurre la densità della pagina `/tornei/` e trasformarla in un hub premium e immediato.
+I contenuti completi sono ora divisi in pagine dedicate:
 
-## Homepage
+- `/tornei/` — hub con due grandi accessi e finestra Twitch espandibile;
+- `/tornei/nika-league/` — calendario, cronache, classifica e Finale;
+- `/tornei/i-nostri-tornei/` — local, domenicali, eventi speciali e griglie premi.
 
-La homepage non è stata ridisegnata. Sono stati modificati soltanto i collegamenti necessari per raggiungere la nuova Area Torneistica.
+## Classifica Nika League
 
-## Immagini tornei
+- supporta fino a 64 giocatori;
+- mostra soltanto i giocatori presenti nell’array `standings`;
+- non crea righe vuote;
+- mostra le sei tappe;
+- evidenzia in rosso i due risultati esclusi;
+- apre una scheda narrativa per leggere le gesta del giocatore;
+- include ricerca per nome o Leader.
 
-Inserire le immagini in `assets/images/tournaments/` e indicare il percorso nel file dati. Se un’immagine non è presente, viene mostrato automaticamente un fallback grafico.
+## Dati modificabili
+
+Tutti i dati dimostrativi sono raccolti in:
+
+`js/data/tournaments.js`
+
+Da qui si modificano date, immagini, giocatori, punteggi, racconti, eventi, premi e impostazioni Twitch.
+
+## Twitch
+
+La finestra Twitch è presente nell’hub ma usa placeholder finché non vengono inseriti:
+
+- `channel`;
+- `parent`;
+- `enabled: true`.
+
+## Regola condivisa
+
+Ogni pagina interna termina con il pulsante `Torna alla Home`.
+
+
+## V4.4.2 — Premium Tournament Entry
+
+- Hub Tornei trasformato in ingresso diretto con due arene premium.
+- Animazioni pointer e reveal alleggerite e rispettose di reduced motion.
+- Finestra Twitch compatta con apertura animata.
+- Ottimizzazione mobile per testi dinamici, premi, badge, pulsanti e classifica.
