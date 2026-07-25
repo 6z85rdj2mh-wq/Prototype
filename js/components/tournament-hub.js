@@ -1,5 +1,5 @@
 /* ======================================================
-   LA TANA DI NIKA — TOURNAMENT HUB V4.4.4
+   LA TANA DI NIKA — TOURNAMENT HUB V4.4.5
 ====================================================== */
 window.NikaTournamentHub = {
   init() {

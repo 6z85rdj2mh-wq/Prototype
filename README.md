@@ -1,4 +1,4 @@
-# La Tana di Nika — V4.4.4 Tournament Architecture
+# La Tana di Nika — V4.4.5 Tournament Architecture
 
 Base: V4.3.3 Motion, con riorganizzazione dell’Area Torneistica introdotta nella V4.4.0.
 
@@ -67,3 +67,13 @@ Ogni pagina interna termina con il pulsante `Torna alla Home`.
 - “I nostri tornei” mostra la data del prossimo evento direttamente nella card.
 - Barra Twitch mantenuta sopra le due scelte principali.
 - Nessuna modifica alle pagine interne o ai dati strutturali.
+
+
+## V4.4.5 — Separate Card Scale Polish
+
+- Le due card dell’hub hanno dimensioni uguali e restano visivamente separate.
+- Eliminato l’allargamento tramite scorrimento delle colonne.
+- Hover desktop basato su ingrandimento della card attiva e lieve arretramento dell’altra.
+- Sfondi grigio e viola arricchiti con texture e profondità sobrie.
+- Mobile invariato, senza trasformazioni che possano creare overflow.
+- Nessuna modifica alle pagine interne, ai dati o alla mascotte.

@@ -1,5 +1,5 @@
 /* ======================================================
-   LA TANA DI NIKA — TOURNAMENT HUB V4.4.4
+   LA TANA DI NIKA — TOURNAMENT HUB V4.4.5
    League = continuità. Tornei = appuntamenti con identità propria.
 ====================================================== */
 .arena-entry {
@@ -170,33 +170,43 @@
 .stream-window__panel aside h2 { margin: 16px 0 12px; font-family: var(--font-display); font-size: clamp(1.8rem, 3vw, 2.45rem); font-weight: 500; line-height: .95; }
 .stream-window__panel aside > p:not(.eyebrow) { margin-bottom: 26px; color: var(--color-muted); }
 
-/* DUE PORTE, DUE LINGUAGGI COMPETITIVI */
+/* DUE CARD SEPARATE, STESSO PESO, IDENTITÀ DISTINTE */
 .arena-entry__stage {
   display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: clamp(16px, 2vw, 28px);
   min-height: clamp(500px, 58vh, 650px);
-  overflow: hidden;
-  border: 1px solid rgba(255,255,255,.15);
-  border-radius: 34px;
-  background: #0c0a10;
-  box-shadow: 0 35px 90px rgba(0,0,0,.28), inset 0 1px rgba(255,255,255,.05);
+  overflow: visible;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  box-shadow: none;
   opacity: 0;
   transform: translateY(28px) scale(.985);
-  transition: grid-template-columns 900ms var(--ease-premium), border-color 600ms ease, box-shadow 700ms ease;
 }
 .arena-entry.is-ready .arena-entry__stage {
   opacity: 1;
   transform: translateY(0) scale(1);
-  transition:
-    opacity 1100ms 340ms ease,
-    transform 1200ms 340ms var(--ease-premium),
-    grid-template-columns 900ms var(--ease-premium),
-    border-color 600ms ease,
-    box-shadow 700ms ease;
+  transition: opacity 1100ms 340ms ease, transform 1200ms 340ms var(--ease-premium);
 }
-.arena-entry__stage.is-league-active { grid-template-columns: minmax(0, 1.1fr) minmax(0, .9fr); border-color: rgba(154,112,255,.4); }
-.arena-entry__stage.is-events-active { grid-template-columns: minmax(0, .9fr) minmax(0, 1.1fr); border-color: rgba(225,207,255,.36); }
 
+/* L'hover non sposta la griglia: ingrandisce la card scelta e arretra appena l'altra. */
+.arena-entry__stage.is-league-active .arena-gateway--league,
+.arena-entry__stage.is-events-active .arena-gateway--events {
+  z-index: 3;
+  transform: translateY(-7px) scale(1.028);
+  filter: saturate(1.08) brightness(1.04);
+  box-shadow:
+    0 34px 84px rgba(0,0,0,.36),
+    0 0 0 1px rgba(177,139,255,.22),
+    inset 0 1px rgba(255,255,255,.075);
+}
+.arena-entry__stage.is-league-active .arena-gateway--events,
+.arena-entry__stage.is-events-active .arena-gateway--league {
+  transform: scale(.982);
+  filter: saturate(.78) brightness(.82);
+  opacity: .82;
+}
 .arena-gateway {
   --pointer-x: 50%;
   --pointer-y: 45%;
@@ -209,10 +219,21 @@
   overflow: hidden;
   isolation: isolate;
   padding: clamp(30px, 4vw, 56px);
+  border: 1px solid rgba(255,255,255,.14);
+  border-radius: clamp(25px, 2.4vw, 34px);
   background: #111018;
-  transition: filter 650ms ease;
+  box-shadow: 0 24px 65px rgba(0,0,0,.24), inset 0 1px rgba(255,255,255,.055);
+  transform: translateY(0) scale(1);
+  transform-origin: center;
+  opacity: 1;
+  transition:
+    transform 820ms var(--ease-premium),
+    filter 680ms ease,
+    opacity 620ms ease,
+    border-color 620ms ease,
+    box-shadow 760ms var(--ease-premium);
 }
-.arena-gateway + .arena-gateway { border-left: 1px solid rgba(255,255,255,.12); }
+.arena-gateway + .arena-gateway { border-left: 1px solid rgba(255,255,255,.14); }
 .arena-gateway::before,
 .arena-gateway::after {
   content: "";
@@ -227,16 +248,18 @@
 }
 .arena-gateway--league::before {
   background:
-    linear-gradient(180deg, rgba(9,7,13,.03) 4%, rgba(9,7,13,.22) 43%, rgba(9,7,13,.97) 100%),
-    radial-gradient(circle at 76% 19%, rgba(125,79,255,.44), transparent 24rem),
-    linear-gradient(150deg, #181326, #08070d 80%);
+    linear-gradient(180deg, rgba(9,7,13,.02) 2%, rgba(9,7,13,.18) 42%, rgba(9,7,13,.97) 100%),
+    radial-gradient(circle at 76% 18%, rgba(139,91,255,.48), transparent 20rem),
+    repeating-radial-gradient(ellipse at 25% 118%, transparent 0 46px, rgba(213,198,255,.035) 47px 48px, transparent 49px 78px),
+    linear-gradient(148deg, #1b1723 0%, #111018 45%, #08070d 100%);
 }
 .arena-gateway--events::before {
   background:
-    linear-gradient(180deg, rgba(9,7,13,.02) 4%, rgba(9,7,13,.2) 42%, rgba(9,7,13,.96) 100%),
-    radial-gradient(circle at 74% 18%, rgba(225,207,255,.3), transparent 20rem),
-    radial-gradient(circle at 24% 56%, rgba(118,68,194,.2), transparent 19rem),
-    linear-gradient(136deg, #0a080e, #21182a 56%, #09070d);
+    linear-gradient(180deg, rgba(9,7,13,.015) 2%, rgba(9,7,13,.18) 42%, rgba(9,7,13,.96) 100%),
+    radial-gradient(ellipse at 72% 22%, rgba(196,163,255,.3), transparent 18rem),
+    radial-gradient(ellipse at 20% 62%, rgba(113,60,183,.28), transparent 18rem),
+    repeating-linear-gradient(132deg, transparent 0 58px, rgba(237,228,255,.025) 59px, transparent 61px 96px),
+    linear-gradient(136deg, #0a080e 0%, #201726 54%, #09070d 100%);
 }
 .arena-gateway::after {
   z-index: -1;
@@ -258,12 +281,14 @@
 }
 .arena-gateway--league .arena-gateway__visual {
   background:
-    repeating-linear-gradient(104deg, transparent 0 58px, rgba(255,255,255,.035) 59px, transparent 61px),
-    linear-gradient(115deg, transparent 36%, rgba(255,255,255,.075) 49%, transparent 62%);
+    radial-gradient(ellipse at 70% 34%, transparent 0 24%, rgba(202,184,255,.08) 25%, transparent 26% 35%, rgba(202,184,255,.045) 36%, transparent 37%),
+    linear-gradient(115deg, transparent 35%, rgba(255,255,255,.075) 49%, transparent 63%),
+    repeating-linear-gradient(104deg, transparent 0 66px, rgba(255,255,255,.025) 67px, transparent 69px 110px);
   transform: translateX(-76%);
 }
 .arena-gateway--events .arena-gateway__visual {
   background:
+    radial-gradient(ellipse at 64% 47%, rgba(221,205,255,.09), transparent 34%),
     conic-gradient(from 215deg at 70% 30%, transparent, rgba(255,255,255,.09), transparent 26%),
     linear-gradient(76deg, transparent 34%, rgba(255,255,255,.07) 49%, transparent 64%);
   transform: translateX(74%);
@@ -547,13 +572,19 @@
   .arena-entry__stage.is-events-active {
     display: grid;
     grid-template-columns: 1fr;
-    gap: 12px;
+    gap: 14px;
     min-height: 0;
     overflow: visible;
     border: 0;
     border-radius: 0;
     background: transparent;
     box-shadow: none;
+  }
+  .arena-entry__stage.is-league-active .arena-gateway,
+  .arena-entry__stage.is-events-active .arena-gateway {
+    transform: none;
+    filter: none;
+    opacity: 1;
   }
   .arena-gateway {
     min-height: clamp(360px, 100vw, 440px);
@@ -581,8 +612,13 @@
   .arena-gateway__cta { max-width: 100%; font-size: .67rem; overflow-wrap: anywhere; }
 }
 @media (hover: none), (pointer: coarse) {
-  .arena-entry__stage { transition: none; }
-  .arena-gateway::after { opacity: .3; }
+  .arena-entry__stage.is-league-active .arena-gateway,
+  .arena-entry__stage.is-events-active .arena-gateway {
+    transform: none;
+    filter: none;
+    opacity: 1;
+  }
+  .arena-gateway::after { opacity: .24; }
   .arena-gateway::before { transform: scale(1.045); }
   .stream-window__bar:hover { transform: none; }
 }

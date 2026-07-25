@@ -1,0 +1,11 @@
+LA TANA DI NIKA — PATCH V4.4.5
+
+Base: V4.4.4
+
+Intervento localizzato sull’hub /tornei/:
+- le due card restano uguali per dimensione e completamente separate;
+- rimosso l’allargamento tramite variazione delle colonne;
+- hover premium tramite ingrandimento della card attiva e lieve arretramento dell’altra;
+- sfondi grigio e viola arricchiti con texture, profondità e luci sobrie;
+- nessuna modifica ai testi, alla struttura delle pagine interne o alla mascotte;
+- comportamento mobile invariato e senza trasformazioni che possano creare overflow.
