@@ -1,0 +1,32 @@
+LA TANA DI NIKA — PATCH V4.4.0
+
+FILE NUOVI
+- tornei/index.html
+- css/pages.css
+- css/tournaments.css
+- js/data/tournaments.js
+- js/components/tournaments-page.js
+- assets/images/tournaments/README.txt
+- PATCH_NOTES_V4.4.0.txt
+
+FILE MODIFICATI
+- index.html: solo collegamenti verso /tornei/ e versionamento cache
+- js/main.js: inizializzazione opzionale della pagina Tornei
+- js/i18n/it.js: testi pagina Tornei
+- js/i18n/en.js: testi pagina Tornei
+- README.md: versione e riepilogo
+
+FILE NON TOCCATI
+- css/home.css
+- js/components/hero-split.js
+- js/components/tournament-motion.js
+- js/components/search-switcher.js
+- immagini e animazioni della homepage
+
+DATI DA SOSTITUIRE PIÙ AVANTI
+- date e orari reali
+- location
+- immagini delle espansioni
+- nomi e punteggi della classifica
+- griglie premi definitive
+- nome canale Twitch e dominio parent

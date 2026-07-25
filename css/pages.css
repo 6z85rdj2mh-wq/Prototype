@@ -1,0 +1,141 @@
+/* ======================================================
+   LA TANA DI NIKA — INTERNAL PAGE FOUNDATION V4.4.0
+====================================================== */
+.internal-page {
+  min-height: 100svh;
+  background:
+    radial-gradient(circle at 80% 4%, rgba(146,92,255,.16), transparent 31rem),
+    radial-gradient(circle at 8% 34%, rgba(75,28,141,.12), transparent 28rem),
+    var(--color-black);
+}
+
+.internal-hero {
+  position: relative;
+  min-height: 68svh;
+  display: grid;
+  align-items: end;
+  overflow: hidden;
+  isolation: isolate;
+  padding: 150px 0 clamp(72px, 9vw, 118px);
+  border-bottom: 1px solid var(--color-line);
+}
+.internal-hero::before {
+  content: "";
+  position: absolute;
+  z-index: -2;
+  inset: 0;
+  background:
+    linear-gradient(180deg, rgba(9,7,13,.3), rgba(9,7,13,.9)),
+    url("../assets/images/hero-sea.png") center 62% / cover no-repeat;
+  filter: saturate(.72) brightness(.62);
+  transform: scale(1.03);
+}
+.internal-hero::after {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  inset: 0;
+  background:
+    linear-gradient(90deg, rgba(9,7,13,.92) 0%, rgba(9,7,13,.54) 55%, rgba(9,7,13,.72) 100%),
+    radial-gradient(circle at 70% 38%, rgba(146,92,255,.24), transparent 28rem);
+}
+.internal-hero__content { max-width: 900px; }
+.breadcrumb {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 9px;
+  margin-bottom: 30px;
+  color: rgba(255,255,255,.58);
+  font-size: .75rem;
+  font-weight: 800;
+  letter-spacing: .11em;
+  text-transform: uppercase;
+}
+.breadcrumb a:hover { color: var(--color-white); }
+.breadcrumb span[aria-hidden="true"] { color: var(--color-purple-bright); }
+.internal-hero h1 {
+  max-width: 780px;
+  margin-bottom: 26px;
+  font-family: var(--font-display);
+  font-size: clamp(3.3rem, 8vw, 7.7rem);
+  font-weight: 500;
+  line-height: .86;
+  letter-spacing: -.065em;
+}
+.internal-hero__lead {
+  max-width: 720px;
+  margin-bottom: 38px;
+  color: rgba(247,244,255,.74);
+  font-size: clamp(1rem, 1.45vw, 1.22rem);
+}
+.internal-hero__facts {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+.internal-hero__fact {
+  min-width: 150px;
+  padding: 15px 18px;
+  border: 1px solid rgba(255,255,255,.14);
+  border-radius: var(--radius-md);
+  background: rgba(9,7,13,.44);
+  backdrop-filter: blur(14px);
+}
+.internal-hero__fact strong { display: block; font-family: var(--font-display); font-size: 1.42rem; font-weight: 500; }
+.internal-hero__fact span { color: var(--color-muted); font-size: .75rem; font-weight: 750; letter-spacing: .08em; text-transform: uppercase; }
+
+.page-section { position: relative; padding: clamp(82px, 10vw, 138px) 0; }
+.page-section + .page-section { border-top: 1px solid rgba(255,255,255,.07); }
+.page-section__head {
+  display: flex;
+  justify-content: space-between;
+  align-items: end;
+  gap: 30px;
+  margin-bottom: clamp(36px, 5vw, 60px);
+}
+.page-section__copy { max-width: 730px; }
+.page-section__copy h2 {
+  margin-bottom: 16px;
+  font-family: var(--font-display);
+  font-size: clamp(2.5rem, 5.3vw, 5rem);
+  font-weight: 500;
+  line-height: .94;
+  letter-spacing: -.05em;
+}
+.page-section__copy > p:last-child { color: var(--color-muted); font-size: 1.02rem; }
+.status-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  width: max-content;
+  padding: 8px 12px;
+  border: 1px solid rgba(183,145,255,.25);
+  border-radius: var(--radius-pill);
+  color: var(--color-purple-bright);
+  background: rgba(146,92,255,.08);
+  font-size: .68rem;
+  font-weight: 850;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+}
+.status-chip i { width: 6px; height: 6px; border-radius: 50%; background: currentColor; box-shadow: 0 0 13px currentColor; }
+
+.page-return {
+  padding: 50px 0 80px;
+  text-align: center;
+  border-top: 1px solid var(--color-line);
+}
+.page-return p { margin-bottom: 20px; color: var(--color-muted); }
+.button--home svg { width: 17px; height: 17px; fill: none; stroke: currentColor; stroke-width: 1.8; }
+
+@media (max-width: 760px) {
+  .internal-hero { min-height: 620px; padding-top: 125px; }
+  .internal-hero h1 { font-size: clamp(3.3rem, 17vw, 5.6rem); }
+  .internal-hero__facts { display: grid; grid-template-columns: repeat(3, 1fr); }
+  .internal-hero__fact { min-width: 0; padding: 13px 11px; }
+  .internal-hero__fact strong { font-size: 1.12rem; }
+  .internal-hero__fact span { font-size: .61rem; }
+  .page-section__head { display: block; }
+  .page-section__head > :last-child:not(:first-child) { margin-top: 22px; }
+}

@@ -73,5 +73,24 @@ window.NIKA_TRANSLATIONS.it = {
     editorialTitle: "Leggi il meta prima che cambi.",
     editorialLink: "Scopri i contenuti"
   },
+  tournamentPage: {
+    breadcrumbHome: "Home", breadcrumbCurrent: "Area Torneistica",
+    heroEyebrow: "LA COMPETIZIONE DELLA TANA", heroTitle: "Entra nell’arena.", heroLead: "Nika League, tornei della community e dirette Twitch: tre modi diversi di vivere ogni evento della Tana.",
+    factStages: "Tappe e Finale", factDrops: "Scarti finali", factLive: "Twitch ready",
+    portalsEyebrow: "TRE PORTE, UNA SOLA ARENA", portalsTitle: "Scegli come vivere la Torneistica.",
+    leagueState: "Stagione in corso", leagueTitle: "Nika League", leagueText: "Sei tappe, due scarti e una Finale per incoronare il campione della Tana.", discoverLeague: "Scopri la League",
+    eventsState: "Local e domenicali", eventsTitle: "I nostri tornei", eventsText: "Eventi fuori dalla lega, calendari indipendenti e griglie premi personalizzabili.", discoverEvents: "Esplora gli eventi",
+    streamTitle: "Segui le dirette", streamText: "La Finale e gli eventi speciali in diretta Twitch, con replay e VOD in futuro.", discoverStream: "Vai allo streaming",
+    leagueEyebrow: "CAMPIONATO PRINCIPALE", leagueSectionTitle: "Nika League", leagueSectionText: "Segui ogni appuntamento, aggiungilo al calendario del telefono e scopri come cambiano classifica e scarti dopo ogni tappa.", demoData: "Dati dimostrativi",
+    ruleTitle: "Contano i quattro risultati migliori.", ruleText: "Le due tappe peggiori restano visibili in rosso, ma vengono sottratte dal totale finale.",
+    calendarEyebrow: "CALENDARIO NIKA LEAGUE", calendarTitle: "Sei tappe più la Finale.", calendarText: "Seleziona una data per leggere descrizione, formato e dettagli dell’evento.",
+    standingsEyebrow: "CLASSIFICA GENERALE", standingsTitle: "Una classifica che racconta la stagione.", standingsText: "Apri ogni giocatore per vedere punti ottenuti, punti scartati e andamento.", discardLegend: "Risultato escluso dal conteggio finale",
+    finalEyebrow: "IL CAPITOLO CONCLUSIVO", finalSectionTitle: "La Finale della Nika League.", finalBadge: "EVENTO SPECIALE", finalReminder: "Ricordami la Finale", watchStream: "Segui la diretta", finalStreamReady: "Spazio live già predisposto.", finalStreamText: "Quando inseriremo il canale Twitch, qui appariranno diretta, stato live e futuro replay.",
+    ourEventsEyebrow: "FUORI DALLA LEGA", ourEventsTitle: "I nostri tornei.", ourEventsText: "Local, domenicali ed eventi speciali con un calendario indipendente e premi adattabili al numero di partecipanti.", separateCalendar: "Calendario separato",
+    nextEventsEyebrow: "PROSSIMI APPUNTAMENTI", nextEventsTitle: "Eventi e griglie premi.", nextEventsText: "Ogni torneo può avere premi diversi in base a formato e numero di partecipanti.",
+    streamingEyebrow: "DIRETTE E REPLAY", streamingTitle: "Segui la Tana ovunque ti trovi.", streamingText: "Il player è pronto per il canale Twitch. Per ora usa valori placeholder e non carica contenuti esterni.", streamSideTitle: "Configurazione futura", streamSideText: "Basterà inserire nome del canale e dominio del sito nel file dati. Nessuna password o chiave di streaming sarà necessaria.",
+    toolsEyebrow: "STRUMENTI DELL’ARENA", toolsTitle: "Tutto quello che serve, senza rumore.", toolCalendar: "Calendari", toolCalendarText: "League ed eventi indipendenti.", toolResults: "Classifiche e risultati", toolResultsText: "Punti, scarti e Top.", toolRules: "Regolamenti e formati", toolRulesText: "Sezione futura.", toolArchive: "Archivio e decklist", toolArchiveText: "Sezione futura.",
+    returnText: "Hai concluso il giro dell’arena?", returnHome: "Torna alla Home"
+  },
   footer: { claim: "Carte, strategia, tornei e community. Tutto nello stesso luogo." }
 };
