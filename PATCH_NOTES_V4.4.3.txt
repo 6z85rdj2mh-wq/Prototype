@@ -1,0 +1,20 @@
+LA TANA DI NIKA — PATCH V4.4.3
+
+BASE: V4.4.2
+
+FILE MODIFICATI:
+- tornei/index.html
+- css/tournament-hub.css
+- js/components/tournament-hub.js
+- js/i18n/it.js
+- js/i18n/en.js
+- README.md
+
+OBIETTIVI:
+- portare la finestra Twitch sopra le due scelte principali;
+- distinguere visivamente Nika League e tornei one shot;
+- comunicare continuità e percorso nella League;
+- comunicare unicità, esclusività e intensità nei tornei esterni;
+- aggiungere dettagli grafici astratti ispirati alla nuvoletta senza modificare la mascotte ufficiale;
+- mantenere la struttura breve e le pagine interne separate;
+- preservare accessibilità, responsive e reduced motion.

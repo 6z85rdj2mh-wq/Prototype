@@ -1,65 +1,64 @@
 /* ======================================================
-   LA TANA DI NIKA — TOURNAMENT HUB V4.4.2
-   Ingresso diretto, due arene e finestra Twitch compatta.
+   LA TANA DI NIKA — TOURNAMENT HUB V4.4.3
+   League = continuità. Eventi = unicità one shot.
 ====================================================== */
 .arena-entry {
   position: relative;
   min-height: 100svh;
   overflow: hidden;
   isolation: isolate;
-  padding: 112px 0 clamp(34px, 5vw, 62px);
+  padding: 108px 0 clamp(44px, 6vw, 76px);
   border-bottom: 1px solid rgba(255,255,255,.08);
 }
 .arena-entry__backdrop {
   position: absolute;
-  z-index: -3;
+  z-index: -4;
   inset: 0;
   background:
-    linear-gradient(180deg, rgba(9,7,13,.18), rgba(9,7,13,.9) 88%),
+    linear-gradient(180deg, rgba(9,7,13,.12), rgba(9,7,13,.88) 90%),
     url("../assets/images/hero-sea.png") center 56% / cover no-repeat;
-  filter: saturate(.64) brightness(.42);
+  filter: saturate(.6) brightness(.4);
   transform: scale(1.04);
 }
 .arena-entry::before,
 .arena-entry::after {
   content: "";
   position: absolute;
-  z-index: -2;
+  z-index: -3;
   border-radius: 50%;
   pointer-events: none;
-  filter: blur(2px);
 }
 .arena-entry::before {
-  width: min(52vw, 760px);
+  width: min(54vw, 800px);
   aspect-ratio: 1;
-  top: -28%;
-  right: -12%;
+  top: -31%;
+  right: -14%;
   background: radial-gradient(circle, rgba(146,92,255,.27), transparent 68%);
-  animation: arenaAmbient 13s ease-in-out infinite alternate;
+  animation: arenaAmbient 14s ease-in-out infinite alternate;
 }
 .arena-entry::after {
-  width: min(44vw, 660px);
+  width: min(46vw, 680px);
   aspect-ratio: 1;
-  bottom: -32%;
+  bottom: -34%;
   left: -14%;
   background: radial-gradient(circle, rgba(84,38,143,.2), transparent 68%);
-  animation: arenaAmbient 16s ease-in-out infinite alternate-reverse;
+  animation: arenaAmbient 17s ease-in-out infinite alternate-reverse;
 }
 .arena-entry__shell { position: relative; }
-.arena-entry__breadcrumb { margin-bottom: 18px; opacity: 0; transform: translateY(12px); }
+.arena-entry__breadcrumb { margin-bottom: 14px; opacity: 0; transform: translateY(12px); }
 .arena-entry__head {
   display: grid;
-  grid-template-columns: minmax(0, 1.1fr) minmax(280px, .55fr);
+  grid-template-columns: minmax(0, 1.08fr) minmax(280px, .55fr);
   align-items: end;
   gap: clamp(24px, 5vw, 72px);
-  margin-bottom: clamp(24px, 3vw, 38px);
+  margin-bottom: clamp(18px, 2.4vw, 28px);
 }
 .arena-entry__head > * { min-width: 0; }
-.arena-entry__head .eyebrow { margin-bottom: 10px; opacity: 0; transform: translateY(14px); }
+.arena-entry__head .eyebrow { margin-bottom: 9px; opacity: 0; transform: translateY(14px); }
 .arena-entry__head h1 {
   margin: 0;
   font-family: var(--font-display);
-  font-size: clamp(2.7rem, 5vw, 5.4rem);
+  font-size: clamp(2.65rem, 4.8vw, 5.15rem);
   font-weight: 500;
   line-height: .88;
   letter-spacing: -.06em;
@@ -67,10 +66,10 @@
   transform: translateY(20px);
 }
 .arena-entry__head > p {
-  max-width: 520px;
+  max-width: 510px;
   margin: 0 0 4px;
-  color: rgba(247,244,255,.68);
-  font-size: clamp(.94rem, 1.2vw, 1.08rem);
+  color: rgba(247,244,255,.66);
+  font-size: clamp(.92rem, 1.14vw, 1.04rem);
   opacity: 0;
   transform: translateY(18px);
 }
@@ -82,15 +81,100 @@
   transform: translateY(0);
   transition: opacity 900ms ease, transform 1000ms var(--ease-premium);
 }
-.arena-entry.is-ready .arena-entry__head .eyebrow { transition-delay: 80ms; }
-.arena-entry.is-ready .arena-entry__head h1 { transition-delay: 150ms; }
-.arena-entry.is-ready .arena-entry__head > p { transition-delay: 230ms; }
+.arena-entry.is-ready .arena-entry__head .eyebrow { transition-delay: 70ms; }
+.arena-entry.is-ready .arena-entry__head h1 { transition-delay: 130ms; }
+.arena-entry.is-ready .arena-entry__head > p { transition-delay: 200ms; }
 
+/* STREAM: visibile prima delle scelte, ma gerarchicamente secondaria */
+.stream-window--priority {
+  margin-bottom: clamp(16px, 2.2vw, 24px);
+  opacity: 0;
+  transform: translateY(18px);
+}
+.arena-entry.is-ready .stream-window--priority {
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 900ms 250ms ease, transform 1000ms 250ms var(--ease-premium);
+}
+.stream-window__bar {
+  position: relative;
+  display: grid;
+  grid-template-columns: minmax(0, 1.15fr) minmax(220px, .65fr) auto;
+  align-items: center;
+  gap: 22px;
+  overflow: hidden;
+  padding: 16px 18px;
+  border: 1px solid rgba(196,170,255,.2);
+  border-radius: 20px;
+  background: linear-gradient(110deg, rgba(28,22,37,.88), rgba(12,10,17,.9));
+  box-shadow: inset 0 1px rgba(255,255,255,.045), 0 16px 50px rgba(0,0,0,.16);
+  backdrop-filter: blur(18px);
+  transition: border-color 500ms ease, background 600ms ease, transform 600ms var(--ease-premium);
+}
+.stream-window__bar::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: linear-gradient(100deg, transparent 26%, rgba(255,255,255,.055) 47%, transparent 68%);
+  transform: translateX(-78%);
+  transition: transform 1100ms var(--ease-premium);
+}
+.stream-window__bar:hover { border-color: rgba(194,159,255,.42); transform: translateY(-2px); }
+.stream-window__bar:hover::before { transform: translateX(76%); }
+.stream-window__signal { min-width: 0; display: flex; align-items: center; gap: 14px; }
+.stream-window__signal > div { min-width: 0; }
+.stream-window__dot {
+  width: 11px;
+  height: 11px;
+  flex: 0 0 auto;
+  border-radius: 50%;
+  background: var(--color-purple-bright);
+  box-shadow: 0 0 0 6px rgba(146,92,255,.1), 0 0 24px rgba(146,92,255,.48);
+}
+[data-stream-state="live"] .stream-window__dot {
+  background: #ff536d;
+  box-shadow: 0 0 0 6px rgba(255,83,109,.1), 0 0 26px rgba(255,83,109,.58);
+  animation: livePulse 1.9s ease-in-out infinite;
+}
+.stream-window__signal p,
+.stream-window__schedule span { color: var(--color-purple-bright); font-size: .61rem; font-weight: 850; letter-spacing: .12em; text-transform: uppercase; }
+.stream-window__signal strong { display: block; overflow: hidden; margin-top: 3px; font-family: var(--font-display); font-size: 1.25rem; font-weight: 500; text-overflow: ellipsis; white-space: nowrap; }
+.stream-window__schedule { min-width: 0; padding-left: 22px; border-left: 1px solid rgba(255,255,255,.1); }
+.stream-window__schedule strong { display: block; overflow: hidden; margin-top: 4px; color: rgba(255,255,255,.76); font-size: .76rem; text-overflow: ellipsis; text-transform: capitalize; white-space: nowrap; }
+.stream-window__toggle { position: relative; z-index: 1; white-space: nowrap; }
+.stream-window__toggle i { font-style: normal; transition: transform 400ms var(--ease-premium); }
+.is-stream-open .stream-window__toggle i { transform: rotate(45deg); }
+.stream-window__panel {
+  display: grid;
+  grid-template-columns: minmax(0, 1.45fr) minmax(270px, .55fr);
+  overflow: hidden;
+  margin-top: 12px;
+  border: 1px solid rgba(255,255,255,.12);
+  border-radius: 22px;
+  background: #0d0a12;
+  opacity: 0;
+  transform: translateY(-10px) scale(.995);
+  transform-origin: top;
+  transition: opacity 420ms ease, transform 520ms var(--ease-premium), border-color 420ms ease;
+}
+.stream-window__panel[hidden] { display: none; }
+.stream-window__panel.is-visible { opacity: 1; transform: translateY(0) scale(1); border-color: rgba(183,145,255,.22); }
+.stream-window__player { min-height: 360px; background: radial-gradient(circle at center, rgba(146,92,255,.16), transparent 20rem), #08070b; }
+.stream-window__player iframe { display: block; width: 100%; min-height: 360px; border: 0; }
+.stream-window__placeholder { min-height: 360px; display: flex; justify-content: center; align-items: center; gap: 18px; padding: 30px; text-align: left; }
+.stream-window__placeholder > span { display: grid; place-items: center; width: 64px; height: 64px; flex: 0 0 auto; border: 1px solid rgba(183,145,255,.32); border-radius: 50%; color: var(--color-purple-bright); background: rgba(146,92,255,.09); font-size: 1.15rem; }
+.stream-window__placeholder strong { font-family: var(--font-display); font-size: 1.8rem; font-weight: 500; }
+.stream-window__placeholder p { margin-top: 6px; color: var(--color-muted); }
+.stream-window__panel aside { min-width: 0; padding: clamp(28px, 4vw, 44px); border-left: 1px solid rgba(255,255,255,.1); }
+.stream-window__panel aside h2 { margin: 16px 0 12px; font-family: var(--font-display); font-size: clamp(1.8rem, 3vw, 2.45rem); font-weight: 500; line-height: .95; }
+.stream-window__panel aside > p:not(.eyebrow) { margin-bottom: 26px; color: var(--color-muted); }
+
+/* DUE PORTE, DUE LINGUAGGI COMPETITIVI */
 .arena-entry__stage {
-  --divider-position: 50%;
   display: grid;
   grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
-  min-height: clamp(490px, 61vh, 670px);
+  min-height: clamp(500px, 58vh, 650px);
   overflow: hidden;
   border: 1px solid rgba(255,255,255,.15);
   border-radius: 34px;
@@ -104,14 +188,14 @@
   opacity: 1;
   transform: translateY(0) scale(1);
   transition:
-    opacity 1100ms 260ms ease,
-    transform 1200ms 260ms var(--ease-premium),
+    opacity 1100ms 340ms ease,
+    transform 1200ms 340ms var(--ease-premium),
     grid-template-columns 900ms var(--ease-premium),
     border-color 600ms ease,
     box-shadow 700ms ease;
 }
-.arena-entry__stage.is-league-active { grid-template-columns: minmax(0, 1.09fr) minmax(0, .91fr); border-color: rgba(168,123,255,.36); }
-.arena-entry__stage.is-events-active { grid-template-columns: minmax(0, .91fr) minmax(0, 1.09fr); border-color: rgba(204,177,255,.32); }
+.arena-entry__stage.is-league-active { grid-template-columns: minmax(0, 1.1fr) minmax(0, .9fr); border-color: rgba(154,112,255,.4); }
+.arena-entry__stage.is-events-active { grid-template-columns: minmax(0, .9fr) minmax(0, 1.1fr); border-color: rgba(225,207,255,.36); }
 
 .arena-gateway {
   --pointer-x: 50%;
@@ -124,7 +208,7 @@
   align-items: end;
   overflow: hidden;
   isolation: isolate;
-  padding: clamp(28px, 4vw, 54px);
+  padding: clamp(30px, 4vw, 56px);
   background: #111018;
   transition: filter 650ms ease;
 }
@@ -137,19 +221,22 @@
   pointer-events: none;
 }
 .arena-gateway::before {
-  z-index: -3;
-  background:
-    linear-gradient(180deg, rgba(9,7,13,.04) 5%, rgba(9,7,13,.25) 42%, rgba(9,7,13,.96) 100%),
-    radial-gradient(circle at 72% 20%, rgba(146,92,255,.4), transparent 25rem),
-    linear-gradient(145deg, #171220, #09070d 78%);
+  z-index: -4;
   transform: scale(1.035) translate3d(var(--depth-x), var(--depth-y), 0);
   transition: transform 1000ms var(--ease-premium), filter 700ms ease;
 }
+.arena-gateway--league::before {
+  background:
+    linear-gradient(180deg, rgba(9,7,13,.03) 4%, rgba(9,7,13,.22) 43%, rgba(9,7,13,.97) 100%),
+    radial-gradient(circle at 76% 19%, rgba(125,79,255,.44), transparent 24rem),
+    linear-gradient(150deg, #181326, #08070d 80%);
+}
 .arena-gateway--events::before {
   background:
-    linear-gradient(180deg, rgba(9,7,13,.05) 5%, rgba(9,7,13,.3) 42%, rgba(9,7,13,.96) 100%),
-    radial-gradient(circle at 24% 18%, rgba(189,157,255,.3), transparent 23rem),
-    linear-gradient(145deg, #0c0b11, #1b1522 52%, #09070d);
+    linear-gradient(180deg, rgba(9,7,13,.02) 4%, rgba(9,7,13,.2) 42%, rgba(9,7,13,.96) 100%),
+    radial-gradient(circle at 24% 17%, rgba(225,207,255,.32), transparent 21rem),
+    radial-gradient(circle at 83% 49%, rgba(118,68,194,.24), transparent 18rem),
+    linear-gradient(132deg, #09080d, #241a2c 54%, #09070d);
 }
 .arena-gateway::after {
   z-index: -1;
@@ -160,74 +247,231 @@
 .arena-gateway:hover::after,
 .arena-gateway:focus-visible::after { opacity: 1; }
 .arena-gateway:hover::before,
-.arena-gateway:focus-visible::before { transform: scale(1.075) translate3d(var(--depth-x), var(--depth-y), 0); filter: saturate(1.12); }
+.arena-gateway:focus-visible::before { transform: scale(1.075) translate3d(var(--depth-x), var(--depth-y), 0); filter: saturate(1.14); }
 .arena-gateway__visual {
   position: absolute;
   z-index: -2;
   inset: 0;
-  opacity: .38;
-  background:
-    linear-gradient(115deg, transparent 36%, rgba(255,255,255,.07) 49%, transparent 62%);
-  transform: translateX(-76%);
+  opacity: .34;
+  pointer-events: none;
   transition: transform 1250ms var(--ease-premium), opacity 600ms ease;
 }
-.arena-gateway:hover .arena-gateway__visual,
-.arena-gateway:focus-visible .arena-gateway__visual { opacity: .62; transform: translateX(74%); }
+.arena-gateway--league .arena-gateway__visual {
+  background:
+    repeating-linear-gradient(104deg, transparent 0 58px, rgba(255,255,255,.035) 59px, transparent 61px),
+    linear-gradient(115deg, transparent 36%, rgba(255,255,255,.075) 49%, transparent 62%);
+  transform: translateX(-76%);
+}
+.arena-gateway--events .arena-gateway__visual {
+  background:
+    conic-gradient(from 215deg at 70% 30%, transparent, rgba(255,255,255,.09), transparent 26%),
+    linear-gradient(76deg, transparent 34%, rgba(255,255,255,.07) 49%, transparent 64%);
+  transform: translateX(74%);
+}
+.arena-gateway--league:hover .arena-gateway__visual,
+.arena-gateway--league:focus-visible .arena-gateway__visual { opacity: .64; transform: translateX(74%); }
+.arena-gateway--events:hover .arena-gateway__visual,
+.arena-gateway--events:focus-visible .arena-gateway__visual { opacity: .68; transform: translateX(-70%); }
 .arena-gateway__number {
   position: absolute;
   top: clamp(24px, 3vw, 38px);
   left: clamp(26px, 3.2vw, 44px);
-  color: rgba(255,255,255,.34);
+  color: rgba(255,255,255,.36);
   font-family: var(--font-display);
-  font-size: .92rem;
-  letter-spacing: .18em;
+  font-size: .76rem;
+  letter-spacing: .16em;
 }
+.arena-gateway--events .arena-gateway__number { right: clamp(26px, 3.2vw, 44px); left: auto; text-align: right; }
 .arena-gateway__ghost {
   position: absolute;
   right: -2.5rem;
   bottom: -2.1rem;
   z-index: -1;
-  color: rgba(255,255,255,.027);
+  color: rgba(255,255,255,.028);
   font-family: var(--font-display);
-  font-size: clamp(5.3rem, 10vw, 10.8rem);
+  font-size: clamp(5.3rem, 10vw, 10.5rem);
   line-height: .82;
   letter-spacing: -.065em;
   white-space: nowrap;
   transition: color 600ms ease, transform 1000ms var(--ease-premium);
 }
+.arena-gateway--events .arena-gateway__ghost { right: auto; left: -1.8rem; }
 .arena-gateway:hover .arena-gateway__ghost,
-.arena-gateway:focus-visible .arena-gateway__ghost { color: rgba(255,255,255,.045); transform: translateX(-10px); }
+.arena-gateway:focus-visible .arena-gateway__ghost { color: rgba(255,255,255,.05); transform: translateX(-10px); }
+.arena-gateway--events:hover .arena-gateway__ghost,
+.arena-gateway--events:focus-visible .arena-gateway__ghost { transform: translateX(10px); }
+
+.arena-gateway__identity {
+  position: absolute;
+  z-index: 0;
+  top: clamp(54px, 8vw, 100px);
+  pointer-events: none;
+  opacity: .82;
+}
+.arena-gateway__identity--league { right: clamp(28px, 4vw, 58px); }
+.arena-gateway__identity--events { left: clamp(28px, 4vw, 58px); }
+.season-route {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: clamp(8px, 1vw, 14px);
+  padding: 11px 14px;
+  border: 1px solid rgba(180,150,255,.2);
+  border-radius: 999px;
+  background: rgba(12,9,17,.32);
+  backdrop-filter: blur(10px);
+}
+.season-route::before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  right: 18px;
+  left: 18px;
+  height: 1px;
+  background: linear-gradient(90deg, rgba(151,110,255,.2), rgba(206,185,255,.8));
+}
+.season-route i,
+.season-route b {
+  display: grid;
+  place-items: center;
+  width: 8px;
+  height: 8px;
+  border: 1px solid rgba(210,194,255,.72);
+  border-radius: 50%;
+  background: #171022;
+  box-shadow: 0 0 0 4px rgba(145,92,255,.06);
+}
+.season-route b {
+  width: 25px;
+  height: 25px;
+  color: #fff;
+  border-color: rgba(222,208,255,.9);
+  background: rgba(130,76,238,.3);
+  font-size: .58rem;
+  font-style: normal;
+  font-weight: 900;
+}
+.arena-gateway--league:hover .season-route i,
+.arena-gateway--league:focus-visible .season-route i { animation: routePulse 1.8s ease-in-out infinite; }
+.arena-gateway--league:hover .season-route i:nth-child(2) { animation-delay: .12s; }
+.arena-gateway--league:hover .season-route i:nth-child(3) { animation-delay: .24s; }
+.arena-gateway--league:hover .season-route i:nth-child(4) { animation-delay: .36s; }
+.arena-gateway--league:hover .season-route i:nth-child(5) { animation-delay: .48s; }
+.arena-gateway--league:hover .season-route i:nth-child(6) { animation-delay: .60s; }
+.event-seal {
+  position: relative;
+  display: grid;
+  place-items: center;
+  width: clamp(104px, 9vw, 130px);
+  aspect-ratio: 1;
+  border: 1px solid rgba(229,214,255,.34);
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(223,204,255,.08), rgba(10,8,14,.28) 67%);
+  box-shadow: inset 0 0 0 9px rgba(255,255,255,.018), 0 0 44px rgba(154,102,241,.13);
+  transform: rotate(-7deg);
+  transition: transform 850ms var(--ease-premium), border-color 600ms ease, box-shadow 600ms ease;
+}
+.event-seal::before,
+.event-seal::after,
+.event-seal i::before,
+.event-seal i::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 142%;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(224,207,255,.3), transparent);
+  transform: translate(-50%,-50%);
+}
+.event-seal::after { transform: translate(-50%,-50%) rotate(45deg); }
+.event-seal i::before { transform: translate(-50%,-50%) rotate(90deg); }
+.event-seal i::after { transform: translate(-50%,-50%) rotate(135deg); }
+.event-seal b {
+  color: rgba(255,255,255,.86);
+  font-family: var(--font-display);
+  font-size: .82rem;
+  font-weight: 500;
+  line-height: .9;
+  letter-spacing: .12em;
+  text-align: center;
+}
+.arena-gateway--events:hover .event-seal,
+.arena-gateway--events:focus-visible .event-seal {
+  border-color: rgba(239,229,255,.65);
+  box-shadow: inset 0 0 0 9px rgba(255,255,255,.028), 0 0 58px rgba(185,143,255,.24);
+  transform: rotate(0deg) scale(1.04);
+}
+.cloud-mark {
+  position: absolute;
+  pointer-events: none;
+  opacity: .38;
+  filter: drop-shadow(0 0 18px rgba(157,108,255,.18));
+}
+.cloud-mark i {
+  position: absolute;
+  display: block;
+  border: 1px solid rgba(221,205,255,.5);
+  border-radius: 50%;
+}
+.cloud-mark--route { top: 48px; right: -10px; width: 84px; height: 45px; }
+.cloud-mark--event { top: 88px; left: 12px; width: 90px; height: 48px; transform: rotate(8deg); }
+.cloud-mark i:nth-child(1) { width: 42px; height: 42px; left: 4px; bottom: 0; }
+.cloud-mark i:nth-child(2) { width: 34px; height: 34px; left: 34px; bottom: 1px; }
+.cloud-mark i:nth-child(3) { width: 24px; height: 24px; left: 61px; bottom: 2px; }
+
 .arena-gateway__content { width: 100%; min-width: 0; display: block; position: relative; z-index: 2; }
+.arena-gateway--events .arena-gateway__content { margin-left: auto; text-align: right; }
+.arena-gateway__edition,
 .arena-gateway__kicker,
 .arena-gateway__title,
 .arena-gateway__description { display: block; }
+.arena-gateway__edition {
+  width: max-content;
+  max-width: 100%;
+  margin-bottom: 18px;
+  padding: 7px 10px;
+  border: 1px solid rgba(255,255,255,.12);
+  border-radius: 999px;
+  color: rgba(255,255,255,.6);
+  background: rgba(10,8,14,.22);
+  font-size: .57rem;
+  font-weight: 850;
+  letter-spacing: .105em;
+  text-transform: uppercase;
+  backdrop-filter: blur(10px);
+}
+.arena-gateway--events .arena-gateway__edition { margin-left: auto; border-color: rgba(224,207,255,.22); color: rgba(242,233,255,.72); }
 .arena-gateway__kicker {
-  margin-bottom: 14px;
+  margin-bottom: 13px;
   color: var(--color-purple-bright);
   font-size: .68rem;
   font-weight: 850;
   letter-spacing: .14em;
   text-transform: uppercase;
 }
+.arena-gateway--events .arena-gateway__kicker { color: #dbc9ff; }
 .arena-gateway__title {
   max-width: 600px;
   font-family: var(--font-display);
-  font-size: clamp(3.2rem, 5.6vw, 6.1rem);
+  font-size: clamp(3.05rem, 5.45vw, 5.9rem);
   font-weight: 500;
-  line-height: .82;
+  line-height: .83;
   letter-spacing: -.06em;
   overflow-wrap: anywhere;
   transition: transform 800ms var(--ease-premium);
 }
+.arena-gateway--events .arena-gateway__title { margin-left: auto; }
 .arena-gateway:hover .arena-gateway__title,
 .arena-gateway:focus-visible .arena-gateway__title { transform: translateY(-5px); }
 .arena-gateway__description {
   max-width: 510px;
-  margin-top: 22px;
+  margin-top: 20px;
   color: rgba(247,244,255,.7);
-  font-size: clamp(.92rem, 1.15vw, 1.04rem);
+  font-size: clamp(.92rem, 1.12vw, 1.03rem);
   overflow-wrap: anywhere;
 }
+.arena-gateway--events .arena-gateway__description { margin-left: auto; }
 .arena-gateway__footer {
   min-width: 0;
   display: flex;
@@ -238,11 +482,12 @@
   padding-top: 20px;
   border-top: 1px solid rgba(255,255,255,.11);
 }
+.arena-gateway--events .arena-gateway__footer { flex-direction: row-reverse; }
 .arena-gateway__meta {
   color: rgba(255,255,255,.48);
-  font-size: .63rem;
+  font-size: .61rem;
   font-weight: 850;
-  letter-spacing: .12em;
+  letter-spacing: .11em;
 }
 .arena-gateway__cta {
   display: inline-flex;
@@ -250,169 +495,148 @@
   justify-content: flex-end;
   gap: 12px;
   min-width: 0;
-  font-size: .73rem;
+  font-size: .72rem;
   font-weight: 850;
-  letter-spacing: .075em;
+  letter-spacing: .07em;
   text-align: right;
   text-transform: uppercase;
 }
-.arena-gateway__cta i {
-  flex: 0 0 auto;
-  color: var(--color-purple-bright);
-  font-style: normal;
-  transition: transform 520ms var(--ease-premium);
-}
+.arena-gateway--events .arena-gateway__cta { text-align: left; }
+.arena-gateway__cta i { flex: 0 0 auto; color: var(--color-purple-bright); font-style: normal; transition: transform 520ms var(--ease-premium); }
+.arena-gateway--events .arena-gateway__cta i { color: #dbc9ff; }
 .arena-gateway:hover .arena-gateway__cta i,
 .arena-gateway:focus-visible .arena-gateway__cta i { transform: translate(6px,-6px); }
 .arena-entry__hint {
-  margin: 18px 0 0;
+  margin: 17px 0 0;
   color: rgba(255,255,255,.4);
-  font-size: .68rem;
+  font-size: .66rem;
   font-weight: 750;
   letter-spacing: .1em;
   text-align: center;
   text-transform: uppercase;
   opacity: 0;
 }
-.arena-entry.is-ready .arena-entry__hint { opacity: 1; transition: opacity 900ms 850ms ease; }
-
-.stream-window { padding: clamp(46px, 6vw, 78px) 0 clamp(70px, 9vw, 112px); }
-.stream-window__bar {
-  display: grid;
-  grid-template-columns: minmax(0, 1.1fr) minmax(210px, .62fr) auto;
-  align-items: center;
-  gap: 24px;
-  padding: 20px 22px;
-  border: 1px solid rgba(255,255,255,.13);
-  border-radius: 22px;
-  background: linear-gradient(135deg, rgba(24,19,31,.82), rgba(13,10,18,.8));
-  box-shadow: inset 0 1px rgba(255,255,255,.035);
-  backdrop-filter: blur(18px);
-  transition: border-color 500ms ease, background 600ms ease;
-}
-.stream-window__bar:hover { border-color: rgba(183,145,255,.3); }
-.stream-window__signal { min-width: 0; display: flex; align-items: center; gap: 15px; }
-.stream-window__signal > div { min-width: 0; }
-.stream-window__dot { width: 12px; height: 12px; flex: 0 0 auto; border-radius: 50%; background: var(--color-purple-bright); box-shadow: 0 0 0 7px rgba(146,92,255,.1), 0 0 28px rgba(146,92,255,.5); }
-.stream-window__signal p,
-.stream-window__schedule span { color: var(--color-purple-bright); font-size: .63rem; font-weight: 850; letter-spacing: .11em; text-transform: uppercase; }
-.stream-window__signal strong { display: block; overflow: hidden; margin-top: 4px; font-family: var(--font-display); font-size: 1.4rem; font-weight: 500; text-overflow: ellipsis; white-space: nowrap; }
-.stream-window__schedule { min-width: 0; padding-left: 24px; border-left: 1px solid rgba(255,255,255,.1); }
-.stream-window__schedule strong { display: block; overflow: hidden; margin-top: 5px; color: rgba(255,255,255,.76); font-size: .8rem; text-overflow: ellipsis; text-transform: capitalize; white-space: nowrap; }
-.stream-window__toggle { white-space: nowrap; }
-.stream-window__toggle i { font-style: normal; transition: transform 400ms var(--ease-premium); }
-.is-stream-open .stream-window__toggle i { transform: rotate(45deg); }
-.stream-window__panel {
-  display: grid;
-  grid-template-columns: minmax(0, 1.45fr) minmax(270px, .55fr);
-  overflow: hidden;
-  margin-top: 14px;
-  border: 1px solid rgba(255,255,255,.12);
-  border-radius: 24px;
-  background: #0d0a12;
-  opacity: 0;
-  transform: translateY(-10px) scale(.995);
-  transform-origin: top;
-  transition: opacity 420ms ease, transform 520ms var(--ease-premium), border-color 420ms ease;
-}
-.stream-window__panel[hidden] { display: none; }
-.stream-window__panel.is-visible { opacity: 1; transform: translateY(0) scale(1); border-color: rgba(183,145,255,.22); }
-.stream-window__player { min-height: 390px; background: radial-gradient(circle at center, rgba(146,92,255,.16), transparent 20rem), #08070b; }
-.stream-window__player iframe { display: block; width: 100%; min-height: 390px; border: 0; }
-.stream-window__placeholder { min-height: 390px; display: flex; justify-content: center; align-items: center; gap: 18px; padding: 30px; text-align: left; }
-.stream-window__placeholder > span { display: grid; place-items: center; width: 68px; height: 68px; flex: 0 0 auto; border: 1px solid rgba(183,145,255,.32); border-radius: 50%; color: var(--color-purple-bright); background: rgba(146,92,255,.09); font-size: 1.2rem; }
-.stream-window__placeholder strong { font-family: var(--font-display); font-size: 1.9rem; font-weight: 500; }
-.stream-window__placeholder p { margin-top: 6px; color: var(--color-muted); }
-.stream-window__panel aside { min-width: 0; padding: clamp(28px, 4vw, 46px); border-left: 1px solid rgba(255,255,255,.1); }
-.stream-window__panel aside h2 { margin: 16px 0 12px; font-family: var(--font-display); font-size: clamp(1.8rem, 3vw, 2.5rem); font-weight: 500; line-height: .95; }
-.stream-window__panel aside > p:not(.eyebrow) { margin-bottom: 26px; color: var(--color-muted); }
+.arena-entry.is-ready .arena-entry__hint { opacity: 1; transition: opacity 900ms 900ms ease; }
 
 @keyframes arenaAmbient {
   from { transform: translate3d(-2%, -1%, 0) scale(.96); opacity: .72; }
   to { transform: translate3d(2%, 2%, 0) scale(1.05); opacity: 1; }
 }
+@keyframes routePulse {
+  0%, 100% { background: #171022; box-shadow: 0 0 0 4px rgba(145,92,255,.06); }
+  45% { background: #b89aff; box-shadow: 0 0 0 7px rgba(145,92,255,.1), 0 0 20px rgba(164,121,255,.5); }
+}
+@keyframes livePulse {
+  0%, 100% { transform: scale(1); opacity: 1; }
+  50% { transform: scale(.72); opacity: .68; }
+}
 
-@media (max-width: 980px) {
-  .arena-entry__head { grid-template-columns: 1fr; gap: 14px; }
-  .arena-entry__head > p { max-width: 660px; }
-  .arena-entry__stage { min-height: 560px; }
+@media (max-width: 1050px) {
+  .arena-entry__head { grid-template-columns: 1fr; gap: 12px; }
+  .arena-entry__head > p { max-width: 670px; }
+  .arena-gateway__identity { opacity: .62; }
   .arena-gateway__footer { display: block; }
   .arena-gateway__cta { justify-content: flex-start; margin-top: 14px; text-align: left; }
+  .arena-gateway--events .arena-gateway__footer { display: block; }
+  .arena-gateway--events .arena-gateway__cta { justify-content: flex-end; text-align: right; }
   .stream-window__bar { grid-template-columns: 1fr auto; }
-  .stream-window__schedule { grid-column: 1 / -1; grid-row: 2; padding: 14px 0 0; border-top: 1px solid rgba(255,255,255,.1); border-left: 0; }
+  .stream-window__schedule { grid-column: 1 / -1; grid-row: 2; padding: 12px 0 0; border-top: 1px solid rgba(255,255,255,.1); border-left: 0; }
   .stream-window__panel { grid-template-columns: 1fr; }
   .stream-window__panel aside { border-top: 1px solid rgba(255,255,255,.1); border-left: 0; }
 }
 @media (max-width: 720px) {
-  .arena-entry { min-height: auto; padding: 96px 0 32px; }
-  .arena-entry__breadcrumb { margin-bottom: 14px; font-size: .65rem; }
-  .arena-entry__head { margin-bottom: 22px; }
-  .arena-entry__head h1 { font-size: clamp(2.8rem, 14vw, 4.2rem); }
-  .arena-entry__head > p { font-size: .94rem; }
+  .arena-entry { min-height: auto; padding: 94px 0 34px; }
+  .arena-entry__breadcrumb { margin-bottom: 12px; font-size: .65rem; }
+  .arena-entry__head { margin-bottom: 18px; }
+  .arena-entry__head h1 { font-size: clamp(2.7rem, 13.5vw, 4rem); }
+  .arena-entry__head > p { font-size: .92rem; }
+  .stream-window--priority { margin-bottom: 16px; }
+  .stream-window__bar { display: flex; flex-wrap: wrap; padding: 16px; border-radius: 18px; }
+  .stream-window__signal,
+  .stream-window__schedule,
+  .stream-window__toggle { width: 100%; }
+  .stream-window__signal strong,
+  .stream-window__schedule strong { white-space: normal; }
+  .stream-window__schedule { padding-top: 12px; }
+  .stream-window__toggle { justify-content: center; }
+  .stream-window__placeholder { min-height: 290px; flex-direction: column; text-align: center; }
+  .stream-window__player,
+  .stream-window__player iframe { min-height: 290px; }
   .arena-entry__stage,
   .arena-entry__stage.is-league-active,
   .arena-entry__stage.is-events-active {
     display: grid;
     grid-template-columns: 1fr;
-    gap: 1px;
+    gap: 12px;
     min-height: 0;
     overflow: visible;
     border: 0;
     border-radius: 0;
-    background: rgba(255,255,255,.12);
+    background: transparent;
     box-shadow: none;
   }
   .arena-gateway {
-    min-height: clamp(330px, 92vw, 410px);
-    padding: 28px 24px;
+    min-height: clamp(360px, 100vw, 440px);
+    padding: 27px 23px;
     border: 1px solid rgba(255,255,255,.14);
-    border-radius: 26px;
+    border-radius: 25px;
   }
-  .arena-gateway + .arena-gateway { margin-top: 12px; border-left: 1px solid rgba(255,255,255,.14); }
-  .arena-gateway__number { top: 23px; left: 24px; }
-  .arena-gateway__title { font-size: clamp(3.05rem, 14.5vw, 4.7rem); }
+  .arena-gateway + .arena-gateway { border-left: 1px solid rgba(255,255,255,.14); }
+  .arena-gateway--events .arena-gateway__number { right: 23px; }
+  .arena-gateway__identity { top: 60px; transform: scale(.84); transform-origin: top right; }
+  .arena-gateway__identity--league { right: 20px; }
+  .arena-gateway__identity--events { left: auto; right: 17px; transform-origin: top right; }
+  .arena-gateway--events .arena-gateway__content { margin-left: 0; text-align: left; }
+  .arena-gateway--events .arena-gateway__edition,
+  .arena-gateway--events .arena-gateway__title,
+  .arena-gateway--events .arena-gateway__description { margin-left: 0; }
+  .arena-gateway--events .arena-gateway__footer { display: block; }
+  .arena-gateway--events .arena-gateway__cta { justify-content: flex-start; text-align: left; }
+  .arena-gateway__edition { margin-bottom: 14px; font-size: .54rem; }
+  .arena-gateway__kicker { margin-bottom: 11px; font-size: .62rem; }
+  .arena-gateway__title { max-width: 90%; font-size: clamp(3rem, 14vw, 4.4rem); }
   .arena-gateway__description { max-width: 92%; margin-top: 16px; font-size: .91rem; }
-  .arena-gateway__footer { margin-top: 24px; padding-top: 15px; }
+  .arena-gateway__footer { margin-top: 23px; padding-top: 15px; }
   .arena-gateway__ghost { right: -1rem; bottom: -1rem; font-size: clamp(5.2rem, 24vw, 7rem); }
+  .arena-gateway--events .arena-gateway__ghost { right: auto; left: -1rem; }
   .arena-entry__hint { display: none; }
-  .stream-window__bar { display: flex; flex-wrap: wrap; padding: 19px; }
-  .stream-window__signal,
-  .stream-window__schedule,
-  .stream-window__toggle { width: 100%; }
-  .stream-window__signal strong { white-space: normal; }
-  .stream-window__schedule { padding-top: 13px; }
-  .stream-window__schedule strong { white-space: normal; }
-  .stream-window__toggle { justify-content: center; }
-  .stream-window__placeholder { min-height: 300px; flex-direction: column; text-align: center; }
-  .stream-window__player,
-  .stream-window__player iframe { min-height: 300px; }
 }
 @media (max-width: 390px) {
-  .arena-entry__head h1 { font-size: 2.85rem; }
-  .arena-gateway { min-height: 350px; padding: 26px 20px; }
-  .arena-gateway__kicker { max-width: 95%; font-size: .61rem; letter-spacing: .11em; }
-  .arena-gateway__title { font-size: clamp(2.85rem, 14vw, 3.55rem); line-height: .86; }
+  .arena-entry__head h1 { font-size: 2.72rem; }
+  .arena-gateway { min-height: 375px; padding: 25px 19px; }
+  .arena-gateway__number { top: 21px; left: 20px; max-width: 58%; font-size: .65rem; }
+  .arena-gateway--events .arena-gateway__number { right: 20px; }
+  .arena-gateway__identity { transform: scale(.72); }
+  .arena-gateway__identity--league,
+  .arena-gateway__identity--events { right: 6px; }
+  .arena-gateway__edition { max-width: 88%; overflow-wrap: anywhere; }
+  .arena-gateway__title { max-width: 96%; font-size: clamp(2.7rem, 13.3vw, 3.45rem); line-height: .86; }
   .arena-gateway__description { max-width: 100%; overflow-wrap: anywhere; }
-  .arena-gateway__footer { min-width: 0; }
   .arena-gateway__meta { display: block; max-width: 100%; overflow-wrap: anywhere; }
-  .arena-gateway__cta { max-width: 100%; font-size: .68rem; overflow-wrap: anywhere; }
+  .arena-gateway__cta { max-width: 100%; font-size: .67rem; overflow-wrap: anywhere; }
 }
 @media (hover: none), (pointer: coarse) {
   .arena-entry__stage { transition: none; }
-  .arena-gateway::after { opacity: .38; }
+  .arena-gateway::after { opacity: .3; }
   .arena-gateway::before { transform: scale(1.045); }
+  .stream-window__bar:hover { transform: none; }
 }
 @media (prefers-reduced-motion: reduce) {
   .arena-entry::before,
-  .arena-entry::after { animation: none; }
+  .arena-entry::after,
+  [data-stream-state="live"] .stream-window__dot,
+  .arena-gateway--league:hover .season-route i,
+  .arena-gateway--league:focus-visible .season-route i { animation: none; }
   .arena-entry__breadcrumb,
   .arena-entry__head .eyebrow,
   .arena-entry__head h1,
   .arena-entry__head > p,
+  .stream-window--priority,
   .arena-entry__stage,
   .arena-entry__hint { opacity: 1; transform: none; }
   .arena-gateway::before,
   .arena-gateway__visual,
   .arena-gateway__title,
-  .arena-gateway__ghost { transform: none !important; }
+  .arena-gateway__ghost,
+  .event-seal { transform: none !important; }
 }

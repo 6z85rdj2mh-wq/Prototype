@@ -94,11 +94,11 @@ window.NIKA_TRANSLATIONS.it = {
   },
   tournamentHubPage: {
     breadcrumbHome: "Home", breadcrumbCurrent: "Area Torneistica",
-    heroEyebrow: "LA COMPETIZIONE DELLA TANA", heroTitle: "Scegli la tua arena.", heroLead: "Due percorsi distinti, una finestra sempre aperta sulle dirette della community.",
-    gatewaysEyebrow: "DUE MONDI, UNA SOLA TANA", gatewaysTitle: "Entra dove vuoi competere.",
-    leagueKicker: "CAMPIONATO STAGIONALE", leagueTitle: "Nika League", leagueText: "Sei tappe, una Finale, una classifica che racconta ogni rimonta.", leagueMeta: "6 TAPPE + FINALE", leagueCta: "Entra nella League",
-    eventsKicker: "LOCAL ED EVENTI SPECIALI", eventsTitle: "I nostri tornei", eventsText: "Domenicali, formati speciali, iscrizioni e griglie premi personalizzabili.", eventsMeta: "LOCAL + DOMENICALI", eventsCta: "Scopri gli eventi",
-    choiceHint: "Scegli un percorso per entrare nell’esperienza.",
+    heroEyebrow: "LA COMPETIZIONE DELLA TANA", heroTitle: "Scegli la tua arena.", heroLead: "Una stagione da costruire oppure un evento da vivere tutto in un giorno.",
+    gatewaysEyebrow: "DUE MODI DI COMPETERE", gatewaysTitle: "Continuità o momento decisivo.",
+    leagueEdition: "LA STAGIONE DELLA TANA", leagueKicker: "COMPETIZIONE CONTINUA", leagueTitle: "Nika League", leagueText: "Tappa dopo tappa, ogni risultato costruisce il percorso verso la Finale.", leagueMeta: "6 TAPPE · CLASSIFICA · FINALE", leagueCta: "Segui la stagione",
+    eventsEdition: "EDIZIONI LIMITATE · EVENTI SPECIALI", eventsKicker: "COMPETIZIONE ONE SHOT", eventsTitle: "I nostri tornei", eventsText: "Un giorno, un formato, un’occasione unica per lasciare il segno.", eventsMeta: "EVENTI UNICI · PREMI · ISCRIZIONI", eventsCta: "Scopri il prossimo evento",
+    choiceHint: "Due modi di competere. Scegli il tuo.",
     streamTitle: "Segui le dirette della Tana", nextStream: "Prossima diretta", openPlayer: "Apri il player", streamEyebrow: "LIVE, REPLAY E FINALE", streamSideTitle: "La finestra sulla community.", streamSideText: "Quando inseriremo i dati Twitch, qui potrai seguire la Finale e gli eventi speciali senza lasciare il sito.", placeholder: "Placeholder attivo",
     returnText: "Vuoi tornare all’ingresso della Tana?", returnHome: "Torna alla Home"
   },

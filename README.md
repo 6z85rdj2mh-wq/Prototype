@@ -1,4 +1,4 @@
-# La Tana di Nika — V4.4.2 Tournament Architecture
+# La Tana di Nika — V4.4.3 Tournament Architecture
 
 Base: V4.3.3 Motion, con riorganizzazione dell’Area Torneistica introdotta nella V4.4.0.
 
@@ -48,3 +48,12 @@ Ogni pagina interna termina con il pulsante `Torna alla Home`.
 - Animazioni pointer e reveal alleggerite e rispettose di reduced motion.
 - Finestra Twitch compatta con apertura animata.
 - Ottimizzazione mobile per testi dinamici, premi, badge, pulsanti e classifica.
+
+## V4.4.3 — Competitive Identity Polish
+
+- Barra Twitch spostata sopra le due porte principali per renderla immediatamente visibile.
+- Nika League rappresentata come percorso competitivo continuo: 6 tappe, classifica e Finale.
+- I nostri tornei rappresentati come eventi one shot unici ed esclusivi.
+- Composizioni, movimenti e micro-dettagli grafici differenziati tra le due aree.
+- Decorazioni astratte a forma di nuvola, senza alterare o sostituire la mascotte ufficiale.
+- Nessuna modifica alle pagine interne o ai dati dei tornei.

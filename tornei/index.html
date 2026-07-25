@@ -9,20 +9,20 @@
   <meta name="theme-color" content="#09070d">
   <title>Area Torneistica — La Tana di Nika</title>
 
-  <link rel="icon" type="image/png" href="../assets/images/favicon.png?v=4.4.2">
+  <link rel="icon" type="image/png" href="../assets/images/favicon.png?v=4.4.3">
   <link rel="stylesheet" href="../css/tokens.css">
   <link rel="stylesheet" href="../css/base.css">
   <link rel="stylesheet" href="../css/components.css?v=4.3.3">
-  <link rel="stylesheet" href="../css/pages.css?v=4.4.2">
-  <link rel="stylesheet" href="../css/tournament-hub.css?v=4.4.2">
+  <link rel="stylesheet" href="../css/pages.css?v=4.4.3">
+  <link rel="stylesheet" href="../css/tournament-hub.css?v=4.4.3">
 
-  <script defer src="../js/i18n/it.js?v=4.4.2"></script>
-  <script defer src="../js/i18n/en.js?v=4.4.2"></script>
-  <script defer src="../js/data/tournaments.js?v=4.4.2"></script>
-  <script defer src="../js/components/tournament-utils.js?v=4.4.2"></script>
-  <script defer src="../js/components/header.js?v=4.4.2"></script>
-  <script defer src="../js/components/tournament-hub.js?v=4.4.2"></script>
-  <script defer src="../js/main.js?v=4.4.2"></script>
+  <script defer src="../js/i18n/it.js?v=4.4.3"></script>
+  <script defer src="../js/i18n/en.js?v=4.4.3"></script>
+  <script defer src="../js/data/tournaments.js?v=4.4.3"></script>
+  <script defer src="../js/components/tournament-utils.js?v=4.4.3"></script>
+  <script defer src="../js/components/header.js?v=4.4.3"></script>
+  <script defer src="../js/components/tournament-hub.js?v=4.4.3"></script>
+  <script defer src="../js/main.js?v=4.4.3"></script>
 </head>
 <body class="internal-page" data-root-prefix="../">
   <a class="skip-link" href="#main-content" data-i18n="accessibility.skip">Vai al contenuto</a>
@@ -30,7 +30,7 @@
   <header class="site-header" data-site-header>
     <div class="site-header__inner shell">
       <a class="brand" href="../index.html" aria-label="La Tana di Nika — Home">
-        <span class="brand__mark" aria-hidden="true"><img src="../assets/images/mascot-nika.png?v=4.4.2" alt="" width="58" height="58" decoding="async" fetchpriority="high"></span>
+        <span class="brand__mark" aria-hidden="true"><img src="../assets/images/mascot-nika.png?v=4.4.3" alt="" width="58" height="58" decoding="async" fetchpriority="high"></span>
         <span class="brand__text">La Tana di Nika</span>
       </a>
       <nav class="desktop-nav" aria-label="Navigazione principale">
@@ -72,53 +72,80 @@
           <p data-i18n="tournamentHubPage.heroLead">Due percorsi distinti, una finestra sempre aperta sulle dirette della community.</p>
         </header>
 
+        <section class="stream-window stream-window--priority" id="streaming" aria-labelledby="stream-title">
+          <div class="stream-window__bar" data-stream-bar>
+            <div class="stream-window__signal">
+              <span class="stream-window__dot" aria-hidden="true"></span>
+              <div>
+                <p data-stream-status>TWITCH READY</p>
+                <strong id="stream-title" data-i18n="tournamentHubPage.streamTitle">Segui le dirette della Tana</strong>
+              </div>
+            </div>
+            <div class="stream-window__schedule">
+              <span data-i18n="tournamentHubPage.nextStream">Prossima diretta</span>
+              <strong data-stream-next></strong>
+            </div>
+            <button class="button button--ghost stream-window__toggle" type="button" data-stream-toggle aria-expanded="false" aria-controls="stream-panel">
+              <span data-stream-toggle-label data-i18n="tournamentHubPage.openPlayer">Apri il player</span>
+              <i aria-hidden="true">＋</i>
+            </button>
+          </div>
+          <div class="stream-window__panel" id="stream-panel" data-stream-panel hidden>
+            <div class="stream-window__player" data-stream-player></div>
+            <aside>
+              <p class="eyebrow" data-i18n="tournamentHubPage.streamEyebrow">LIVE, REPLAY E FINALE</p>
+              <h2 data-i18n="tournamentHubPage.streamSideTitle">La finestra sulla community.</h2>
+              <p data-i18n="tournamentHubPage.streamSideText">Quando inseriremo i dati Twitch, qui potrai seguire la Finale e gli eventi speciali senza lasciare il sito.</p>
+              <span class="status-chip"><i aria-hidden="true"></i><span data-i18n="tournamentHubPage.placeholder">Placeholder attivo</span></span>
+            </aside>
+          </div>
+        </section>
+
         <div class="arena-entry__stage" data-arena-stage>
           <a class="arena-gateway arena-gateway--league" href="nika-league/" data-arena-gateway="league">
-            <span class="arena-gateway__number" aria-hidden="true">01</span>
+            <span class="arena-gateway__number" aria-hidden="true">01 / SEASON</span>
             <span class="arena-gateway__visual" aria-hidden="true"></span>
             <span class="arena-gateway__ghost" aria-hidden="true">LEAGUE</span>
+            <span class="arena-gateway__identity arena-gateway__identity--league" aria-hidden="true">
+              <span class="season-route">
+                <i></i><i></i><i></i><i></i><i></i><i></i><b>F</b>
+              </span>
+              <span class="cloud-mark cloud-mark--route"><i></i><i></i><i></i></span>
+            </span>
             <span class="arena-gateway__content">
-              <span class="arena-gateway__kicker" data-i18n="tournamentHubPage.leagueKicker">CAMPIONATO STAGIONALE</span>
+              <span class="arena-gateway__edition" data-i18n="tournamentHubPage.leagueEdition">LA STAGIONE DELLA TANA</span>
+              <span class="arena-gateway__kicker" data-i18n="tournamentHubPage.leagueKicker">COMPETIZIONE CONTINUA</span>
               <strong class="arena-gateway__title" data-i18n="tournamentHubPage.leagueTitle">Nika League</strong>
-              <span class="arena-gateway__description" data-i18n="tournamentHubPage.leagueText">Sei tappe, una Finale, una classifica che racconta ogni rimonta.</span>
+              <span class="arena-gateway__description" data-i18n="tournamentHubPage.leagueText">Tappa dopo tappa, ogni risultato costruisce il percorso verso la Finale.</span>
               <span class="arena-gateway__footer">
-                <span class="arena-gateway__meta" data-i18n="tournamentHubPage.leagueMeta">6 TAPPE + FINALE</span>
-                <span class="arena-gateway__cta"><span data-i18n="tournamentHubPage.leagueCta">Entra nella League</span><i aria-hidden="true">↗</i></span>
+                <span class="arena-gateway__meta" data-i18n="tournamentHubPage.leagueMeta">6 TAPPE · CLASSIFICA · FINALE</span>
+                <span class="arena-gateway__cta"><span data-i18n="tournamentHubPage.leagueCta">Segui la stagione</span><i aria-hidden="true">↗</i></span>
               </span>
             </span>
           </a>
 
           <a class="arena-gateway arena-gateway--events" href="i-nostri-tornei/" data-arena-gateway="events">
-            <span class="arena-gateway__number" aria-hidden="true">02</span>
+            <span class="arena-gateway__number" aria-hidden="true">02 / ONE SHOT</span>
             <span class="arena-gateway__visual" aria-hidden="true"></span>
-            <span class="arena-gateway__ghost" aria-hidden="true">EVENTS</span>
+            <span class="arena-gateway__ghost" aria-hidden="true">EVENT</span>
+            <span class="arena-gateway__identity arena-gateway__identity--events" aria-hidden="true">
+              <span class="event-seal"><i></i><b>ONE<br>SHOT</b></span>
+              <span class="cloud-mark cloud-mark--event"><i></i><i></i><i></i></span>
+            </span>
             <span class="arena-gateway__content">
-              <span class="arena-gateway__kicker" data-i18n="tournamentHubPage.eventsKicker">LOCAL ED EVENTI SPECIALI</span>
+              <span class="arena-gateway__edition" data-i18n="tournamentHubPage.eventsEdition">EDIZIONI LIMITATE · EVENTI SPECIALI</span>
+              <span class="arena-gateway__kicker" data-i18n="tournamentHubPage.eventsKicker">COMPETIZIONE ONE SHOT</span>
               <strong class="arena-gateway__title" data-i18n="tournamentHubPage.eventsTitle">I nostri tornei</strong>
-              <span class="arena-gateway__description" data-i18n="tournamentHubPage.eventsText">Domenicali, formati speciali, iscrizioni e griglie premi personalizzabili.</span>
+              <span class="arena-gateway__description" data-i18n="tournamentHubPage.eventsText">Un giorno, un formato, un’occasione unica per lasciare il segno.</span>
               <span class="arena-gateway__footer">
-                <span class="arena-gateway__meta" data-i18n="tournamentHubPage.eventsMeta">LOCAL + DOMENICALI</span>
-                <span class="arena-gateway__cta"><span data-i18n="tournamentHubPage.eventsCta">Scopri gli eventi</span><i aria-hidden="true">↗</i></span>
+                <span class="arena-gateway__meta" data-i18n="tournamentHubPage.eventsMeta">EVENTI UNICI · PREMI · ISCRIZIONI</span>
+                <span class="arena-gateway__cta"><span data-i18n="tournamentHubPage.eventsCta">Scopri il prossimo evento</span><i aria-hidden="true">↗</i></span>
               </span>
             </span>
           </a>
         </div>
 
-        <p class="arena-entry__hint" data-i18n="tournamentHubPage.choiceHint">Scegli un percorso per entrare nell’esperienza.</p>
-      </div>
-    </section>
-
-    <section class="stream-window" id="streaming" aria-labelledby="stream-title">
-      <div class="shell">
-        <div class="stream-window__bar">
-          <div class="stream-window__signal"><span class="stream-window__dot" aria-hidden="true"></span><div><p data-stream-status>TWITCH READY</p><strong id="stream-title" data-i18n="tournamentHubPage.streamTitle">Segui le dirette della Tana</strong></div></div>
-          <div class="stream-window__schedule"><span data-i18n="tournamentHubPage.nextStream">Prossima diretta</span><strong data-stream-next></strong></div>
-          <button class="button button--ghost stream-window__toggle" type="button" data-stream-toggle aria-expanded="false" aria-controls="stream-panel"><span data-stream-toggle-label data-i18n="tournamentHubPage.openPlayer">Apri il player</span><i aria-hidden="true">＋</i></button>
-        </div>
-        <div class="stream-window__panel" id="stream-panel" data-stream-panel hidden>
-          <div class="stream-window__player" data-stream-player></div>
-          <aside><p class="eyebrow" data-i18n="tournamentHubPage.streamEyebrow">LIVE, REPLAY E FINALE</p><h2 data-i18n="tournamentHubPage.streamSideTitle">La finestra sulla community.</h2><p data-i18n="tournamentHubPage.streamSideText">Quando inseriremo i dati Twitch, qui potrai seguire la Finale e gli eventi speciali senza lasciare il sito.</p><span class="status-chip"><i aria-hidden="true"></i><span data-i18n="tournamentHubPage.placeholder">Placeholder attivo</span></span></aside>
-        </div>
+        <p class="arena-entry__hint" data-i18n="tournamentHubPage.choiceHint">Due modi di competere. Scegli il tuo.</p>
       </div>
     </section>
 
