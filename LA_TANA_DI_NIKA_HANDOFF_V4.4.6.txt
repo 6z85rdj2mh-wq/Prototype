@@ -1,0 +1,225 @@
+LA TANA DI NIKA — HANDOFF DI PROGETTO V4.4.6
+================================================
+
+Data di riferimento: 26 luglio 2026
+Base corrente approvata: V4.4.6 — League Current Standings
+Base precedente: V4.4.5 — Separate Card Scale Polish
+
+1. SCOPO DEL BACKUP
+-------------------
+Questo documento permette di riprendere il progetto dalla versione reale V4.4.6 senza ricostruire file o decisioni dalla memoria. Il file operativo da usare è:
+
+LA_TANA_DI_NIKA_V4.4.6.zip
+
+La V4.4.6 modifica soltanto la pagina Nika League e i dati/traduzioni direttamente necessari. Homepage, hub Tornei e pagina “I nostri tornei” restano sulla base stabile precedente.
+
+2. DIREZIONE APPROVATA DELLA PAGINA LEAGUE
+-------------------------------------------
+La pagina pubblica non deve essere né troppo epica né eccessivamente minimale. Deve mantenere l’identità cinematografica del sito ma funzionare soprattutto come strumento di consultazione.
+
+Ordine pubblico approvato:
+1. Hero cinematografica.
+2. Classifica della lega corrente.
+3. Calendario della League.
+4. Ultimo articolo della League.
+5. Ritorno ai Tornei/Home.
+
+La pagina pubblica non mostra mai controlli come “Aggiungi articolo”, “Modifica”, “Carica foto” o “Modifica calendario”. Questi comandi saranno esclusivamente nella futura area admin privata.
+
+3. HERO
+-------
+Testo principale:
+“Classifica lega corrente”
+
+Sottotitolo dinamico:
+“Classifica aggiornata alla tappa X/6.”
+
+Il valore X deriva da:
+js/data/tournaments.js → settings.currentLeagueStage
+
+L’hero usa ancora il sistema cinematografico condiviso `internal-hero` e l’immagine `hero-sea.png`.
+
+4. CLASSIFICA
+-------------
+La classifica è l’elemento centrale della pagina.
+
+Comportamento:
+- contenuta in un riquadro premium;
+- altezza interna definita;
+- scorrimento verticale per i giocatori;
+- scorrimento orizzontale per le tappe;
+- intestazione sticky durante lo scroll verticale;
+- posizione e nome sticky durante lo scroll laterale;
+- colonne complete: Pos., Nome, Tappa 1, Tappa 2, Tappa 3, Tappa 4, Tappa 5, Tappa 6, Totale, Stato;
+- nessuna ricerca per giocatore nella vista principale;
+- tutti gli score sono visibili immediatamente;
+- il nome è volutamente più stretto delle colonne risultato;
+- le colonne Tappa hanno maggiore respiro e score più grandi.
+
+Top 8:
+- `settings.leagueQualificationCount` controlla quanti giocatori vengono evidenziati;
+- valore dimostrativo corrente: 8;
+- la zona qualificazione è viola in modo sobrio.
+
+5. REGOLA DEI QUATTRO RISULTATI
+--------------------------------
+La classifica considera sempre i quattro risultati migliori.
+
+- Dopo 1–4 tappe: tutti i risultati disputati sono validi e verdi.
+- Dopo la quinta tappa: i quattro migliori sono verdi; il peggiore è rosso e barrato.
+- Dopo la sesta tappa: i quattro migliori sono verdi; i due peggiori sono rossi e barrati.
+- Le tappe non disputate mostrano un trattino neutro.
+- Il totale usa soltanto i risultati verdi.
+
+La logica sfrutta le utility esistenti in:
+js/components/tournament-utils.js
+
+A parità di punteggio, l’utility corrente scarta prima il risultato più recente. Non modificare questa regola senza decisione esplicita.
+
+6. STATISTICHE GIOCATORE
+------------------------
+Toccando soltanto il nome del giocatore si apre una riga di dettaglio con:
+- Leader;
+- totale valido;
+- presenze;
+- media;
+- punteggio migliore;
+- numero di score da 12 punti in su;
+- posizione;
+- riepilogo Tappa 1–6.
+
+Se uno score è almeno 12, il dettaglio può mostrare il mazzo salvato nel campo `decks` del giocatore. Questa struttura prepara lo spazio richiesto per registrare i mazzi dei risultati 12+.
+
+7. CALENDARIO PUBBLICO
+-----------------------
+Il calendario è posizionato immediatamente sotto la classifica.
+
+Mostra:
+- sei tappe più Finale;
+- data;
+- stato;
+- espansione;
+- luogo;
+- evento selezionato/prossimo evento.
+
+Il visitatore può selezionare una tappa per consultarne i dettagli, ma non vede comandi di modifica.
+
+I dati restano in:
+js/data/tournaments.js → leagueEvents
+
+La futura dashboard admin dovrà aggiornare questo array tramite Supabase.
+
+8. ULTIMO ARTICOLO DELLA LEAGUE
+--------------------------------
+Sotto il calendario appare soltanto l’articolo più recente dedicato alla League.
+
+Campi supportati:
+- id;
+- data;
+- tappa di riferimento;
+- titolo IT/EN;
+- estratto IT/EN;
+- massimo quattro immagini;
+- URL dell’articolo completo.
+
+Dati correnti:
+js/data/tournaments.js → leagueArticle
+
+Comportamento futuro approvato:
+- l’admin pubblica un nuovo articolo;
+- il nuovo contenuto diventa `leagueArticle`;
+- l’articolo precedente viene spostato automaticamente nell’archivio dell’Area Editoriale;
+- la pagina pubblica continua a mostrare soltanto l’ultimo.
+
+La V4.4.6 prepara il frontend pubblico e la struttura dati, ma non implementa ancora database, upload o archivio automatico.
+
+9. AREA ADMIN FUTURA
+--------------------
+La gestione premium/admin dovrà essere separata dalla pagina pubblica e protetta da autenticazione.
+
+Funzioni previste:
+- impostare la tappa corrente;
+- inserire/modificare giocatori e Leader;
+- inserire score;
+- registrare il mazzo per score 12+;
+- aggiornare date e dettagli calendario;
+- pubblicare/modificare l’articolo corrente;
+- caricare 1–4 fotografie;
+- archiviare automaticamente l’articolo precedente;
+- salvare tutto in Supabase.
+
+Non aggiungere pulsanti admin alla pagina `/tornei/nika-league/`.
+
+10. DATI DIMOSTRATIVI
+---------------------
+`placeholderData` resta impostato su true.
+
+La V4.4.6 contiene 24 giocatori dimostrativi per verificare realmente lo scroll verticale su mobile. Sono placeholder e non devono essere interpretati come iscritti reali.
+
+Prima della pubblicazione definitiva sostituire:
+- nomi;
+- Leader;
+- punteggi;
+- mazzi 12+;
+- tappa corrente;
+- date;
+- luoghi;
+- articolo;
+- immagini.
+
+11. FILE MODIFICATI
+-------------------
+- tornei/nika-league/index.html
+- css/league.css
+- js/components/league-page.js
+- js/data/tournaments.js
+- js/i18n/it.js
+- js/i18n/en.js
+- README.md
+
+File nuovi:
+- PATCH_NOTES_V4.4.6.txt
+- LA_TANA_DI_NIKA_HANDOFF_V4.4.6.txt
+
+12. FILE NON TOCCATI
+--------------------
+- index.html della homepage;
+- css/home.css;
+- js/components/hero-split.js;
+- hub `/tornei/` e relativo effetto scale V4.4.5;
+- pagina `/tornei/i-nostri-tornei/`;
+- mascotte ufficiale;
+- Twitch;
+- reminder ICS;
+- struttura Shopify/Supabase futura.
+
+13. VERSIONE STABILE E PROSSIMI PASSI
+-------------------------------------
+La V4.4.6 è il nuovo backup operativo, ma prima di considerarla base pubblicata va testata online su GitHub Pages.
+
+Test richiesti:
+- Edge desktop;
+- iPhone/Safari;
+- 320, 360, 390 e 430 px;
+- scroll verticale interno della classifica;
+- scroll orizzontale fino a Tappa 6;
+- sticky di posizione, nome e intestazione;
+- apertura statistiche;
+- cambio lingua;
+- selezione eventi del calendario;
+- immagini e link articolo.
+
+Passi successivi consigliati:
+1. sostituzione dei dati placeholder con dati reali;
+2. rifinitura dell’articolo completo e archivio editoriale;
+3. progettazione dashboard admin;
+4. Supabase Storage per immagini;
+5. Supabase Database per classifica, calendario e articoli;
+6. autenticazione admin;
+7. test e pubblicazione.
+
+14. REGOLA OPERATIVA PER LE PROSSIME CHAT
+-----------------------------------------
+Quando l’utente lavora da telefono e non ha GitHub disponibile, preparare sempre un’anteprima HTML apribile direttamente dalla chat prima di applicare una patch al progetto.
+
+Usare come base reale esclusivamente `LA_TANA_DI_NIKA_V4.4.6.zip`. Non ricostruire la pagina dalla memoria e non reintrodurre cronache, podio separato, ricerca o controlli admin nella pagina pubblica senza richiesta esplicita.

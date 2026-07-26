@@ -1,5 +1,5 @@
 /* ======================================================
-   LA TANA DI NIKA — DATI TORNEI V4.4.1
+   LA TANA DI NIKA — DATI TORNEI V4.4.7
    Tutti i valori sono dimostrativi e centralizzati.
 ====================================================== */
 window.NIKA_TOURNAMENTS_DATA = {
@@ -8,6 +8,8 @@ window.NIKA_TOURNAMENTS_DATA = {
     reminderMinutes: 120,
     placeholderData: true,
     maxLeaguePlayers: 64,
+    currentLeagueStage: 4,
+    leagueQualificationCount: 8,
     twitch: {
       enabled: false,
       channel: "",
@@ -40,7 +42,7 @@ window.NIKA_TOURNAMENTS_DATA = {
     {
       id: "league-stage-3", type: "stage", stage: 3, date: "2026-10-04", time: "15:00", endTime: "20:00",
       title: { it: "Nika League — Tappa 3", en: "Nika League — Stage 3" }, expansion: "OP-17", format: "Constructed",
-      location: "Location da definire", status: "upcoming", image: "",
+      location: "Location da definire", status: "completed", image: "",
       description: {
         it: "Il cambio di espansione può ridisegnare il meta e trasformare completamente gli equilibri della League.",
         en: "A new expansion may reshape the meta and completely change the League’s balance."
@@ -49,7 +51,7 @@ window.NIKA_TOURNAMENTS_DATA = {
     {
       id: "league-stage-4", type: "stage", stage: 4, date: "2026-11-01", time: "15:00", endTime: "20:00",
       title: { it: "Nika League — Tappa 4", en: "Nika League — Stage 4" }, expansion: "OP-17", format: "Constructed",
-      location: "Location da definire", status: "upcoming", image: "",
+      location: "Location da definire", status: "completed", image: "",
       description: {
         it: "La stagione entra nella sua seconda metà e ogni punto comincia a pesare nella corsa alla Finale.",
         en: "The season enters its second half and every point begins to matter in the race to the Final."
@@ -88,26 +90,21 @@ window.NIKA_TOURNAMENTS_DATA = {
     }
   ],
 
-  leagueStories: [
-    {
-      player: "Giocatore A",
-      label: { it: "IL LEADER", en: "THE LEADER" },
-      title: { it: "Una partenza che detta il ritmo.", en: "A start that sets the pace." },
-      text: { it: "Due risultati di vertice e una continuità impressionante lo hanno portato in testa alla corsa.", en: "Two top finishes and remarkable consistency have taken him to the top of the race." }
+  leagueArticle: {
+    id: "league-article-current",
+    date: "2026-11-02",
+    stage: 4,
+    title: {
+      it: "La classifica cambia volto dopo la quarta tappa",
+      en: "The standings take a new shape after stage four"
     },
-    {
-      player: "Giocatore D",
-      label: { it: "LA RIMONTA", en: "THE COMEBACK" },
-      title: { it: "Dalle retrovie alla zona Finale.", en: "From the pack into Final contention." },
-      text: { it: "Una tappa perfetta ha cambiato la sua stagione e riaperto completamente la lotta per la qualificazione.", en: "A perfect stage changed the season and reopened the entire qualification race." }
+    excerpt: {
+      it: "La quarta tappa ha consolidato la zona qualificazione e riaperto la corsa nelle posizioni centrali. L’analisi completa raccoglie risultati, scelte di mazzo e cambiamenti nella corsa alla Top 8.",
+      en: "Stage four consolidated the qualification zone and reopened the race in the middle positions. The full analysis covers results, deck choices and changes in the race for the Top 8."
     },
-    {
-      player: "Giocatore F",
-      label: { it: "L’OUTSIDER", en: "THE OUTSIDER" },
-      title: { it: "Ogni tappa, un passo in avanti.", en: "One step forward at every stage." },
-      text: { it: "La crescita più costante della League: meno rumore, più punti e una presenza ormai impossibile da ignorare.", en: "The League’s steadiest growth: less noise, more points and a presence that can no longer be ignored." }
-    }
-  ],
+    images: ["assets/images/hero-sea.png"],
+    url: "../../index.html#editorial"
+  },
 
   localEvents: [
     {
@@ -151,28 +148,100 @@ window.NIKA_TOURNAMENTS_DATA = {
 
   standings: [
     {
-      name: "Giocatore A", leader: "Leader placeholder", scores: [15, 10, 12, 8, 14, 6], wins: 18, attendance: 6, best: "1°", movement: 1,
-      story: { it: "Ha aperto la stagione con aggressività e ha trasformato la continuità nel suo vantaggio più grande.", en: "He opened the season aggressively and turned consistency into his greatest advantage." }
+      name: "Giocatore A", leader: "U/G Luffy", scores: [15, 10, 12, 14, null, null], decks: ["U/G Luffy", "", "Mihawk", "Nami", "", ""], wins: 18,
+      story: { it: "Dati dimostrativi del giocatore. Saranno gestiti dalla futura area admin.", en: "Placeholder player data. It will be managed from the future admin area." }
     },
     {
-      name: "Giocatore B", leader: "Leader placeholder", scores: [12, 15, 9, 13, 7, 10], wins: 17, attendance: 6, best: "1°", movement: 0,
-      story: { it: "Sempre vicino alla vetta, è il giocatore che più di tutti costringe il leader a non abbassare mai il ritmo.", en: "Always near the top, he is the player who never lets the leader slow down." }
+      name: "Giocatore B", leader: "Nami", scores: [12, 15, 10, 13, null, null], decks: ["Boa Hancock", "Nami", "", "Smoker", "", ""], wins: 17,
+      story: { it: "Dati dimostrativi del giocatore. Saranno gestiti dalla futura area admin.", en: "Placeholder player data. It will be managed from the future admin area." }
     },
     {
-      name: "Giocatore C", leader: "Leader placeholder", scores: [10, 11, 15, 12, 8, 9], wins: 16, attendance: 6, best: "1°", movement: -1,
-      story: { it: "Una vittoria di tappa e un’identità di gioco precisa lo mantengono stabilmente tra i favoriti.", en: "A stage win and a clear play identity keep him firmly among the favourites." }
+      name: "Giocatore C", leader: "Zoro & Sanji", scores: [10, 11, 15, 12, null, null], decks: ["", "", "Mihawk", "Zoro & Sanji", "", ""], wins: 16,
+      story: { it: "Dati dimostrativi del giocatore. Saranno gestiti dalla futura area admin.", en: "Placeholder player data. It will be managed from the future admin area." }
     },
     {
-      name: "Giocatore D", leader: "Leader placeholder", scores: [8, 12, 10, 15, 6, 11], wins: 15, attendance: 6, best: "1°", movement: 2,
-      story: { it: "La rimonta più evidente della stagione: ha trovato il momento giusto per giocare la sua miglior tappa.", en: "The clearest comeback of the season: he found the right moment for his best stage." }
+      name: "Giocatore D", leader: "Mihawk", scores: [8, 12, 11, 15, null, null], decks: ["", "Zoro", "", "Mihawk", "", ""], wins: 15,
+      story: { it: "Dati dimostrativi del giocatore. Saranno gestiti dalla futura area admin.", en: "Placeholder player data. It will be managed from the future admin area." }
     },
     {
-      name: "Giocatore E", leader: "Leader placeholder", scores: [9, 7, 13, 10, 12, 8], wins: 14, attendance: 6, best: "2°", movement: -1,
-      story: { it: "Pochi picchi, nessun crollo: resta in corsa grazie a una solidità che pesa sul lungo periodo.", en: "Few peaks, no collapses: long-term consistency keeps him in the race." }
+      name: "Giocatore E", leader: "Boa Hancock", scores: [9, 10, 13, 12, null, null], decks: ["", "", "Koby", "Boa Hancock", "", ""], wins: 14,
+      story: { it: "Dati dimostrativi del giocatore. Saranno gestiti dalla futura area admin.", en: "Placeholder player data. It will be managed from the future admin area." }
     },
     {
-      name: "Giocatore F", leader: "Leader placeholder", scores: [6, 10, 8, 11, 9, 13], wins: 13, attendance: 6, best: "2°", movement: 3,
-      story: { it: "Il percorso più graduale della League, costruito tappa dopo tappa fino a entrare nella conversazione Finale.", en: "The League’s most gradual journey, built stage by stage into Final contention." }
+      name: "Giocatore F", leader: "Koby", scores: [10, 8, 11, 13, null, null], decks: ["", "", "", "Koby", "", ""], wins: 13,
+      story: { it: "Dati dimostrativi del giocatore. Saranno gestiti dalla futura area admin.", en: "Placeholder player data. It will be managed from the future admin area." }
+    },
+    {
+      name: "Giocatore G", leader: "Enel", scores: [11, 9, 10, 10, null, null], decks: ["", "", "", "", "", ""], wins: 12,
+      story: { it: "Dati dimostrativi del giocatore. Saranno gestiti dalla futura area admin.", en: "Placeholder player data. It will be managed from the future admin area." }
+    },
+    {
+      name: "Giocatore H", leader: "Smoker", scores: [7, 11, 9, 12, null, null], decks: ["", "", "", "Smoker", "", ""], wins: 12,
+      story: { it: "Dati dimostrativi del giocatore. Saranno gestiti dalla futura area admin.", en: "Placeholder player data. It will be managed from the future admin area." }
+    },
+    {
+      name: "Giocatore I", leader: "Perona", scores: [10, 9, 11, 8, null, null], decks: ["", "", "", "", "", ""], wins: 11,
+      story: { it: "Dati dimostrativi del giocatore. Saranno gestiti dalla futura area admin.", en: "Placeholder player data. It will be managed from the future admin area." }
+    },
+    {
+      name: "Giocatore L", leader: "Shanks", scores: [12, 10, null, 12, null, null], decks: ["Shanks", "", "", "Shanks", "", ""], wins: 10,
+      story: { it: "Dati dimostrativi del giocatore. Saranno gestiti dalla futura area admin.", en: "Placeholder player data. It will be managed from the future admin area." }
+    },
+    {
+      name: "Giocatore M", leader: "Bonney", scores: [8, 7, 9, 8, null, null], decks: ["", "", "", "", "", ""], wins: 9,
+      story: { it: "Dati dimostrativi del giocatore. Saranno gestiti dalla futura area admin.", en: "Placeholder player data. It will be managed from the future admin area." }
+    },
+    {
+      name: "Giocatore N", leader: "Teach", scores: [9, null, 10, 10, null, null], decks: ["", "", "", "", "", ""], wins: 9,
+      story: { it: "Dati dimostrativi del giocatore. Saranno gestiti dalla futura area admin.", en: "Placeholder player data. It will be managed from the future admin area." }
+    },
+    {
+      name: "Giocatore O", leader: "Oden", scores: [7, 8, 6, 9, null, null], decks: ["", "", "", "", "", ""], wins: 8,
+      story: { it: "Dati dimostrativi del giocatore. Saranno gestiti dalla futura area admin.", en: "Placeholder player data. It will be managed from the future admin area." }
+    },
+    {
+      name: "Giocatore P", leader: "Law", scores: [10, 6, 8, 7, null, null], decks: ["", "", "", "", "", ""], wins: 8,
+      story: { it: "Dati dimostrativi del giocatore. Saranno gestiti dalla futura area admin.", en: "Placeholder player data. It will be managed from the future admin area." }
+    },
+    {
+      name: "Giocatore Q", leader: "Doflamingo", scores: [5, 9, 7, 8, null, null], decks: ["", "", "", "", "", ""], wins: 7,
+      story: { it: "Dati dimostrativi del giocatore. Saranno gestiti dalla futura area admin.", en: "Placeholder player data. It will be managed from the future admin area." }
+    },
+    {
+      name: "Giocatore R", leader: "Carrot", scores: [8, 5, 7, 6, null, null], decks: ["", "", "", "", "", ""], wins: 7,
+      story: { it: "Dati dimostrativi del giocatore. Saranno gestiti dalla futura area admin.", en: "Placeholder player data. It will be managed from the future admin area." }
+    },
+    {
+      name: "Giocatore S", leader: "Koala", scores: [6, 8, 5, 7, null, null], decks: ["", "", "", "", "", ""], wins: 6,
+      story: { it: "Dati dimostrativi del giocatore. Saranno gestiti dalla futura area admin.", en: "Placeholder player data. It will be managed from the future admin area." }
+    },
+    {
+      name: "Giocatore T", leader: "Sanji", scores: [4, 7, 8, 5, null, null], decks: ["", "", "", "", "", ""], wins: 6,
+      story: { it: "Dati dimostrativi del giocatore. Saranno gestiti dalla futura area admin.", en: "Placeholder player data. It will be managed from the future admin area." }
+    },
+    {
+      name: "Giocatore U", leader: "Luffy", scores: [7, 6, 4, 5, null, null], decks: ["", "", "", "", "", ""], wins: 5,
+      story: { it: "Dati dimostrativi del giocatore. Saranno gestiti dalla futura area admin.", en: "Placeholder player data. It will be managed from the future admin area." }
+    },
+    {
+      name: "Giocatore V", leader: "Katakuri", scores: [5, 4, 6, 4, null, null], decks: ["", "", "", "", "", ""], wins: 5,
+      story: { it: "Dati dimostrativi del giocatore. Saranno gestiti dalla futura area admin.", en: "Placeholder player data. It will be managed from the future admin area." }
+    },
+    {
+      name: "Giocatore W", leader: "Marco", scores: [4, 6, 5, 3, null, null], decks: ["", "", "", "", "", ""], wins: 4,
+      story: { it: "Dati dimostrativi del giocatore. Saranno gestiti dalla futura area admin.", en: "Placeholder player data. It will be managed from the future admin area." }
+    },
+    {
+      name: "Giocatore X", leader: "Lucci", scores: [3, 5, 4, 5, null, null], decks: ["", "", "", "", "", ""], wins: 4,
+      story: { it: "Dati dimostrativi del giocatore. Saranno gestiti dalla futura area admin.", en: "Placeholder player data. It will be managed from the future admin area." }
+    },
+    {
+      name: "Giocatore Y", leader: "Vegapunk", scores: [4, 3, 5, 3, null, null], decks: ["", "", "", "", "", ""], wins: 3,
+      story: { it: "Dati dimostrativi del giocatore. Saranno gestiti dalla futura area admin.", en: "Placeholder player data. It will be managed from the future admin area." }
+    },
+    {
+      name: "Giocatore Z", leader: "Reiju", scores: [2, 4, 3, 4, null, null], decks: ["", "", "", "", "", ""], wins: 3,
+      story: { it: "Dati dimostrativi del giocatore. Saranno gestiti dalla futura area admin.", en: "Placeholder player data. It will be managed from the future admin area." }
     }
   ]
 };

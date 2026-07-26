@@ -5,23 +5,23 @@
   <meta name="robots" content="noindex, nofollow">
   <meta name="googlebot" content="noindex, nofollow">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Calendario, classifica e storie della Nika League.">
+  <meta name="description" content="Classifica, calendario, Finale e ultimo articolo della Nika League.">
   <meta name="theme-color" content="#09070d">
   <title>Nika League — La Tana di Nika</title>
 
-  <link rel="icon" type="image/png" href="../../assets/images/favicon.png?v=4.4.2">
+  <link rel="icon" type="image/png" href="../../assets/images/favicon.png?v=4.4.7">
   <link rel="stylesheet" href="../../css/tokens.css">
   <link rel="stylesheet" href="../../css/base.css">
   <link rel="stylesheet" href="../../css/components.css?v=4.3.3">
   <link rel="stylesheet" href="../../css/pages.css?v=4.4.2">
-  <link rel="stylesheet" href="../../css/league.css?v=4.4.2">
+  <link rel="stylesheet" href="../../css/league.css?v=4.4.7">
 
-  <script defer src="../../js/i18n/it.js?v=4.4.2"></script>
-  <script defer src="../../js/i18n/en.js?v=4.4.2"></script>
-  <script defer src="../../js/data/tournaments.js?v=4.4.2"></script>
+  <script defer src="../../js/i18n/it.js?v=4.4.7"></script>
+  <script defer src="../../js/i18n/en.js?v=4.4.7"></script>
+  <script defer src="../../js/data/tournaments.js?v=4.4.7"></script>
   <script defer src="../../js/components/tournament-utils.js?v=4.4.2"></script>
   <script defer src="../../js/components/header.js?v=4.4.2"></script>
-  <script defer src="../../js/components/league-page.js?v=4.4.2"></script>
+  <script defer src="../../js/components/league-page.js?v=4.4.7"></script>
   <script defer src="../../js/main.js?v=4.4.2"></script>
 </head>
 <body class="internal-page" data-root-prefix="../../">
@@ -39,22 +39,65 @@
     <section class="internal-hero league-hero">
       <div class="shell internal-hero__content">
         <nav class="breadcrumb" aria-label="Breadcrumb"><a href="../../index.html" data-i18n="leaguePage.breadcrumbHome">Home</a><span aria-hidden="true">/</span><a href="../" data-i18n="leaguePage.breadcrumbTournaments">Tornei</a><span aria-hidden="true">/</span><span>Nika League</span></nav>
-        <p class="eyebrow" data-i18n="leaguePage.heroEyebrow">IL CAMPIONATO DELLA TANA</p><h1>Nika League.</h1><p class="internal-hero__lead" data-i18n="leaguePage.heroLead">Punti, rivalità e rimonte: una stagione da seguire tappa dopo tappa.</p>
-        <div class="internal-hero__facts"><div class="internal-hero__fact"><strong>6 + 1</strong><span data-i18n="leaguePage.factStages">Tappe e Finale</span></div><div class="internal-hero__fact"><strong>4/6</strong><span data-i18n="leaguePage.factScores">Risultati validi</span></div><div class="internal-hero__fact"><strong data-player-count>0/64</strong><span data-i18n="leaguePage.factPlayers">Giocatori</span></div></div>
+        <p class="eyebrow" data-i18n="leaguePage.heroEyebrow">NIKA LEAGUE · STAGIONE CORRENTE</p>
+        <h1 data-i18n="leaguePage.heroTitle">Classifica lega corrente</h1>
+        <p class="internal-hero__lead" data-current-stage-copy>Classifica aggiornata alla tappa 4/6.</p>
       </div>
     </section>
 
-    <nav class="league-subnav" aria-label="Indice Nika League"><div class="shell"><a href="#overview" data-i18n="leaguePage.navOverview">Prossima tappa</a><a href="#stories" data-i18n="leaguePage.navStories">Cronache</a><a href="#season" data-i18n="leaguePage.navSeason">Calendario</a><a href="#standings" data-i18n="leaguePage.navStandings">Classifica</a><a href="#finale" data-i18n="leaguePage.navFinal">Finale</a></div></nav>
+    <nav class="league-subnav" aria-label="Indice Nika League"><div class="shell"><a href="#standings" data-i18n="leaguePage.navStandings">Classifica</a><a href="#season" data-i18n="leaguePage.navSeason">Calendario</a><a href="#finale" data-i18n="leaguePage.navFinal">Finale</a><a href="#latest-article" data-i18n="leaguePage.navArticle">Ultimo articolo</a></div></nav>
 
-    <section class="league-overview" id="overview"><div class="shell league-overview__grid"><article class="league-spotlight" data-next-league></article><aside class="league-rule"><span class="league-rule__value">4/6</span><h2 data-i18n="leaguePage.ruleTitle">Contano i quattro risultati migliori.</h2><p data-i18n="leaguePage.ruleText">Le due tappe peggiori restano visibili in rosso, ma non entrano nel totale finale.</p><div class="league-rule__example" aria-hidden="true"><span>15</span><span>12</span><span>10</span><span>14</span><span class="is-discarded">8</span><span class="is-discarded">6</span></div></aside></div></section>
+    <section class="league-standings" id="standings" aria-labelledby="standings-title">
+      <div class="shell">
+        <div class="league-section-head league-section-head--split">
+          <div><p class="eyebrow" data-i18n="leaguePage.standingsEyebrow">CLASSIFICA GENERALE</p><h2 id="standings-title">Nika League 2026</h2></div>
+          <p data-i18n="leaguePage.standingsText">Tutti gli score sono visibili. Tocca il nome di un giocatore per aprire le statistiche.</p>
+        </div>
 
-    <section class="league-stories" id="stories" aria-labelledby="stories-title"><div class="shell"><div class="league-section-head"><p class="eyebrow" data-i18n="leaguePage.storiesEyebrow">CRONACHE DALLA LEAGUE</p><h2 id="stories-title" data-i18n="leaguePage.storiesTitle">Non solo punti. Le gesta dei protagonisti.</h2><p data-i18n="leaguePage.storiesText">Momenti, rimonte e percorsi che danno un volto alla classifica.</p></div><div class="league-stories__grid" data-league-stories></div></div></section>
+        <div class="league-standings__legend" aria-label="Legenda classifica">
+          <span><i class="legend-dot legend-dot--top"></i><span data-i18n="leaguePage.topEightLegend">Top 8 provvisoria</span></span>
+          <span><i class="legend-dot legend-dot--valid"></i><span data-i18n="leaguePage.validLegend">Risultato valido</span></span>
+          <span><i class="legend-dot legend-dot--discarded"></i><span data-i18n="leaguePage.discardLegend">Risultato scartato</span></span>
+        </div>
 
-    <section class="league-season" id="season" aria-labelledby="season-title"><div class="shell"><div class="league-section-head"><p class="eyebrow" data-i18n="leaguePage.seasonEyebrow">CALENDARIO STAGIONALE</p><h2 id="season-title" data-i18n="leaguePage.seasonTitle">Sei tappe, poi la Finale.</h2><p data-i18n="leaguePage.seasonText">Seleziona una tappa per leggere il racconto, vedere il formato e impostare il reminder.</p></div><div class="season-rail" data-league-season></div><article class="season-detail" data-league-event-detail></article></div></section>
+        <div class="league-table-card">
+          <div class="league-table-card__head"><strong data-current-stage-label>Classifica aggiornata alla tappa 4/6</strong><span data-registered-count>0 giocatori registrati</span></div>
+          <p class="league-table-card__hint" data-i18n="leaguePage.scrollHint">Scorri verticalmente per i giocatori e lateralmente per le tappe. Il nome resta visibile.</p>
+          <div class="league-table-viewport" data-standings></div>
+        </div>
+      </div>
+    </section>
 
-    <section class="league-standings" id="standings" aria-labelledby="standings-title"><div class="shell"><div class="league-standings__header"><div class="league-section-head"><p class="eyebrow" data-i18n="leaguePage.standingsEyebrow">CLASSIFICA GENERALE</p><h2 id="standings-title" data-i18n="leaguePage.standingsTitle">Ogni posizione racconta una storia.</h2><p data-i18n="leaguePage.standingsText">Sono mostrati soltanto i giocatori realmente registrati, fino a un massimo di 64.</p></div><div class="league-standings__tools"><label for="standing-search" data-i18n="leaguePage.searchLabel">Cerca un giocatore</label><input id="standing-search" type="search" data-standing-search data-i18n-placeholder="leaguePage.searchPlaceholder" placeholder="Nome o Leader…"><p><span data-i18n="leaguePage.registered">Iscritti</span> <strong data-registered-count>0 / 64</strong></p></div></div><div class="league-podium" data-podium></div><div class="league-standings__legend"><span><i></i><span data-i18n="leaguePage.discardLegend">Risultato escluso dal totale</span></span><small data-i18n="leaguePage.openHint">Apri un giocatore per leggere le sue gesta.</small></div><div class="league-standings__board" data-standings></div></div></section>
+    <section class="league-season" id="season" aria-labelledby="season-title">
+      <div class="shell">
+        <div class="league-section-head league-section-head--split">
+          <div><p class="eyebrow" data-i18n="leaguePage.seasonEyebrow">CALENDARIO LEGA</p><h2 id="season-title" data-i18n="leaguePage.seasonTitle">Stagione 2026</h2></div>
+          <p data-i18n="leaguePage.seasonText">Consulta date, formato e dettagli delle sei tappe e della Finale.</p>
+        </div>
+        <article class="league-calendar" data-league-calendar></article>
+      </div>
+    </section>
 
-    <section class="finale-feature" id="finale"><div class="shell finale-feature__inner" data-final-feature></div></section>
+
+    <section class="league-finale-section" id="finale" aria-labelledby="finale-title">
+      <div class="shell">
+        <div class="league-section-head league-section-head--split">
+          <div><p class="eyebrow" data-i18n="leaguePage.finalEyebrow">FINALE NIKA LEAGUE</p><h2 id="finale-title" data-i18n="leaguePage.finalTitle">L’ultimo appuntamento della stagione</h2></div>
+          <p data-i18n="leaguePage.finalText">Data, informazioni e aggiornamenti sulla Finale e sulla diretta.</p>
+        </div>
+        <article class="league-finale-card" data-league-final></article>
+      </div>
+    </section>
+
+    <section class="league-article-section" id="latest-article" aria-labelledby="article-title-section">
+      <div class="shell">
+        <div class="league-section-head league-section-head--split">
+          <div><p class="eyebrow" data-i18n="leaguePage.articleEyebrow">EDITORIALE NIKA LEAGUE</p><h2 id="article-title-section" data-i18n="leaguePage.articleSectionTitle">Ultimo articolo</h2></div>
+          <p data-i18n="leaguePage.articleSectionText">L’ultimo approfondimento pubblicato dalla redazione sulla stagione in corso.</p>
+        </div>
+        <article class="league-latest-article" data-league-article></article>
+      </div>
+    </section>
 
     <section class="page-return"><div class="shell"><p data-i18n="leaguePage.returnText">Vuoi esplorare un’altra area?</p><div class="page-return__actions"><a class="button button--ghost" href="../" data-i18n="leaguePage.returnTournaments">Torna ai Tornei</a><a class="button button--primary button--home" href="../../index.html"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 11.5 12 4l9 7.5M5.5 10v10h13V10M9.5 20v-6h5v6"/></svg><span data-i18n="leaguePage.returnHome">Torna alla Home</span></a></div></div></section>
   </main>

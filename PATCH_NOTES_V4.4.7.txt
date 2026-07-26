@@ -1,0 +1,49 @@
+LA TANA DI NIKA — PATCH V4.4.7
+================================
+
+NOME PATCH
+Project Alignment Consolidation
+
+BASE
+V4.4.6 — League Current Standings
+
+OBIETTIVO
+Riallineare la pagina Nika League e la roadmap alla direzione complessiva del progetto,
+senza cambiare la homepage, l’hub Tornei o “I nostri tornei”.
+
+MODIFICHE
+- mantenuta la classifica approvata della V4.4.6;
+- rimossi i riferimenti alla gestione admin dalla pagina pubblica;
+- ripristinato il reminder ICS per tappe future e Finale;
+- ripristinata una sezione Finale dedicata e compatta;
+- aggiunta Finale nella sott navigazione League;
+- testi calendario, Finale e articolo resi completamente pubblici;
+- estratto articolo placeholder ripulito;
+- dashboard admin rinviata alla fine della roadmap;
+- aggiunto audit completo e handoff consolidato.
+
+FILE MODIFICATI
+- tornei/nika-league/index.html
+- css/league.css
+- js/components/league-page.js
+- js/data/tournaments.js
+- js/i18n/it.js
+- js/i18n/en.js
+- README.md
+
+FILE NUOVI
+- PATCH_NOTES_V4.4.7.txt
+- LA_TANA_DI_NIKA_PROJECT_AUDIT_AND_HANDOFF_V4.4.7.txt
+
+FILE NON TOCCATI
+- index.html homepage
+- css/home.css
+- js/components/hero-split.js
+- hub /tornei/ V4.4.5
+- pagina /tornei/i-nostri-tornei/
+- mascotte ufficiale
+- immagini e animazioni homepage
+
+PROSSIMO PASSO
+Dopo il test online: “I nostri tornei — Premium Experience”.
+La dashboard admin unica resta l’ultima grande fase del progetto.

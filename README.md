@@ -1,4 +1,4 @@
-# La Tana di Nika — V4.4.5 Tournament Architecture
+# La Tana di Nika — V4.4.7 Project Alignment Consolidation
 
 Base: V4.3.3 Motion, con riorganizzazione dell’Area Torneistica introdotta nella V4.4.0.
 
@@ -77,3 +77,30 @@ Ogni pagina interna termina con il pulsante `Torna alla Home`.
 - Sfondi grigio e viola arricchiti con texture e profondità sobrie.
 - Mobile invariato, senza trasformazioni che possano creare overflow.
 - Nessuna modifica alle pagine interne, ai dati o alla mascotte.
+
+
+## V4.4.6 — League Current Standings
+
+- La pagina `/tornei/nika-league/` apre direttamente con la classifica della lega corrente.
+- La classifica è contenuta in un riquadro con scorrimento interno verticale e orizzontale.
+- Intestazione, posizione e nome restano visibili durante lo scorrimento.
+- Le colonne sono nominate `Tappa 1`–`Tappa 6`.
+- La Top 8 provvisoria è evidenziata.
+- I quattro risultati validi sono verdi; dal quinto risultato in poi i punteggi più bassi sono rossi e barrati.
+- Il nome del giocatore apre statistiche e dettaglio delle sei tappe.
+- Sotto la classifica compare il calendario pubblico della League.
+- Sotto il calendario compare esclusivamente l’ultimo articolo della League, con supporto per 1–4 fotografie.
+- Nessun controllo di modifica è visibile nel sito pubblico: gestione di classifica, calendario e articolo resta prevista per una futura area admin.
+
+
+## V4.4.7 — Project Alignment Consolidation
+
+- Conferma Store ed Editoriale come due ingressi equivalenti della homepage.
+- Conferma l’Area Torneistica come hub pubblico dedicato, subordinato alla Hero 50/50 ma strategico per la piattaforma.
+- Mantiene la classifica League approvata nella V4.4.6.
+- Rimuove dalla pagina pubblica i riferimenti operativi alla futura dashboard admin.
+- Ripristina il reminder calendario pubblico due ore prima.
+- Ripristina una sezione Finale dedicata, compatta e predisposta per Twitch.
+- Mantiene l’ultimo articolo League sotto calendario e Finale, senza controlli di gestione visibili.
+- Rinvia la dashboard admin unica alla fine della progettazione delle sezioni pubbliche.
+- Il prossimo intervento grafico principale resta “I nostri tornei — Premium Experience”, seguito dal banner homepage del prossimo domenicale.

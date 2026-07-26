@@ -103,14 +103,15 @@ window.NIKA_TRANSLATIONS.it = {
     returnText: "Vuoi tornare all’ingresso della Tana?", returnHome: "Torna alla Home"
   },
   leaguePage: {
-    breadcrumbHome: "Home", breadcrumbTournaments: "Tornei", heroEyebrow: "IL CAMPIONATO DELLA TANA", heroLead: "Punti, rivalità e rimonte: una stagione da seguire tappa dopo tappa.",
-    factStages: "Tappe e Finale", factScores: "Risultati validi", factPlayers: "Giocatori",
-    navOverview: "Prossima tappa", navStories: "Cronache", navSeason: "Calendario", navStandings: "Classifica", navFinal: "Finale",
-    ruleTitle: "Contano i quattro risultati migliori.", ruleText: "Le due tappe peggiori restano visibili in rosso, ma non entrano nel totale finale.",
-    storiesEyebrow: "CRONACHE DALLA LEAGUE", storiesTitle: "Non solo punti. Le gesta dei protagonisti.", storiesText: "Momenti, rimonte e percorsi che danno un volto alla classifica.",
-    seasonEyebrow: "CALENDARIO STAGIONALE", seasonTitle: "Sei tappe, poi la Finale.", seasonText: "Seleziona una tappa per leggere il racconto, vedere il formato e impostare il reminder.",
-    standingsEyebrow: "CLASSIFICA GENERALE", standingsTitle: "Ogni posizione racconta una storia.", standingsText: "Sono mostrati soltanto i giocatori realmente registrati, fino a un massimo di 64.",
-    searchLabel: "Cerca un giocatore", searchPlaceholder: "Nome o Leader…", registered: "Iscritti", discardLegend: "Risultato escluso dal totale", openHint: "Apri un giocatore per leggere le sue gesta.",
+    breadcrumbHome: "Home", breadcrumbTournaments: "Tornei",
+    heroEyebrow: "NIKA LEAGUE · STAGIONE CORRENTE", heroTitle: "Classifica lega corrente",
+    navStandings: "Classifica", navSeason: "Calendario", navFinal: "Finale", navArticle: "Ultimo articolo",
+    standingsEyebrow: "CLASSIFICA GENERALE", standingsText: "Tutti gli score sono visibili. Tocca il nome di un giocatore per aprire le statistiche.",
+    topEightLegend: "Top 8 provvisoria", validLegend: "Risultato valido", discardLegend: "Risultato scartato",
+    scrollHint: "Scorri verticalmente per i giocatori e lateralmente per le tappe. Il nome resta visibile.",
+    seasonEyebrow: "CALENDARIO LEGA", seasonTitle: "Stagione 2026", seasonText: "Consulta date, formato e dettagli delle sei tappe e della Finale.",
+    finalEyebrow: "FINALE NIKA LEAGUE", finalTitle: "L’ultimo appuntamento della stagione", finalText: "Data, informazioni e aggiornamenti sulla Finale e sulla diretta.",
+    articleEyebrow: "EDITORIALE NIKA LEAGUE", articleSectionTitle: "Ultimo articolo", articleSectionText: "L’ultimo approfondimento pubblicato dalla redazione sulla stagione in corso.",
     returnText: "Vuoi esplorare un’altra area?", returnTournaments: "Torna ai Tornei", returnHome: "Torna alla Home"
   },
   communityEventsPage: {

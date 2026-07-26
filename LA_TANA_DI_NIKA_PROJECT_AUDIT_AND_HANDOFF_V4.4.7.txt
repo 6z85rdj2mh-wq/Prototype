@@ -1,0 +1,617 @@
+LA TANA DI NIKA — AUDIT COMPLETO, DIREZIONE CONSOLIDATA E HANDOFF V4.4.7
+================================================================================
+Data di riferimento: 26 luglio 2026
+Versione consolidata corrente: V4.4.7 — Project Alignment Consolidation
+Base tecnica: V4.4.6, derivata dalla V4.4.5 approvata
+
+1. SCOPO DI QUESTO DOCUMENTO
+----------------------------
+Questo documento nasce dopo la richiesta di fermare temporaneamente lo sviluppo e
+verificare se il progetto avesse perso la direzione stabilita nelle conversazioni
+precedenti.
+
+L’audit ha considerato:
+- la visione iniziale del progetto del 24 luglio 2026;
+- le decisioni e le esclusioni consolidate il 25 luglio 2026;
+- l’handoff V4.4.5;
+- lo ZIP reale V4.4.5;
+- il lavoro svolto sulla Nika League nella V4.4.6;
+- l’handoff e le patch note V4.4.6;
+- i file reali HTML, CSS e JavaScript dell’intero sito;
+- le ultime decisioni dell’utente su classifica, calendario, articolo e dashboard;
+- la struttura futura prevista con GitHub Pages, Supabase, Store e area admin.
+
+Il file operativo da usare da questo momento è:
+LA_TANA_DI_NIKA_V4.4.7.zip
+
+La parola “finale” indica qui la versione consolidata e completa dello stato corrente,
+non un sito già pronto al lancio commerciale. Restano ancora sezioni pubbliche da
+rifinire, dati reali da inserire e integrazioni da realizzare.
+
+
+2. CONCLUSIONE DELL’AUDIT
+--------------------------
+La direzione generale non era stata persa nel codice principale.
+
+Sono rimasti integri:
+- la homepage V4.3.3/V4.4.x;
+- la Hero 50/50 Store–Editoriale;
+- l’identità nero, bianco e viola;
+- la mascotte ufficiale;
+- l’hub Tornei V4.4.5;
+- le due card separate Nika League / I nostri tornei;
+- l’effetto scale premium dell’hub;
+- l’architettura modulare e i dati centralizzati.
+
+La deviazione era soprattutto nel metodo e nella roadmap:
+- la Nika League era stata trattata per alcune iterazioni come progetto isolato;
+- si era proposto di costruire subito una dashboard dedicata, mentre la dashboard unica
+  deve essere realizzata soltanto alla fine;
+- nella pagina pubblica erano comparsi testi che spiegavano la futura gestione admin;
+- durante la semplificazione della League erano stati rimossi il reminder pubblico e
+  uno spazio dedicato alla Finale, entrambi già approvati in precedenza.
+
+La V4.4.7 corregge questi punti senza annullare la classifica approvata.
+
+
+3. IDENTITÀ DEL PROGETTO
+-------------------------
+La Tana di Nika è una piattaforma digitale premium dedicata al One Piece Card Game.
+Non deve sembrare un semplice negozio, un blog generico o una gaming dashboard.
+
+Identità visiva:
+- nero;
+- bianco;
+- viola;
+- contrasti puliti;
+- profondità sobria;
+- atmosfere cinematografiche;
+- illustrazioni ambientali vive ma discrete.
+
+Tono:
+- premium;
+- elegante;
+- moderno;
+- professionale;
+- immersivo;
+- chiaro e funzionale;
+- mai cartoon;
+- mai pacchiano;
+- mai eccessivamente “gaming UI”;
+- mai sovraccarico di glow, icone o microinformazioni.
+
+Mascotte:
+- usare esclusivamente la nuvoletta ufficiale fornita dall’utente;
+- mantenere il PNG trasparente senza quadrato o cerchio bianco;
+- non ridisegnarla;
+- non sostituirla con varianti generate;
+- non trasformarla in un personaggio tematico senza richiesta esplicita.
+
+
+4. GERARCHIA CORRETTA DEL SITO
+-------------------------------
+La homepage deve comunicare immediatamente due anime equivalenti:
+
+1. Store
+2. Area Editoriale
+
+Queste due aree restano sullo stesso livello nella Hero 50/50.
+Nessuna delle due deve apparire subordinata all’altra.
+
+L’Area Torneistica è un terzo pilastro strategico della piattaforma, ma non sostituisce
+la scelta iniziale Store / Editoriale e non trasforma la Hero in una tripartizione.
+Deve comparire come sezione importante sotto l’ingresso principale e avere un proprio
+hub dedicato.
+
+Gerarchia pubblica consolidata:
+- Homepage: Store ed Editoriale equivalenti;
+- Area Torneistica: hub dedicato;
+- Nika League: campionato continuativo;
+- I nostri tornei: eventi indipendenti;
+- Editoriale: articoli, guide gratuite e contenuti premium futuri;
+- Store: catalogo e acquisto, inizialmente con collegamenti esterni e integrazioni
+  progressive;
+- Guide: gratuite e a pagamento, con catalogazione per mazzo/Leader/formato.
+
+
+5. HOMEPAGE — DIREZIONE VINCOLANTE
+-----------------------------------
+La homepage corrente conserva correttamente la direzione approvata.
+
+Hero:
+- divisione Store / Editoriale;
+- importanza equivalente;
+- hover desktop: una metà si evidenzia e cresce mentre l’altra arretra leggermente;
+- movimento fluido ed elastico, non aggressivo;
+- nessuna trasformazione che produca overflow;
+- comportamento mobile adattato a tap/focus/scroll;
+- testo leggibile tra 320 e 430 px.
+
+Componenti già presenti:
+- header bilingue IT/EN;
+- navigazione desktop e mobile;
+- Hero split;
+- sezione Area Torneistica;
+- ricerca con switch Store / Contenuti;
+- sezione contenuti in evidenza;
+- struttura modulare.
+
+Funzione futura già approvata:
+- banner a tendina sotto l’header per il prossimo evento domenicale;
+- chiudibile;
+- compatto;
+- non deve coprire la Hero;
+- legge i dati dalla stessa fonte di “I nostri tornei”;
+- mostra data, nome, orario e CTA;
+- può supportare in futuro posti disponibili e reminder.
+
+Non duplicare i dati del prossimo evento dentro la homepage.
+
+
+6. AREA TORNEISTICA — ARCHITETTURA APPROVATA
+---------------------------------------------
+L’hub /tornei/ deve restare compatto, pulito e non diventare una pagina lunga.
+
+Ordine:
+1. header;
+2. barra live/Twitch;
+3. due card principali;
+4. ritorno alla Home.
+
+Card principali:
+- Nika League;
+- I nostri tornei.
+
+Regole:
+- dimensioni uguali;
+- card separate;
+- nessuna scena unica fusa;
+- nessun separatore organico centrale;
+- nessuna variazione animata delle colonne;
+- hover desktop tramite transform: scale;
+- card attiva leggermente più grande e sollevata;
+- card inattiva leggermente ridotta;
+- mobile senza overflow;
+- niente parola “one shot” nell’interfaccia;
+- niente sigilli grandi, poster complessi o neon aggressivo.
+
+Barra Twitch:
+- resta sopra le card;
+- può mostrare live, prossima diretta, aggiornamento classifica o prossimo evento;
+- l’integrazione reale verrà effettuata più avanti;
+- la Finale e altri eventi potranno essere trasmessi nello stesso spazio.
+
+
+7. NIKA LEAGUE — DIREZIONE PUBBLICA CONSOLIDATA
+------------------------------------------------
+La League non deve essere né una pagina eccessivamente epica né una tabella priva di
+identità. Deve essere uno strumento premium di consultazione inserito nel linguaggio
+cinematografico del sito.
+
+Ordine pubblico V4.4.7:
+1. Hero cinematografica;
+2. classifica della lega corrente;
+3. calendario League;
+4. sezione Finale;
+5. ultimo articolo League;
+6. ritorno ai Tornei e alla Home.
+
+Hero:
+- titolo: “Classifica lega corrente”;
+- sottotitolo dinamico: “Classifica aggiornata alla tappa X/6”;
+- nessuna introduzione pomposa;
+- atmosfera coerente con le altre pagine interne.
+
+Classifica:
+- riquadro premium;
+- scroll verticale interno per i giocatori;
+- scroll orizzontale interno per Tappa 1–6;
+- intestazione sticky;
+- posizione e nome sticky;
+- nome volutamente più stretto delle colonne risultato;
+- colonne Tappa più larghe e leggibili;
+- tutti gli score immediatamente visibili;
+- nessuna ricerca individuale nella vista principale;
+- massimo 64 iscritti, mostrando soltanto quelli realmente registrati;
+- Top 8 provvisoria evidenziata in viola sobrio;
+- click sul nome per aprire statistiche aggiuntive.
+
+Statistiche giocatore:
+- Leader;
+- totale valido;
+- presenze;
+- media;
+- miglior risultato;
+- numero di score da 12 punti in su;
+- posizione;
+- dettaglio delle sei tappe;
+- mazzo associato quando uno score è almeno 12.
+
+Regola punteggi:
+- prime quattro tappe: tutti i risultati disputati sono validi e verdi;
+- quinta tappa: i quattro migliori restano verdi, il peggiore diventa rosso e barrato;
+- sesta tappa: i quattro migliori restano verdi, i due peggiori diventano rossi e
+  barrati;
+- le tappe non disputate restano neutre;
+- il totale usa esclusivamente i quattro risultati validi;
+- a parità di punteggio la utility corrente scarta prima il risultato più recente;
+- non cambiare questa regola senza una decisione esplicita.
+
+Calendario:
+- sei tappe più Finale;
+- data, ora, luogo, formato, espansione e stato;
+- evento selezionabile;
+- reminder pubblico circa due ore prima tramite file ICS;
+- nessun comando di modifica visibile.
+
+Finale:
+- spazio pubblico dedicato e compatto;
+- data, orario, luogo, descrizione e commento;
+- reminder;
+- stato della futura diretta Twitch;
+- in futuro può accogliere live, chat desktop e replay/VOD;
+- layout mobile semplificato.
+
+Ultimo articolo:
+- mostra soltanto l’articolo League più recente;
+- titolo, data, tappa, testo/estratto e massimo quattro fotografie;
+- collegamento all’articolo completo;
+- nessun pulsante “Aggiungi”, “Modifica” o “Carica foto” nel sito pubblico;
+- il futuro sistema admin sostituirà l’articolo corrente e archivierà il precedente
+  nell’Area Editoriale.
+
+Elementi delle prime proposte League che non sono vincolanti:
+- podio separato;
+- cronache in tre card;
+- grandi frasi celebrative;
+- numeri decorativi sovradimensionati;
+- ricerca giocatore nella vista principale.
+Questi elementi sono stati progressivamente ridotti o scartati durante le anteprime.
+
+
+8. I NOSTRI TORNEI — DIREZIONE DA COMPLETARE
+---------------------------------------------
+“I nostri tornei” è separato dalla Nika League.
+
+Identità:
+- eventi autonomi;
+- local;
+- domenicali;
+- prerelease o eventi speciali;
+- ogni torneo deve avere identità, data, formato, premi e atmosfera propri;
+- deve comunicare unicità ed esclusività senza usare “one shot”.
+
+Funzioni già predisposte:
+- calendario separato;
+- prossimo evento;
+- reminder due ore prima;
+- posti disponibili;
+- formato ed espansione;
+- immagini;
+- descrizione;
+- griglie premi personalizzabili in base ai partecipanti.
+
+Stato:
+- la pagina è funzionale e strutturata;
+- non ha ancora ricevuto la rifinitura premium definitiva prevista dalla roadmap;
+- resta il prossimo grande intervento grafico pubblico dopo il test della V4.4.7.
+
+Obiettivi della prossima fase:
+- migliorare la gerarchia del prossimo evento;
+- rendere calendario e selezione più raffinati;
+- valorizzare immagini delle espansioni;
+- rendere premi e iscrizione immediatamente comprensibili;
+- ottimizzare le griglie premi su mobile;
+- mantenere la pagina scorrevole ma non infinita.
+
+
+9. AREA EDITORIALE
+-------------------
+Contenuti previsti:
+- articoli gratuiti;
+- guide gratuite;
+- guide premium/a pagamento;
+- decklist;
+- analisi del meta;
+- contenuti ripresi e ampliati rispetto ai post Instagram;
+- archivio degli articoli League e degli altri contenuti.
+
+Principio:
+- la homepage mostra sempre contenuti recenti;
+- l’ultimo articolo League può apparire nella pagina League;
+- quando viene sostituito, il precedente non viene cancellato ma confluisce
+  nell’archivio editoriale;
+- categorie, tag e filtri devono permettere di trovare i contenuti per Leader,
+  colore, formato, espansione e tipologia.
+
+La struttura editoriale completa non è ancora realizzata e dovrà essere definita prima
+della dashboard admin.
+
+
+10. STORE
+----------
+Direzione discussa:
+- carte singole;
+- prodotti e collezioni selezionati;
+- ricerca per carta, set o prodotto;
+- possibile collegamento iniziale a Cardmarket;
+- Shopify è una possibile integrazione futura, non una decisione da imporre ora;
+- costi fissi iniziali da mantenere il più possibile vicini allo zero;
+- GitHub Pages resta adatto alla parte pubblica statica;
+- pagamenti, catalogo dinamico e disponibilità richiederanno servizi esterni.
+
+Store ed Editoriale restano visivamente equivalenti nella homepage anche se avranno
+funzioni tecniche diverse.
+
+
+11. DASHBOARD ADMIN — DECISIONE DEFINITIVA
+-------------------------------------------
+La dashboard admin unica verrà progettata e sviluppata alla fine.
+
+Motivo:
+- prima devono essere definite tutte le sezioni pubbliche;
+- prima devono essere chiari tutti i dati modificabili;
+- creare dashboard parziali ora produrrebbe duplicazioni e successive riscritture.
+
+Nel frattempo ogni sezione deve:
+- leggere dati centralizzati;
+- separare contenuto e presentazione;
+- evitare dati duplicati;
+- non mostrare controlli admin al pubblico;
+- essere predisposta al futuro collegamento con Supabase.
+
+Moduli futuri della dashboard:
+- homepage e banner evento;
+- Store/catalogo;
+- articoli e archivio editoriale;
+- guide gratuite e premium;
+- Nika League: giocatori, score, mazzi 12+, calendario, Finale e articolo;
+- I nostri tornei: eventi, posti, formati, immagini e premi;
+- Twitch e comunicazioni;
+- media e gallerie;
+- eventuali iscrizioni e utenti.
+
+La dashboard dovrà essere protetta da autenticazione e non sarà accessibile ai
+visitatori.
+
+
+12. STACK E ARCHITETTURA TECNICA
+---------------------------------
+Frontend attuale:
+- HTML;
+- CSS;
+- JavaScript Vanilla.
+
+Hosting attuale:
+- GitHub Pages.
+
+Backend futuro:
+- Supabase Database;
+- Supabase Storage;
+- autenticazione Supabase per admin.
+
+Commerce futuro:
+- Cardmarket come possibile canale iniziale;
+- Shopify o altra soluzione solo dopo definizione dello Store.
+
+Principi tecnici:
+- modifiche piccole e localizzate;
+- non riscrivere file completi senza necessità;
+- dati centralizzati;
+- componenti riutilizzabili;
+- responsive progettato fin dall’inizio;
+- rispetto di prefers-reduced-motion;
+- noindex durante lo sviluppo;
+- accessibilità, SEO, performance e analytics considerate fin dalla struttura;
+- test desktop e mobile prima di rendere stabile una patch.
+
+
+13. STATO REALE DELLE PAGINE NELLA V4.4.7
+-------------------------------------------
+Homepage:
+- direzione approvata e funzionante;
+- Store/Editoriale equivalenti;
+- area Torneistica presente;
+- ricerca e contenuti in evidenza ancora dimostrativi;
+- banner domenicale non ancora implementato.
+
+Hub Tornei:
+- approvato nella V4.4.5;
+- barra Twitch e due card separate;
+- effetto scale desktop;
+- responsive già predisposto.
+
+Nika League:
+- consolidata nella V4.4.7;
+- classifica, calendario, Finale e articolo;
+- placeholder ancora attivi;
+- reminder ripristinato;
+- nessun comando admin pubblico.
+
+I nostri tornei:
+- pagina funzionale;
+- prossimo evento, calendario e premi;
+- rifinitura premium ancora da realizzare.
+
+Area Editoriale:
+- ingresso homepage e contenuti dimostrativi;
+- archivio e pagine articolo non ancora completi.
+
+Store:
+- ingresso homepage e ricerca dimostrativa;
+- catalogo reale e acquisto non ancora integrati.
+
+Guide:
+- previste ma non ancora costruite come catalogo completo.
+
+Twitch:
+- predisposizione presente;
+- canale, dominio parent e VOD non configurati.
+
+Dati:
+- placeholderData è ancora true;
+- nomi, risultati, date, luoghi, premi e articolo sono dimostrativi.
+
+
+14. CORREZIONI APPLICATE NELLA V4.4.7
+--------------------------------------
+La V4.4.7 conserva la classifica approvata della V4.4.6 e applica soltanto correzioni
+di riallineamento:
+
+- rimosse dalla pagina pubblica le spiegazioni sulla futura area admin;
+- testo calendario trasformato in copy rivolto al visitatore;
+- testo articolo trasformato in copy editoriale pubblico;
+- reminder ICS ripristinato per tappe future e Finale;
+- sezione Finale dedicata ripristinata;
+- stato Twitch espresso in forma pubblica, senza testi tecnici di configurazione;
+- navigazione League aggiornata con accesso alla Finale;
+- estratto articolo placeholder reso presentabile al pubblico;
+- README aggiornato;
+- audit e handoff consolidati aggiunti al progetto;
+- dashboard confermata come fase finale, non come prossimo passo.
+
+File modificati rispetto alla V4.4.6:
+- tornei/nika-league/index.html;
+- css/league.css;
+- js/components/league-page.js;
+- js/data/tournaments.js;
+- js/i18n/it.js;
+- js/i18n/en.js;
+- README.md.
+
+File nuovi:
+- PATCH_NOTES_V4.4.7.txt;
+- LA_TANA_DI_NIKA_PROJECT_AUDIT_AND_HANDOFF_V4.4.7.txt.
+
+Homepage, hub Tornei, pagina I nostri tornei, mascotte e animazioni della Hero non sono
+stati riscritti.
+
+
+15. ELEMENTI DA NON REINTRODURRE
+---------------------------------
+- V5 e successive scartate come nuova direzione visiva;
+- pagina Tornei unica e infinita;
+- card League/Tornei fuse;
+- espansione tramite variazione delle colonne dell’hub;
+- parola “one shot” visibile;
+- glow neon aggressivo;
+- gaming UI elaborata;
+- poster e sigilli troppo complessi;
+- mascotte ridisegnata;
+- logo dentro quadrato o cerchio bianco;
+- controlli admin nelle pagine pubbliche;
+- dashboard parziali costruite prima della fine;
+- testi troppo pomposi nella League;
+- classifica che nasconde tutti gli score;
+- tabelle mobile senza un contenitore di scroll chiaro;
+- modifiche non localizzate a componenti già approvati.
+
+
+16. ROADMAP CONSOLIDATA
+------------------------
+FASE 1 — Verifica V4.4.7
+- pubblicare lo ZIP completo;
+- verificare deploy GitHub Pages;
+- testare Edge desktop;
+- testare Safari iPhone;
+- testare 320, 360, 390 e 430 px;
+- verificare classifica, doppio scroll, sticky e apertura statistiche;
+- verificare reminder calendario e Finale;
+- verificare cambio lingua;
+- verificare collegamenti e ritorni.
+
+FASE 2 — I nostri tornei Premium Experience
+- prossima fase grafica pubblica;
+- anteprima desktop/mobile prima della patch;
+- nessuna dashboard.
+
+FASE 3 — Banner homepage prossimo domenicale
+- usa i dati reali di I nostri tornei;
+- chiudibile e non invasivo.
+
+FASE 4 — Architettura editoriale pubblica
+- pagina archivio;
+- template articolo;
+- categorie e tag;
+- collegamento ultimo articolo League.
+
+FASE 5 — Store e guide pubbliche
+- definizione catalogo;
+- ricerca e filtri;
+- guide gratuite/premium;
+- scelta definitiva del flusso commerciale.
+
+FASE 6 — Dati reali e integrazioni
+- giocatori;
+- risultati;
+- eventi;
+- immagini;
+- premi;
+- canale Twitch;
+- Supabase Database e Storage;
+- analytics;
+- eventuali iscrizioni e account.
+
+FASE 7 — Dashboard admin unica
+- soltanto quando tutte le sezioni e i campi modificabili sono definiti;
+- autenticazione;
+- gestione centralizzata;
+- workflow di pubblicazione e archivio.
+
+FASE 8 — Test finali e lancio
+- accessibilità;
+- performance;
+- SEO;
+- privacy/cookie/analytics;
+- test browser;
+- dati definitivi;
+- rimozione noindex quando il sito sarà pronto.
+
+
+17. METODO DI LAVORO DA MANTENERE
+----------------------------------
+1. Una sola pagina o funzione principale alla volta.
+2. Prima anteprima apribile dalla chat.
+3. Approvazione della direzione.
+4. Patch localizzata sui file reali.
+5. Dichiarazione dei file modificati.
+6. ZIP completo come backup.
+7. Test online.
+8. Nessun passo successivo prima dell’approvazione del precedente.
+
+Quando l’utente lavora da telefono e non ha GitHub disponibile, fornire sempre
+un’anteprima HTML apribile direttamente dalla chat prima di modificare il progetto.
+
+
+18. TEST TECNICI ESEGUITI SULLA V4.4.7
+---------------------------------------
+- controllo sintassi JavaScript sui file modificati: superato;
+- controllo riferimenti CSS, script, immagini e link locali: superato;
+- controllo ID HTML duplicati: superato;
+- verifica presenza dei dati centralizzati: superata;
+- verifica assenza di controlli admin nella pagina pubblica League: superata;
+- verifica reminder collegato alle utility ICS esistenti: superata;
+- verifica archivio ZIP: da eseguire dopo la creazione del pacchetto;
+- test visivo finale reale: deve essere eseguito online su Edge e Safari.
+
+
+19. BASE STABILE DA USARE
+--------------------------
+Da questo momento la base consolidata è:
+LA_TANA_DI_NIKA_V4.4.7.zip
+
+Non ricostruire file dalla memoria.
+Non partire dalle anteprime HTML isolate.
+Non usare V4.4.6 come base per nuove patch dopo l’approvazione della V4.4.7.
+Non considerare ancora il sito completo per il lancio: la V4.4.7 è la fotografia
+coerente e aggiornata dell’intero progetto allo stato attuale.
+
+
+20. PROSSIMO PASSO CORRETTO
+----------------------------
+Dopo la pubblicazione e il test della V4.4.7, il prossimo lavoro è:
+
+“I nostri tornei — Premium Experience”
+
+Prima si prepara una nuova anteprima pubblica desktop/mobile apribile dalla chat.
+La dashboard admin non viene progettata ora.

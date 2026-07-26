@@ -103,14 +103,15 @@ window.NIKA_TRANSLATIONS.en = {
     returnText: "Want to return to the Den’s entrance?", returnHome: "Back to Home"
   },
   leaguePage: {
-    breadcrumbHome: "Home", breadcrumbTournaments: "Tournaments", heroEyebrow: "THE DEN’S CHAMPIONSHIP", heroLead: "Points, rivalries and comebacks: a season to follow stage by stage.",
-    factStages: "Stages and Final", factScores: "Valid results", factPlayers: "Players",
-    navOverview: "Next stage", navStories: "Stories", navSeason: "Calendar", navStandings: "Standings", navFinal: "Final",
-    ruleTitle: "Only the four best results count.", ruleText: "The two lowest stages remain visible in red, but do not enter the final total.",
-    storiesEyebrow: "LEAGUE CHRONICLES", storiesTitle: "More than points. The players’ stories.", storiesText: "Moments, comebacks and journeys that give the standings a face.",
-    seasonEyebrow: "SEASON CALENDAR", seasonTitle: "Six stages, then the Final.", seasonText: "Select a stage to read its story, see the format and set a reminder.",
-    standingsEyebrow: "OVERALL STANDINGS", standingsTitle: "Every position tells a story.", standingsText: "Only actually registered players are shown, up to a maximum of 64.",
-    searchLabel: "Find a player", searchPlaceholder: "Name or Leader…", registered: "Registered", discardLegend: "Result excluded from total", openHint: "Open a player to read their story.",
+    breadcrumbHome: "Home", breadcrumbTournaments: "Tournaments",
+    heroEyebrow: "NIKA LEAGUE · CURRENT SEASON", heroTitle: "Current league standings",
+    navStandings: "Standings", navSeason: "Calendar", navFinal: "Final", navArticle: "Latest article",
+    standingsEyebrow: "OVERALL STANDINGS", standingsText: "All scores are visible. Tap a player’s name to open their stats.",
+    topEightLegend: "Provisional Top 8", validLegend: "Valid result", discardLegend: "Discarded result",
+    scrollHint: "Scroll vertically through players and horizontally through stages. Player names stay visible.",
+    seasonEyebrow: "LEAGUE CALENDAR", seasonTitle: "2026 season", seasonText: "Browse dates, formats and details for all six stages and the Final.",
+    finalEyebrow: "NIKA LEAGUE FINAL", finalTitle: "The season’s final event", finalText: "Date, details and updates for the Final and its stream.",
+    articleEyebrow: "NIKA LEAGUE EDITORIAL", articleSectionTitle: "Latest article", articleSectionText: "The latest feature published by the editorial team about the current season.",
     returnText: "Want to explore another area?", returnTournaments: "Back to Tournaments", returnHome: "Back to Home"
   },
   communityEventsPage: {

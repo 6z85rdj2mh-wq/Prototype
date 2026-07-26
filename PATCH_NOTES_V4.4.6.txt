@@ -1,0 +1,51 @@
+LA TANA DI NIKA — PATCH V4.4.6
+
+Base: V4.4.5 — Separate Card Scale Polish
+
+NOME PATCH
+League Current Standings
+
+OBIETTIVO
+Rifinire esclusivamente la pagina `/tornei/nika-league/` con una struttura pubblica più sintetica, coerente con il sito e centrata su classifica, calendario e ultimo articolo.
+
+MODIFICHE PRINCIPALI
+- Hero cinematografica mantenuta, con apertura “Classifica lega corrente”.
+- Indicazione dinamica “Classifica aggiornata alla tappa X/6”.
+- Classifica in riquadro premium con scroll verticale e orizzontale interno.
+- Colonne complete Nome, Tappa 1–6, Totale e Stato.
+- Posizione e nome sticky durante lo scorrimento laterale; intestazione sticky durante quello verticale.
+- Top 8 provvisoria evidenziata.
+- Quattro risultati validi evidenziati in verde.
+- Alla quinta tappa viene scartato il risultato più basso; alla sesta i due più bassi.
+- Risultati scartati rossi e barrati.
+- Click sul nome del giocatore per aprire statistiche e dettaglio degli score.
+- Calendario pubblico inserito sotto la classifica.
+- Ultimo articolo della League inserito sotto il calendario, con supporto dati per massimo quattro fotografie.
+- Nessun comando admin visibile nella pagina pubblica.
+
+FILE MODIFICATI
+- tornei/nika-league/index.html
+- css/league.css
+- js/components/league-page.js
+- js/data/tournaments.js
+- js/i18n/it.js
+- js/i18n/en.js
+- README.md
+
+FILE NUOVI
+- PATCH_NOTES_V4.4.6.txt
+- LA_TANA_DI_NIKA_HANDOFF_V4.4.6.txt
+
+FILE NON TOCCATI
+- homepage e Hero split
+- hub `/tornei/` V4.4.5
+- pagina `/tornei/i-nostri-tornei/`
+- mascotte e immagini ufficiali
+- componenti Twitch
+- utility reminder e calendario ICS
+
+DATI DIMOSTRATIVI
+La patch mantiene `placeholderData: true`. I 24 giocatori, punteggi, date, Leader e articolo sono dimostrativi e vanno sostituiti prima della pubblicazione definitiva.
+
+AREA ADMIN FUTURA
+La V4.4.6 non crea ancora login o dashboard. La pagina pubblica legge soltanto i dati centralizzati. La futura area admin dovrà aggiornare gli stessi campi tramite Supabase senza mostrare pulsanti di modifica ai visitatori.
