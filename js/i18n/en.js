@@ -116,12 +116,10 @@ window.NIKA_TRANSLATIONS.en = {
   },
   communityEventsPage: {
     breadcrumbHome: "Home", breadcrumbTournaments: "Tournaments", breadcrumbCurrent: "Our tournaments",
-    heroEyebrow: "LOCALS, SUNDAY EVENTS, SPECIAL EVENTS", heroTitle: "Our tournaments.", heroLead: "A calendar separate from the League, built to play and enjoy the community.",
-    factEvents: "Events listed", factReminder: "Reminder before", factPrizes: "Custom prizes",
-    calendarEyebrow: "SEPARATE CALENDAR", calendarTitle: "Choose the event. Everything else opens here.", calendarText: "No endless pages: select a date to see details, format and prize grid.",
-    principleOneTitle: "Outside the League", principleOneText: "These events have a calendar and results separate from the championship.",
-    principleTwoTitle: "Tailored prizes", principleTwoText: "Every tournament can have a different prize grid based on attendance.",
-    principleThreeTitle: "Always on your phone", principleThreeText: "Every event can be added to your calendar with a reminder two hours before.",
+    heroEyebrow: "SUNDAY EVENTS · SPECIALS", heroTitle: "Your next challenge awaits.", heroLead: "Different events, one meeting point: the table. Discover the next appointment and choose where to test yourself.",
+    typeSunday: "Sunday events", typeSpecial: "Specials", navNext: "Next event", navCalendar: "Calendar", navAll: "All events",
+    calendarEyebrow: "CALENDAR", calendarTitle: "Choose your next tournament.", calendarText: "Tap a date to jump directly to the full event card.",
+    eventsEyebrow: "ALL EVENTS", eventsTitle: "Sunday events and Specials.", eventsText: "Sunday events follow the current format. Specials have their own identity, structure and prizes.",
     returnText: "Want to explore another area?", returnTournaments: "Back to Tournaments", returnHome: "Back to Home"
   },
   footer: { claim: "Cards, strategy, tournaments and community. All in one place." }

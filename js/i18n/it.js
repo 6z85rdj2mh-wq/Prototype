@@ -116,12 +116,10 @@ window.NIKA_TRANSLATIONS.it = {
   },
   communityEventsPage: {
     breadcrumbHome: "Home", breadcrumbTournaments: "Tornei", breadcrumbCurrent: "I nostri tornei",
-    heroEyebrow: "LOCAL, DOMENICALI, EVENTI SPECIALI", heroTitle: "I nostri tornei.", heroLead: "Un calendario indipendente dalla League, costruito per giocare e vivere la community.",
-    factEvents: "Eventi inseriti", factReminder: "Reminder prima", factPrizes: "Premi personalizzabili",
-    calendarEyebrow: "CALENDARIO SEPARATO", calendarTitle: "Scegli l’evento. Tutto il resto si apre qui.", calendarText: "Niente pagine infinite: seleziona una data per leggere dettagli, formato e griglia premi.",
-    principleOneTitle: "Fuori dalla League", principleOneText: "Questi eventi hanno calendario e risultati indipendenti dal campionato.",
-    principleTwoTitle: "Premi su misura", principleTwoText: "Ogni torneo può avere una griglia diversa in base ai partecipanti.",
-    principleThreeTitle: "Sempre nel telefono", principleThreeText: "Ogni appuntamento può essere aggiunto al calendario con reminder due ore prima.",
+    heroEyebrow: "DOMENICALI · SPECIALI", heroTitle: "La prossima sfida ti aspetta.", heroLead: "Eventi diversi, un unico punto d’incontro: il tavolo. Scopri il prossimo appuntamento e scegli dove metterti in gioco.",
+    typeSunday: "Domenicali", typeSpecial: "Speciali", navNext: "Prossimo evento", navCalendar: "Calendario", navAll: "Tutti gli eventi",
+    calendarEyebrow: "CALENDARIO", calendarTitle: "Scegli il tuo prossimo torneo.", calendarText: "Tocca una data per raggiungere direttamente la scheda completa dell’evento.",
+    eventsEyebrow: "TUTTI GLI EVENTI", eventsTitle: "Domenicali e Speciali.", eventsText: "I Domenicali seguono il formato in corso. Gli Speciali hanno identità, struttura e premi dedicati.",
     returnText: "Vuoi esplorare un’altra area?", returnTournaments: "Torna ai Tornei", returnHome: "Torna alla Home"
   },
   footer: { claim: "Carte, strategia, tornei e community. Tutto nello stesso luogo." }

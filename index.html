@@ -14,15 +14,18 @@
   <link rel="stylesheet" href="css/tokens.css">
   <link rel="stylesheet" href="css/base.css">
   <link rel="stylesheet" href="css/components.css?v=4.3.3">
-  <link rel="stylesheet" href="css/home.css?v=4.3.3">
+  <link rel="stylesheet" href="css/home.css?v=4.4.8">
 
-  <script defer src="js/i18n/it.js"></script>
-  <script defer src="js/i18n/en.js"></script>
+  <script defer src="js/i18n/it.js?v=4.4.8"></script>
+  <script defer src="js/i18n/en.js?v=4.4.8"></script>
+  <script defer src="js/data/tournaments.js?v=4.4.8"></script>
+  <script defer src="js/components/tournament-utils.js?v=4.4.8"></script>
   <script defer src="js/components/header.js?v=4.4.1"></script>
   <script defer src="js/components/hero-split.js?v=4.3.3"></script>
   <script defer src="js/components/tournament-motion.js?v=4.3.3"></script>
   <script defer src="js/components/search-switcher.js"></script>
-  <script defer src="js/main.js?v=4.4.1"></script>
+  <script defer src="js/components/home-event-notice.js?v=4.4.8"></script>
+  <script defer src="js/main.js?v=4.4.8"></script>
 </head>
 <body>
   <a class="skip-link" href="#main-content" data-i18n="accessibility.skip">Vai al contenuto</a>
@@ -79,6 +82,21 @@
       </nav>
     </div>
   </header>
+
+  <aside class="home-event-notice" data-home-event-notice hidden aria-label="Promemoria prossimo torneo">
+    <div class="home-event-notice__cloud" aria-hidden="true">
+      <img src="assets/images/mascot-nika.png?v=4.4.8" alt="" width="112" height="96" decoding="async">
+    </div>
+    <div class="home-event-notice__card">
+      <div class="home-event-notice__copy">
+        <small data-home-event-label>PROSSIMO EVENTO</small>
+        <strong data-home-event-title>Torneo più recente</strong>
+        <span data-home-event-meta></span>
+      </div>
+      <a class="home-event-notice__cta" data-home-event-link href="tornei/i-nostri-tornei/">Scopri il torneo</a>
+      <button class="home-event-notice__close" type="button" data-home-event-close aria-label="Chiudi promemoria">×</button>
+    </div>
+  </aside>
 
   <main id="main-content">
     <section class="split-hero" id="top" data-split-hero aria-label="Ingresso principale">

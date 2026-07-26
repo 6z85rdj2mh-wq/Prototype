@@ -104,3 +104,12 @@ Ogni pagina interna termina con il pulsante `Torna alla Home`.
 - Mantiene l’ultimo articolo League sotto calendario e Finale, senza controlli di gestione visibili.
 - Rinvia la dashboard admin unica alla fine della progettazione delle sezioni pubbliche.
 - Il prossimo intervento grafico principale resta “I nostri tornei — Premium Experience”, seguito dal banner homepage del prossimo domenicale.
+
+
+## V4.4.8 — I nostri tornei + banner homepage
+- Hero “La prossima sfida ti aspetta.”
+- prossimo evento automatico, calendario con salto alle schede, elenco completo eventi
+- Domenicali e Speciali
+- soli posti totali, griglie premi selezionabili e immagini/placeholder premio
+- pulsanti calendario con promemoria interno due ore prima
+- banner homepage chiudibile con mascotte ufficiale e animazione in un unico movimento

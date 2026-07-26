@@ -1,0 +1,56 @@
+LA TANA DI NIKA — HANDOFF V4.4.8
+
+BASE
+- Deriva dalla V4.4.7 consolidata.
+- Homepage split, hub Tornei, Nika League e resto del sito restano invariati salvo il banner del prossimo evento.
+
+DIREZIONE APPROVATA
+- I nostri tornei deve comunicare sfida e partecipazione senza diventare una UI gaming eccessiva.
+- Apertura: “La prossima sfida ti aspetta.”
+- Due famiglie pubbliche: Domenicali e Speciali.
+- Il prossimo evento è sempre il primo contenuto operativo e viene scelto automaticamente in base alla data più vicina.
+- Il calendario porta direttamente alle schede complete, mostrate tutte sotto il calendario.
+- Si mostrano solo i posti totali; nessun contatore di occupati o disponibili.
+- Ogni evento può avere più griglie premi in base ai partecipanti.
+- Ogni premio supporta un’immagine; finché manca viene mostrato un placeholder come “Box OP-16”.
+- I pulsanti pubblici sono “Aggiungi al calendario” e “Ricordati del torneo”.
+- Il promemoria di due ore è interno al file ICS e non viene spiegato nel sito.
+
+BANNER HOMEPAGE
+- Mostra automaticamente il prossimo evento locale.
+- Usa esclusivamente assets/images/mascot-nika.png, senza ridisegni o parti aggiunte.
+- Mascotte e banner sono già composti e scendono insieme con un unico movimento fluido.
+- È chiudibile. La chiusura vale per la sessione e per lo specifico evento; quando cambia l’evento il banner torna disponibile.
+- Il CTA porta alla scheda specifica dentro /tornei/i-nostri-tornei/.
+
+DATI DIMOSTRATIVI
+- Torneo più recente — Domenicale — 16 posti.
+- Prerelease della Tana — Speciale — 24 posti.
+- Extra Grand Battle — Speciale — 32 posti.
+- Domenicale della Tana — 16 posti.
+- Date, luoghi, premi e immagini sono placeholder centralizzati in js/data/tournaments.js.
+
+FILE MODIFICATI
+- index.html
+- css/home.css
+- css/community-events.css
+- js/main.js
+- js/data/tournaments.js
+- js/i18n/it.js
+- js/i18n/en.js
+- js/components/community-events-page.js
+- js/components/home-event-notice.js (nuovo)
+- tornei/i-nostri-tornei/index.html
+- README.md
+- PATCH_NOTES_V4.4.8.txt
+
+CONTROLLI ESEGUITI
+- Sintassi di tutti i file JavaScript verificata con node --check.
+- Collegamenti locali CSS, JS e immagini verificati.
+- Nessun ID HTML duplicato nelle pagine modificate.
+- Nessuna dicitura pubblica su reminder due ore, posti occupati/disponibili o controlli admin.
+- Verificata la presenza del trigger ICS TRIGGER:-PT120M nella utility esistente.
+
+PROSSIMO PASSO
+- Caricare la V4.4.8 su GitHub Pages e controllare homepage e /tornei/i-nostri-tornei/ su Safari mobile ed Edge desktop.
+- Dopo l’approvazione visiva, sostituire i placeholder con eventi e premi reali oppure proseguire con la prossima sezione pubblica prevista dalla roadmap.

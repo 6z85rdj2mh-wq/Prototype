@@ -1,0 +1,32 @@
+LA TANA DI NIKA — PATCH NOTES V4.4.8
+
+Base: V4.4.7 consolidata.
+
+MODIFICHE
+- Rifatta la pagina pubblica /tornei/i-nostri-tornei/.
+- Hero: “La prossima sfida ti aspetta.”
+- Distinzione editoriale tra Domenicali e Speciali.
+- Prossimo evento calcolato automaticamente dalla data più vicina.
+- Calendario orizzontale: il click porta alla scheda completa.
+- Tutti gli eventi vengono mostrati dopo il calendario.
+- Mostrati solo i posti totali, mai occupati/disponibili.
+- Griglie premi selezionabili per numero partecipanti.
+- Ogni premio supporta immagine reale oppure placeholder testuale.
+- Pulsanti “Aggiungi al calendario” / “Ricordati del torneo”.
+- Il file ICS mantiene il promemoria interno due ore prima senza mostrarlo nel testo pubblico.
+- Nuovo banner homepage chiudibile per il prossimo evento.
+- Banner animato come un unico oggetto con la mascotte ufficiale, senza ridisegni.
+- La chiusura resta valida per la sessione e viene resettata quando cambia l’evento.
+
+FILE MODIFICATI
+- index.html
+- css/home.css
+- css/community-events.css
+- js/main.js
+- js/data/tournaments.js
+- js/i18n/it.js
+- js/i18n/en.js
+- js/components/community-events-page.js
+- js/components/home-event-notice.js (nuovo)
+- tornei/i-nostri-tornei/index.html
+- README.md

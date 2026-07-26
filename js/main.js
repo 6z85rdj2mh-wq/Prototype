@@ -52,6 +52,7 @@
     window.NikaTournamentHub?.init();
     window.NikaLeaguePage?.init();
     window.NikaCommunityEventsPage?.init();
+    window.NikaHomeEventNotice?.init();
     applyLanguage(currentLanguage);
     window.NikaSearchSwitcher?.init(() => currentLanguage);
 

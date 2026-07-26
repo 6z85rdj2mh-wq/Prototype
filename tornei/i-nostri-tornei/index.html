@@ -14,15 +14,15 @@
   <link rel="stylesheet" href="../../css/base.css">
   <link rel="stylesheet" href="../../css/components.css?v=4.3.3">
   <link rel="stylesheet" href="../../css/pages.css?v=4.4.2">
-  <link rel="stylesheet" href="../../css/community-events.css?v=4.4.2">
+  <link rel="stylesheet" href="../../css/community-events.css?v=4.4.8">
 
-  <script defer src="../../js/i18n/it.js?v=4.4.2"></script>
-  <script defer src="../../js/i18n/en.js?v=4.4.2"></script>
-  <script defer src="../../js/data/tournaments.js?v=4.4.2"></script>
-  <script defer src="../../js/components/tournament-utils.js?v=4.4.2"></script>
+  <script defer src="../../js/i18n/it.js?v=4.4.8"></script>
+  <script defer src="../../js/i18n/en.js?v=4.4.8"></script>
+  <script defer src="../../js/data/tournaments.js?v=4.4.8"></script>
+  <script defer src="../../js/components/tournament-utils.js?v=4.4.8"></script>
   <script defer src="../../js/components/header.js?v=4.4.2"></script>
-  <script defer src="../../js/components/community-events-page.js?v=4.4.2"></script>
-  <script defer src="../../js/main.js?v=4.4.2"></script>
+  <script defer src="../../js/components/community-events-page.js?v=4.4.8"></script>
+  <script defer src="../../js/main.js?v=4.4.8"></script>
 </head>
 <body class="internal-page" data-root-prefix="../../">
   <a class="skip-link" href="#main-content" data-i18n="accessibility.skip">Vai al contenuto</a>
@@ -32,13 +32,58 @@
   </header>
 
   <main id="main-content" data-community-events-page>
-    <section class="internal-hero community-events-hero"><div class="shell internal-hero__content"><nav class="breadcrumb" aria-label="Breadcrumb"><a href="../../index.html" data-i18n="communityEventsPage.breadcrumbHome">Home</a><span aria-hidden="true">/</span><a href="../" data-i18n="communityEventsPage.breadcrumbTournaments">Tornei</a><span aria-hidden="true">/</span><span data-i18n="communityEventsPage.breadcrumbCurrent">I nostri tornei</span></nav><p class="eyebrow" data-i18n="communityEventsPage.heroEyebrow">LOCAL, DOMENICALI, EVENTI SPECIALI</p><h1 data-i18n="communityEventsPage.heroTitle">I nostri tornei.</h1><p class="internal-hero__lead" data-i18n="communityEventsPage.heroLead">Un calendario indipendente dalla League, costruito per giocare e vivere la community.</p><div class="internal-hero__facts"><div class="internal-hero__fact"><strong data-event-count>0</strong><span data-i18n="communityEventsPage.factEvents">Eventi inseriti</span></div><div class="internal-hero__fact"><strong>2H</strong><span data-i18n="communityEventsPage.factReminder">Reminder prima</span></div><div class="internal-hero__fact"><strong>FLEX</strong><span data-i18n="communityEventsPage.factPrizes">Premi personalizzabili</span></div></div></div></section>
+    <section class="internal-hero community-events-hero">
+      <div class="shell internal-hero__content">
+        <nav class="breadcrumb" aria-label="Breadcrumb">
+          <a href="../../index.html" data-i18n="communityEventsPage.breadcrumbHome">Home</a><span aria-hidden="true">/</span>
+          <a href="../" data-i18n="communityEventsPage.breadcrumbTournaments">Tornei</a><span aria-hidden="true">/</span>
+          <span data-i18n="communityEventsPage.breadcrumbCurrent">I nostri tornei</span>
+        </nav>
+        <p class="eyebrow" data-i18n="communityEventsPage.heroEyebrow">DOMENICALI · SPECIALI</p>
+        <h1 data-i18n="communityEventsPage.heroTitle">La prossima sfida ti aspetta.</h1>
+        <p class="internal-hero__lead" data-i18n="communityEventsPage.heroLead">Eventi diversi, un unico punto d’incontro: il tavolo. Scopri il prossimo appuntamento e scegli dove metterti in gioco.</p>
+        <div class="community-events-hero__types" aria-label="Tipologie di torneo">
+          <span data-i18n="communityEventsPage.typeSunday">Domenicali</span>
+          <span data-i18n="communityEventsPage.typeSpecial">Speciali</span>
+        </div>
+      </div>
+    </section>
 
-    <section class="community-overview"><div class="shell"><article class="community-spotlight" data-next-community-event></article></div></section>
+    <nav class="community-events-nav" aria-label="Navigazione pagina">
+      <div class="shell">
+        <a href="#next-event" data-i18n="communityEventsPage.navNext">Prossimo evento</a>
+        <a href="#event-calendar" data-i18n="communityEventsPage.navCalendar">Calendario</a>
+        <a href="#all-events" data-i18n="communityEventsPage.navAll">Tutti gli eventi</a>
+      </div>
+    </nav>
 
-    <section class="community-calendar" id="event-calendar" aria-labelledby="community-calendar-title"><div class="shell"><div class="community-section-head"><p class="eyebrow" data-i18n="communityEventsPage.calendarEyebrow">CALENDARIO SEPARATO</p><h2 id="community-calendar-title" data-i18n="communityEventsPage.calendarTitle">Scegli l’evento. Tutto il resto si apre qui.</h2><p data-i18n="communityEventsPage.calendarText">Niente pagine infinite: seleziona una data per leggere dettagli, formato e griglia premi.</p></div><div class="community-calendar__rail" data-community-calendar></div><article class="community-event-detail" data-community-event-detail></article></div></section>
+    <section class="community-overview" id="next-event">
+      <div class="shell"><article class="community-spotlight" data-next-community-event></article></div>
+    </section>
 
-    <section class="community-principles"><div class="shell community-principles__grid"><article><span>01</span><h3 data-i18n="communityEventsPage.principleOneTitle">Fuori dalla League</h3><p data-i18n="communityEventsPage.principleOneText">Questi eventi hanno calendario e risultati indipendenti dal campionato.</p></article><article><span>02</span><h3 data-i18n="communityEventsPage.principleTwoTitle">Premi su misura</h3><p data-i18n="communityEventsPage.principleTwoText">Ogni torneo può avere una griglia diversa in base ai partecipanti.</p></article><article><span>03</span><h3 data-i18n="communityEventsPage.principleThreeTitle">Sempre nel telefono</h3><p data-i18n="communityEventsPage.principleThreeText">Ogni appuntamento può essere aggiunto al calendario con reminder due ore prima.</p></article></div></section>
+    <section class="community-calendar" id="event-calendar" aria-labelledby="community-calendar-title">
+      <div class="shell">
+        <div class="community-section-head">
+          <p class="eyebrow" data-i18n="communityEventsPage.calendarEyebrow">CALENDARIO</p>
+          <h2 id="community-calendar-title" data-i18n="communityEventsPage.calendarTitle">Scegli il tuo prossimo torneo.</h2>
+          <p data-i18n="communityEventsPage.calendarText">Tocca una data per raggiungere direttamente la scheda completa dell’evento.</p>
+        </div>
+        <div class="community-calendar__rail" data-community-calendar></div>
+      </div>
+    </section>
+
+    <section class="community-events-list-section" id="all-events" aria-labelledby="community-events-list-title">
+      <div class="shell">
+        <div class="community-section-head community-section-head--split">
+          <div>
+            <p class="eyebrow" data-i18n="communityEventsPage.eventsEyebrow">TUTTI GLI EVENTI</p>
+            <h2 id="community-events-list-title" data-i18n="communityEventsPage.eventsTitle">Domenicali e Speciali.</h2>
+          </div>
+          <p data-i18n="communityEventsPage.eventsText">I Domenicali seguono il formato in corso. Gli Speciali hanno identità, struttura e premi dedicati.</p>
+        </div>
+        <div class="community-events-stack" data-community-events-list></div>
+      </div>
+    </section>
 
     <section class="page-return"><div class="shell"><p data-i18n="communityEventsPage.returnText">Vuoi esplorare un’altra area?</p><div class="page-return__actions"><a class="button button--ghost" href="../" data-i18n="communityEventsPage.returnTournaments">Torna ai Tornei</a><a class="button button--primary button--home" href="../../index.html"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 11.5 12 4l9 7.5M5.5 10v10h13V10M9.5 20v-6h5v6"/></svg><span data-i18n="communityEventsPage.returnHome">Torna alla Home</span></a></div></div></section>
   </main>

@@ -1,5 +1,5 @@
 /* ======================================================
-   LA TANA DI NIKA — DATI TORNEI V4.4.7
+   LA TANA DI NIKA — DATI TORNEI V4.4.8
    Tutti i valori sono dimostrativi e centralizzati.
 ====================================================== */
 window.NIKA_TOURNAMENTS_DATA = {
@@ -110,37 +110,78 @@ window.NIKA_TOURNAMENTS_DATA = {
     {
       id: "local-sunday-1", date: "2026-08-23", time: "15:00", endTime: "20:00",
       category: { it: "Domenicale", en: "Sunday tournament" },
-      title: { it: "Domenicale della Tana", en: "The Den Sunday Tournament" },
-      expansion: "OP-16", format: "Constructed", location: "Location da definire", seats: 16, status: "open", image: "",
+      title: { it: "Torneo più recente", en: "Latest tournament" },
+      expansion: "OP-17", format: "Formato corrente", location: "Location da definire", seats: 16, status: "open", image: "",
+      registrationUrl: "",
       description: {
-        it: "Un torneo indipendente dalla League, pensato per giocare, testare e vivere la community della Tana.",
-        en: "A tournament outside the League, made for playing, testing and enjoying the Den’s community."
+        it: "Un appuntamento competitivo e diretto, costruito sul formato corrente e aperto alla community della Tana.",
+        en: "A direct competitive event built around the current format and open to the Den community."
       },
       prizeTiers: [
-        { label: { it: "Da 8 giocatori", en: "From 8 players" }, prizes: [
-          { placement: "1°", reward: { it: "12 buste — placeholder", en: "12 boosters — placeholder" } },
-          { placement: "2°", reward: { it: "6 buste — placeholder", en: "6 boosters — placeholder" } }
+        { label: { it: "Griglia premi con 16 partecipanti", en: "Prize grid with 16 players" }, prizes: [
+          { placement: "1°", reward: { it: "Box OP-16", en: "OP-16 box" }, imageLabel: { it: "Box OP-16", en: "OP-16 box" }, image: "" },
+          { placement: "2°", reward: { it: "12 buste OP-16", en: "12 OP-16 boosters" }, imageLabel: { it: "12 buste", en: "12 boosters" }, image: "" },
+          { placement: "3°–4°", reward: { it: "6 buste OP-16", en: "6 OP-16 boosters" }, imageLabel: { it: "6 buste", en: "6 boosters" }, image: "" }
         ]},
-        { label: { it: "Da 16 giocatori", en: "From 16 players" }, prizes: [
-          { placement: "1°", reward: { it: "1 box — placeholder", en: "1 box — placeholder" } },
-          { placement: "2°", reward: { it: "12 buste — placeholder", en: "12 boosters — placeholder" } },
-          { placement: "3°–4°", reward: { it: "6 buste — placeholder", en: "6 boosters — placeholder" } }
+        { label: { it: "Griglia premi con 32 partecipanti", en: "Prize grid with 32 players" }, prizes: [
+          { placement: "1°", reward: { it: "2 Box OP-16", en: "2 OP-16 boxes" }, imageLabel: { it: "2 Box OP-16", en: "2 OP-16 boxes" }, image: "" },
+          { placement: "2°", reward: { it: "Box OP-16", en: "OP-16 box" }, imageLabel: { it: "Box OP-16", en: "OP-16 box" }, image: "" },
+          { placement: "3°–4°", reward: { it: "12 buste OP-16", en: "12 OP-16 boosters" }, imageLabel: { it: "12 buste", en: "12 boosters" }, image: "" },
+          { placement: "5°–8°", reward: { it: "6 buste OP-16", en: "6 OP-16 boosters" }, imageLabel: { it: "6 buste", en: "6 boosters" }, image: "" }
         ]}
       ]
     },
     {
-      id: "local-special-1", date: "2026-09-20", time: "15:00", endTime: "20:00",
-      category: { it: "Evento speciale", en: "Special event" },
-      title: { it: "Torneo Speciale della Tana", en: "The Den Special Tournament" },
-      expansion: "Formato da definire", format: "Special", location: "Location da definire", seats: 24, status: "upcoming", image: "",
+      id: "local-special-prerelease", date: "2026-09-20", time: "15:00", endTime: "20:00",
+      category: { it: "Speciale", en: "Special" },
+      title: { it: "Prerelease della Tana", en: "The Den Prerelease" },
+      expansion: "Set da definire", format: "Prerelease", location: "Location da definire", seats: 24, status: "open", image: "",
+      registrationUrl: "",
       description: {
-        it: "Una struttura più libera per eventi tematici, collaborazioni, prerelease e formule personalizzate.",
-        en: "A more flexible structure for themed events, collaborations, prereleases and custom formats."
+        it: "Un evento dedicato alla nuova espansione, con formula e premi pensati per il lancio del set.",
+        en: "An event dedicated to the new expansion, with a format and prizes built around the set launch."
       },
       prizeTiers: [
-        { label: { it: "Griglia premi da definire", en: "Prize grid to be defined" }, prizes: [
-          { placement: "1°", reward: { it: "Premio principale — placeholder", en: "Main prize — placeholder" } },
-          { placement: "Top", reward: { it: "Premi aggiuntivi — placeholder", en: "Additional prizes — placeholder" } }
+        { label: { it: "Griglia premi con 24 partecipanti", en: "Prize grid with 24 players" }, prizes: [
+          { placement: "1°", reward: { it: "Box prerelease", en: "Prerelease box" }, imageLabel: { it: "Box prerelease", en: "Prerelease box" }, image: "" },
+          { placement: "Top 4", reward: { it: "Promo evento", en: "Event promo" }, imageLabel: { it: "Promo evento", en: "Event promo" }, image: "" },
+          { placement: "Tutti", reward: { it: "Kit partecipazione", en: "Participation kit" }, imageLabel: { it: "Kit prerelease", en: "Prerelease kit" }, image: "" }
+        ]}
+      ]
+    },
+    {
+      id: "local-special-extra-grand-battle", date: "2026-10-18", time: "15:00", endTime: "21:00",
+      category: { it: "Speciale", en: "Special" },
+      title: { it: "Extra Grand Battle", en: "Extra Grand Battle" },
+      expansion: "Formato da definire", format: "Evento speciale", location: "Location da definire", seats: 32, status: "upcoming", image: "",
+      registrationUrl: "",
+      description: {
+        it: "Un evento più grande, con struttura dedicata e una griglia premi distinta dai tornei ordinari.",
+        en: "A larger event with a dedicated structure and a prize grid separate from standard tournaments."
+      },
+      prizeTiers: [
+        { label: { it: "Griglia premi con 32 partecipanti", en: "Prize grid with 32 players" }, prizes: [
+          { placement: "1°", reward: { it: "Box OP-16 + Trophy", en: "OP-16 box + Trophy" }, imageLabel: { it: "Box + Trophy", en: "Box + Trophy" }, image: "" },
+          { placement: "2°", reward: { it: "Box OP-16", en: "OP-16 box" }, imageLabel: { it: "Box OP-16", en: "OP-16 box" }, image: "" },
+          { placement: "Top 8", reward: { it: "Premio evento", en: "Event prize" }, imageLabel: { it: "Premio evento", en: "Event prize" }, image: "" }
+        ]}
+      ]
+    },
+    {
+      id: "local-sunday-2", date: "2026-11-08", time: "15:00", endTime: "20:00",
+      category: { it: "Domenicale", en: "Sunday tournament" },
+      title: { it: "Domenicale della Tana", en: "The Den Sunday Tournament" },
+      expansion: "Formato corrente", format: "Constructed", location: "Location da definire", seats: 16, status: "upcoming", image: "",
+      registrationUrl: "",
+      description: {
+        it: "Il ritorno al formato standard per un nuovo appuntamento competitivo della community.",
+        en: "A return to the standard format for another competitive community event."
+      },
+      prizeTiers: [
+        { label: { it: "Griglia premi con 16 partecipanti", en: "Prize grid with 16 players" }, prizes: [
+          { placement: "1°", reward: { it: "Box OP-16", en: "OP-16 box" }, imageLabel: { it: "Box OP-16", en: "OP-16 box" }, image: "" },
+          { placement: "2°", reward: { it: "12 buste OP-16", en: "12 OP-16 boosters" }, imageLabel: { it: "12 buste", en: "12 boosters" }, image: "" },
+          { placement: "Top 4", reward: { it: "6 buste OP-16", en: "6 OP-16 boosters" }, imageLabel: { it: "6 buste", en: "6 boosters" }, image: "" }
         ]}
       ]
     }
