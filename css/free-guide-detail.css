@@ -1,5 +1,5 @@
 /* ======================================================
-   LA TANA DI NIKA — MINI GUIDE DOSSIER V4.4.12
+   LA TANA DI NIKA — MINI GUIDE DOSSIER V4.4.13
    Template pubblico data-driven. Nessun controllo admin esposto.
 ====================================================== */
 .guide-dossier {
@@ -636,7 +636,7 @@
 
 
 /* ======================================================
-   V4.4.12 — MODULI VARIABILI
+   V4.4.13 — MODULI VARIABILI
 ====================================================== */
 .guide-plan {
   position: relative;
@@ -837,7 +837,7 @@
 }
 
 /* ======================================================
-   V4.4.12 — MOBILE FIRST REFINEMENTS
+   V4.4.13 — MOBILE FIRST REFINEMENTS
 ====================================================== */
 .guide-dossier,
 .guide-dossier * {
@@ -1098,7 +1098,7 @@
 
 
 /* ======================================================
-   V4.4.12 — APPROFONDIMENTI SEQUENZIALI
+   V4.4.13 — APPROFONDIMENTI SEQUENZIALI
 ====================================================== */
 .guide-key-sequence--insight .guide-sequence-stage {
   min-height: 350px;
@@ -1111,7 +1111,7 @@
 }
 
 /* ======================================================
-   V4.4.12 — GUIDA NON DISPONIBILE
+   V4.4.13 — GUIDA NON DISPONIBILE
 ====================================================== */
 .guide-not-found {
   min-height: calc(100svh - 110px);
@@ -1160,7 +1160,7 @@
 }
 
 /* ======================================================
-   V4.4.12 — COMMUNITY, COMMENTI E VALUTAZIONI
+   V4.4.13 — COMMUNITY, COMMENTI E VALUTAZIONI
 ====================================================== */
 .guide-community {
   padding: clamp(70px,9vw,118px) 0;
@@ -1425,4 +1425,40 @@
   .guide-community__summary > strong { font-size: 2.55rem; }
   .guide-comment header { align-items: flex-start; flex-direction: column; }
   .guide-comment footer { align-items: flex-end; }
+}
+
+
+/* ======================================================
+   V4.4.13 — SCROLL E PERFORMANCE
+====================================================== */
+html.guide-scroll-locked,
+body.guide-scroll-locked {
+  overflow: hidden !important;
+  overscroll-behavior: none;
+}
+
+/* Il blocco viene applicato solo durante lightbox o copia manuale. */
+html:not(.guide-scroll-locked),
+body:not(.guide-scroll-locked) {
+  overflow-y: visible;
+}
+
+/* Riduzione degli effetti più costosi sui dispositivi touch. */
+@media (hover: none) and (pointer: coarse) {
+  .guide-index,
+  .guide-sequence-action,
+  .guide-decklist__zoom,
+  .guide-decklist__figure figcaption,
+  .guide-lightbox,
+  .guide-copy-dialog {
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+  }
+
+  .guide-cover,
+  .guide-sequence-card,
+  .guide-flip-face,
+  .guide-choice__card {
+    box-shadow: none;
+  }
 }

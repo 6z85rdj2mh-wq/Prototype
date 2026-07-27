@@ -771,6 +771,25 @@
   const initInteractions = (page, language) => {
     const ui = words[language];
 
+    const lightbox = document.querySelector("[data-guide-lightbox]");
+    const copyDialog = document.querySelector("[data-guide-copy-dialog]");
+
+    const syncScrollLock = () => {
+      const overlayOpen =
+        lightbox?.classList.contains("is-open") ||
+        copyDialog?.classList.contains("is-open");
+
+      document.documentElement.classList.toggle("guide-scroll-locked", Boolean(overlayOpen));
+      document.body.classList.toggle("guide-scroll-locked", Boolean(overlayOpen));
+    };
+
+    // Sicurezza: una ricarica o un errore precedente non devono mai
+    // lasciare la pagina bloccata all'avvio.
+    document.documentElement.classList.remove("guide-scroll-locked");
+    document.body.classList.remove("guide-scroll-locked");
+    document.documentElement.style.overflow = "";
+    document.body.style.overflow = "";
+
     page.querySelectorAll("[data-key-sequence]").forEach(sequence => {
       const stage = sequence.querySelector("[data-sequence-stage]");
       const cards = [...sequence.querySelectorAll("[data-sequence-card]")];
@@ -822,12 +841,11 @@
 
 
 
-    const lightbox = document.querySelector("[data-guide-lightbox]");
     const lightboxImage = lightbox?.querySelector("[data-guide-lightbox-image]");
     const closeLightbox = () => {
       lightbox?.classList.remove("is-open");
       lightbox?.setAttribute("aria-hidden", "true");
-      document.body.style.overflow = "";
+      syncScrollLock();
     };
     page.querySelectorAll("[data-decklist-image]").forEach(figure => {
       const open = () => {
@@ -836,7 +854,7 @@
         lightboxImage.alt = figure.dataset.decklistAlt || "";
         lightbox.classList.add("is-open");
         lightbox.setAttribute("aria-hidden", "false");
-        document.body.style.overflow = "hidden";
+        syncScrollLock();
       };
       figure.addEventListener("click", open);
       figure.addEventListener("keydown", event => {
@@ -849,14 +867,13 @@
     document.querySelector("[data-guide-lightbox-close]")?.addEventListener("click", closeLightbox);
     lightbox?.addEventListener("click", event => { if (event.target === lightbox) closeLightbox(); });
 
-    const copyDialog = document.querySelector("[data-guide-copy-dialog]");
     const copyArea = copyDialog?.querySelector("[data-guide-copy-text]");
     const openCopyDialog = text => {
       if (!copyDialog || !copyArea) return;
       copyArea.value = text;
       copyDialog.classList.add("is-open");
       copyDialog.setAttribute("aria-hidden", "false");
-      document.body.style.overflow = "hidden";
+      syncScrollLock();
       setTimeout(() => {
         copyArea.focus();
         copyArea.select();
@@ -866,7 +883,7 @@
     const closeCopyDialog = () => {
       copyDialog?.classList.remove("is-open");
       copyDialog?.setAttribute("aria-hidden", "true");
-      document.body.style.overflow = "";
+      syncScrollLock();
     };
     document.querySelector("[data-guide-copy-close]")?.addEventListener("click", closeCopyDialog);
     document.querySelector("[data-guide-copy-select]")?.addEventListener("click", () => {
@@ -1030,7 +1047,14 @@
     };
 
     render();
-    window.addEventListener("nika:languagechange", () => window.location.reload());
+    let initialLanguageEventHandled = false;
+    window.addEventListener("nika:languagechange", () => {
+      if (!initialLanguageEventHandled) {
+        initialLanguageEventHandled = true;
+        return;
+      }
+      window.location.reload();
+    });
   };
 
   if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", init, { once: true });

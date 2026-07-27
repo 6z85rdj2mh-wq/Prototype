@@ -1,0 +1,36 @@
+LA TANA DI NIKA — HANDOFF V4.4.13
+
+BASE STABILE
+Usare V4.4.13 al posto di V4.4.12.
+
+BUG CRITICO RISOLTO
+Non reintrodurre questo listener senza una protezione iniziale:
+
+window.addEventListener("nika:languagechange", () => window.location.reload());
+
+main.js emette nika:languagechange anche durante l’inizializzazione.
+Un listener di reload diretto crea quindi un ciclo infinito.
+
+COMPORTAMENTO CORRETTO
+- Primo evento: inizializzazione, nessun reload.
+- Eventi successivi: cambio lingua intenzionale, reload consentito.
+
+SCROLL LOCK
+Lo scroll è gestito tramite:
+html.guide-scroll-locked
+body.guide-scroll-locked
+
+La classe deve esistere soltanto quando:
+- la lightbox della decklist è aperta;
+- il pannello di copia manuale è aperto.
+
+Non impostare più body.style.overflow = hidden in modo indipendente.
+
+TUTTE LE ALTRE FUNZIONI
+Restano quelle della V4.4.12:
+- quattro guide modulari;
+- commenti e stelle;
+- guida inesistente;
+- dati 0–5;
+- decklist e lista SIM;
+- predisposizione Supabase.

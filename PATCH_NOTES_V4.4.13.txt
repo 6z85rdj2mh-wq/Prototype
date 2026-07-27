@@ -1,0 +1,45 @@
+LA TANA DI NIKA — PATCH NOTES V4.4.13
+Data: 27 luglio 2026
+
+TIPO DI PATCH
+- Hotfix localizzato della V4.4.12.
+- Nessuna modifica al design, ai contenuti o alla struttura modulare.
+- V4.4.13 sostituisce immediatamente V4.4.12.
+
+PROBLEMA RISOLTO
+La V4.4.12 registrava un listener che ricaricava la pagina ogni volta che
+veniva emesso l’evento nika:languagechange.
+
+Durante il caricamento iniziale, main.js applica la lingua salvata ed emette
+lo stesso evento. Il risultato era un ciclo continuo di ricarica:
+
+caricamento → applicazione lingua → evento → reload → caricamento...
+
+Effetti visibili:
+- lag molto forte;
+- pagina apparentemente bloccata;
+- impossibilità di scorrere in basso;
+- problema presente sia su desktop sia su mobile.
+
+CORREZIONE
+- Il primo evento di inizializzazione della lingua viene ignorato.
+- Un reload avviene soltanto quando il visitatore cambia davvero lingua.
+- Lo scroll viene ripristinato esplicitamente all’avvio.
+- Il blocco dello scroll usa ora la classe guide-scroll-locked.
+- La classe viene attivata soltanto mentre lightbox o pannello copia sono aperti.
+- Alla chiusura degli overlay lo scroll viene sempre ripristinato.
+
+PERFORMANCE MOBILE
+- Disattivati alcuni backdrop-filter sui dispositivi touch.
+- Ridotte ombre non essenziali su mobile.
+- Le interazioni e il design restano invariati.
+
+FUNZIONI CONSERVATE
+- Guide modulari.
+- Carte sequenziali e numeri diretti.
+- Carta singola con flip.
+- Decklist ingrandibile.
+- Copia lista e download SIM.
+- Messaggio guida inesistente.
+- Commenti e valutazioni.
+- Layout mobile.

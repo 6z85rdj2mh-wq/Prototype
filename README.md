@@ -1,4 +1,11 @@
-# La Tana di Nika — V4.4.12 Guide Community
+# La Tana di Nika — V4.4.13 Scroll Hotfix
+
+Hotfix della V4.4.12 che elimina il ciclo di ricarica, ripristina lo scroll
+desktop/mobile e riduce gli effetti più pesanti sui dispositivi touch.
+
+Consultare `PATCH_NOTES_V4.4.13.txt`.
+
+---
 
 Nuova base del progetto dedicata alle mini guide modulari.
 
