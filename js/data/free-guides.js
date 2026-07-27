@@ -1,5 +1,5 @@
 /* ======================================================
-   LA TANA DI NIKA — DATI MINI GUIDE V4.4.11
+   LA TANA DI NIKA — DATI MINI GUIDE V4.4.12
    Overview + dossier modulari, predisposti per la futura dashboard.
    Limiti: 0–5 elementi nelle sezioni con carte; 0–5 istanze per modulo.
 ====================================================== */
@@ -115,6 +115,13 @@ window.NIKA_FREE_GUIDES_DATA = {
           5
         ]
       }
+    },
+    "comments": {
+      "enabled": true,
+      "oneContributionPerVisitor": true,
+      "publicAdapter": "window.NIKA_GUIDE_COMMENTS_ADAPTER",
+      "fallback": "localStorage",
+      "sharedPersistence": "Supabase Anonymous Auth + Row Level Security"
     }
   },
   "guides": [

@@ -142,8 +142,8 @@ window.NIKA_TRANSLATIONS.en = {
     filterCompetitive: "Competitive",
     filterOffMeta: "Off-meta",
     sortLabel: "Order: most recently updated",
-    emptyTitle: "No guides found",
-    emptyText: "Try changing the search or selected filter.",
+    emptyTitle: "There is no guide for this deck yet, we're sorry.",
+    emptyText: "Our archive is constantly being updated. Try searching for another Leader.",
     returnText: "Want to read something else?",
     returnEditorial: "Back to Editorial",
     returnHome: "Back to Home"

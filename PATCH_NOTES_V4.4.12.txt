@@ -1,0 +1,73 @@
+LA TANA DI NIKA — PATCH NOTES V4.4.12
+Data: 27 luglio 2026
+
+BASE
+- La patch parte dalla V4.4.11.
+- Modifiche localizzate al sistema delle mini guide.
+- V4.4.12 diventa la nuova base stabile dopo la verifica sul sito pubblicato.
+
+CORREZIONE APPROFONDIMENTI INTERATTIVI
+- Rimossa dalle guide pubbliche la selezione tramite ventaglio sovrapposto.
+- Koala, Nami e ogni modulo con 2–5 carte usano ora la navigazione sequenziale.
+- Un tocco sulla carta porta alla carta successiva.
+- I numeri 1–5 permettono di raggiungere direttamente qualsiasi carta.
+- La carta centrale non è più parzialmente coperta o difficile da selezionare.
+- Le sezioni con una sola carta mantengono la rotazione 3D.
+
+GUIDA NON PRESENTE
+- La ricerca senza risultati nell’overview mostra:
+  “Ancora non c’è una guida per questo mazzo, siamo spiacenti.”
+- Anche uno slug diretto inesistente mostra una pagina dedicata, invece di aprire Mihawk per errore.
+- Il messaggio è disponibile in italiano e inglese.
+
+COMMENTI E VALUTAZIONI
+A fondo di ogni mini guida è stata aggiunta una sezione pubblica con:
+- valutazione da 1 a 5 stelle;
+- nome o nickname;
+- commento fino a 600 caratteri;
+- media delle valutazioni;
+- conteggio delle valutazioni;
+- elenco dei commenti;
+- modifica del proprio contributo;
+- eliminazione del proprio contributo;
+- una sola valutazione per visitatore e per guida.
+
+STATO DELLA PERSISTENZA
+- La UI è completamente funzionante.
+- In assenza di backend, i contributi vengono salvati nel localStorage del browser.
+- Questi commenti sono quindi visibili soltanto sullo stesso dispositivo/browser.
+- Il renderer riconosce automaticamente un futuro adattatore:
+  window.NIKA_GUIDE_COMMENTS_ADAPTER
+- Quando verrà collegato Supabase, i commenti diventeranno condivisi tra tutti i visitatori senza modificare il layout.
+
+SICUREZZA FUTURA
+Incluso il file:
+SUPABASE_GUIDE_COMMENTS_SCHEMA_V4.4.12.sql
+
+Lo schema prevede:
+- Supabase Anonymous Auth;
+- Row Level Security;
+- lettura pubblica dei commenti pubblicati;
+- modifica ed eliminazione soltanto del proprio commento;
+- vincolo unico guida/utente;
+- stato published, pending o hidden per la futura moderazione.
+
+MOBILE
+- Stelle con touch target da almeno 44 px.
+- Form e pulsanti a tutta larghezza.
+- Commenti impilati senza overflow.
+- Interazioni sequenziali identiche tra desktop e mobile.
+- Pagina “guida non disponibile” responsive.
+- La sezione commenti passa a colonna sotto 900 px.
+
+FILE PRINCIPALI MODIFICATI
+- editoriale/guide-gratuite/index.html
+- editoriale/guide-gratuite/guida/index.html
+- css/free-guide-detail.css
+- js/components/free-guide-detail.js
+- js/data/free-guides.js
+- js/i18n/it.js
+- js/i18n/en.js
+
+FILE AGGIUNTO
+- SUPABASE_GUIDE_COMMENTS_SCHEMA_V4.4.12.sql

@@ -1,4 +1,19 @@
-# La Tana di Nika — V4.4.11 Modular Mini Guides
+# La Tana di Nika — V4.4.12 Guide Community
+
+Nuova base del progetto dedicata alle mini guide modulari.
+
+## Novità
+
+- Tutti gli approfondimenti con più carte sono sequenziali.
+- Ricerca e slug inesistenti mostrano un messaggio dedicato.
+- Stelle, commenti, modifica ed eliminazione del proprio contributo.
+- Fallback locale immediato e adattatore predisposto per Supabase.
+- Schema SQL con Anonymous Auth e Row Level Security.
+- Layout commenti e interazioni ottimizzato per mobile.
+
+Consultare `PATCH_NOTES_V4.4.12.txt` e `LA_TANA_DI_NIKA_HANDOFF_V4.4.12.txt`.
+
+---
 
 Base stabile corrente del progetto.
 

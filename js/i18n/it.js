@@ -142,8 +142,8 @@ window.NIKA_TRANSLATIONS.it = {
     filterCompetitive: "Competitive",
     filterOffMeta: "Off-meta",
     sortLabel: "Ordine: aggiornamento più recente",
-    emptyTitle: "Nessuna guida trovata",
-    emptyText: "Prova a modificare la ricerca o il filtro selezionato.",
+    emptyTitle: "Ancora non c’è una guida per questo mazzo, siamo spiacenti.",
+    emptyText: "Il nostro archivio è in continuo aggiornamento. Prova a cercare un altro Leader.",
     returnText: "Vuoi leggere altro?",
     returnEditorial: "Torna all’Area Editoriale",
     returnHome: "Torna alla Home"

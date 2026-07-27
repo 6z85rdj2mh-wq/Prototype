@@ -1,0 +1,75 @@
+LA TANA DI NIKA — HANDOFF V4.4.12
+
+BASE STABILE
+La V4.4.12 sostituisce la V4.4.11 come base corrente, dopo verifica sul sito pubblicato.
+
+INTERAZIONI DELLE CARTE
+- 1 carta: flip 3D.
+- 2–5 carte: sequenza al tocco.
+- Numeri diretti sempre disponibili.
+- Non reintrodurre il vecchio ventaglio cliccabile nelle pagine pubbliche.
+- Il vecchio CSS del ventaglio può essere rimosso in una futura pulizia, ma non è utilizzato dal renderer corrente.
+
+GUIDA ASSENTE
+Due casi sono gestiti:
+1. ricerca overview senza risultati;
+2. URL diretto con ?id= inesistente.
+
+Non usare più il fallback automatico alla prima guida quando lo slug è errato.
+
+COMMENTI
+La sezione community è presente in tutte le mini guide.
+
+FALLBACK CORRENTE
+L’adattatore integrato usa localStorage:
+nika-guide-comments-v1:<guide-id>
+
+Il token del visitatore usa:
+nika-guide-comment-owner-v1
+
+Regola:
+- massimo un contributo per visitatore/browser per guida;
+- un nuovo invio aggiorna quello precedente;
+- il proprietario può modificare o eliminare il proprio contributo.
+
+ADATTATORE FUTURO
+Prima di caricare free-guide-detail.js sarà possibile definire:
+
+window.NIKA_GUIDE_COMMENTS_ADAPTER = {
+  async list(guideId) {},
+  async save(guideId, comment) {},
+  async remove(guideId, commentId) {}
+};
+
+Se l’adattatore è presente, il renderer smette automaticamente di usare localStorage.
+
+SUPABASE
+Usare:
+SUPABASE_GUIDE_COMMENTS_SCHEMA_V4.4.12.sql
+
+Configurazione raccomandata:
+- Anonymous Auth attiva;
+- RLS attiva;
+- unique(guide_id, user_id);
+- policy per modifica/eliminazione del solo proprietario;
+- moderazione futura tramite status.
+
+LIMITAZIONE DA RICORDARE
+Finché Supabase non viene collegato:
+- i commenti non sono condivisi tra dispositivi;
+- la media è calcolata sui dati presenti nello stesso browser;
+- localStorage è soltanto un fallback dimostrativo e funzionale.
+
+MOBILE
+Conservare:
+- rating touch-friendly;
+- form a colonna;
+- pulsanti a tutta larghezza;
+- overflow-x bloccato;
+- sequenze con numeri da 44 px;
+- commenti con testo spezzabile.
+
+PROSSIMO PASSAGGIO TECNICO CONSIGLIATO
+Dopo la verifica pubblica della V4.4.12, non costruire ancora la dashboard.
+Proseguire con la progettazione delle altre sezioni pubbliche.
+Il collegamento Supabase dei commenti potrà essere realizzato insieme all’autenticazione e alla dashboard finale.
