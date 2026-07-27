@@ -1,0 +1,46 @@
+LA TANA DI NIKA — PATCH NOTES V4.4.9
+
+Base: V4.4.8 consolidata.
+
+MODIFICHE
+- Creata la nuova pagina pubblica /editoriale/.
+- Eliminata la hero introduttiva lunga: il contenuto parte subito sotto l’header.
+- Titolo principale: “Cosa vuoi leggere?”.
+- Tre card equivalenti e numerate:
+  01 — Articoli generici e report
+  02 — Guide gratuite
+  03 — Guide premium
+- Hover desktop premium: la card attiva si espande, le altre arretrano leggermente.
+- Mobile: tre accessi verticali completi, senza overflow o dipendenza dall’hover.
+- Guide premium descritte come analisi più profonde di mazzi, matchup e linee di gioco, con aggiornamenti costanti.
+- Inserita una barra compatta per l’ultima pubblicazione, senza trasformare l’hub in un archivio lungo.
+- Create le tre destinazioni reali:
+  /editoriale/articoli/
+  /editoriale/guide-gratuite/
+  /editoriale/guide-premium/
+  Le pagine sono impalcature provvisorie pronte per il prossimo sviluppo.
+- Aggiornati i collegamenti Editoriale della homepage e delle pagine torneistiche.
+- Aggiunte traduzioni italiane e inglesi per il nuovo hub e le pagine-destinazione.
+
+FILE NUOVI
+- editoriale/index.html
+- editoriale/articoli/index.html
+- editoriale/guide-gratuite/index.html
+- editoriale/guide-premium/index.html
+- css/editorial-hub.css
+- js/components/editorial-hub.js
+
+FILE MODIFICATI
+- index.html
+- tornei/index.html
+- tornei/nika-league/index.html
+- tornei/i-nostri-tornei/index.html
+- js/i18n/it.js
+- js/i18n/en.js
+- README.md
+
+NON INCLUSO IN QUESTA PATCH
+- Layout definitivo delle mini guide.
+- Template definitivo degli articoli.
+- Login, pagamenti o accesso premium.
+- Dashboard admin.

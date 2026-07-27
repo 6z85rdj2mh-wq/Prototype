@@ -122,5 +122,19 @@ window.NIKA_TRANSLATIONS.it = {
     eventsEyebrow: "TUTTI GLI EVENTI", eventsTitle: "Domenicali e Speciali.", eventsText: "I Domenicali seguono il formato in corso. Gli Speciali hanno identità, struttura e premi dedicati.",
     returnText: "Vuoi esplorare un’altra area?", returnTournaments: "Torna ai Tornei", returnHome: "Torna alla Home"
   },
+  editorialHubPage: {
+    eyebrow: "AREA EDITORIALE", title: "Cosa vuoi leggere?", lead: "Tre aree distinte, ognuna con una pagina dedicata.",
+    articlesEyebrow: "EDITORIALE", articlesTitle: "Articoli generici<br>e report", articlesLead: "Articoli, approfondimenti e report dedicati alla Tana e al gioco.", articlesItemOne: "Report Nika League", articlesItemTwo: "Report dei nostri tornei", articlesItemThree: "Articoli e approfondimenti vari", articlesCta: "Apri articoli e report ↗",
+    freeEyebrow: "ACCESSO LIBERO", freeTitle: "Guide gratuite", freeLead: "Guide accessibili a tutti per approfondire mazzi, Leader e concetti di gioco.", freeItemOne: "Guide introduttive ai mazzi", freeItemTwo: "Leader e concetti di gioco", freeItemThree: "Contenuti pratici e accessibili", freeCta: "Esplora le guide ↗",
+    premiumBadge: "Contenuti premium", premiumEyebrow: "APPROFONDIMENTI COMPLETI", premiumTitle: "Guide premium", premiumLead: "Analisi più profonde e dettagliate, dedicate a mazzi, matchup e linee di gioco.", premiumItemOne: "Analisi dettagliate dei mazzi", premiumItemTwo: "Matchup e sequencing", premiumItemThree: "Contenuti costantemente aggiornati", premiumCta: "Scopri le guide premium ↗",
+    latestEyebrow: "ULTIMA PUBBLICAZIONE", latestTitle: "Il momento in cui la classifica cambia volto", latestMeta: "Articolo · Nika League", latestCta: "Leggi ora ↗",
+    returnText: "Vuoi tornare all’ingresso della Tana?", returnHome: "Torna alla Home"
+  },
+  editorialPages: {
+    scaffoldStatus: "Impalcatura pronta", articlesEyebrow: "ARTICOLI E REPORT", articlesTitle: "Articoli generici e report", articlesLead: "Questa pagina ospiterà l’archivio degli articoli generici e dei report di League e tornei.",
+    freeEyebrow: "GUIDE GRATUITE", freeTitle: "Guide gratuite", freeLead: "Questa pagina è la base su cui costruiremo le overview delle mini guide dei mazzi.",
+    premiumEyebrow: "GUIDE PREMIUM", premiumTitle: "Guide premium", premiumLead: "Questa pagina ospiterà analisi profonde dei mazzi, matchup e contenuti costantemente aggiornati.",
+    returnEditorial: "Torna all’Area Editoriale", returnHome: "Torna alla Home"
+  },
   footer: { claim: "Carte, strategia, tornei e community. Tutto nello stesso luogo." }
 };

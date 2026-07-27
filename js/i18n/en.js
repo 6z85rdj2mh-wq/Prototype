@@ -122,5 +122,19 @@ window.NIKA_TRANSLATIONS.en = {
     eventsEyebrow: "ALL EVENTS", eventsTitle: "Sunday events and Specials.", eventsText: "Sunday events follow the current format. Specials have their own identity, structure and prizes.",
     returnText: "Want to explore another area?", returnTournaments: "Back to Tournaments", returnHome: "Back to Home"
   },
+  editorialHubPage: {
+    eyebrow: "EDITORIAL AREA", title: "What would you like to read?", lead: "Three distinct areas, each with its own dedicated page.",
+    articlesEyebrow: "EDITORIAL", articlesTitle: "General articles<br>and reports", articlesLead: "Articles, features and reports about the Den and the game.", articlesItemOne: "Nika League reports", articlesItemTwo: "Reports from our tournaments", articlesItemThree: "General articles and features", articlesCta: "Open articles and reports ↗",
+    freeEyebrow: "FREE ACCESS", freeTitle: "Free guides", freeLead: "Guides available to everyone to explore decks, Leaders and game concepts.", freeItemOne: "Introductory deck guides", freeItemTwo: "Leaders and game concepts", freeItemThree: "Practical and accessible content", freeCta: "Explore the guides ↗",
+    premiumBadge: "Premium content", premiumEyebrow: "COMPLETE DEEP DIVES", premiumTitle: "Premium guides", premiumLead: "Deeper and more detailed analysis of decks, matchups and lines of play.", premiumItemOne: "Detailed deck analysis", premiumItemTwo: "Matchups and sequencing", premiumItemThree: "Continuously updated content", premiumCta: "Discover premium guides ↗",
+    latestEyebrow: "LATEST PUBLICATION", latestTitle: "The moment the standings change shape", latestMeta: "Article · Nika League", latestCta: "Read now ↗",
+    returnText: "Want to return to the Den’s entrance?", returnHome: "Back to Home"
+  },
+  editorialPages: {
+    scaffoldStatus: "Scaffold ready", articlesEyebrow: "ARTICLES AND REPORTS", articlesTitle: "General articles and reports", articlesLead: "This page will host general articles and reports from the League and our tournaments.",
+    freeEyebrow: "FREE GUIDES", freeTitle: "Free guides", freeLead: "This page is the foundation for the deck mini-guide overview we will design next.",
+    premiumEyebrow: "PREMIUM GUIDES", premiumTitle: "Premium guides", premiumLead: "This page will host deep deck analysis, matchups and continuously updated content.",
+    returnEditorial: "Back to Editorial", returnHome: "Back to Home"
+  },
   footer: { claim: "Cards, strategy, tournaments and community. All in one place." }
 };

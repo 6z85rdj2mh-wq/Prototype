@@ -1,0 +1,54 @@
+LA TANA DI NIKA — HANDOFF V4.4.9
+
+BASE
+- Deriva dalla V4.4.8.
+- Tutta la sezione torneistica, il banner homepage e la League restano invariati.
+
+AREA EDITORIALE APPROVATA
+- /editoriale/ è un hub diretto, senza hero introduttiva lunga.
+- Il titolo è “Cosa vuoi leggere?”.
+- Le tre card hanno lo stesso peso visivo e portano a tre pagine diverse:
+  1. Articoli generici e report
+  2. Guide gratuite
+  3. Guide premium
+- Le descrizioni attuali sono provvisorie e verranno rifinite alla fine del sito.
+- Le Guide premium devono essere percepite come contenuti più profondi: analisi dettagliate dei mazzi, matchup, sequencing e aggiornamenti costanti.
+- La barra dell’ultima pubblicazione resta secondaria e compatta.
+
+COMPORTAMENTO
+- Desktop: la card selezionata si espande e le altre si riducono leggermente.
+- Mobile: le card sono verticali e pienamente leggibili; nessun effetto che crei overflow.
+- Il layout rispetta reduced motion.
+
+PAGINE CREATE
+- /editoriale/
+- /editoriale/articoli/
+- /editoriale/guide-gratuite/
+- /editoriale/guide-premium/
+
+Le tre pagine interne sono scaffolding pubblico provvisorio, non design finale.
+Servono a evitare link interrotti e a costruire le sezioni una alla volta.
+
+PROSSIMO PASSO APPROVATO
+- Progettare /editoriale/guide-gratuite/ partendo dalle mini guide dei mazzi.
+- Prima creare l’overview con card orizzontali e caratterizzate per Leader/mazzo.
+- Poi progettare un template articolo unico e riutilizzabile.
+- I contenuti dovranno in futuro provenire da dati centralizzati e dalla dashboard admin, senza modificare manualmente l’HTML per ogni nuova guida.
+
+REGOLA ADMIN
+- Nessun controllo di scrittura o modifica è visibile nel sito pubblico.
+- La dashboard admin unica verrà sviluppata alla fine.
+- Ogni nuova struttura deve essere predisposta fin da subito per dati centralizzati e contenuti generati dinamicamente.
+
+FILE PRINCIPALI
+- editoriale/index.html
+- css/editorial-hub.css
+- js/components/editorial-hub.js
+- js/i18n/it.js
+- js/i18n/en.js
+
+CONTROLLI RICHIESTI DOPO IL DEPLOY
+- Edge desktop: hover ed espansione delle tre card.
+- Safari mobile: impilamento verticale, header, menu e link.
+- Cambio lingua IT/EN.
+- Collegamenti dalla homepage e dalle pagine Tornei.

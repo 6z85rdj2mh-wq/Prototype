@@ -113,3 +113,14 @@ Ogni pagina interna termina con il pulsante `Torna alla Home`.
 - soli posti totali, griglie premi selezionabili e immagini/placeholder premio
 - pulsanti calendario con promemoria interno due ore prima
 - banner homepage chiudibile con mascotte ufficiale e animazione in un unico movimento
+
+
+## V4.4.9 — Editorial Hub
+
+- Nuovo hub pubblico `/editoriale/` senza hero introduttiva lunga.
+- Titolo “Cosa vuoi leggere?”.
+- Tre card equivalenti: Articoli generici e report, Guide gratuite, Guide premium.
+- Tre pagine-destinazione reali, predisposte per lo sviluppo successivo.
+- Interazione desktop premium e layout mobile verticale.
+- Link Editoriale aggiornati in homepage e nell’Area Torneistica.
+- Prossimo step: overview delle mini guide dei mazzi e template articolo riutilizzabile.
