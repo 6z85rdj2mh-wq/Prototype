@@ -1,0 +1,107 @@
+LA TANA DI NIKA — HANDOFF V4.4.11
+
+STATO CORRENTE
+La V4.4.11 è la nuova base stabile del progetto.
+
+AREA EDITORIALE
+L’overview /editoriale/guide-gratuite/ mostra quattro guide collegate:
+- Mihawk
+- Koala
+- Boa Hancock
+- Nami
+
+ROUTING
+Le guide sono caricate dal template:
+editoriale/guide-gratuite/guida/index.html
+
+Il dossier viene selezionato tramite:
+?id=mihawk
+?id=koala
+?id=boa-hancock
+?id=nami
+
+DATI
+Tutti i contenuti risiedono in:
+js/data/free-guides.js
+
+Il file contiene:
+- dati overview;
+- metadati del dossier;
+- decklist immagine;
+- decklist testuale SIM;
+- moduli attivi;
+- ordine dei moduli;
+- contenuti IT/EN;
+- immagini e commenti delle carte;
+- regole della futura dashboard.
+
+REGOLE MODULARI
+- Moduli fissi: why, keyCards, decklist.
+- Moduli opzionali: tutti gli altri.
+- Massimo 5 istanze per tipologia.
+- Massimo 5 elementi nelle sezioni con carte o immagini.
+- Ogni modulo supporta enabled e order.
+- La dashboard futura dovrà supportare add/remove/duplicate/reorder/enable/disable.
+- La pagina pubblica deve continuare a mostrare soltanto i moduli attivi.
+
+TIPOLOGIE SUPPORTATE
+why
+identity
+gamePlan
+resourceFlow
+keyCards
+decklist
+cardChoices
+mulligan
+interactiveCards
+strengthsWeaknesses
+curve
+matchups
+tips
+
+RENDERER
+Il renderer pubblico è:
+js/components/free-guide-detail.js
+
+Non creare HTML separato per ciascuna guida salvo futura decisione SEO.
+La pagina deve restare data-driven per consentire la gestione da dashboard.
+
+IMMAGINI
+- guide.image: copertina nell’overview.
+- guide.detail.coverImage: copertina del dossier.
+- module.image: fotografia della decklist.
+- item.image: immagine completa della carta.
+- Quando item.image è presente, deve riempire l’intera carta.
+- I gradienti SAMPLE sono soltanto placeholder.
+
+DECKLIST
+Il modulo decklist contiene due campi distinti:
+- image: fotografia caricata dal team;
+- text: lista testuale in formato SIM.
+
+La copia usa Clipboard API, fallback legacy e pannello manuale.
+Il download genera un file .txt compatibile con la lista inserita.
+
+MOBILE
+Mantenere:
+- nessun overflow orizzontale;
+- tap target da almeno 44 px;
+- indice orizzontale;
+- moduli a colonna sotto 720 px;
+- timeline e flussi verticali;
+- ventagli ridimensionati;
+- decklist e pulsanti a tutta larghezza.
+
+CHI SIAMO
+La nota di indipendenza è presente nella sezione #about della homepage.
+Non rimuoverla nelle patch successive.
+
+PROSSIMO PASSAGGIO CONSIGLIATO
+Sostituire gradualmente i contenuti dimostrativi:
+1. immagini delle copertine;
+2. fotografie reali delle decklist;
+3. immagini delle carte;
+4. testi definitivi delle quattro guide;
+5. liste SIM reali.
+
+La dashboard admin resta da costruire soltanto al termine della progettazione delle sezioni pubbliche.

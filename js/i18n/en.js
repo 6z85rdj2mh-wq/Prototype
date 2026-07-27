@@ -130,11 +130,36 @@ window.NIKA_TRANSLATIONS.en = {
     latestEyebrow: "LATEST PUBLICATION", latestTitle: "The moment the standings change shape", latestMeta: "Article · Nika League", latestCta: "Read now ↗",
     returnText: "Want to return to the Den’s entrance?", returnHome: "Back to Home"
   },
+  freeGuidesPage: {
+    eyebrow: "FREE GUIDES",
+    title: "Deck<br>mini guides",
+    lead: "Mini guides are free, simple and immediate content: a strong starting point for analysing a deck, understanding its game plan and getting oriented around curve, key cards and early matchup notes. They are not complete guides, but a clear first step before exploring a Leader in greater depth.",
+    provisional: "The content shown is placeholder material.",
+    searchLabel: "Search the mini guides",
+    searchPlaceholder: "Search for a Leader or guide",
+    filterAll: "All",
+    filterFeatured: "Featured",
+    filterCompetitive: "Competitive",
+    filterOffMeta: "Off-meta",
+    sortLabel: "Order: most recently updated",
+    emptyTitle: "No guides found",
+    emptyText: "Try changing the search or selected filter.",
+    returnText: "Want to read something else?",
+    returnEditorial: "Back to Editorial",
+    returnHome: "Back to Home"
+  },
+  freeGuideDetail: {
+    status: "Mini guide in preparation",
+    placeholder: "The complete guide will be available soon. This link is already prepared for the final editorial template.",
+    back: "Back to mini guides",
+    editorial: "Editorial Area"
+  },
   editorialPages: {
     scaffoldStatus: "Scaffold ready", articlesEyebrow: "ARTICLES AND REPORTS", articlesTitle: "General articles and reports", articlesLead: "This page will host general articles and reports from the League and our tournaments.",
     freeEyebrow: "FREE GUIDES", freeTitle: "Free guides", freeLead: "This page is the foundation for the deck mini-guide overview we will design next.",
     premiumEyebrow: "PREMIUM GUIDES", premiumTitle: "Premium guides", premiumLead: "This page will host deep deck analysis, matchups and continuously updated content.",
     returnEditorial: "Back to Editorial", returnHome: "Back to Home"
   },
+  aboutSection: {"eyebrow": "ABOUT US", "title": "A Den built<br>around the game.", "lead": "La Tana di Nika grows from the shared experience of One Piece Card Game players, organisers and enthusiasts. We create content, tournaments and tools designed to help the community play, connect and improve.", "independenceTitle": "Independent project", "independence": "La Tana di Nika is an independent project and is not affiliated with, sponsored by or endorsed by Bandai, Shueisha, Toei Animation or any other rights holder connected to One Piece and the One Piece Card Game. Trademarks, characters and official materials belong to their respective owners."},
   footer: { claim: "Cards, strategy, tournaments and community. All in one place." }
 };

@@ -2232,3 +2232,76 @@
   .home-event-notice { transform: translate(-50%,0); opacity: 1; }
   .home-event-notice.is-playing { animation: none; }
 }
+
+
+/* ======================================================
+   V4.4.11 — CHI SIAMO + NOTA DI INDIPENDENZA
+====================================================== */
+.about-section {
+  position: relative;
+  overflow: hidden;
+  padding: clamp(82px, 10vw, 138px) 0;
+  border-top: 1px solid var(--color-line);
+  background:
+    radial-gradient(circle at 12% 18%, rgba(146,92,255,.12), transparent 25rem),
+    linear-gradient(180deg, rgba(255,255,255,.012), transparent);
+}
+.about-section::after {
+  content: "04";
+  position: absolute;
+  right: max(24px, calc((100vw - 1180px) / 2));
+  top: 42px;
+  color: rgba(255,255,255,.035);
+  font-family: var(--font-display);
+  font-size: clamp(6rem,15vw,13rem);
+  line-height: 1;
+  pointer-events: none;
+}
+.about-section__layout {
+  position: relative;
+  z-index: 2;
+  display: grid;
+  grid-template-columns: minmax(0,.9fr) minmax(320px,1.1fr);
+  gap: clamp(38px,8vw,110px);
+  align-items: start;
+}
+.about-section h2 {
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: clamp(3.1rem,6vw,6rem);
+  font-weight: 500;
+  line-height: .9;
+  letter-spacing: -.055em;
+}
+.about-section__copy > p {
+  max-width: 690px;
+  margin: 0;
+  color: var(--color-muted);
+  font-size: .9rem;
+  line-height: 1.8;
+}
+.about-section__legal {
+  margin-top: 30px;
+  padding: 21px 23px;
+  border: 1px solid rgba(183,145,255,.22);
+  border-radius: 18px;
+  background: rgba(146,92,255,.045);
+}
+.about-section__legal strong {
+  display: block;
+  color: var(--color-purple-bright);
+  font-size: .57rem;
+  font-weight: 850;
+  letter-spacing: .09em;
+  text-transform: uppercase;
+}
+.about-section__legal p {
+  margin: 9px 0 0;
+  color: rgba(247,244,255,.64);
+  font-size: .66rem;
+  line-height: 1.72;
+}
+@media (max-width: 820px) {
+  .about-section__layout { grid-template-columns: 1fr; gap: 26px; }
+  .about-section::after { right: 12px; top: 28px; }
+}

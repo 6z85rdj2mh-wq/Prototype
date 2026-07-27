@@ -1,0 +1,59 @@
+LA TANA DI NIKA — HANDOFF V4.4.10
+
+BASE
+- Deriva dalla V4.4.9.
+- Homepage, Area Torneistica, Nika League, I nostri tornei e hub Editoriale restano invariati.
+
+OVERVIEW MINI GUIDE APPROVATA
+- La pagina è `/editoriale/guide-gratuite/`.
+- Titolo: “Mini guide ai mazzi”.
+- Le mini guide sono gratuite, semplici e immediate.
+- Devono essere presentate come una base per iniziare ad analizzare un mazzo: piano di gioco, curva, carte chiave e primi accenni ai matchup.
+- Non devono essere presentate come guide complete; quel livello di profondità appartiene alle Guide premium.
+
+DESIGN
+- Card rettangolari orizzontali, lunghe e non troppo alte.
+- Area immagine dedicata al Leader sul lato sinistro.
+- Titolo, introduzione e tag al centro.
+- Data di aggiornamento, tempo di lettura e accesso alla guida sul lato destro.
+- Estetica premium, sobria e coerente con la palette nero, bianco e viola.
+- Mobile: card verticali senza overflow.
+
+RICERCA E FILTRI
+- Ricerca istantanea per Leader, titolo, descrizione, formato e tag.
+- Filtri attuali: Tutte, In evidenza, Competitive e Off-meta.
+- Ordinamento per data di aggiornamento più recente.
+
+DATI CENTRALIZZATI
+- File: `js/data/free-guides.js`.
+- Campi principali di ogni record:
+  id, slug, leader, title, excerpt, tags, categories, format, updatedAt, readingTime, image, imageAlt, accentA, accentB, url.
+- `image` è personalizzabile per ogni guida. Può contenere in futuro un URL Supabase oppure un percorso locale.
+- La pagina genera automaticamente le card tramite `js/components/free-guides-page.js`.
+- L’admin futuro dovrà modificare i record, non il markup HTML.
+
+PAGINA SINGOLA
+- Le card puntano temporaneamente a `/editoriale/guide-gratuite/guida/?id=<guida>`.
+- La pagina attuale è soltanto uno scaffold pubblico “in preparazione”.
+- Il prossimo step è progettare il template editoriale definitivo e modulare della singola mini guida.
+
+REGOLA ADMIN
+- Nessun controllo admin è visibile nel sito pubblico.
+- Dashboard unica solo alla fine del progetto.
+- Le immagini, i testi e i metadata devono restare gestibili tramite dati centralizzati.
+
+FILE PRINCIPALI
+- editoriale/guide-gratuite/index.html
+- editoriale/guide-gratuite/guida/index.html
+- css/free-guides.css
+- js/data/free-guides.js
+- js/components/free-guides-page.js
+- js/components/free-guide-detail.js
+- js/i18n/it.js
+- js/i18n/en.js
+
+CONTROLLI DOPO IL DEPLOY
+- Edge desktop: hover, ricerca, filtri e apertura delle card.
+- Safari mobile: toolbar sticky, filtri orizzontali, card verticali e menu.
+- Cambio lingua IT/EN.
+- Sostituzione di un campo `image` con una copertina reale.

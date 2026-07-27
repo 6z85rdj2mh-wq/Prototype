@@ -1,0 +1,103 @@
+LA TANA DI NIKA — PATCH NOTES V4.4.11
+Data: 27 luglio 2026
+
+BASE
+- La patch parte dalla V4.4.10.
+- Gli interventi sono localizzati all’Area Editoriale, alle mini guide e alla sezione Chi siamo.
+- Le sezioni Tornei, Store e le interazioni già approvate non sono state riscritte.
+
+MINI GUIDE — TEMPLATE DOSSIER
+- Creata la pagina pubblica modulare:
+  /editoriale/guide-gratuite/guida/?id=<slug>
+- Tutte le card dell’overview sono collegate:
+  - Mihawk
+  - Koala
+  - Boa Hancock
+  - Nami
+- Le quattro guide usano lo stesso renderer, ma composizioni modulari differenti.
+
+BLOCCHI FISSI
+Ogni dossier mantiene tre pilastri editoriali:
+1. Perché abbiamo scelto questo mazzo
+2. Carte chiave
+3. Decklist di riferimento
+
+MODULI OPZIONALI DISPONIBILI
+- Identità tecnica
+- Piano partita a fasi
+- Flusso delle risorse
+- Slot flessibili / scelte di costruzione
+- Priorità di mulligan
+- Approfondimenti interattivi
+- Punti di forza e debolezze
+- Curva del mazzo
+- Matchup overview
+- Errori, consigli e note operative
+
+VARIETÀ DELLE GUIDE DI ESEMPIO
+- Mihawk: identità tecnica, piano partita, carta singola interattiva, curva e matchup.
+- Koala: flusso delle risorse, mano interattiva, forza/debolezza e matchup.
+- Boa Hancock: identità tecnica, slot flessibili, carta singola interattiva, curva e matchup.
+- Nami: priorità di mulligan, piano partita, mano interattiva, errori da evitare e matchup.
+
+CARTE E INTERAZIONI
+- Il nucleo del mazzo avanza al tocco in sequenza.
+- I numeri 1–5 permettono di raggiungere direttamente una carta.
+- Una singola carta può essere ruotata in 3D.
+- Da due carte in su viene usato un ventaglio stabile.
+- Le immagini reali riempiranno l’intera superficie della carta.
+- Ogni sezione con carte o immagini supporta da 0 a 5 elementi.
+
+DECKLIST
+- La decklist resta una singola immagine caricabile dal team.
+- Click/tap e lente aprono la lista ingrandita.
+- Il testo SIM è separato dall’immagine.
+- Pulsante “Copia lista testuale”.
+- Pulsante “Scarica formato SIM”.
+- Fallback manuale quando il browser blocca gli appunti.
+
+PREDISPOSIZIONE DASHBOARD
+- Dati centralizzati in js/data/free-guides.js.
+- Moduli aggiungibili, rimovibili, duplicabili, riordinabili e attivabili/disattivabili.
+- Da 0 a 5 istanze per tipologia di modulo.
+- Da 0 a 5 elementi nelle sezioni con carte o immagini.
+- Nessun controllo amministrativo compare nella pagina pubblica.
+
+MOBILE
+- Indice del dossier scorrevole orizzontalmente.
+- Controlli touch da almeno 44 px.
+- Timeline e flussi diventano verticali.
+- Card, ventagli e decklist vengono ridimensionati senza overflow.
+- Pulsanti decklist a tutta larghezza.
+- Lightbox e copia manuale adattate a schermi da 320 px.
+- Overview delle guide rifinita per telefoni stretti.
+
+CHI SIAMO
+Aggiunta nella sezione effettivamente aperta dal collegamento “Chi siamo” la nota:
+“La Tana di Nika è un progetto indipendente e non è affiliato, sponsorizzato o approvato da Bandai, Shueisha, Toei Animation o dagli altri titolari dei diritti di One Piece e del One Piece Card Game. Marchi, personaggi e materiali ufficiali appartengono ai rispettivi titolari.”
+
+FILE PRINCIPALI
+- index.html
+- css/home.css
+- css/free-guides.css
+- css/free-guide-detail.css
+- editoriale/guide-gratuite/index.html
+- editoriale/guide-gratuite/guida/index.html
+- js/data/free-guides.js
+- js/components/free-guides-page.js
+- js/components/free-guide-detail.js
+- js/i18n/it.js
+- js/i18n/en.js
+- assets/images/guides/decklists/*.svg
+
+CONTROLLI ESEGUITI
+- Sintassi di tutti i file JavaScript.
+- Presenza delle quattro guide e correttezza dei collegamenti.
+- Presenza dei tre moduli obbligatori.
+- Limite massimo di 5 elementi per sezione.
+- Limite massimo di 5 istanze per tipologia.
+- Unicità degli ID dei moduli.
+- Esistenza delle risorse locali collegate dagli HTML.
+- Bilanciamento delle parentesi nei CSS.
+- Presenza della nota di indipendenza.
+- Integrità dell’archivio ZIP.

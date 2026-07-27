@@ -1,4 +1,21 @@
-# La Tana di Nika — V4.4.7 Project Alignment Consolidation
+# La Tana di Nika — V4.4.11 Modular Mini Guides
+
+Base stabile corrente del progetto.
+
+## Novità principali
+
+- Quattro mini guide collegate e generate dallo stesso renderer.
+- Dossier modulari con strutture differenti.
+- Moduli e sezioni con range 0–5.
+- Carte chiave sequenziali e numeri interattivi.
+- Carte singole con flip e gruppi con ventaglio stabile.
+- Decklist fotografica ingrandibile, copia testuale e download SIM.
+- Layout mobile ottimizzato fino a 320 px.
+- Nota di indipendenza inserita nella sezione Chi siamo.
+
+Consultare `PATCH_NOTES_V4.4.11.txt` e `LA_TANA_DI_NIKA_HANDOFF_V4.4.11.txt`.
+
+---
 
 Base: V4.3.3 Motion, con riorganizzazione dell’Area Torneistica introdotta nella V4.4.0.
 
@@ -124,3 +141,15 @@ Ogni pagina interna termina con il pulsante `Torna alla Home`.
 - Interazione desktop premium e layout mobile verticale.
 - Link Editoriale aggiornati in homepage e nell’Area Torneistica.
 - Prossimo step: overview delle mini guide dei mazzi e template articolo riutilizzabile.
+
+
+## V4.4.10 — Mini guide ai mazzi
+
+- `/editoriale/guide-gratuite/` diventa una libreria premium di mini guide.
+- Card orizzontali, più larghe che alte, caratterizzate per Leader.
+- Ricerca per Leader, titolo, formato e tag.
+- Filtri Tutte, In evidenza, Competitive e Off-meta.
+- Ogni guida è generata da un record centralizzato in `js/data/free-guides.js`.
+- Il campo `image` permette di assegnare una copertina diversa a ogni guida.
+- La pagina è pronta per essere alimentata in futuro dalla dashboard admin senza riscrivere l’HTML.
+- Le card conducono a uno scaffold temporaneo della singola guida, in attesa del template editoriale definitivo.

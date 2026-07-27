@@ -1,0 +1,43 @@
+LA TANA DI NIKA — PATCH NOTES V4.4.10
+
+Base: V4.4.9 consolidata.
+
+MODIFICHE
+- Sostituita l’impalcatura di `/editoriale/guide-gratuite/` con l’overview approvata delle mini guide ai mazzi.
+- Intestazione diretta con titolo “Mini guide ai mazzi”.
+- Inserita una descrizione che presenta le mini guide come contenuti gratuiti, semplici e immediati: una base per comprendere piano di gioco, curva, carte chiave e primi accenni ai matchup, senza sostituire le guide complete.
+- Card premium orizzontali, più larghe che alte, con area visiva dedicata al Leader.
+- Ricerca istantanea per Leader, titolo, descrizione, formato e tag.
+- Filtri: Tutte, In evidenza, Competitive e Off-meta.
+- Ordinamento automatico per aggiornamento più recente.
+- Responsive mobile con card verticali e toolbar scorrevole.
+- Cambio lingua IT/EN supportato anche nei contenuti generati dinamicamente.
+
+STRUTTURA DATI
+- Creato `js/data/free-guides.js`.
+- Ogni guida dispone di campi centralizzati per: id, slug, Leader, titolo, descrizione, tag, categorie, formato, data di aggiornamento, tempo di lettura, immagine, testo alternativo, accenti grafici e URL.
+- Il campo `image` è indipendente per ogni guida ed è predisposto per il futuro caricamento dalla dashboard admin o da Supabase Storage.
+- L’HTML delle card non deve essere modificato quando viene aggiunta o aggiornata una guida.
+
+COLLEGAMENTI
+- Le card aprono una pagina temporanea della singola guida in `/editoriale/guide-gratuite/guida/?id=...`.
+- Lo scaffold evita link interrotti; il template editoriale completo sarà progettato nel prossimo step.
+
+FILE NUOVI
+- css/free-guides.css
+- js/data/free-guides.js
+- js/components/free-guides-page.js
+- js/components/free-guide-detail.js
+- editoriale/guide-gratuite/guida/index.html
+
+FILE MODIFICATI
+- editoriale/guide-gratuite/index.html
+- js/i18n/it.js
+- js/i18n/en.js
+- README.md
+
+NON INCLUSO
+- Template definitivo della singola guida.
+- Editor visuale degli articoli.
+- Dashboard admin, autenticazione o database.
+- Immagini definitive dei Leader.

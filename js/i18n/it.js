@@ -130,11 +130,36 @@ window.NIKA_TRANSLATIONS.it = {
     latestEyebrow: "ULTIMA PUBBLICAZIONE", latestTitle: "Il momento in cui la classifica cambia volto", latestMeta: "Articolo · Nika League", latestCta: "Leggi ora ↗",
     returnText: "Vuoi tornare all’ingresso della Tana?", returnHome: "Torna alla Home"
   },
+  freeGuidesPage: {
+    eyebrow: "GUIDE GRATUITE",
+    title: "Mini guide<br>ai mazzi",
+    lead: "Le mini guide sono contenuti gratuiti, semplici e immediati: un’ottima base per iniziare ad analizzare un mazzo, comprenderne il piano di gioco e orientarsi tra curva, carte chiave e primi accenni ai matchup. Non sono guide complete, ma un punto di partenza chiaro per conoscere il Leader prima di approfondirlo.",
+    provisional: "I contenuti mostrati sono esempi provvisori.",
+    searchLabel: "Cerca tra le mini guide",
+    searchPlaceholder: "Cerca un Leader o una guida",
+    filterAll: "Tutte",
+    filterFeatured: "In evidenza",
+    filterCompetitive: "Competitive",
+    filterOffMeta: "Off-meta",
+    sortLabel: "Ordine: aggiornamento più recente",
+    emptyTitle: "Nessuna guida trovata",
+    emptyText: "Prova a modificare la ricerca o il filtro selezionato.",
+    returnText: "Vuoi leggere altro?",
+    returnEditorial: "Torna all’Area Editoriale",
+    returnHome: "Torna alla Home"
+  },
+  freeGuideDetail: {
+    status: "Mini guida in preparazione",
+    placeholder: "La guida completa sarà disponibile presto. Il collegamento è già pronto per accogliere il template editoriale definitivo.",
+    back: "Torna alle mini guide",
+    editorial: "Area Editoriale"
+  },
   editorialPages: {
     scaffoldStatus: "Impalcatura pronta", articlesEyebrow: "ARTICOLI E REPORT", articlesTitle: "Articoli generici e report", articlesLead: "Questa pagina ospiterà l’archivio degli articoli generici e dei report di League e tornei.",
     freeEyebrow: "GUIDE GRATUITE", freeTitle: "Guide gratuite", freeLead: "Questa pagina è la base su cui costruiremo le overview delle mini guide dei mazzi.",
     premiumEyebrow: "GUIDE PREMIUM", premiumTitle: "Guide premium", premiumLead: "Questa pagina ospiterà analisi profonde dei mazzi, matchup e contenuti costantemente aggiornati.",
     returnEditorial: "Torna all’Area Editoriale", returnHome: "Torna alla Home"
   },
+  aboutSection: {"eyebrow": "CHI SIAMO", "title": "Una Tana costruita<br>intorno al gioco.", "lead": "La Tana di Nika nasce dall’esperienza condivisa di giocatori, organizzatori e appassionati del One Piece Card Game. Creiamo contenuti, tornei e strumenti pensati per aiutare la community a giocare, confrontarsi e crescere.", "independenceTitle": "Progetto indipendente", "independence": "La Tana di Nika è un progetto indipendente e non è affiliato, sponsorizzato o approvato da Bandai, Shueisha, Toei Animation o dagli altri titolari dei diritti di One Piece e del One Piece Card Game. Marchi, personaggi e materiali ufficiali appartengono ai rispettivi titolari."},
   footer: { claim: "Carte, strategia, tornei e community. Tutto nello stesso luogo." }
 };
