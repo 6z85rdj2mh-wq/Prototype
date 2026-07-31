@@ -8,24 +8,23 @@
   <meta name="theme-color" content="#09070d">
   <meta name="description" content="Guida premium La Tana di Nika con scheda tecnica, simulatore, tech cards, matchup, VOD e recensioni.">
   <title>Guida premium — La Tana di Nika</title>
-  <link rel="icon" type="image/png" href="../../../assets/images/favicon.png?v=4.4.15">
-  <link rel="stylesheet" href="../../../css/tokens.css">
-  <link rel="stylesheet" href="../../../css/base.css">
-  <link rel="stylesheet" href="../../../css/components.css?v=4.3.3">
-  <link rel="stylesheet" href="../../../css/pages.css?v=4.4.4">
-  <link rel="stylesheet" href="../../../css/premium-guide-detail.css?v=4.4.15">
-  <script defer src="../../../js/i18n/it.js?v=4.4.14"></script>
-  <script defer src="../../../js/i18n/en.js?v=4.4.14"></script>
-  <script defer src="../../../js/data/premium-guides.js?v=4.4.15"></script>
-  <script defer src="../../../js/components/header.js?v=4.4.4"></script>
-  <script defer src="../../../js/components/premium-guide-detail.js?v=4.4.15"></script>
-  <script defer src="../../../js/main.js?v=4.4.14"></script>
+  <link rel="icon" type="image/png" href="../../../assets/images/favicon.png?v=4.4.18R1">
+  <link rel="stylesheet" href="../../../css/tokens.css?v=4.4.18R2">
+  <link rel="stylesheet" href="../../../css/base.css?v=4.4.18R2">
+  <link rel="stylesheet" href="../../../css/components.css?v=4.4.18R2">
+  <link rel="stylesheet" href="../../../css/pages.css?v=4.4.18R2">
+  <script defer src="../../../js/i18n/it.js?v=4.4.18R2"></script>
+  <script defer src="../../../js/i18n/en.js?v=4.4.18R2"></script>
+  <script defer src="../../../js/data/premium-guides.js?v=4.4.18R2"></script>
+  <script defer src="../../../js/components/header.js?v=4.4.18R2"></script>
+  <script defer src="../../../js/components/premium-guide-detail.js?v=4.4.18R2"></script>
+  <script defer src="../../../js/main.js?v=4.4.18R2"></script>
 </head>
 <body class="internal-page" data-root-prefix="../../../">
   <a class="skip-link" href="#main-content" data-i18n="accessibility.skip">Vai al contenuto</a>
   <header class="site-header" data-site-header>
     <div class="site-header__inner shell">
-      <a class="brand" href="../../../index.html" aria-label="La Tana di Nika — Home"><span class="brand__mark" aria-hidden="true"><img src="../../../assets/images/mascot-nika.png?v=4.4.15" alt="" width="58" height="58"></span><span class="brand__text">La Tana di Nika</span></a>
+      <a class="brand" href="../../../index.html" aria-label="La Tana di Nika — Home"><span class="brand__mark" aria-hidden="true"><img src="../../../assets/images/mascot-nika.png?v=4.4.18R1" alt="" width="58" height="58"></span><span class="brand__text">La Tana di Nika</span></a>
       <nav class="desktop-nav" aria-label="Navigazione principale" data-i18n-aria-label="accessibility.mainNav"><a href="../../../index.html#store" data-i18n="nav.store">Store</a><a class="is-active" href="../../" data-i18n="nav.editorial">Editoriale</a><a href="../../../tornei/" data-i18n="nav.tournaments">Tornei</a><a href="../../guide-gratuite/" data-i18n="nav.guides">Guide</a><a href="../../../index.html#about" data-i18n="nav.about">Chi siamo</a></nav>
       <div class="header-actions"><a class="icon-button header-search-link" href="../../../index.html#search" aria-label="Ricerca" data-i18n-aria-label="accessibility.search"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m21 21-4.4-4.4m2.4-5.1a7.5 7.5 0 1 1-15 0 7.5 7.5 0 0 1 15 0Z"/></svg></a><div class="language-switch"><button type="button" data-language="it" aria-pressed="true">IT</button><span aria-hidden="true">·</span><button type="button" data-language="en" aria-pressed="false">EN</button></div><button class="menu-toggle" type="button" aria-expanded="false" aria-controls="mobile-menu" data-menu-toggle><span class="sr-only" data-i18n="nav.openMenu">Apri menu</span><span></span><span></span></button></div>
     </div>
@@ -40,5 +39,15 @@
   <footer class="site-footer"><div class="shell site-footer__inner"><div><p class="site-footer__brand">La Tana di Nika</p><p data-i18n="footer.claim">Carte, strategia, tornei e community. Tutto nello stesso luogo.</p></div><p>© <span data-current-year></span> La Tana di Nika</p></div></footer>
 
   <div class="premium-lightbox" data-premium-lightbox hidden role="dialog" aria-modal="true" aria-label="Decklist ingrandita"><div class="premium-lightbox__dialog"><button class="premium-lightbox__close" type="button" data-premium-lightbox-close aria-label="Chiudi">×</button><img alt="Decklist ingrandita"></div></div>
+
+  <script>
+  window.addEventListener('load', () => {
+    window.setTimeout(() => {
+      const host = document.querySelector('[data-premium-guide-root]');
+      if (!host || document.querySelector('.premium-module')) return;
+      host.innerHTML = `<div class="content-load-error"><strong>Contenuto non caricato</strong><p>Il simulatore e i moduli della guida non hanno ricevuto i file necessari. Ricarica forzatamente la pagina; se il problema resta, verifica che le cartelle js, css e assets siano presenti nel repository.</p></div>`;
+    }, 1800);
+  });
+  </script>
 </body>
 </html>
