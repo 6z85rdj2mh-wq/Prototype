@@ -4,7 +4,7 @@
 ====================================================== */
 (() => {
   const config = {
-    version: "4.4.18",
+    version: "4.4.18R1",
     environment: "development",
     data: {
       provider: "local",

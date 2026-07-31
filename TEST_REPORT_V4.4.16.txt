@@ -1,0 +1,77 @@
+LA TANA DI NIKA — TEST REPORT V4.4.16
+Data: 28 luglio 2026
+Ambito: Guide gratuite CMS-ready + regressione generale del progetto
+
+1. CONTROLLO STATICO COMPLETO
+- 21 file JavaScript: sintassi verificata con `node --check`, 0 errori.
+- 14 file CSS: parsing con tinycss2, 0 errori.
+- 4 file JSON: parsing valido, 0 errori.
+- 10 file HTML: analisi struttura e ID, 0 duplicati.
+- Riferimenti locali HTML/CSS: nessun file mancante.
+- Pagine Guide gratuite: cache-busting V4.4.16 presente.
+- Nessun controllo admin rilevato nelle pagine pubbliche.
+
+2. CONTRATTO DATI GUIDE GRATUITE
+- Versione archivio: 4.4.16.
+- Guide esistenti: 4.
+- Guide pubbliche: 4.
+- Collezione completa: valida.
+- Template vuoto in stato draft: valido e salvabile.
+- Creazione da template: valida.
+- Duplicazione Mihawk: nuova bozza indipendente e valida.
+- Pubblicazione di template incompleto: correttamente rifiutata.
+- Più di 5 carte in keyCards: correttamente rifiutato.
+- Rimozione del modulo obbligatorio decklist: correttamente rifiutata.
+- Slug duplicato nella collezione: correttamente rifiutato.
+- Ciclo draft / published / archived / trash / restore: verificato.
+- Eliminazione definitiva da una collezione: verificata.
+
+3. FILTRO PUBBLICO
+Le pagine overview e dettaglio usano esclusivamente guide `published` e non eliminate.
+Il dettaglio riconosce sia ID sia slug.
+Bozze, contenuti archiviati e cestinati non vengono renderizzati nel pubblico.
+
+4. TEST BROWSER GUIDE GRATUITE
+Motore: Chromium headless.
+Harness: HTML, CSS e JavaScript reali della patch resi in un ambiente self-contained; localStorage inizializzato come su origine web normale.
+
+Overview mobile 390 × 844:
+- 4 card renderizzate;
+- nessun errore JavaScript;
+- nessun overflow orizzontale;
+- nessun ID duplicato.
+
+Overview desktop 1440 × 1000:
+- 4 card renderizzate;
+- nessun errore JavaScript;
+- nessun overflow orizzontale;
+- nessun ID duplicato.
+
+Interazioni:
+- ricerca “Koala”: 1 risultato;
+- filtro Off-meta: 1 risultato.
+
+Dettagli mobile 390 × 844:
+- Mihawk: 9 moduli, nessun errore/overflow;
+- Koala: 7 moduli, nessun errore/overflow;
+- Boa Hancock: 8 moduli, nessun errore/overflow;
+- Nami: 9 moduli, nessun errore/overflow;
+- slug inesistente: stato “Guida non disponibile” corretto.
+
+5. REGRESSIONE COMPLETA DEL SITO
+- 10 pagine HTML.
+- 2 viewport per pagina: mobile 390 × 844 e desktop 1366 × 900.
+- 20 combinazioni browser complessive.
+- 0 errori JavaScript.
+- 0 overflow orizzontali.
+- 0 ID duplicati.
+
+6. SCREENSHOT DI CONTROLLO
+- GUIDE_GRATUITE_V4.4.16_MOBILE_OVERVIEW.png
+- GUIDE_GRATUITE_V4.4.16_MOBILE_DETAIL.png
+
+7. LIMITI DEL CONTROLLO
+I test browser sono stati eseguiti con Chromium headless, non su Edge desktop o Safari/iPhone fisici. La verifica reale su GitHub Pages e sui dispositivi dell’utente resta il controllo conclusivo dopo il caricamento.
+
+8. ESITO
+Nessun problema bloccante rilevato nei controlli disponibili.

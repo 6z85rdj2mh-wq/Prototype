@@ -1,3 +1,7 @@
+# La Tana di Nika — V4.4.18R1
+
+Ricostruzione stabile della V4.4.18 basata sulla V4.4.16, con Articoli CMS-ready, cache busting e controlli di caricamento.
+
 # La Tana di Nika — V4.4.16 Free Guides CMS-ready
 
 Nuova base stabile che porta le Guide gratuite allo stesso modello editoriale riutilizzabile delle Guide Premium.
@@ -226,7 +230,3 @@ Ogni pagina interna termina con il pulsante `Torna alla Home`.
 - Il campo `image` permette di assegnare una copertina diversa a ogni guida.
 - La pagina è pronta per essere alimentata in futuro dalla dashboard admin senza riscrivere l’HTML.
 - Le card conducono a uno scaffold temporaneo della singola guida, in attesa del template editoriale definitivo.
-
-
-## V4.4.18
-Articoli e report CMS-ready, media service centralizzato e pagina pubblica generica.

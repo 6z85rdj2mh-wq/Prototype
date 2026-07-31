@@ -1,6 +1,7 @@
 (() => {
   const STORAGE_KEY = 'nika-language';
-  let language = localStorage.getItem(STORAGE_KEY) === 'en' ? 'en' : 'it';
+  const readLanguage = () => { try { return window.localStorage?.getItem(STORAGE_KEY) === 'en' ? 'en' : 'it'; } catch (_) { return 'it'; } };
+  let language = readLanguage();
 
   const localize = value => {
     if (value && typeof value === 'object' && !Array.isArray(value)) return value[language] ?? value.it ?? value.en ?? '';

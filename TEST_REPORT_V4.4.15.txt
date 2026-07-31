@@ -1,0 +1,131 @@
+LA TANA DI NIKA — TEST REPORT V4.4.15
+Data: 28 luglio 2026
+
+AMBITO
+Revisione della patch completa derivata da V4.4.14, con particolare attenzione alla nuova Area Guide Premium e a possibili regressioni sulle pagine esistenti.
+
+STATISTICHE PROGETTO
+- 96 file totali
+- 10 pagine HTML
+- 14 file CSS
+- 21 file JavaScript
+- 17 asset immagine
+- dimensione cartella non compressa: circa 2,4 MB
+
+1. SINTASSI JAVASCRIPT
+Esito: SUPERATO
+- Eseguito `node --check` su tutti i 21 file JavaScript.
+- Nessun errore di parsing.
+
+2. PARSING CSS
+Esito: SUPERATO
+- Analizzati tutti i 14 CSS con tinycss2.
+- Nessun errore di parsing rilevato.
+
+3. JSON ADMIN
+Esito: SUPERATO
+- Validati entrambi i file JSON della cartella admin.
+- Nessun JSON malformato.
+
+4. RIFERIMENTI LOCALI
+Esito: SUPERATO
+- Analizzate 10 pagine HTML.
+- Controllati href, src, srcset e url() CSS locali.
+- File mancanti: 0.
+
+5. CONTRATTO DATI GUIDE PREMIUM
+Esito: SUPERATO
+- Dataset V4.4.15 disponibile.
+- Guida Mihawk valida.
+- Duplicazione guida produce correttamente una bozza.
+- Creazione da template produce correttamente una bozza.
+- Il validatore rifiuta stati con 11 DON.
+- Il validatore rifiuta percorsi con 21 turni.
+- Limiti confermati: massimo 10 DON, massimo 20 turni per percorso.
+
+6. TEST FUNZIONALI GUIDE PREMIUM
+Esito: SUPERATO
+Viewport testati:
+- desktop 1440×1000
+- mobile 390×844
+
+Casi: 4
+- overview desktop
+- overview mobile
+- dettaglio desktop
+- dettaglio mobile
+
+Verificato:
+- card overview Mihawk;
+- ricerca e stato vuoto;
+- presenza di tutti i moduli;
+- Generic Mulligan con 5 carte;
+- Going 1st / Going 2nd;
+- cambio turno e cambio azione;
+- DON tappati e attivi con stessa dimensione CSS;
+- Tech Cards e cambio scheda;
+- due matchup;
+- mulligan custom;
+- tre card VOD;
+- recensione con stelle;
+- inserimento ed eliminazione recensione locale;
+- assenza di overflow orizzontale.
+
+Errori JavaScript browser: 0.
+Errori console: 0.
+
+7. TEST LINGUA
+Esito: SUPERATO
+- Rendering iniziale italiano.
+- Cambio verso inglese.
+- Aggiornamento dinamico della guida.
+- Nessun reload obbligatorio.
+- Nessun loop.
+
+8. ACCESSIBILITÀ BASE DELLA GUIDA PREMIUM
+Esito: SUPERATO
+- pulsanti senza nome: 0;
+- immagini senza alt: 0;
+- campi form senza label: 0;
+- details senza summary: 0;
+- heading vuoti: 0.
+
+9. SMOKE TEST DI TUTTO IL PROGETTO
+Esito: SUPERATO
+- 10 pagine × 2 viewport = 20 casi browser.
+- viewport desktop: 1440×900;
+- viewport mobile: 390×844.
+
+Controlli per ogni caso:
+- errori JavaScript;
+- errori console;
+- overflow orizzontale;
+- ID duplicati.
+
+Problemi finali: 0.
+
+10. REVISIONE VISIVA MIRATA
+Esito: SUPERATO CON NOTA
+- Generati screenshot mirati della overview e della guida premium.
+- Verificati plancia, DON, matchup banner e sezione mobile.
+- I test visivi sono stati eseguiti in Chromium headless con asset incorporati nel test harness.
+
+Nota: non è stato eseguito un test reale su Safari iOS o Edge desktop installati dall’utente. Quella verifica resta necessaria dopo il caricamento su GitHub Pages.
+
+11. ERRORE PREESISTENTE TROVATO E CORRETTO
+File:
+js/components/tournament-hub.js
+
+Problema:
+- chiamata a `utils.localized(...)`, funzione inesistente.
+
+Correzione:
+- sostituita con `utils.pick(...)`.
+
+La correzione ha eliminato l’errore rilevato nello smoke test dell’hub Tornei.
+
+12. CONCLUSIONI
+La patch V4.4.15 supera tutti i controlli statici, strutturali e browser automatizzati disponibili nell’ambiente di lavoro.
+
+Non sono emersi errori bloccanti al termine della revisione.
+La patch è pronta per il caricamento e per la successiva verifica reale su GitHub Pages, Edge e Safari/iPhone.

@@ -66,7 +66,7 @@
   };
 
   window.NIKA_MEDIA = {
-    version: "4.4.18",
+    version: "4.4.18R1",
     normalizeImage,
     resolveImage,
     normalizeVideo,

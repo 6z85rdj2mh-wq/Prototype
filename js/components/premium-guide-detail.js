@@ -3,7 +3,8 @@
   const MAX_DON = 10;
   const BOARD_W = 595;
   const BOARD_H = 420;
-  let language = localStorage.getItem(STORAGE_KEY) === 'en' ? 'en' : 'it';
+  const readLanguage = () => { try { return window.localStorage?.getItem(STORAGE_KEY) === 'en' ? 'en' : 'it'; } catch (_) { return 'it'; } };
+  let language = readLanguage();
   let currentGuide = null;
   let simulatorState = { path: 'first', turn: 0, action: 0 };
 

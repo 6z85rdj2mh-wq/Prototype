@@ -449,7 +449,7 @@
   };
 
   window.NIKA_PREMIUM_GUIDES_DATA = {
-    version: '4.4.15',
+    version: '4.4.18R1',
     settings: {
       placeholderData: true,
       limits,

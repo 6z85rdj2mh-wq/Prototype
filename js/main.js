@@ -2,8 +2,13 @@
   const STORAGE_KEY = 'nika-language';
   const supported = ['it', 'en'];
 
+  const safeStorage = {
+    get(key) { try { return window.localStorage?.getItem(key) ?? null; } catch (_) { return null; } },
+    set(key, value) { try { window.localStorage?.setItem(key, value); } catch (_) {} }
+  };
+
   const getSavedLanguage = () => {
-    const saved = localStorage.getItem(STORAGE_KEY);
+    const saved = safeStorage.get(STORAGE_KEY);
     if (supported.includes(saved)) return saved;
     return navigator.language?.toLowerCase().startsWith('it') ? 'it' : 'en';
   };
@@ -18,7 +23,7 @@
     if (!dictionary) return;
 
     currentLanguage = language;
-    localStorage.setItem(STORAGE_KEY, language);
+    safeStorage.set(STORAGE_KEY, language);
     document.documentElement.lang = language;
 
     document.querySelectorAll('[data-i18n]').forEach(element => {

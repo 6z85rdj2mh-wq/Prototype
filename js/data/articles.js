@@ -837,7 +837,7 @@
     return { valid: errors.length === 0, errors, articles: normalized };
   };
 
-  const api = { version: "4.4.18", settings: {}, articles: [], templates: { blank: deepClone(articleTemplate) }, adminApi: {} };
+  const api = { version: "4.4.18R1", settings: {}, articles: [], templates: { blank: deepClone(articleTemplate) }, adminApi: {} };
   const findArticle = identifier => {
     const key = String(identifier || "");
     return api.articles.find(article => article.id === key || article.slug === key) || null;

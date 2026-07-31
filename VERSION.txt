@@ -1,0 +1,5 @@
+La Tana di Nika
+Versione: V4.4.18R1
+Base ricostruita: V4.4.16 stabile
+Funzione reintrodotta: Articoli e report CMS-ready della V4.4.18
+Stato: hotfix/rebuild precedente alla V4.4.19

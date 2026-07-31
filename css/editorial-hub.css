@@ -23,14 +23,14 @@
   aspect-ratio: 1;
   top: -38%;
   right: -16%;
-  background: radial-gradient(circle, rgba(146,92,255,.2), transparent 68%);
+  background: radial-gradient(circle, rgba(146,92,255,.2), rgba(146,92,255,0) 68%);
 }
 .editorial-entry::after {
   width: min(48vw, 690px);
   aspect-ratio: 1;
   bottom: -35%;
   left: -18%;
-  background: radial-gradient(circle, rgba(75,28,141,.16), transparent 70%);
+  background: radial-gradient(circle, rgba(75,28,141,.16), rgba(75,28,141,0) 70%);
 }
 .editorial-entry__shell { position: relative; }
 .editorial-entry__head {
@@ -110,14 +110,14 @@
   inset: 0;
   background:
     linear-gradient(180deg, transparent 22%, rgba(9,7,13,.3) 53%, rgba(9,7,13,.96)),
-    radial-gradient(circle at 68% 18%, rgba(146,92,255,.2), transparent 14rem);
+    radial-gradient(circle at 68% 18%, rgba(146,92,255,.2), rgba(146,92,255,0) 14rem);
 }
 .editorial-gateway--free::before { background-position: 44% center; }
 .editorial-gateway--premium::before { background-position: 76% center; }
 .editorial-gateway--premium::after {
   background:
     linear-gradient(180deg, rgba(146,92,255,.04), rgba(9,7,13,.95)),
-    radial-gradient(circle at 70% 18%, rgba(146,92,255,.3), transparent 16rem);
+    radial-gradient(circle at 70% 18%, rgba(146,92,255,.3), rgba(146,92,255,0) 16rem);
 }
 .editorial-gateway__content {
   min-height: clamp(470px, 58vh, 560px);
@@ -304,7 +304,7 @@
   right: -190px;
   top: -200px;
   border-radius: 50%;
-  background: radial-gradient(circle, rgba(146,92,255,.2), transparent 68%);
+  background: radial-gradient(circle, rgba(146,92,255,.2), rgba(146,92,255,0) 68%);
   pointer-events: none;
 }
 .editorial-scaffold h1 {
