@@ -1,0 +1,44 @@
+LA TANA DI NIKA — PATCH NOTES V4.4.16
+FREE GUIDES CMS-READY
+
+BASE
+- Parte dalla V4.4.15 stabile.
+- Non modifica la struttura visiva approvata delle Guide gratuite.
+- Preserva Guide Premium, Tornei, homepage, lingua e commenti.
+
+ARCHITETTURA GUIDE GRATUITE
+- `js/data/free-guides.js` è ora un archivio CMS-ready versione 4.4.16.
+- Le quattro guide esistenti sono record `published`.
+- Aggiunti stati: draft, published, archived, trash.
+- Il sito pubblico usa esclusivamente `getPublishedGuides()`.
+- Il dettaglio riconosce sia ID sia slug.
+- URL pubblico generato automaticamente: `guida/?id={slug}`.
+
+FUTURA ADMIN
+- Template vuoto in `admin/free-guides/free-guide-template.json`.
+- Contratto UI/dati in `admin/free-guides/free-guides-admin-contract.json`.
+- Workflow in `admin/free-guides/ADMIN_WORKFLOW.md`.
+- API disponibili: crea, duplica, valida, pubblica, archivia, cestino, ripristina ed elimina definitivamente.
+- Le bozze possono essere incomplete; una guida pubblicata deve avere Leader, titolo e formato.
+- ID e slug devono essere univoci.
+
+MODULI
+- Obbligatori: why, keyCards, decklist.
+- Moduli opzionali fino a 5 istanze.
+- Sezioni con carte fino a 5 elementi.
+- Moduli attivabili, disattivabili e riordinabili.
+
+SUPABASE
+- Aggiunto `SUPABASE_FREE_GUIDES_SCHEMA_V4.4.16.sql`.
+- Lettura pubblica soltanto per record pubblicati e non eliminati.
+- Nessuna policy di scrittura anonima.
+
+PUBBLICO
+- Overview e dettagli mantengono il design V4.4.14/V4.4.15.
+- Ricerca, filtri, lingua, commenti, valutazioni e responsive restano invariati.
+- Nessun pulsante admin nel sito pubblico.
+
+NON INCLUSO
+- La dashboard grafica definitiva non è ancora costruita.
+- Il database Supabase non è ancora collegato.
+- Gli Articoli non sono ancora CMS-ready: saranno il prossimo macro-passo editoriale.

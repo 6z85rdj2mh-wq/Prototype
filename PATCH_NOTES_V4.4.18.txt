@@ -1,0 +1,13 @@
+LA TANA DI NIKA — PATCH NOTES V4.4.18
+
+- Articoli e report trasformati da impalcatura a sistema CMS-ready.
+- Nuova libreria pubblica con ricerca, filtri, articolo in evidenza e responsive mobile.
+- Nuova pagina generica del singolo articolo basata su ID o slug.
+- Stati: draft, scheduled, published, archived, trash.
+- Creazione da template, duplicazione, validazione, pubblicazione, programmazione, archivio, cestino, ripristino ed eliminazione definitiva.
+- Moduli: testo, immagine, citazione, punti chiave, statistiche, risultati, galleria, Twitch, collegamenti e callout.
+- Aggiunto livello media centralizzato per dati locali oggi e Cloudflare R2 in futuro.
+- Twitch resta il provider video corrente; i riferimenti sono astratti per una futura migrazione.
+- Collegato l'ultimo articolo dell'hub editoriale e della Nika League al nuovo dettaglio.
+- Nessuna dashboard grafica e nessun collegamento Supabase/R2 reale in questa patch.
+- La versione V4.4.17 è stata intenzionalmente saltata.

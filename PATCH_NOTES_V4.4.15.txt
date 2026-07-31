@@ -1,0 +1,70 @@
+LA TANA DI NIKA — PATCH NOTES V4.4.15
+28 luglio 2026
+
+BASE
+- Derivata esclusivamente dalla base stabile V4.4.14.
+- Nessuna regressione intenzionale sulle mini guide gratuite, sulla lingua o sullo scroll lock.
+
+GUIDE PREMIUM — OVERVIEW
+- Sostituita la pagina scaffold `/editoriale/guide-premium/` con una libreria reale.
+- Le card vengono generate esclusivamente da `js/data/premium-guides.js`.
+- Sono visibili soltanto i record con `status: "published"`.
+- Aggiunta ricerca per Leader, formato, titolo, descrizione e tag.
+- La prima guida pubblica è Mihawk · Formato ST32.
+
+GUIDA PREMIUM — DETTAGLIO
+- Nuova pagina `/editoriale/guide-premium/guida/?id=mihawk-st32`.
+- Scheda tecnica con Difficoltà, Forza e Consistenza.
+- Decklist gestita come una sola immagine caricabile.
+- Generic Mulligan: “Cosa vai a cercare?”.
+- Simulatore guidato separato in Going 1st e Going 2nd.
+- Massimo 10 DON in ogni stato.
+- Predisposizione validata fino a 20 turni per percorso e 20 azioni per turno.
+- DON tappati a dimensione piena, ruotati singolarmente e sovrapposti orizzontalmente.
+- Plancia originale e asset DON/card back inseriti come asset locali.
+- Moduli editoriali duplicabili per Strategia di base, Decisioni generiche e futuri capitoli.
+- Tech Cards con 1–5 carte e scheda: quando utile, descrizione, cosa togliere, perché giocarla e sample list.
+- Matchup premium con banner immagine sfumata, tag, commento, Going 1st, Going 2nd, approfondimento scorrevole e mulligan dedicato.
+- Sezione VOD modulare prima dei commenti: thumbnail, titolo, descrizione, tag e URL/embed futuro.
+- Recensioni con 1–5 stelle, nome e commento; fallback localStorage.
+
+ARCHITETTURA ADMIN-READY
+- Tutti i contenuti premium sono raccolti in `js/data/premium-guides.js`.
+- Aggiunti limiti, catalogo moduli e helper temporanei:
+  - createGuideFromTemplate
+  - duplicateGuide
+  - normalizeGuide
+  - validateGuide
+- Aggiunti template e contratto JSON in `admin/premium-guides/`.
+- Aggiunto workflow completo per la futura dashboard.
+- Aggiunta baseline SQL Supabase con lettura pubblica dei soli record pubblicati e nessuna policy pubblica di scrittura.
+
+LINGUA
+- Il renderer legge `nika-language` prima del primo rendering.
+- Cambio IT/EN dinamico senza reload e senza loop.
+- Nessuna modifica alla logica stabile di `main.js` V4.4.14.
+
+CORREZIONE EXTRA DA REVISIONE
+- Corretto un errore preesistente nell’hub Tornei:
+  `utils.localized(...)` non esisteva ed è stato sostituito con `utils.pick(...)`.
+
+FILE PRINCIPALI AGGIUNTI
+- css/premium-guides.css
+- css/premium-guide-detail.css
+- js/data/premium-guides.js
+- js/components/premium-guides-page.js
+- js/components/premium-guide-detail.js
+- editoriale/guide-premium/guida/index.html
+- admin/premium-guides/ADMIN_WORKFLOW.md
+- admin/premium-guides/premium-guide-template.json
+- admin/premium-guides/premium-guides-admin-contract.json
+- SUPABASE_PREMIUM_GUIDES_SCHEMA_V4.4.15.sql
+
+CONTROLLI
+- Sintassi di tutti i file JavaScript.
+- Parsing di tutti i CSS.
+- Verifica di tutti i riferimenti locali HTML/CSS.
+- 20 smoke test browser: 10 pagine × desktop/mobile.
+- Nessun errore JavaScript, overflow orizzontale o ID duplicato nei test.
+- Test funzionali specifici per overview, mulligan, simulatore, Tech Cards, matchup, VOD, recensioni e lingua.
+- Validazione dati: massimo 10 DON e massimo 20 turni.

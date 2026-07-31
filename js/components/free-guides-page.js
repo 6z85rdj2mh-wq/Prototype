@@ -9,7 +9,13 @@
     .replaceAll('"', "&quot;")
     .replaceAll("'", "&#039;");
 
-  const currentLanguage = () => document.documentElement.lang === "en" ? "en" : "it";
+  const currentLanguage = () => {
+    try {
+      const saved = localStorage.getItem("nika-language");
+      if (saved === "it" || saved === "en") return saved;
+    } catch (_) {}
+    return document.documentElement.lang === "en" ? "en" : "it";
+  };
   const localize = (value, language = currentLanguage()) => {
     if (typeof value === "string") return value;
     return value?.[language] ?? value?.it ?? value?.en ?? "";
@@ -31,7 +37,8 @@
       cover: "Mini guida al mazzo",
       countOne: "guida disponibile",
       countMany: "guide disponibili",
-      minutes: "min"
+      minutes: "min",
+      pageTitle: "Mini guide ai mazzi — La Tana di Nika"
     },
     en: {
       miniGuide: "Mini guide",
@@ -41,8 +48,14 @@
       cover: "Deck mini guide",
       countOne: "guide available",
       countMany: "guides available",
-      minutes: "min"
+      minutes: "min",
+      pageTitle: "Deck mini guides — La Tana di Nika"
     }
+  };
+
+  const getPublicGuides = () => {
+    if (typeof data.adminApi?.getPublishedGuides === "function") return data.adminApi.getPublishedGuides();
+    return (Array.isArray(data.guides) ? data.guides : []).filter(guide => guide?.status !== "draft" && guide?.status !== "archived" && guide?.status !== "trash" && !guide?.deletedAt);
   };
 
   const formatDate = (isoDate, language) => {
@@ -115,9 +128,10 @@
     const render = () => {
       const language = currentLanguage();
       const words = translations[language];
+      document.title = words.pageTitle;
       const query = search.value.trim().toLocaleLowerCase(language === "en" ? "en" : "it");
 
-      const guides = [...data.guides]
+      const guides = [...getPublicGuides()]
         .sort((a, b) => String(b.updatedAt).localeCompare(String(a.updatedAt)))
         .filter(guide => {
           const categories = Array.isArray(guide.categories) ? guide.categories : [];

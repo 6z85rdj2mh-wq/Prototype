@@ -103,7 +103,7 @@ window.NIKA_TOURNAMENTS_DATA = {
       en: "Stage four consolidated the qualification zone and reopened the race in the middle positions. The full analysis covers results, deck choices and changes in the race for the Top 8."
     },
     images: ["assets/images/hero-sea.png"],
-    url: "../../index.html#editorial"
+    url: "../../editoriale/articoli/articolo/?id=nika-league-stage-four-report"
   },
 
   localEvents: [

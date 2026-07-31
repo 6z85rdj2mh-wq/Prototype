@@ -1,0 +1,46 @@
+LA TANA DI NIKA — PATCH NOTES V4.4.14
+Data: 28 luglio 2026
+
+TIPO DI PATCH
+- Correzione localizzata della traduzione IT/EN delle mini guide.
+- Base: V4.4.13.
+- Nessuna modifica a design, moduli, commenti, decklist o struttura pubblica.
+
+PROBLEMA PRINCIPALE RISOLTO
+Il renderer del dossier veniva inizializzato prima che main.js applicasse la lingua
+salvata. In V4.4.13 il primo evento nika:languagechange veniva ignorato per evitare
+il ciclo di reload della V4.4.12. Di conseguenza, con inglese già selezionato, molte
+sezioni dinamiche restavano in italiano.
+
+NUOVO COMPORTAMENTO
+- Overview e dossier leggono subito la lingua salvata in localStorage.
+- Il primo rendering è già nella lingua corretta.
+- L’evento iniziale di main.js non provoca reload se la lingua coincide.
+- Un cambio lingua intenzionale provoca un solo reload controllato.
+- Nessun ciclo di ricarica.
+
+SUPERFICI CORRETTE
+- Titolo pagina overview e dossier.
+- Breadcrumb e relative etichette accessibili.
+- Metadati: aggiornamento, lettura, stile e formato.
+- Tutti i moduli data-driven delle quattro guide.
+- Nucleo del mazzo e approfondimenti sequenziali.
+- Decklist, copia, download e lightbox.
+- Guida inesistente.
+- Commenti, valutazioni, feedback e conteggi.
+- Pulsanti di modifica/eliminazione.
+- Etichette stelle singolare/plurale.
+- aria-label per navigazione, ricerca, filtri, indice, rating e chiusura overlay.
+- Testi alternativi delle immagini, già letti dai record IT/EN.
+
+INFRASTRUTTURA I18N
+main.js supporta ora anche:
+- data-i18n-aria-label
+- data-i18n-title
+- data-i18n-alt
+
+PROTEZIONI CONSERVATE
+- Nessun listener di reload diretto a ogni nika:languagechange.
+- guide-scroll-locked attivo soltanto con lightbox o copy dialog aperti.
+- Nessuna modifica al fallback commenti localStorage.
+- Nessuna modifica alla modularità 0–5.

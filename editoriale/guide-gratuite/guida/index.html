@@ -7,18 +7,18 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#09070d">
   <title>Mini guida — La Tana di Nika</title>
-  <link rel="icon" type="image/png" href="../../../assets/images/favicon.png?v=4.4.13">
+  <link rel="icon" type="image/png" href="../../../assets/images/favicon.png?v=4.4.16">
   <link rel="stylesheet" href="../../../css/tokens.css">
   <link rel="stylesheet" href="../../../css/base.css">
   <link rel="stylesheet" href="../../../css/components.css?v=4.3.3">
   <link rel="stylesheet" href="../../../css/pages.css?v=4.4.4">
-  <link rel="stylesheet" href="../../../css/free-guide-detail.css?v=4.4.13">
-  <script defer src="../../../js/i18n/it.js?v=4.4.13"></script>
-  <script defer src="../../../js/i18n/en.js?v=4.4.13"></script>
-  <script defer src="../../../js/data/free-guides.js?v=4.4.13"></script>
+  <link rel="stylesheet" href="../../../css/free-guide-detail.css?v=4.4.16">
+  <script defer src="../../../js/i18n/it.js?v=4.4.16"></script>
+  <script defer src="../../../js/i18n/en.js?v=4.4.16"></script>
+  <script defer src="../../../js/data/free-guides.js?v=4.4.16"></script>
   <script defer src="../../../js/components/header.js?v=4.4.4"></script>
-  <script defer src="../../../js/components/free-guide-detail.js?v=4.4.13"></script>
-  <script defer src="../../../js/main.js?v=4.4.13"></script>
+  <script defer src="../../../js/components/free-guide-detail.js?v=4.4.16"></script>
+  <script defer src="../../../js/main.js?v=4.4.16"></script>
 </head>
 <body class="internal-page" data-root-prefix="../../../">
   <a class="skip-link" href="#main-content" data-i18n="accessibility.skip">Vai al contenuto</a>
@@ -26,10 +26,10 @@
   <header class="site-header" data-site-header>
     <div class="site-header__inner shell">
       <a class="brand" href="../../../index.html" aria-label="La Tana di Nika — Home">
-        <span class="brand__mark" aria-hidden="true"><img src="../../../assets/images/mascot-nika.png?v=4.4.13" alt="" width="58" height="58"></span>
+        <span class="brand__mark" aria-hidden="true"><img src="../../../assets/images/mascot-nika.png?v=4.4.16" alt="" width="58" height="58"></span>
         <span class="brand__text">La Tana di Nika</span>
       </a>
-      <nav class="desktop-nav" aria-label="Navigazione principale">
+      <nav class="desktop-nav" aria-label="Navigazione principale" data-i18n-aria-label="accessibility.mainNav">
         <a href="../../../index.html#store" data-i18n="nav.store">Store</a>
         <a class="is-active" href="../../" data-i18n="nav.editorial">Editoriale</a>
         <a href="../../../tornei/" data-i18n="nav.tournaments">Tornei</a>
@@ -47,7 +47,7 @@
       </div>
     </div>
     <div class="mobile-menu" id="mobile-menu" data-mobile-menu hidden>
-      <nav class="shell">
+      <nav class="shell" aria-label="Navigazione principale" data-i18n-aria-label="accessibility.mainNav">
         <a href="../../../index.html#store" data-i18n="nav.store">Store</a>
         <a class="is-active" href="../../" data-i18n="nav.editorial">Editoriale</a>
         <a href="../../../tornei/" data-i18n="nav.tournaments">Tornei</a>
@@ -78,8 +78,8 @@
     <div data-guide-found-content>
     <section class="guide-dossier__hero">
       <div class="shell">
-        <nav class="guide-breadcrumb" aria-label="Breadcrumb">
-          <a href="../../">Editoriale</a><i>/</i><a href="../">Guide gratuite</a><i>/</i><span data-guide-breadcrumb>Mini guida</span>
+        <nav class="guide-breadcrumb" aria-label="Percorso della guida" data-guide-breadcrumb-nav data-i18n-aria-label="accessibility.guideBreadcrumb">
+          <a href="../../" data-guide-breadcrumb-editorial data-i18n="freeGuideDetail.breadcrumbEditorial">Editoriale</a><i>/</i><a href="../" data-guide-breadcrumb-free data-i18n="freeGuideDetail.breadcrumbFreeGuides">Guide gratuite</a><i>/</i><span data-guide-breadcrumb>Mini guida</span>
         </nav>
         <article class="guide-cover" data-guide-cover>
           <div class="guide-cover__visual" data-guide-cover-visual>
@@ -107,7 +107,7 @@
     </section>
 
     <div class="shell guide-dossier__layout">
-      <nav class="guide-index" aria-label="Indice della guida" data-guide-index></nav>
+      <nav class="guide-index" aria-label="Indice della guida" data-guide-index data-i18n-aria-label="accessibility.guideIndex"></nav>
       <div class="guide-modules" data-guide-modules></div>
     </div>
 
@@ -122,7 +122,7 @@
           <div class="guide-community__summary" aria-live="polite">
             <strong data-community-average>—</strong>
             <div>
-              <div class="guide-community__summary-stars" data-community-summary-stars aria-label="Valutazione media"></div>
+              <div class="guide-community__summary-stars" data-community-summary-stars aria-label="Valutazione media" data-i18n-aria-label="accessibility.averageRating"></div>
               <span data-community-count>Ancora nessuna valutazione</span>
             </div>
           </div>
@@ -133,7 +133,7 @@
             <input type="hidden" data-comment-id>
             <fieldset class="guide-rating-fieldset">
               <legend data-comment-rating-label>Valuta la guida</legend>
-              <div class="guide-rating-input" data-rating-input role="radiogroup" aria-label="Valuta la guida da una a cinque stelle">
+              <div class="guide-rating-input" data-rating-input role="radiogroup" aria-label="Valuta la guida da una a cinque stelle" data-i18n-aria-label="accessibility.rateGuide">
                 <button type="button" data-rating-value="1" aria-label="1 stella">★</button>
                 <button type="button" data-rating-value="2" aria-label="2 stelle">★</button>
                 <button type="button" data-rating-value="3" aria-label="3 stelle">★</button>
@@ -186,14 +186,14 @@
 
   <div class="guide-lightbox" data-guide-lightbox aria-hidden="true">
     <div class="guide-lightbox__panel">
-      <button class="guide-lightbox__close" type="button" data-guide-lightbox-close aria-label="Chiudi">×</button>
+      <button class="guide-lightbox__close" type="button" data-guide-lightbox-close aria-label="Chiudi" data-i18n-aria-label="accessibility.close">×</button>
       <img data-guide-lightbox-image alt="">
     </div>
   </div>
 
   <div class="guide-copy-dialog" data-guide-copy-dialog aria-hidden="true">
     <div class="guide-copy-dialog__panel" role="dialog" aria-modal="true" aria-labelledby="guide-copy-title">
-      <button class="guide-copy-dialog__close" type="button" data-guide-copy-close aria-label="Chiudi">×</button>
+      <button class="guide-copy-dialog__close" type="button" data-guide-copy-close aria-label="Chiudi" data-i18n-aria-label="accessibility.close">×</button>
       <small data-guide-copy-eyebrow>Lista testuale</small>
       <h2 id="guide-copy-title" data-guide-copy-title>Copia manualmente la decklist</h2>
       <p data-guide-copy-help>Seleziona il testo e copialo dal menu del dispositivo.</p>

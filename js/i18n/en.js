@@ -1,6 +1,17 @@
 window.NIKA_TRANSLATIONS = window.NIKA_TRANSLATIONS || {};
 window.NIKA_TRANSLATIONS.en = {
-  accessibility: { skip: "Skip to content" },
+  accessibility: {
+    skip: "Skip to content",
+    mainNav: "Main navigation",
+    search: "Search",
+    guideFilters: "Guide filters",
+    guideCategories: "Guide categories",
+    guideBreadcrumb: "Guide breadcrumb",
+    guideIndex: "Guide index",
+    close: "Close",
+    averageRating: "Average rating",
+    rateGuide: "Rate the guide from one to five stars"
+  },
   nav: { store: "Store", editorial: "Editorial", tournaments: "Tournaments", guides: "Guides", about: "About us", openMenu: "Open menu" },
   language: { label: "Language" },
   hero: {
@@ -131,6 +142,7 @@ window.NIKA_TRANSLATIONS.en = {
     returnText: "Want to return to the Den’s entrance?", returnHome: "Back to Home"
   },
   freeGuidesPage: {
+    pageTitle: "Deck mini guides — La Tana di Nika",
     eyebrow: "FREE GUIDES",
     title: "Deck<br>mini guides",
     lead: "Mini guides are free, simple and immediate content: a strong starting point for analysing a deck, understanding its game plan and getting oriented around curve, key cards and early matchup notes. They are not complete guides, but a clear first step before exploring a Leader in greater depth.",
@@ -149,10 +161,19 @@ window.NIKA_TRANSLATIONS.en = {
     returnHome: "Back to Home"
   },
   freeGuideDetail: {
-    status: "Mini guide in preparation",
-    placeholder: "The complete guide will be available soon. This link is already prepared for the final editorial template.",
+    pageTitle: "Mini guide",
+    breadcrumbEditorial: "Editorial",
+    breadcrumbFreeGuides: "Free guides",
+    status: "Free mini guide",
+    updated: "Updated",
+    reading: "Reading time",
+    style: "Style",
+    index: "Dossier index",
     back: "Back to mini guides",
-    editorial: "Editorial Area"
+    editorial: "Editorial Area",
+    notFoundEyebrow: "GUIDE NOT AVAILABLE",
+    notFoundTitle: "There is no guide for this deck yet, we’re sorry.",
+    notFoundCopy: "Our archive is constantly being updated. Try searching for another Leader."
   },
   editorialPages: {
     scaffoldStatus: "Scaffold ready", articlesEyebrow: "ARTICLES AND REPORTS", articlesTitle: "General articles and reports", articlesLead: "This page will host general articles and reports from the League and our tournaments.",

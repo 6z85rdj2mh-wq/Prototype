@@ -1,0 +1,34 @@
+LA TANA DI NIKA — HANDOFF V4.4.14
+
+BASE STABILE
+Usare V4.4.14 come nuova base corrente.
+Non usare V4.4.12 e non ripristinare la gestione lingua della V4.4.13.
+
+LINGUA
+I renderer delle mini guide devono leggere prima localStorage:
+nika-language = it | en
+
+La logica corretta è:
+1. render iniziale nella lingua salvata;
+2. main.js applica la stessa lingua ed emette nika:languagechange;
+3. se la lingua coincide, nessun reload;
+4. se il visitatore sceglie una lingua diversa, un solo reload;
+5. al nuovo caricamento il renderer parte già nella lingua scelta.
+
+ATTRIBUTI TRADUCIBILI
+main.js supporta:
+data-i18n
+data-i18n-placeholder
+data-i18n-aria-label
+data-i18n-title
+data-i18n-alt
+
+SCROLL
+Non modificare:
+html.guide-scroll-locked
+body.guide-scroll-locked
+
+Attive soltanto con lightbox decklist o pannello copia aperto.
+
+PROSSIMO MACRO-PASSO
+Dopo verifica online di V4.4.14, progettare l’overview delle Guide premium.

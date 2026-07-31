@@ -1,0 +1,111 @@
+LA TANA DI NIKA — HANDOFF V4.4.15
+
+BASE STABILE
+Usare V4.4.15 come nuova base corrente dopo la verifica dell’utente.
+La patch parte da V4.4.14 e conserva la gestione lingua e scroll approvata.
+
+GUIDE PREMIUM
+Overview:
+/editoriale/guide-premium/
+
+Dettaglio:
+/editoriale/guide-premium/guida/?id=mihawk-st32
+
+DATI
+Sorgente unica:
+js/data/premium-guides.js
+
+Il sito pubblico non deve contenere controlli admin e mostra soltanto guide con:
+status: "published"
+
+Per aggiungere una nuova guida:
+1. duplicare un record con `adminApi.duplicateGuide(...)` o partire da `templates.blank`;
+2. assegnare id e slug univoci;
+3. modificare Leader, formato, testi, immagini, metriche e moduli;
+4. validare con `adminApi.validateGuide(...)`;
+5. impostare `status: "published"` soltanto al termine.
+
+MODULI SUPPORTATI
+- intro
+- decklistImage
+- genericMulligan
+- simulator
+- editorialText
+- techCards
+- matchups
+- vods
+- reviews
+
+LIMITI VINCOLANTI
+- massimo 10 DON;
+- massimo 20 turni per Going 1st e 20 per Going 2nd;
+- massimo 20 azioni per turno;
+- mani/mulligan da 1 a 5 carte;
+- Tech Cards da 1 a 5;
+- moduli editorialText fino a 5.
+
+SIMULATORE
+- Going 1st e Going 2nd sono percorsi distinti.
+- Nessuna mano pubblica durante la partita.
+- Card ratio 63:88.
+- DON tappati non devono rimpicciolirsi.
+- DON Deck simbolico scompare quando tutti i 10 DON sono disponibili, salvo DON restituiti.
+- Plancia, DON e back card sono asset locali in assets/images/guides/premium/.
+
+DECKLIST
+La sezione deve mostrare soltanto l’immagine completa della lista.
+Non reintrodurre griglia carte o lista testuale salvo futura richiesta esplicita.
+
+MATCHUP
+Ogni matchup deve mantenere:
+- banner premium scuro;
+- immagine panoramica sfumata a destra;
+- titolo serif editoriale;
+- tag subordinati;
+- commento generale;
+- Going 1st e Going 2nd;
+- approfondimento con scroll interno;
+- mulligan custom 1–5 carte.
+
+VOD
+Ogni VOD è modulare e supporta thumbnail, titolo, descrizione, tag, URL e provider/embed futuro.
+La sezione resta prima delle recensioni.
+
+RECENSIONI
+- stelle 1–5;
+- nome e commento;
+- fallback localStorage;
+- futura persistenza Supabase.
+
+ADMIN
+La dashboard unica non è ancora costruita.
+La V4.4.15 prepara schema, template, validazione, moduli e workflow.
+Consultare:
+admin/premium-guides/ADMIN_WORKFLOW.md
+
+SUPABASE
+Schema baseline:
+SUPABASE_PREMIUM_GUIDES_SCHEMA_V4.4.15.sql
+La policy pubblica consente soltanto la lettura dei record pubblicati.
+Non aggiungere scritture pubbliche o anonime per le guide premium.
+
+LINGUA
+Non reintrodurre reload su ogni `nika:languagechange`.
+Il renderer premium aggiorna i contenuti dinamicamente.
+Preservare:
+html.guide-scroll-locked
+body.guide-scroll-locked
+solo per la lightbox decklist.
+
+CORREZIONE TORNEI
+Non ripristinare `utils.localized` in tournament-hub.js.
+La funzione corretta è `utils.pick`.
+
+PROSSIMI PASSI
+1. verifica reale della patch su GitHub Pages, Edge desktop e Safari/iPhone;
+2. sostituzione dei placeholder con immagini e testi reali Mihawk;
+3. definizione autenticazione admin;
+4. implementazione dashboard unica;
+5. collegamento Supabase Storage + tabella premium_guides;
+6. embed VOD YouTube/Twitch sicuro;
+7. analytics e SEO quando il noindex verrà rimosso.

@@ -5,18 +5,22 @@
   <meta name="robots" content="noindex, nofollow">
   <meta name="googlebot" content="noindex, nofollow">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Articoli, analisi e report della Tana di Nika.">
   <meta name="theme-color" content="#09070d">
-  <title>Articoli generici e report — La Tana di Nika</title>
-  <link rel="icon" type="image/png" href="../../assets/images/favicon.png?v=4.4.9">
+  <title>Articoli e report — La Tana di Nika</title>
+  <link rel="icon" type="image/png" href="../../assets/images/favicon.png?v=4.4.18">
   <link rel="stylesheet" href="../../css/tokens.css">
   <link rel="stylesheet" href="../../css/base.css">
-  <link rel="stylesheet" href="../../css/components.css?v=4.3.3">
-  <link rel="stylesheet" href="../../css/pages.css?v=4.4.4">
-  <link rel="stylesheet" href="../../css/editorial-hub.css?v=4.4.9">
-  <script defer src="../../js/i18n/it.js?v=4.4.11"></script>
-  <script defer src="../../js/i18n/en.js?v=4.4.11"></script>
-  <script defer src="../../js/components/header.js?v=4.4.4"></script>
-  <script defer src="../../js/main.js?v=4.4.8"></script>
+  <link rel="stylesheet" href="../../css/components.css?v=4.4.18">
+  <link rel="stylesheet" href="../../css/articles.css?v=4.4.18">
+  <script defer src="../../js/i18n/it.js?v=4.4.18"></script>
+  <script defer src="../../js/i18n/en.js?v=4.4.18"></script>
+  <script defer src="../../js/config/services.js?v=4.4.18"></script>
+  <script defer src="../../js/services/media-service.js?v=4.4.18"></script>
+  <script defer src="../../js/data/articles.js?v=4.4.18"></script>
+  <script defer src="../../js/components/header.js?v=4.4.18"></script>
+  <script defer src="../../js/components/articles-page.js?v=4.4.18"></script>
+  <script defer src="../../js/main.js?v=4.4.18"></script>
 </head>
 <body class="internal-page" data-root-prefix="../../">
   <a class="skip-link" href="#main-content" data-i18n="accessibility.skip">Vai al contenuto</a>
@@ -28,15 +32,14 @@
     </div>
     <div class="mobile-menu" id="mobile-menu" data-mobile-menu hidden><nav class="shell"><a href="../../index.html#store" data-i18n="nav.store">Store</a><a class="is-active" href="../" data-i18n="nav.editorial">Editoriale</a><a href="../../tornei/" data-i18n="nav.tournaments">Tornei</a><a href="../guide-gratuite/" data-i18n="nav.guides">Guide</a><a href="../../index.html#about" data-i18n="nav.about">Chi siamo</a><div class="mobile-menu__language"><span data-i18n="language.label">Lingua</span><div class="language-switch language-switch--mobile"><button type="button" data-language="it" aria-pressed="true">Italiano</button><button type="button" data-language="en" aria-pressed="false">English</button></div></div></nav></div>
   </header>
-  <main id="main-content" class="editorial-scaffold">
+  <main id="main-content" class="articles-page" data-articles-page>
     <div class="shell">
-      <section class="editorial-scaffold__panel">
-        <span class="status-chip"><i aria-hidden="true"></i><span data-i18n="editorialPages.scaffoldStatus">Impalcatura pronta</span></span>
-        <p class="eyebrow" data-i18n="editorialPages.articlesEyebrow">AREA EDITORIALE</p>
-        <h1 data-i18n="editorialPages.articlesTitle">Articoli generici e report</h1>
-        <p class="editorial-scaffold__lead" data-i18n="editorialPages.articlesLead">Questa pagina è pronta per la prossima fase di progettazione.</p>
-        <div class="editorial-scaffold__actions"><a class="button button--primary" href="../" data-i18n="editorialPages.returnEditorial">Torna all’Area Editoriale</a><a class="button button--ghost" href="../../index.html" data-i18n="editorialPages.returnHome">Torna alla Home</a></div>
-      </section>
+      <header class="articles-head"><div><p class="eyebrow">AREA EDITORIALE · 01</p><h1 data-articles-title>Articoli e report</h1></div><p data-articles-lead>Analisi, storie e approfondimenti dalla Tana.</p></header>
+      <section class="articles-toolbar" aria-label="Ricerca e filtri"><label class="articles-search"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m21 21-4.4-4.4m2.4-5.1a7.5 7.5 0 1 1-15 0 7.5 7.5 0 0 1 15 0Z"/></svg><span class="sr-only">Cerca</span><input type="search" data-articles-search autocomplete="off"></label><div class="articles-filters"><button class="articles-filter is-active" type="button" data-articles-filter="all" aria-pressed="true">Tutti</button><button class="articles-filter" type="button" data-articles-filter="analysis" aria-pressed="false">Analisi</button><button class="articles-filter" type="button" data-articles-filter="nika-league-report" aria-pressed="false">Nika League</button><button class="articles-filter" type="button" data-articles-filter="tournament-report" aria-pressed="false">I nostri tornei</button><button class="articles-filter" type="button" data-articles-filter="editorial" aria-pressed="false">Editoriale</button></div></section>
+      <div class="articles-summary"><span><strong data-articles-count>0</strong> <span data-articles-count-label>articoli pubblicati</span></span><span>CMS-ready · V4.4.18</span></div>
+      <section data-articles-featured></section>
+      <section class="articles-list" data-articles-list></section>
+      <section class="articles-empty" data-articles-empty hidden><h2>Nessun articolo trovato</h2><p>Prova a cambiare ricerca o categoria.</p></section>
     </div>
   </main>
 </body>

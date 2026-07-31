@@ -1,0 +1,69 @@
+LA TANA DI NIKA — TEST REPORT V4.4.18
+Data: 2026-07-28
+
+AMBITO
+- Patch localizzata su Articoli e report.
+- Base di partenza: V4.4.16.
+- V4.4.17 saltata intenzionalmente.
+
+CONTROLLI STATICI
+- 26 file JavaScript verificati con `node --check`: superati.
+- 16 file CSS analizzati con tinycss2: nessun errore di parsing.
+- 6 file JSON analizzati: validi.
+- 11 pagine HTML analizzate con parser HTML.
+- Riferimenti locali HTML/CSS/JS/immagini: nessun file mancante.
+- ID statici duplicati nelle pagine HTML: nessuno.
+- Immagini dichiarate nei dati Articoli: tutte presenti.
+
+CONTRATTO CMS ARTICOLI
+- Collezione completa valida: sì.
+- Articoli totali: 4.
+- Articoli pubblici: 3.
+- Bozza non visibile pubblicamente: verificato.
+- Creazione da template: verificata.
+- Duplicazione: nuova copia in stato draft verificata.
+- Programmazione: stato scheduled e scheduledAt verificati.
+- Pubblicazione, archivio, cestino e ripristino: API predisposte.
+- Blocco oltre 5 moduli della stessa tipologia: verificato.
+- Blocco articolo senza modulo testo attivo: verificato.
+- Blocco articolo programmato senza data: verificato.
+- Blocco slug duplicato nella collezione: verificato.
+
+TEST DI RENDERING CHROMIUM HEADLESS
+Le componenti Articoli sono state renderizzate in Chromium headless attraverso DOM in memoria,
+poiché l'ambiente di esecuzione blocca la navigazione diretta verso localhost e file://.
+Sono stati verificati:
+- overview desktop 1440 px;
+- overview mobile 390 px;
+- dettaglio desktop 1440 px;
+- dettaglio mobile 390 px;
+- secondo articolo mobile;
+- pagina articolo inesistente mobile;
+- ricerca Mihawk: 1 risultato;
+- filtro I nostri tornei: 1 risultato;
+- cambio lingua IT/EN overview e dettaglio;
+- 6 moduli nel report Nika League;
+- zero errori JavaScript durante i test;
+- zero ID duplicati nel DOM renderizzato;
+- zero overflow orizzontali nei viewport testati.
+
+SCREENSHOT
+- ARTICOLI_V4.4.18_MOBILE_OVERVIEW.png
+- ARTICOLI_V4.4.18_MOBILE_DETAIL.png
+
+LIMITI DEL TEST
+- Non è stato possibile eseguire navigazione automatizzata completa tramite URL locale a causa del blocco amministrativo dell'ambiente.
+- La preview locale allegata conserva comunque la struttura reale completa del progetto.
+- Il controllo finale su Edge desktop e Safari/iPhone reali resta necessario dopo il caricamento su GitHub Pages.
+- Supabase, Cloudflare R2, Worker e Twitch embed reale non sono attivi in questa patch.
+
+ESITO
+Nessun problema bloccante rilevato nei controlli disponibili.
+
+VERIFICA ARCHIVIO FINALE
+- File sorgente: 127.
+- File estratti dallo ZIP: 127.
+- Confronto SHA-256 file-per-file tra sorgente ed estrazione: identico.
+- JavaScript ricontrollato dopo estrazione: superato.
+- JSON e CSS ricontrollati dopo estrazione: superato.
+- `unzip -t`: nessun errore.

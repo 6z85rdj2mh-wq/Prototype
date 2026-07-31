@@ -1,4 +1,55 @@
-# La Tana di Nika — V4.4.13 Scroll Hotfix
+# La Tana di Nika — V4.4.16 Free Guides CMS-ready
+
+Nuova base stabile che porta le Guide gratuite allo stesso modello editoriale riutilizzabile delle Guide Premium.
+
+- Archivio con stati `draft`, `published`, `archived` e `trash`.
+- Il sito pubblico mostra soltanto le guide pubblicate.
+- Template vuoto e duplicazione di guide senza creare nuove pagine HTML.
+- Validazione di ID, slug, moduli obbligatori e limiti 0–5.
+- Creazione, duplicazione, pubblicazione, archivio, cestino, ripristino ed eliminazione definitiva predisposti per la futura admin.
+- Contratto admin in `admin/free-guides/`.
+- Baseline Supabase in `SUPABASE_FREE_GUIDES_SCHEMA_V4.4.16.sql`.
+- Nessun controllo amministrativo esposto nel sito pubblico.
+
+Consultare `PATCH_NOTES_V4.4.16.txt`, `TEST_REPORT_V4.4.16.txt`, `LA_TANA_DI_NIKA_HANDOFF_V4.4.16.txt` e `LA_TANA_DI_NIKA_MEMORIA_COMPLETA_V4.4.16.md`.
+
+---
+
+# La Tana di Nika — V4.4.15 Premium Guides Architecture
+
+Nuova base stabile con Area Guide Premium pubblica e data-driven.
+
+- Overview reale delle Guide Premium.
+- Prima guida pubblicata: Mihawk · Formato ST32.
+- Scheda tecnica con Difficoltà, Forza e Consistenza.
+- Decklist come singola immagine caricabile.
+- Generic Mulligan e mulligan personalizzato per matchup.
+- Simulatore Going 1st / Going 2nd: massimo 10 DON e fino a 20 turni per percorso.
+- Moduli editoriali, Tech Cards, matchup premium, VOD e recensioni con stelle.
+- Dati centralizzati in `js/data/premium-guides.js`.
+- Contratto e template per la futura dashboard in `admin/premium-guides/`.
+- Baseline Supabase in `SUPABASE_PREMIUM_GUIDES_SCHEMA_V4.4.15.sql`.
+- Corretto anche un errore preesistente nel rendering dell’hub Tornei (`utils.localized` → `utils.pick`).
+
+Consultare `PATCH_NOTES_V4.4.15.txt`, `TEST_REPORT_V4.4.15.txt`, `LA_TANA_DI_NIKA_HANDOFF_V4.4.15.txt` e `LA_TANA_DI_NIKA_MEMORIA_COMPLETA_V4.4.15.md`.
+
+---
+
+# La Tana di Nika — V4.4.14 Translation Consistency Fix
+
+Nuova base stabile delle mini guide.
+
+- Primo rendering nella lingua salvata.
+- Cambio IT/EN senza loop di reload.
+- Overview, dossier, commenti, guida inesistente e decklist coerenti.
+- Etichette accessibili traducibili tramite attributi i18n.
+- Hotfix scroll V4.4.13 preservato.
+
+Consultare `PATCH_NOTES_V4.4.14.txt` e `LA_TANA_DI_NIKA_HANDOFF_V4.4.14.txt`.
+
+Risultati dei controlli: `TEST_REPORT_V4.4.14.txt`.
+
+---
 
 Hotfix della V4.4.12 che elimina il ciclo di ricarica, ripristina lo scroll
 desktop/mobile e riduce gli effetti più pesanti sui dispositivi touch.
@@ -175,3 +226,7 @@ Ogni pagina interna termina con il pulsante `Torna alla Home`.
 - Il campo `image` permette di assegnare una copertina diversa a ogni guida.
 - La pagina è pronta per essere alimentata in futuro dalla dashboard admin senza riscrivere l’HTML.
 - Le card conducono a uno scaffold temporaneo della singola guida, in attesa del template editoriale definitivo.
+
+
+## V4.4.18
+Articoli e report CMS-ready, media service centralizzato e pagina pubblica generica.

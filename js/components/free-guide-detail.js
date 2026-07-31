@@ -5,7 +5,13 @@
   const MAX_ITEMS = Number(data.settings?.limits?.itemsPerCardSection?.max) || 5;
   const MAX_INSTANCES = Number(data.settings?.limits?.moduleInstancesPerType?.max) || 5;
 
-  const currentLanguage = () => document.documentElement.lang === "en" ? "en" : "it";
+  const currentLanguage = () => {
+    try {
+      const saved = localStorage.getItem("nika-language");
+      if (saved === "it" || saved === "en") return saved;
+    } catch (_) {}
+    return document.documentElement.lang === "en" ? "en" : "it";
+  };
   const localize = (value, language = currentLanguage()) => {
     if (typeof value === "string") return value;
     return value?.[language] ?? value?.it ?? value?.en ?? "";
@@ -77,7 +83,17 @@
       remove: "Elimina",
       confirmDelete: "Eliminare questo commento?",
       yourComment: "Il tuo commento",
-      localDate: "it-IT"
+      localDate: "it-IT",
+      breadcrumbEditorial: "Editoriale",
+      breadcrumbFreeGuides: "Guide gratuite",
+      breadcrumbAria: "Percorso della guida",
+      indexAria: "Indice della guida",
+      close: "Chiudi",
+      averageRating: "Valutazione media",
+      ratingGroup: "Valuta la guida da una a cinque stelle",
+      starLabel: count => count === 1 ? "1 stella" : `${count} stelle`,
+      ratingAria: rating => `Valutazione: ${rating} su 5`,
+      openDecklist: "Apri la decklist a schermo intero"
     },
     en: {
       status: "Free mini guide",
@@ -137,7 +153,17 @@
       remove: "Delete",
       confirmDelete: "Delete this comment?",
       yourComment: "Your comment",
-      localDate: "en-GB"
+      localDate: "en-GB",
+      breadcrumbEditorial: "Editorial",
+      breadcrumbFreeGuides: "Free guides",
+      breadcrumbAria: "Guide breadcrumb",
+      indexAria: "Guide index",
+      close: "Close",
+      averageRating: "Average rating",
+      ratingGroup: "Rate the guide from one to five stars",
+      starLabel: count => count === 1 ? "1 star" : `${count} stars`,
+      ratingAria: rating => `Rating: ${rating} out of 5`,
+      openDecklist: "Open the decklist full screen"
     }
   };
 
@@ -246,6 +272,7 @@
     return moduleShell(module, language, `
       <div class="guide-decklist" data-decklist-module>
         <figure class="guide-decklist__figure" tabindex="0" role="button"
+                aria-label="${escapeAttr(words[language].openDecklist)}"
                 data-decklist-image="${escapeAttr(image)}"
                 data-decklist-alt="${escapeAttr(localize(module.imageAlt, language))}">
           <span class="guide-decklist__zoom" aria-hidden="true">
@@ -604,11 +631,10 @@
       set("[data-comment-cancel]", ui.cancelEdit);
       set("[data-comments-title]", ui.commentsTitle);
       set("[data-comments-empty]", ui.noComments);
+      summaryStars?.setAttribute("aria-label", ui.averageRating);
+      section.querySelector("[data-rating-input]")?.setAttribute("aria-label", ui.ratingGroup);
       ratingButtons.forEach((button, index) => {
-        const stars = index + 1;
-        button.setAttribute("aria-label", language === "en"
-          ? `${stars} ${stars === 1 ? "star" : "stars"}`
-          : `${stars} ${stars === 1 ? "stella" : "stelle"}`);
+        button.setAttribute("aria-label", ui.starLabel(index + 1));
       });
     };
 
@@ -685,7 +711,7 @@
                   <strong>${escapeHTML(comment.author)}</strong>
                   ${owned ? `<span>${escapeHTML(ui.yourComment)}</span>` : ""}
                 </div>
-                <div class="guide-comment__rating" aria-label="${escapeAttr(`${comment.rating} / 5`)}">${starMarkup(comment.rating)}</div>
+                <div class="guide-comment__rating" aria-label="${escapeAttr(ui.ratingAria(comment.rating))}">${starMarkup(comment.rating)}</div>
               </header>
               <p>${escapeHTML(comment.text).replaceAll("\n", "<br>")}</p>
               <footer>
@@ -957,8 +983,11 @@
 
     const params = new URLSearchParams(window.location.search);
     const requestedId = params.get("id");
-    const guide = data.guides.find(item => item.id === requestedId);
-    const fallbackGuide = !requestedId ? data.guides[0] : null;
+    const publicGuides = typeof data.adminApi?.getPublishedGuides === "function"
+      ? data.adminApi.getPublishedGuides()
+      : (Array.isArray(data.guides) ? data.guides : []).filter(item => item?.status !== "draft" && item?.status !== "archived" && item?.status !== "trash" && !item?.deletedAt);
+    const guide = publicGuides.find(item => item.id === requestedId || item.slug === requestedId);
+    const fallbackGuide = !requestedId ? publicGuides[0] : null;
     const activeGuide = guide || fallbackGuide;
     const foundContent = page.querySelector("[data-guide-found-content]");
     const notFound = page.querySelector("[data-guide-not-found]");
@@ -976,6 +1005,9 @@
       set("[data-guide-not-found-title]", ui.notFoundTitle);
       set("[data-guide-not-found-copy]", ui.notFoundCopy);
       set("[data-guide-not-found-back]", ui.back);
+      document.querySelector("[data-guide-breadcrumb-nav]")?.setAttribute("aria-label", ui.breadcrumbAria);
+      document.querySelector("[data-guide-lightbox-close]")?.setAttribute("aria-label", ui.close);
+      document.querySelector("[data-guide-copy-close]")?.setAttribute("aria-label", ui.close);
       document.title = `${ui.notFoundEyebrow} — La Tana di Nika`;
     };
 
@@ -1008,6 +1040,8 @@
         if (element) element.textContent = value;
       };
 
+      setText("[data-guide-breadcrumb-editorial]", ui.breadcrumbEditorial);
+      setText("[data-guide-breadcrumb-free]", ui.breadcrumbFreeGuides);
       setText("[data-guide-breadcrumb]", guide.leader);
       setText("[data-guide-status]", ui.status);
       setText("[data-guide-status-chip]", ui.status);
@@ -1030,6 +1064,13 @@
       setText("[data-guide-copy-help]", ui.copyHelp);
       setText("[data-guide-copy-select]", ui.selectAll);
 
+      page.querySelector("[data-guide-breadcrumb-nav]")?.setAttribute("aria-label", ui.breadcrumbAria);
+      page.querySelector("[data-guide-index]")?.setAttribute("aria-label", ui.indexAria);
+      document.querySelector("[data-guide-lightbox-close]")?.setAttribute("aria-label", ui.close);
+      document.querySelector("[data-guide-copy-close]")?.setAttribute("aria-label", ui.close);
+      page.querySelector("[data-community-summary-stars]")?.setAttribute("aria-label", ui.averageRating);
+      page.querySelector("[data-rating-input]")?.setAttribute("aria-label", ui.ratingGroup);
+
       const moduleContainer = page.querySelector("[data-guide-modules]");
       const index = page.querySelector("[data-guide-index]");
       if (moduleContainer) moduleContainer.innerHTML = modules.map(module => renderModule(module, language, guide)).join("");
@@ -1046,13 +1087,11 @@
       initCommunity(page, guide, language);
     };
 
+    const renderedLanguage = currentLanguage();
     render();
-    let initialLanguageEventHandled = false;
-    window.addEventListener("nika:languagechange", () => {
-      if (!initialLanguageEventHandled) {
-        initialLanguageEventHandled = true;
-        return;
-      }
+    window.addEventListener("nika:languagechange", event => {
+      const requestedLanguage = event.detail?.language || currentLanguage();
+      if (requestedLanguage === renderedLanguage) return;
       window.location.reload();
     });
   };

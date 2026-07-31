@@ -1,0 +1,44 @@
+LA TANA DI NIKA — TEST REPORT V4.4.14
+Data: 28 luglio 2026
+
+CONTROLLI STATICI
+- Sintassi Node.js: main.js, free-guides-page.js, free-guide-detail.js, it.js, en.js e free-guides.js.
+- Parentesi JavaScript bilanciate.
+- Tutti gli oggetti localizzati di free-guides.js contengono entrambe le chiavi it ed en.
+- Nessun riferimento alla vecchia variabile initialLanguageEventHandled.
+- Presenza del confronto requestedLanguage === renderedLanguage.
+- Presenza e conservazione di guide-scroll-locked.
+- Supporto data-i18n-aria-label, data-i18n-title e data-i18n-alt.
+
+TEST FUNZIONALI IN CHROMIUM HEADLESS
+- Overview in inglese.
+- Overview in italiano.
+- Mihawk in inglese.
+- Koala in inglese.
+- Boa Hancock in inglese.
+- Nami in inglese.
+- Mihawk in italiano.
+- Pagina guida inesistente in inglese.
+- Pagina guida inesistente in italiano.
+- Commento e valutazione in inglese su viewport mobile 390 × 844.
+
+SUPERFICI VERIFICATE
+- Lingua del documento.
+- Titolo browser.
+- Titoli delle guide e dei moduli.
+- Breadcrumb.
+- Metadati.
+- Commenti e valutazioni.
+- Singolare/plurale delle stelle.
+- aria-label di navigazione, filtri, indice, rating, decklist e pulsanti di chiusura.
+- Assenza di reload durante l’inizializzazione.
+- Un solo reload simulato durante un cambio lingua intenzionale.
+- Pagina più alta della viewport e overflow non bloccato.
+- Scroll lock applicato e rimosso correttamente dalla lightbox.
+- Nessun overflow orizzontale a 390 px.
+- Nessun errore JavaScript o console durante i test.
+
+NOTA SULL’AMBIENTE DI TEST
+L’ambiente impedisce la navigazione diretta di Chromium verso localhost e file://.
+Le pagine sono state quindi eseguite in Chromium con HTML, CSS e script reali incorporati
+in un harness equivalente, mantenendo ordine di caricamento e DOMContentLoaded del sito.

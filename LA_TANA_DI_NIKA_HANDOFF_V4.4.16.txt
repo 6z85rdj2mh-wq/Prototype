@@ -1,0 +1,79 @@
+LA TANA DI NIKA — HANDOFF V4.4.16
+
+BASE STABILE
+Usare V4.4.16 come base corrente dopo la verifica dell’utente.
+La patch parte esclusivamente dalla V4.4.15 e rende le Guide gratuite CMS-ready.
+
+GUIDE GRATUITE
+Overview:
+/editoriale/guide-gratuite/
+
+Dettaglio generico:
+/editoriale/guide-gratuite/guida/?id={slug}
+
+SORGENTE DATI
+js/data/free-guides.js
+
+Il pubblico mostra soltanto record con:
+status: "published"
+deletedAt: null
+
+FUNZIONI ADMIN PREDISPOSTE
+- createGuideFromTemplate
+- duplicateGuide
+- validateGuide
+- validateCollection
+- publishGuide
+- archiveGuide
+- moveGuideToTrash
+- restoreGuide
+- removeGuidePermanently
+- getPublishedGuides
+
+La dashboard grafica non è ancora implementata. Non aggiungere controlli admin alle pagine pubbliche.
+
+STATI
+- draft: bozza, anche incompleta;
+- published: pubblica;
+- archived: conservata ma nascosta;
+- trash: cestino recuperabile;
+- eliminazione definitiva solo dopo seconda conferma.
+
+MODULI OBBLIGATORI
+- why
+- keyCards
+- decklist
+
+LIMITI
+- massimo 5 elementi nelle sezioni con carte;
+- massimo 5 istanze per modulo opzionale;
+- ID e slug univoci;
+- massimo archivio corrente: 500 guide.
+
+ADMIN CONTRACT
+admin/free-guides/free-guide-template.json
+admin/free-guides/free-guides-admin-contract.json
+admin/free-guides/ADMIN_WORKFLOW.md
+
+SUPABASE
+SUPABASE_FREE_GUIDES_SCHEMA_V4.4.16.sql
+Nessuna scrittura anonima. Il ruolo admin autenticato verrà definito con la dashboard finale.
+
+LINGUA E COMMENTI
+Preservare la logica V4.4.14:
+- lingua salvata letta prima del rendering;
+- nessun reload sul primo evento di inizializzazione;
+- un solo reload controllato sul cambio intenzionale nel dettaglio;
+- fallback commenti localStorage fino a Supabase.
+
+SCROLL LOCK
+Usare soltanto:
+html.guide-scroll-locked
+body.guide-scroll-locked
+per lightbox decklist e pannello copia.
+
+GUIDE PREMIUM
+Restano sulla struttura V4.4.15, senza regressioni.
+
+PROSSIMO MACRO-PASSO
+Costruire l’architettura CMS-ready degli Articoli e report, poi uniformare Premium, gratuite e articoli prima della dashboard admin unica.

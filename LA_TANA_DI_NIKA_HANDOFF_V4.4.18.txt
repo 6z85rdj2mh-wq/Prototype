@@ -1,0 +1,30 @@
+LA TANA DI NIKA — HANDOFF V4.4.18
+
+BASE STABILE: V4.4.18
+V4.4.17: saltata intenzionalmente.
+
+IMPLEMENTATO:
+- Guide gratuite CMS-ready (V4.4.16).
+- Guide premium CMS-ready (V4.4.15).
+- Articoli e report CMS-ready (V4.4.18).
+- Media service centralizzato: local oggi, R2 futuro.
+- Twitch come provider video corrente.
+
+FILE CHIAVE ARTICOLI:
+- js/data/articles.js
+- js/components/articles-page.js
+- js/components/article-detail.js
+- css/articles.css
+- css/article-detail.css
+- editoriale/articoli/index.html
+- editoriale/articoli/articolo/index.html
+- admin/articles/
+- SUPABASE_ARTICLES_SCHEMA_V4.4.18.sql
+
+NON IMPLEMENTATO:
+- Dashboard admin grafica.
+- Connessione Supabase reale.
+- Upload R2 e Cloudflare Worker.
+- Embed Twitch reale con dominio parent configurato.
+
+REGOLA: non esporre chiavi segrete nel frontend e non creare un HTML diverso per ogni articolo.

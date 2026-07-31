@@ -1,6 +1,17 @@
 window.NIKA_TRANSLATIONS = window.NIKA_TRANSLATIONS || {};
 window.NIKA_TRANSLATIONS.it = {
-  accessibility: { skip: "Vai al contenuto" },
+  accessibility: {
+    skip: "Vai al contenuto",
+    mainNav: "Navigazione principale",
+    search: "Ricerca",
+    guideFilters: "Filtri delle guide",
+    guideCategories: "Categorie delle guide",
+    guideBreadcrumb: "Percorso della guida",
+    guideIndex: "Indice della guida",
+    close: "Chiudi",
+    averageRating: "Valutazione media",
+    rateGuide: "Valuta la guida da una a cinque stelle"
+  },
   nav: { store: "Store", editorial: "Editoriale", tournaments: "Tornei", guides: "Guide", about: "Chi siamo", openMenu: "Apri menu" },
   language: { label: "Lingua" },
   hero: {
@@ -131,6 +142,7 @@ window.NIKA_TRANSLATIONS.it = {
     returnText: "Vuoi tornare all’ingresso della Tana?", returnHome: "Torna alla Home"
   },
   freeGuidesPage: {
+    pageTitle: "Mini guide ai mazzi — La Tana di Nika",
     eyebrow: "GUIDE GRATUITE",
     title: "Mini guide<br>ai mazzi",
     lead: "Le mini guide sono contenuti gratuiti, semplici e immediati: un’ottima base per iniziare ad analizzare un mazzo, comprenderne il piano di gioco e orientarsi tra curva, carte chiave e primi accenni ai matchup. Non sono guide complete, ma un punto di partenza chiaro per conoscere il Leader prima di approfondirlo.",
@@ -149,10 +161,19 @@ window.NIKA_TRANSLATIONS.it = {
     returnHome: "Torna alla Home"
   },
   freeGuideDetail: {
-    status: "Mini guida in preparazione",
-    placeholder: "La guida completa sarà disponibile presto. Il collegamento è già pronto per accogliere il template editoriale definitivo.",
+    pageTitle: "Mini guida",
+    breadcrumbEditorial: "Editoriale",
+    breadcrumbFreeGuides: "Guide gratuite",
+    status: "Mini guida gratuita",
+    updated: "Aggiornamento",
+    reading: "Tempo di lettura",
+    style: "Stile",
+    index: "Indice dossier",
     back: "Torna alle mini guide",
-    editorial: "Area Editoriale"
+    editorial: "Area Editoriale",
+    notFoundEyebrow: "GUIDA NON DISPONIBILE",
+    notFoundTitle: "Ancora non c’è una guida per questo mazzo, siamo spiacenti.",
+    notFoundCopy: "Il nostro archivio è in continuo aggiornamento. Prova a cercare un altro Leader."
   },
   editorialPages: {
     scaffoldStatus: "Impalcatura pronta", articlesEyebrow: "ARTICOLI E REPORT", articlesTitle: "Articoli generici e report", articlesLead: "Questa pagina ospiterà l’archivio degli articoli generici e dei report di League e tornei.",

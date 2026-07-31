@@ -33,6 +33,19 @@
       if (typeof value === 'string') element.placeholder = value;
     });
 
+    const translatedAttributes = [
+      ['data-i18n-aria-label', 'i18nAriaLabel', 'aria-label'],
+      ['data-i18n-title', 'i18nTitle', 'title'],
+      ['data-i18n-alt', 'i18nAlt', 'alt']
+    ];
+
+    translatedAttributes.forEach(([selector, datasetKey, attribute]) => {
+      document.querySelectorAll(`[${selector}]`).forEach(element => {
+        const value = resolvePath(dictionary, element.dataset[datasetKey]);
+        if (typeof value === 'string') element.setAttribute(attribute, value);
+      });
+    });
+
     document.querySelectorAll('[data-language]').forEach(button => {
       button.setAttribute('aria-pressed', String(button.dataset.language === language));
     });

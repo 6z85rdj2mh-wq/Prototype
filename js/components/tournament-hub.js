@@ -86,7 +86,7 @@ window.NikaTournamentHub = {
         nextEventDay.textContent = new Intl.DateTimeFormat(utils.locale(language), { day: '2-digit' }).format(eventDate);
         nextEventMonth.textContent = new Intl.DateTimeFormat(utils.locale(language), { month: 'short' }).format(eventDate).replace('.', '');
         if (nextEventCard) {
-          const eventTitle = utils.localized(upcomingLocalEvent.title, language);
+          const eventTitle = utils.pick(upcomingLocalEvent.title, language);
           nextEventCard.setAttribute('aria-label', `${language === 'en' ? 'Next event' : 'Prossimo evento'}: ${eventTitle}`);
         }
       }

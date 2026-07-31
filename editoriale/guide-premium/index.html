@@ -5,39 +5,52 @@
   <meta name="robots" content="noindex, nofollow">
   <meta name="googlebot" content="noindex, nofollow">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Guide premium La Tana di Nika: analisi approfondite, simulatori, matchup, tech cards e VOD per il One Piece Card Game.">
   <meta name="theme-color" content="#09070d">
   <title>Guide premium — La Tana di Nika</title>
-  <link rel="icon" type="image/png" href="../../assets/images/favicon.png?v=4.4.9">
+  <link rel="icon" type="image/png" href="../../assets/images/favicon.png?v=4.4.15">
   <link rel="stylesheet" href="../../css/tokens.css">
   <link rel="stylesheet" href="../../css/base.css">
   <link rel="stylesheet" href="../../css/components.css?v=4.3.3">
   <link rel="stylesheet" href="../../css/pages.css?v=4.4.4">
-  <link rel="stylesheet" href="../../css/editorial-hub.css?v=4.4.9">
-  <script defer src="../../js/i18n/it.js?v=4.4.11"></script>
-  <script defer src="../../js/i18n/en.js?v=4.4.11"></script>
+  <link rel="stylesheet" href="../../css/premium-guides.css?v=4.4.15">
+  <script defer src="../../js/i18n/it.js?v=4.4.14"></script>
+  <script defer src="../../js/i18n/en.js?v=4.4.14"></script>
+  <script defer src="../../js/data/premium-guides.js?v=4.4.15"></script>
   <script defer src="../../js/components/header.js?v=4.4.4"></script>
-  <script defer src="../../js/main.js?v=4.4.8"></script>
+  <script defer src="../../js/components/premium-guides-page.js?v=4.4.15"></script>
+  <script defer src="../../js/main.js?v=4.4.14"></script>
 </head>
 <body class="internal-page" data-root-prefix="../../">
   <a class="skip-link" href="#main-content" data-i18n="accessibility.skip">Vai al contenuto</a>
   <header class="site-header" data-site-header>
     <div class="site-header__inner shell">
-      <a class="brand" href="../../index.html" aria-label="La Tana di Nika — Home"><span class="brand__mark" aria-hidden="true"><img src="../../assets/images/mascot-nika.png?v=4.4.9" alt="" width="58" height="58"></span><span class="brand__text">La Tana di Nika</span></a>
-      <nav class="desktop-nav" aria-label="Navigazione principale"><a href="../../index.html#store" data-i18n="nav.store">Store</a><a class="is-active" href="../" data-i18n="nav.editorial">Editoriale</a><a href="../../tornei/" data-i18n="nav.tournaments">Tornei</a><a href="../guide-gratuite/" data-i18n="nav.guides">Guide</a><a href="../../index.html#about" data-i18n="nav.about">Chi siamo</a></nav>
-      <div class="header-actions"><a class="icon-button header-search-link" href="../../index.html#search" aria-label="Ricerca"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m21 21-4.4-4.4m2.4-5.1a7.5 7.5 0 1 1-15 0 7.5 7.5 0 0 1 15 0Z"/></svg></a><div class="language-switch"><button type="button" data-language="it" aria-pressed="true">IT</button><span aria-hidden="true">·</span><button type="button" data-language="en" aria-pressed="false">EN</button></div><button class="menu-toggle" type="button" aria-expanded="false" aria-controls="mobile-menu" data-menu-toggle><span class="sr-only" data-i18n="nav.openMenu">Apri menu</span><span></span><span></span></button></div>
+      <a class="brand" href="../../index.html" aria-label="La Tana di Nika — Home"><span class="brand__mark" aria-hidden="true"><img src="../../assets/images/mascot-nika.png?v=4.4.15" alt="" width="58" height="58"></span><span class="brand__text">La Tana di Nika</span></a>
+      <nav class="desktop-nav" aria-label="Navigazione principale" data-i18n-aria-label="accessibility.mainNav"><a href="../../index.html#store" data-i18n="nav.store">Store</a><a class="is-active" href="../" data-i18n="nav.editorial">Editoriale</a><a href="../../tornei/" data-i18n="nav.tournaments">Tornei</a><a href="../guide-gratuite/" data-i18n="nav.guides">Guide</a><a href="../../index.html#about" data-i18n="nav.about">Chi siamo</a></nav>
+      <div class="header-actions"><a class="icon-button header-search-link" href="../../index.html#search" aria-label="Ricerca" data-i18n-aria-label="accessibility.search"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m21 21-4.4-4.4m2.4-5.1a7.5 7.5 0 1 1-15 0 7.5 7.5 0 0 1 15 0Z"/></svg></a><div class="language-switch"><button type="button" data-language="it" aria-pressed="true">IT</button><span aria-hidden="true">·</span><button type="button" data-language="en" aria-pressed="false">EN</button></div><button class="menu-toggle" type="button" aria-expanded="false" aria-controls="mobile-menu" data-menu-toggle><span class="sr-only" data-i18n="nav.openMenu">Apri menu</span><span></span><span></span></button></div>
     </div>
-    <div class="mobile-menu" id="mobile-menu" data-mobile-menu hidden><nav class="shell"><a href="../../index.html#store" data-i18n="nav.store">Store</a><a class="is-active" href="../" data-i18n="nav.editorial">Editoriale</a><a href="../../tornei/" data-i18n="nav.tournaments">Tornei</a><a href="../guide-gratuite/" data-i18n="nav.guides">Guide</a><a href="../../index.html#about" data-i18n="nav.about">Chi siamo</a><div class="mobile-menu__language"><span data-i18n="language.label">Lingua</span><div class="language-switch language-switch--mobile"><button type="button" data-language="it" aria-pressed="true">Italiano</button><button type="button" data-language="en" aria-pressed="false">English</button></div></div></nav></div>
+    <div class="mobile-menu" id="mobile-menu" data-mobile-menu hidden><nav class="shell" aria-label="Navigazione principale" data-i18n-aria-label="accessibility.mainNav"><a href="../../index.html#store" data-i18n="nav.store">Store</a><a class="is-active" href="../" data-i18n="nav.editorial">Editoriale</a><a href="../../tornei/" data-i18n="nav.tournaments">Tornei</a><a href="../guide-gratuite/" data-i18n="nav.guides">Guide</a><a href="../../index.html#about" data-i18n="nav.about">Chi siamo</a><div class="mobile-menu__language"><span data-i18n="language.label">Lingua</span><div class="language-switch language-switch--mobile"><button type="button" data-language="it" aria-pressed="true">Italiano</button><button type="button" data-language="en" aria-pressed="false">English</button></div></div></nav></div>
   </header>
-  <main id="main-content" class="editorial-scaffold">
+
+  <main id="main-content" class="premium-guides-page" data-premium-guides-page>
     <div class="shell">
-      <section class="editorial-scaffold__panel">
-        <span class="status-chip"><i aria-hidden="true"></i><span data-i18n="editorialPages.scaffoldStatus">Impalcatura pronta</span></span>
-        <p class="eyebrow" data-i18n="editorialPages.premiumEyebrow">AREA EDITORIALE</p>
-        <h1 data-i18n="editorialPages.premiumTitle">Guide premium</h1>
-        <p class="editorial-scaffold__lead" data-i18n="editorialPages.premiumLead">Questa pagina è pronta per la prossima fase di progettazione.</p>
-        <div class="editorial-scaffold__actions"><a class="button button--primary" href="../" data-i18n="editorialPages.returnEditorial">Torna all’Area Editoriale</a><a class="button button--ghost" href="../../index.html" data-i18n="editorialPages.returnHome">Torna alla Home</a></div>
+      <header class="premium-guides-head">
+        <div><p class="eyebrow">GUIDE PREMIUM</p><h1>Gioca con<br>più profondità.</h1></div>
+        <p class="premium-guides-head__copy">Guide complete con analisi dettagliate dei mazzi, simulatori guidati, matchup personalizzati, tech cards e VOD. Ogni guida nasce dalla stessa struttura modulare ed è pronta per essere duplicata e gestita dalla futura dashboard.</p>
+      </header>
+
+      <section class="premium-guides-toolbar" aria-label="Ricerca guide premium">
+        <label class="premium-guides-search"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m21 21-4.4-4.4m2.4-5.1a7.5 7.5 0 1 1-15 0 7.5 7.5 0 0 1 15 0Z"/></svg><span class="sr-only">Cerca tra le guide premium</span><input type="search" autocomplete="off" data-premium-guides-search placeholder="Cerca Leader, formato o guida"></label>
+        <a class="button button--ghost" href="../">Torna all’Area Editoriale</a>
       </section>
+
+      <div class="premium-guides-summary"><span><strong data-premium-guides-count>0</strong> guide disponibili</span><span>Ordine: aggiornamento più recente</span></div>
+      <section class="premium-guides-list" data-premium-guides-list aria-live="polite"></section>
+      <div class="premium-guides-empty" data-premium-guides-empty hidden><strong>Nessuna guida premium trovata.</strong><span>Prova a cercare un altro Leader o formato.</span></div>
     </div>
   </main>
+
+  <section class="page-return"><div class="shell"><p>Vuoi leggere altro?</p><div class="page-return__actions"><a class="button button--ghost" href="../">Torna all’Area Editoriale</a><a class="button button--primary button--home" href="../../index.html"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 11.5 12 4l9 7.5M5.5 10v10h13V10M9.5 20v-6h5v6"/></svg><span>Torna alla Home</span></a></div></div></section>
+  <footer class="site-footer"><div class="shell site-footer__inner"><div><p class="site-footer__brand">La Tana di Nika</p><p data-i18n="footer.claim">Carte, strategia, tornei e community. Tutto nello stesso luogo.</p></div><p>© <span data-current-year></span> La Tana di Nika</p></div></footer>
 </body>
 </html>
